@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KLANmart - Test Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+<div data-role="content" data-theme="a">
+    <h1>Register</h1>
+    <label for="username" class="ui-hidden-accessible">Username:
+    </label>
+    <input type="text" name="username" id="username" value="" placeholder="Username">
+
+    <label for="password" class="ui-hidden-accessible">Password:
+    </label>
+    <input type="password" name="password" id="password" value="" placeholder="Password">
+
+    <label for="c-password" class="ui-hidden-accessible">Confirm Password:
+    </label>
+    <input type="password" name="c-password" id="c-password" value="" placeholder="Confirm Password">
+
+    <label for="email" class="ui-hidden-accessible">Username:
+    </label>
+    <input type="email" name="email" id="email" value="" placeholder="Email">
+
+    <label for="mobile-no" class="ui-hidden-accessible">Mobile No:
+    </label>
+    <input type="tel" name="mobile-no" id="mobile-no" value="" placeholder="Mobile No">
+
+
+    <label for="gender" class="ui-hidden-accessible">Gender</label>
+    <select name="gender" id="gender" data-role="slider">
+        <option value="off">Male</option>
+        <option value="on">Female</option>
+    </select>
+
+    <label for="select-choice-1">Choose credit card:</label>
+    <select name="select-choice-1" id="select-choice-1">
+        <option value="amex">American Express</option>
+        <option value="master">Master</option>
+        <option value="visa">Visa</option>
+    </select>
+    <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+            <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom"/>
+            <label for="checkbox-1">I agree</label>
+        </fieldset>
+    </div>
+
+</div>
+</body>
+</html>
