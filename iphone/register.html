@@ -1,17 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>KLANmart - Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        p {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        input[type=email] {
+            padding: 8px 15px;
+            margin: 8px 0;
+        }
+
+        input[type=password] {
+            padding: 8px 15px;
+            margin: 8px 0;
+        }
+
+        input[type=tel] {
+            padding: 8px 15px;
+            margin: 8px 0;
+        }
+
+        input[type=text] {
+            padding: 8px 15px;
+            margin: 8px 0;
+        }
+
+        .button4 {
+            border-radius: 12px;
+            padding: 8px 15px;
+            margin: 8px 0;
+        }
+    </style>
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Register</h1>
-</div>
+    <div data-role="page" data-fullscreen="true">
+        <div data-role="header" data-position="fixed">
+
+        </div>
+
+
+        <div data-role="content" data-theme="a">
+            <div>
+                <img src="" style="width:85%;">
+            </div>
+
+            <div class="ui-field-contain">
+
+                <input type="text" name="textName" id="txtName" placeholder="Full Name*" value=""
+                    data-corners="false" data-clear-btn="true">
+                <input type="email" name="textEmail" id="txtEmail" placeholder="Email*" value="" data-corners="false"
+                    data-clear-btn="true">
+                <input type="password" name="textPassword" id="txtPW" placeholder="Password*" value=""
+                    data-corners="false" data-clear-btn="true">
+                <input type="tel" name="textMobileNo" id="txtMB" placeholder="Mobile No*" value="" data-corners="false"
+                    data-clear-btn="true">
+
+                <input type="button" data-corners="false" data-shadow="false" value="AGREE & CREATE ACCOUNT">
+
+            </div>
+
+            <div>
+                <P>By registering for an KLANmart account, you agree that you have read and accepted out KLANmart Free
+                    Membership Agreement and Privacy Policy.</P>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div>
+
+                <p>or Sign in with</p>
+
+                <button class="ui-btn ui-mini">Sign Up with Facebook</button>
+                <button class="ui-btn ui-mini">Sign Up with Email</button>
+
+                <br>
+
+                <p>Already have an account? Sign in</p>
+
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+
+
+        </div>
+    </div>
 </body>
+
 </html>

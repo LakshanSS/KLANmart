@@ -1,17 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>KLANmart - Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .name-tab {
+            height: 60px;
+            margin-bottom: 15px;
+            padding: 4px 12px;
+            background-color: lightgrey;
+        }
+
+        .detail-tab {
+            height: 15px;
+            font-size: 12px;
+            /* margin-bottom: 15px;
+            padding: 4px 12px;
+            background-color: lightgrey; */
+        }
+
+        .nav {
+            height: 10px;
+            font-size: 12px;
+        }
+    </style>
+
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Profile</h1>
-</div>
+
+    <div data-role="page" data-fullscreen="true">
+
+        <div data-role="header" data-position="fixed">
+
+        </div>
+
+        <div data-role="content" data-theme="a">
+
+            <div class="name-tab">
+                <h3> Kumar Sangakara </h3>
+            </div>
+
+            <ul data-role="listview" data-inset="true" data-theme="a">
+                <li>
+                    <div class="detail-tab">
+                        Email - Kjaenchandran@gmail.com
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Phone No - 0757757056
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Gender - Male
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Birthday - 25 - 06 - 1997
+                    </div>
+                </li>
+
+            </ul>
+
+            <br>
+
+            <div data-role="navbar">
+                <ul class="nav">
+                    <li><a href="#" data-icon="grid">Wishlist</a></li>
+                    <li><a href="#" data-icon="star">Coipons</a></li>
+                    <li><a href="#" data-icon="gear">Followings</a></li>
+                </ul>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <ul data-role="listview" data-inset="true" data-theme="a">
+                <li>
+                    <div class="detail-tab">
+                        Oder History
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Wallet
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Shopping Address
+                    </div>
+                </li>
+
+            </ul>
+
+
+            <ul data-role="listview" data-inset="true" data-theme="a">
+                <li>
+                    <div class="detail-tab">
+                        Question & Anwsers
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Invite Friends
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Settings
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        Help Center
+                    </div>
+                </li>
+
+            </ul>
+
+
+            <div data-role="footer" data-position="fixed">
+
+            </div>
+
+        </div>
 </body>
+
 </html>
