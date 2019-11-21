@@ -10,97 +10,132 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
 
     <style>
-        /* body {
-            background-color: lightgrey;
-            margin: 0;
-            padding: 0%;
+        /* Top bar */
+        .top-header {
+            width: 100%;
+            height: 60px;
+            margin: 1px auto;
+            border-radius: 5px;
+            background: white;
+            position: relative;
         }
 
-        .top-div {
-            background-color: white;
-            height: 50px;
-        }
-
-        .gab-div {
-            background-color: lightgrey;
-            height: 10px;
-            width: 100px;
-        }
-
-        .favourte-div {
-            margin-top: 2%;
-            background-color: white;
-            height: 105px;
-        }
-
-        .image {
-            height: 100px !important;
-            width: 100px !important;
-        }
-
-        .share-btn {
-            background-color: rgb(70, 58, 180) !important;
-            border: none;
-            color: white !important;
-            text-align: center;
-            font-size: 16px;
-            height: 38px !important;
-            width: 91px !important;
+        .top-header .share-btn {
+            background-color: transparent !important;
+            border: 1px solid rgb(6, 6, 68) !important;
+            color: rgb(6, 6, 68) !important;
             float: right;
-        } */
-
-        .share-btn {
-            width: 94px !important;
-        } 
-
-        .image {
-            height: 100px !important;
-            width: 100px !important;
+            font-size: 12px;
+            margin-top: 12px;
+            margin-right: 20px;
         }
 
-        div {
-            margin-bottom: 15px;
-            padding: 4px 12px;
+        .top-header .share-btn:hover {
+            background-color: rgb(6, 6, 68) !important;
+            color: white !important;
         }
 
-        .top-div {
-            background-color: #e7f3fe;
-            border-left: 6px solid #2196F3;
+        /* CONTEND */
+        .contend {
+            width: 100%;
+            margin: 1px auto 30px;
+            /* border: 1px solid red; */
+
         }
 
-        .info {
-            background-color: #e7f3fe;
-            border-left: 6px solid #2196F3;
-            
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .contend .main-contend {
+            width: 100%;
+            float: left;
+            /* border: 1px solid grey;
+            background: rgb(241, 240, 240); */
+        }
+
+        .contend .main-contend .post {
+            width: 97%;
+            height: 200px;
+            margin: 10px auto;
+            background: white;
+            position: relative;
+        }
+
+        .contend .main-contend .post .post-image {
+            width: 30%;
+            height: 90%;
+            float: left;
+            margin-top: 13px;
+            margin-left: 10px;
+            margin-bottom: auto;
+        }
+
+        .contend .main-contend .post .post-preview {
+            width: 60%;
+            padding: 10px;
+            float: right;
+        }
+
+        .contend .main-contend .post .post-preview .store-detail {
+            color: rgb(6, 6, 68);
+        }
+
+        .contend .main-contend .post .post-preview .price-tag {
+            margin-top: 30px;
+        }
+
+        .contend .main-contend .favourite-title {
+            margin: 20px;
         }
     </style>
+
 </head>
 
 <body>
-    <div data-role="content" data-theme="a">
+    <div data-role="content clearfix" data-theme="a">
 
-        <div class="top-div">
-            <!-- <p><strong>Info!</strong> Some text...</p> -->
-            <button class="share-btn">Share</button>
-        </div>
-
-        <div class="info">
-            <img src="C:\Users\Asus\Desktop\assets\image1.jpeg" class="image" alt="" srcset="">
-            <h4 style="display: inline-block;">asdasdasdasd</h4>
-            
+        <!-- Contend -->
+        <div class="top-header">
+            <button class="ui-btn ui-btn-inline share-btn">Share Via Email</button>
 
         </div>
 
-        <!-- <div class="top-div">
-            <button class="share-btn">Share</button>
+        <div class="contend">
+
+            <div class="main-contend">
+                <!-- <h1 class="favourite-title">
+                    Favourite Items
+                </h1> -->
+
+                <div class="post">
+                    <img src="C:\Users\Asus\Desktop\ui ux cw\KLANmart\assets\images\favourite\tshirt1-blue.png" alt=""
+                        srcset="" class="post-image">
+                    <div class="post-preview">
+                        <h4>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h4>
+                        <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
+                        <h2 class="price-tag">LKR 2199.00</h2>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <img src="C:\Users\Asus\Desktop\ui ux cw\KLANmart\assets\images\favourite\image2.jpeg" alt=""
+                        srcset="" class="post-image">
+                    <div class="post-preview">
+                        <h4>Hayiou gt1 tws Finger print Touch Blutooth Earphones</h4>
+                        <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
+                        <h2 class="price-tag">LKR 1500.00</h2>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+        <!-- //Contend -->
 
-        
-        <hr>
 
-        <div class="favourte-div">
-            <img src="C:\Users\Asus\Desktop\assets\image1.jpeg" class="image" alt="" srcset="">
-        </div> -->
 
     </div>
 </body>
