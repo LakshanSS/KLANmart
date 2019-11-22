@@ -5,13 +5,101 @@
     <title>KLANmart - Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../style/product.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        $( document ).on( "pagecreate", function() {
+            $( ".photopopup" ).on({
+                popupbeforeposition: function() {
+                    var maxHeight = $( window ).height() - 60 + "px";
+                    $( ".photopopup img" ).css( "max-height", maxHeight );
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
+<div data-role="header" data-position="fixed">
+    <a href="" data-ajax="false" data-icon="back">Back</a>
+    <h1>Welcome</h1>
+    <a href="" data-ajax="false" data-icon="action">Share</a>
+</div>
 <div data-role="content" data-theme="a">
-    <h1>Product</h1>
+    <!-- Popups for lightbox images -->
+    <div id="tshirt1" data-role="popup" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <img src="../assets/images/products/tshirt1-blue.png">
+    </div>
+    <div class="rwd-example">
+            <!-- Prod Image -->
+            <div class="ui-block-a">
+                <div class="ui-body ui-body-d">
+        <a href="#tshirt1" data-rel="popup" data-position-to="window"><img class="product-image" src="../assets/images/products/tshirt1-blue.png"></a>
+                    <!--<p>Other images of the products.</p>-->
+                </div>
+            </div>
+            <!-- secondary story block #1 -->
+            <div class="ui-block-b">
+                <div class="ui-body ui-body-d">
+                    <h3>LKR 2199.00</h3>
+                    <h4>-10% Special Offer</h4>
+                    <p>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
+                    <h3>4.0/5</h3>
+                    <h3>123 Orders</h3>
+                </div>
+        <div class="ui-body ui-body-d">
+            <div data-role="collapsible" data-collapsed="false">
+                <ul data-role="listview">
+                    <li><a href="">Color, Size and Quantity</a></li>
+                    <li>Blue, L</li>
+                </ul>
+            </div><br>
+            <div data-role="collapsible" data-collapsed="false">
+                <ul data-role="listview">
+                    <li><a href="">Specifications</a></li>
+                </ul>
+            </div><br>
+            <div data-role="collapsible" data-collapsed="false">
+                <ul data-role="listview">
+                    <li><a href="">Customer Reviews</a></li>
+                    <li><h3>4.0/5</h3></li>
+                    <li><h4>Arjun K.</h4><p>4.5</p><p>Nice Quality</p></li>
+                </ul>
+            </div><br>
+            <div data-role="collapsible" data-collapsed="false">
+                <ul data-role="listview">
+                    <li><a href="">Questions and Answers</a></li>
+                    <li><h4>Is it made in SriLanka</h4><p>No. It is imported from China</p></li>
+                </ul>
+            </div><br>
+            <div data-role="collapsible" data-collapsed="false">
+                <ul data-role="listview">
+                    <li><h3>Store - Trendy Fashion Store</h3></li>
+                </ul>
+                <form>
+                        <input type="button" value="Go to Store">
+                        <input type="submit" value="Contact Store">
+                        <input type="submit" value="View Store Location">
+                </form>
+            </div><br>
+
+            <br><br><br>
+            <div>
+                        <h4>Similar Products</h4>
+                        <p>Bla bla bla</p><br><br><br>
+                        <h4>Other Products from the Store</h4>
+                        <p>Bla bla bla</p><br><br><br>
+                        <h4>Recommended for you</h4>
+                        <p>Bla bla bla</p><br><br><br>
+                        <h4>Today's Top Deals</h4>
+                        <p>Bla bla bla</p>
+            </div>
+        </div>
+            </div>
+    </div>
+
 </div>
 </body>
 </html>
