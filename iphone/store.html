@@ -5,13 +5,68 @@
     <title>KLANmart - Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <style>#map{height: 300px;}</style><!--TODO fix height issue-->
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        function initMap() {
+            let place = {lat: 6.917983, lng: 79.860883};
+            let map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: place
+            });
+            let marker = new google.maps.Marker({
+                position: place,
+                map: map
+            });
+        }
+        /*todo Add more functions in the map*/
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFg5LfLkyhaCXllKXk9M29ls7ckuYsNPc&callback=initMap">
+    </script>
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Store</h1>
+<div data-role="header" data-position="fixed">
+    <a href="" data-ajax="false" data-icon="back">Back</a>
+    <h1>Store Info</h1>
+    <a href="" data-ajax="false" data-icon="action">Share</a>
 </div>
+
+<div data-role="content" data-theme="a">
+    <div class="ui-body ui-body-a ui-corner-all">
+    <h1>Trendy Fashion Store</h1>
+    <h2>Customer Rating 4.5/5</h2>
+    <h3>Supplier since 14 Nov 2018</h3>
+    </div><br>
+
+
+
+    <div class="ui-body ui-body-a ui-corner-all">
+        <ul data-role="listview">
+            <li><a href="">Customer Reviews</a></li>
+            <li><h4>Arjun K.</h4><p>4.5</p><p>Nice Quality</p></li><!--
+            <li><h4>Asanka</h4><p>4.9</p><p>I highly recommend this place.</p></li>
+            <li><h4>Daniel</h4><p>4.3</p><p>Nice offers.</p></li>-->
+        </ul>
+    </div><br>
+
+    <div class="ui-body ui-body-a ui-corner-all">
+        <h4> Location</h4>
+        <div role="main" id="map">
+            <!-- map loads here... -->
+        </div>
+        <!--TODO add location card and add a button to go to another page to show the location-->
+    </div><br>
+
+    <div>
+        <h4>Products from this store</h4>
+                    <p>Bla bla bla</p><br><br><br>
+        <h4>Top Sellers of this Store</h4>
+                    <p>Bla bla bla</p><br><br><br>
+    </div>
+</div>
+
 </body>
 </html>
