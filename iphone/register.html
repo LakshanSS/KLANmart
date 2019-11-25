@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        .logo-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inputWrapper {
+            border: 1px solid rgb(22, 69, 158) !important;
+        }
+
         p {
             text-align: center;
             font-size: 12px;
@@ -40,6 +51,89 @@
             padding: 8px 15px;
             margin: 8px 0;
         }
+
+        .reg-btn {
+            background-color: rgb(22, 69, 158) !important;
+            color: white !important;
+            font-weight: 150;
+            height: 50px !important;
+        }
+
+        .reg-btn:hover {
+            background-color: rgb(24, 61, 131) !important;
+            color: white !important;
+            font-weight: 150;
+            height: 50px !important;
+        }
+
+        .sign-face-book-btn {
+            background-color: #3b5998 !important;
+            letter-spacing: 2px;
+            color: white !important;
+            font-weight: 150;
+            border-radius: 15px !important;
+            font-size: 10px !important;
+            width: 300px !important;
+            height: 34px !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sign-face-book-btn:hover {
+            background-color: #334f8b !important;
+            color: white !important;
+            font-weight: 150;
+            border-radius: 15px !important;
+            font-size: 10px !important;
+            width: 300px !important;
+            height: 34px !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sign-google-acc-btn {
+            background-color: #DB4437 !important;
+            letter-spacing: 2px;
+            color: white !important;
+            font-weight: 100;
+            font-size: 10px !important;
+            border-radius: 15px !important;
+            height: 34px !important;
+            width: 300px !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sign-google-acc-btn:hover {
+            background-color: rgb(201, 51, 37) !important;
+            color: white !important;
+            font-weight: 100;
+            font-size: 10px !important;
+            border-radius: 12px !important;
+            width: 300px !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .aggrement-text {
+            font-size: 13px !important;
+        }
+
+        .main-content {
+            color: rgb(22, 69, 158) !important;
+        }
+
+        .sign-in-with-text {
+            font-size: 13px !important;
+        }
+
+        i {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
@@ -52,44 +146,47 @@
 
         <div data-role="content" data-theme="a">
             <div>
-                <img src="" style="width:85%;">
+                <img src="../assets/logo/logo-blue.png" style="width:65%;" class="logo-image">
             </div>
 
             <div class="ui-field-contain">
-
-                <input type="text" name="textName" id="txtName" placeholder="Full Name*" value=""
-                    data-corners="false" data-clear-btn="true">
+                <input type="text" name="textName" id="txtName" placeholder="Full Name*" value="" data-corners="false"
+                    data-clear-btn="true" data-wrapper-class="inputWrapper">
                 <input type="email" name="textEmail" id="txtEmail" placeholder="Email*" value="" data-corners="false"
-                    data-clear-btn="true">
+                    data-clear-btn="true" data-wrapper-class="inputWrapper">
                 <input type="password" name="textPassword" id="txtPW" placeholder="Password*" value=""
-                    data-corners="false" data-clear-btn="true">
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
                 <input type="tel" name="textMobileNo" id="txtMB" placeholder="Mobile No*" value="" data-corners="false"
-                    data-clear-btn="true">
+                    data-clear-btn="true" data-wrapper-class="inputWrapper">
 
-                <input type="button" data-corners="false" data-shadow="false" value="AGREE & CREATE ACCOUNT">
-
+                <!-- <input type="button" data-corners="false" data-shadow="false" value="AGREE & CREATE ACCOUNT" class="reg-btn"> -->
+                <button class="reg-btn" data-corners="false" data-shadow="false">AGREE & CREATE ACCOUNT</button>
             </div>
 
             <div>
-                <P>By registering for an KLANmart account, you agree that you have read and accepted out KLANmart Free
-                    Membership Agreement and Privacy Policy.</P>
+                <P class="aggrement-text">By registering for an KLANmart account, you agree that you have read and
+                    accepted out
+                    <strong class="main-content">KLANmart Free Membership Agreement</strong> and <strong
+                        class="main-content">Privacy Policy</strong>.</P>
             </div>
 
-            <br>
             <br>
             <br>
             <br>
 
             <div>
 
-                <p>or Sign in with</p>
+                <p class="sign-in-with-text">or <strong>Sign in</strong> with</p>
 
-                <button class="ui-btn ui-mini">Sign Up with Facebook</button>
-                <button class="ui-btn ui-mini">Sign Up with Email</button>
+                <button class="ui-btn ui-mini sign-face-book-btn"><i class="fa fa-facebook fa-fw"></i> &nbsp; Sign Up
+                    with
+                    Facebook</button>
+                <button class="ui-btn ui-mini sign-google-acc-btn"><i class="fa fa-google fa-fw">
+                    </i> &nbsp; Sign Up with Google+</button>
 
                 <br>
 
-                <p>Already have an account? Sign in</p>
+                <p class="sign-in-with-text">Already have an account? <strong class="main-content">Sign in</strong></p>
 
             </div>
         </div>

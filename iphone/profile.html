@@ -8,25 +8,124 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <style>
+        .content-body {
+            background-color: rgb(245, 245, 245) !important;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            border: 1px solid rgb(224, 240, 253) !important;
+
+        }
+
         .name-tab {
-            height: 60px;
+            height: 65px;
             margin-bottom: 15px;
             padding: 4px 12px;
-            background-color: lightgrey;
+            background-color: rgb(255, 255, 255);
+            /* width: 100%; */
+            margin: 0px auto;
+            border: 1px solid rgb(224, 240, 253) !important;
+
+        }
+
+        .profile-icon {
+            width: 18%;
+            /* width: 10px; */
+            float: left;
+            font-size: 55px;
+            padding: 10px;
+            margin-top: -6px;
+            color: rgb(201, 200, 200);
+        }
+
+        .user-name {
+            font-size: 21px;
+            float: left;
+            /* margin-left: 10px; */
         }
 
         .detail-tab {
             height: 15px;
-            font-size: 12px;
-            /* margin-bottom: 15px;
-            padding: 4px 12px;
-            background-color: lightgrey; */
         }
 
         .nav {
             height: 10px;
             font-size: 12px;
+        }
+
+        .arrow-icon {
+            float: right;
+            margin-top: 21px;
+            font-size: 25px;
+            color: slategray;
+        }
+
+        /* personal data */
+        .personal-tab {
+            width: 25%;
+            float: left;
+            font-size: 15px;
+        }
+
+        .personal-info {
+            float: right;
+            font-size: 15px;
+            color: slategray;
+            margin-right: 45px;
+        }
+
+        .personal-tab-arrow {
+            margin-top: -25px;
+            float: right;
+            color: slategray;
+        }
+
+        /* profile-navbar */
+        .profile-nav {
+            width: 95%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white !important;
+        }
+
+        a {
+            background-color: white !important;
+            color: black !important;
+            border-color: none !important;
+            border: 1px solid rgb(224, 240, 253) !important;
+        }
+
+        a:hover {
+            background-color: steelblue !important;
+            color: white !important;
+            border-color: none !important;
+            border: none !important;
+
+        }
+
+        a:active {
+            background-color: white !important;
+            color: black !important;
+            border-color: white !important;
+            border: none !important;
+
+        }
+
+        /* other details */
+        .shop-detail {
+            width: 10%;
+            float: left;
+            color: slategray;
+        }
+
+        .shopping-info {
+            float: left;
+            font-size: 14px;
         }
     </style>
 
@@ -40,39 +139,45 @@
 
         </div>
 
-        <div data-role="content" data-theme="a">
+        <div data-role="content" data-theme="a" class="content-body">
 
             <div class="name-tab">
-                <h3> Kumar Sangakara </h3>
+                <i class="fas fa-user-circle profile-icon"></i>
+                <h3 class="user-name"> Kumar Sangakara </h3>
+                <i class="fas fa-chevron-right arrow-icon"></i>
             </div>
 
-            <ul data-role="listview" data-inset="true" data-theme="a">
+            <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                 <li>
                     <div class="detail-tab">
-                        Email - Kjaenchandran@gmail.com
+                        <p><strong class="personal-tab">Email</strong> <strong
+                                class="personal-info">Kumarsg@gmail.com</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
                 <li>
                     <div class="detail-tab">
-                        Phone No - 0757757056
+                        <p><strong class="personal-tab">Phone No</strong> <strong
+                                class="personal-info">+94-757757056</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
                 <li>
                     <div class="detail-tab">
-                        Gender - Male
+                        <p><strong class="personal-tab">DOB</strong> <strong class="personal-info">1997 - 05 -
+                                27</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
                 <li>
                     <div class="detail-tab">
-                        Birthday - 25 - 06 - 1997
+                        <p><strong class="personal-tab">Gender</strong> <strong class="personal-info">Male</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
-
             </ul>
 
-            <br>
-
-            <div data-role="navbar">
+            <div data-role="navbar" class="profile-nav">
                 <ul class="nav">
                     <li><a href="#" data-icon="grid">Wishlist</a></li>
                     <li><a href="#" data-icon="star">Coipons</a></li>
@@ -82,55 +187,67 @@
 
             <br>
             <br>
-            <br>
 
-            <ul data-role="listview" data-inset="true" data-theme="a">
+            <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                 <li>
                     <div class="detail-tab">
-                        Oder History
+                        <i class="fas fa-history shop-detail"></i>
+                        <p><strong class="shopping-info">Order History</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
                 <li>
                     <div class="detail-tab">
-                        Wallet
+                        <i class="fas fa-wallet shop-detail"></i>
+                        <p><strong class="shopping-info">Wallet</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
                 <li>
                     <div class="detail-tab">
-                        Shopping Address
+                        <i class="fas fa-map-marked-alt shop-detail"></i>
+                        <p><strong class="shopping-info">Shopping Address</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li>
-
             </ul>
 
 
-            <ul data-role="listview" data-inset="true" data-theme="a">
+            <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                 <li>
                     <div class="detail-tab">
-                        Question & Anwsers
-                    </div>
-                </li>
-                <li>
-                    <div class="detail-tab">
-                        Invite Friends
-                    </div>
-                </li>
-                <li>
-                    <div class="detail-tab">
-                        Settings
-                    </div>
-                </li>
-                <li>
-                    <div class="detail-tab">
-                        Help Center
-                    </div>
-                </li>
+                        <i style="font-size: 19px;" class="fas fa-question-circle shop-detail"></i>
+                        <p><strong class="shopping-info">Question & Anwsers</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
 
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        <i class="fas fa-users shop-detail"></i>
+                        <p><strong class="shopping-info">Invite Friends</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        <i style="font-size: 19px !important;" class="fas fa-cog shop-detail"></i>
+                        <p><strong class="shopping-info">Settings</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="detail-tab">
+                        <i class="fas fa-hands-helping shop-detail"></i>
+                        <p><strong class="shopping-info"> Help Center</strong></p>
+                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
+
+                    </div>
+                </li>
             </ul>
 
 
             <div data-role="footer" data-position="fixed">
-
             </div>
 
         </div>

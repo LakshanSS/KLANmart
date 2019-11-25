@@ -9,7 +9,81 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
 
+    <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+            ready();
+        }
+
+        function ready() {
+
+            var title = sessionStorage.getItem("title");
+            var price = localStorage.getItem("price");
+            var image = localStorage.getItem("image");
+
+            addToObject(title, price, image);
+
+            function addToObject(title, price, image) {
+                var product = {
+                    title: title,
+                    price: price,
+                    image: image
+                }
+
+                const favouriteList = [];
+                favouriteList.push(product);
+
+                console.log(product);
+                console.log(favouriteList);
+
+                // localStorage.removeItem("title");
+                // localStorage.removeItem("price");
+                // localStorage.removeItem("image");
+            }
+
+
+
+            // if (title != null) {
+
+            //     viewCart(title, price, image);
+
+            //     function viewCart(title, price, image) {
+            //         console.log(title, price, image)
+            //         var cartRow = document.createElement('div')
+            //         var cartItems = document.getElementsByClassName('f-main-contend')[0]
+            //         var cartRowContents = `
+            //     <div class="post">
+            //         <img src="${image}" 
+            //             class="post-image">
+            //         <div class="post-preview">
+            //             <h4>${title}</h4>
+            //             <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
+            //             <h2 class="price-tag">${price}</h2>
+            //         </div>
+            //     </div>`
+
+            //         cartRow.innerHTML = cartRowContents
+            //         console.log(cartRow)
+            //         cartItems.append(cartRow)
+
+            //         localStorage.removeItem("title");
+            //         localStorage.removeItem("price");
+            //         localStorage.removeItem("image");
+            //     }
+            // }
+
+
+
+        }
+
+
+    </script>
     <style>
+        .content-body {
+            background-color: rgb(245, 245, 245) !important;
+        }
+
         /* Top bar */
         .top-header {
             width: 100%;
@@ -40,7 +114,6 @@
             width: 100%;
             margin: 1px auto 30px;
             /* border: 1px solid red; */
-
         }
 
         .clearfix::after {
@@ -49,14 +122,14 @@
             clear: both;
         }
 
-        .contend .main-contend {
+        .contend .f-main-contend {
             width: 100%;
             float: left;
             /* border: 1px solid grey;
             background: rgb(241, 240, 240); */
         }
 
-        .contend .main-contend .post {
+        .contend .f-main-contend .post {
             width: 97%;
             height: 200px;
             margin: 10px auto;
@@ -64,7 +137,7 @@
             position: relative;
         }
 
-        .contend .main-contend .post .post-image {
+        .contend .f-main-contend .post .post-image {
             width: 30%;
             height: 90%;
             float: left;
@@ -73,21 +146,21 @@
             margin-bottom: auto;
         }
 
-        .contend .main-contend .post .post-preview {
+        .contend .f-main-contend .post .post-preview {
             width: 60%;
             padding: 10px;
             float: right;
         }
 
-        .contend .main-contend .post .post-preview .store-detail {
+        .contend .f-main-contend .post .post-preview .store-detail {
             color: rgb(6, 6, 68);
         }
 
-        .contend .main-contend .post .post-preview .price-tag {
+        .contend .f-main-contend .post .post-preview .price-tag {
             margin-top: 30px;
         }
 
-        .contend .main-contend .favourite-title {
+        .contend .f-main-contend .favourite-title {
             margin: 20px;
         }
     </style>
@@ -95,7 +168,7 @@
 </head>
 
 <body>
-    <div data-role="content clearfix" data-theme="a">
+    <div data-role="content " data-theme="a" class="content-body">
 
         <!-- Contend -->
         <div class="top-header">
@@ -103,16 +176,14 @@
 
         </div>
 
-        <div class="contend">
-
-            <div class="main-contend">
+        <div class="contend clearfix">
+            <div class="f-main-contend">
                 <!-- <h1 class="favourite-title">
                     Favourite Items
                 </h1> -->
 
                 <div class="post">
-                    <img src="C:\Users\Asus\Desktop\ui ux cw\KLANmart\assets\images\favourite\tshirt1-blue.png" alt=""
-                        srcset="" class="post-image">
+                    <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
                     <div class="post-preview">
                         <h4>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h4>
                         <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
@@ -121,8 +192,7 @@
                 </div>
 
                 <div class="post">
-                    <img src="C:\Users\Asus\Desktop\ui ux cw\KLANmart\assets\images\favourite\image2.jpeg" alt=""
-                        srcset="" class="post-image">
+                    <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
                     <div class="post-preview">
                         <h4>Hayiou gt1 tws Finger print Touch Blutooth Earphones</h4>
                         <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
@@ -131,12 +201,8 @@
                 </div>
 
             </div>
-
         </div>
         <!-- //Contend -->
-
-
-
     </div>
 </body>
 
