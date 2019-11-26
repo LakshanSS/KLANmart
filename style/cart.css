@@ -10,14 +10,14 @@
      clear: both;
  }
  
- .cart-contonier .main-contend {
+ .cart-contonier .main-content {
      width: 100%;
      float: left;
      /* border: 1px solid grey;
             background: rgb(241, 240, 240); */
  }
  
- .cart-contonier .main-contend .cart {
+ .cart-contonier .main-content .cart {
      width: 97%;
      height: 166px;
      margin: 10px auto;
@@ -27,7 +27,7 @@
      border: 1px solid rgb(236, 236, 236) !important;
  }
  
- .cart-contonier .main-contend .cart .cart-image {
+ .cart-contonier .main-content .cart .cart-image {
      width: 30%;
      height: 80%;
      float: left;
@@ -37,33 +37,33 @@
      border: 1px solid rgb(190, 189, 189) !important;
  }
  
- .cart-contonier .main-contend .cart .cart-detail {
+ .cart-contonier .main-content .cart .cart-detail {
      width: 60%;
      padding: 10px;
      float: right;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .cart-category {
+ .cart-contonier .main-content .cart .cart-detail .cart-category {
      font-size: 12px;
      color: rgb(95, 95, 95);
  }
  
- .cart-contonier .main-contend .cart .cart-detail .cart-name {
+ .cart-contonier .main-content .cart .cart-detail .cart-name {
      margin-top: 5px;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .cart-color {
+ .cart-contonier .main-content .cart .cart-detail .cart-color {
      font-size: 12px;
      margin-top: -15px;
      font-weight: 500 !important;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .cart-delivery {
+ .cart-contonier .main-content .cart .cart-detail .cart-delivery {
      font-size: 11px;
      margin-top: -5px;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .buy-btn {
+ .cart-contonier .main-content .cart .cart-detail .buy-btn {
      /* background-color: transparent !important; */
      /* background-color: rgb(255, 255, 255);
      border: 1px solid rgb(199, 1, 1) !important;
@@ -81,13 +81,13 @@
      border-radius: 5px;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .buy-btn:hover {
+ .cart-contonier .main-content .cart .cart-detail .buy-btn:hover {
      background-color: rgb(22, 69, 158) !important;
      color: white !important;
      letter-spacing: 1px;
  }
  
- .cart-contonier .main-contend .cart .cart-detail .cart-price {
+ .cart-contonier .main-content .cart .cart-detail .cart-price {
      float: right;
      padding: 2px;
      margin-right: -90px;

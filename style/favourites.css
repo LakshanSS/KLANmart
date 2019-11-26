@@ -30,9 +30,9 @@
 }
 
 
-/* CONTEND */
+/* CONTENT */
 
-.contend {
+.content {
     width: 100%;
     margin: 1px auto 30px;
     /* border: 1px solid red; */
@@ -44,14 +44,14 @@
     clear: both;
 }
 
-.contend .f-main-contend {
+.content .f-main-content {
     width: 100%;
     float: left;
     /* border: 1px solid grey;
             background: rgb(241, 240, 240); */
 }
 
-.contend .f-main-contend .post {
+.content .f-main-content .post {
     width: 97%;
     height: 200px;
     margin: 10px auto;
@@ -63,7 +63,7 @@
 
 }
 
-.contend .f-main-contend .post .post-image {
+.content .f-main-content .post .post-image {
     width: 30%;
     height: 70%;
     float: left;
@@ -72,29 +72,29 @@
     margin-bottom: auto;
 }
 
-.contend .f-main-contend .post .post-preview {
+.content .f-main-content .post .post-preview {
     width: 60%;
     padding: 10px;
     float: right;
     margin-top: -10px;
 }
 
-.contend .f-main-contend .post .post-preview .store-detail {
+.content .f-main-content .post .post-preview .store-detail {
     color: rgb(6, 6, 68);
 }
 
-.contend .f-main-contend .post .post-preview .price-tag {
+.content .f-main-content .post .post-preview .price-tag {
     margin-top: 19px;
 }
 
-.contend .f-main-contend .post .post-preview .heart-icon {
+.content .f-main-content .post .post-preview .heart-icon {
     float: right;
     font-size: 30px;
     margin-top: -49px;
     color: rgb(219, 15, 15);
 }
 
-.contend .f-main-contend .favourite-title {
+.content .f-main-content .favourite-title {
     margin: 20px;
 }
 

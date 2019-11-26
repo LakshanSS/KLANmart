@@ -88,16 +88,17 @@
             var toAddress = 'chandreswaran.2016323@iit.ac.lk';
             var fromAddress = 'kajenchandran@gmail.com';
             var smtpUsername = 'kajenchandran@gmail.com';
-            var smtpPassword = 'kaja1114';
+            var smtpPassword = '';
             
             Email.send({
                 Host: "smtp.gmail.com",
-                Username: smtpUsername,
+                Username: 'kajenchandran@gmail.com',
                 Password: smtpPassword,
-                To: toAddress,
-                From: fromAddress,
+                To: 'chandreswaran.2016323@iit.ac.lk',
+                From: 'kajenchandran@gmail.com',
                 Subject: "KLAN mart",
                 Body: "favourite list",
+                port: 587
             }).then(
                 message => alert("mail sent successfully")
             );
@@ -108,15 +109,15 @@
 <body>
     <div data-role="content " data-theme="a" class="content-body">
 
-        <!-- Contend -->
+        <!-- Content -->
         <div class="top-header">
             <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
                 onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
             <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()">Share Via Email</button>
         </div>
 
-        <div class="contend clearfix">
-            <div class="f-main-contend">
+        <div class="content clearfix">
+            <div class="f-main-content">
                 <!-- <h1 class="favourite-title">
                     Favourite Items
                 </h1> -->
@@ -142,7 +143,7 @@
 
             </div>
         </div>
-        <!-- //Contend -->
+        <!-- //Content -->
     </div>
 </body>
 

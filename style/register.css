@@ -5,13 +5,16 @@
 }
 
 .inputWrapper {
-    border: 1px solid rgb(48, 96, 187) !important;
+    border: 1px solid rgb(86, 132, 216) !important;
     color: black;
+    font-size: 14px;
+    font-weight: 100;
 }
 
 p {
     text-align: center;
     font-size: 12px;
+    font-weight: 100;
 }
 
 input[type=email] {

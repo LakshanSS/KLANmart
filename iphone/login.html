@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>KLANmart - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/login.css">
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Login</h1>
-</div>
+    <div data-role="content" data-theme="a" class="content-body">
+        <div>
+            <img src="../assets/logo/logo-blue.png" style="width:65%;" class="logo-image">
+        </div>
+
+        <div class="login-container">
+            <h1 class="welcome-txt" style="font-weight: 100;">Welcome</h1>
+            <p class="login-txt">Sign In to your KLANmart account</p>
+
+            <div class="ui-field-contain">
+
+                <input type="text" name="textUsername" id="txtUsername" placeholder="Username*" value=""
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+
+                <input type="password" name="textPasseord" id="txtPassword" placeholder="password*" value=""
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+
+                <p class="forgot-pw-txt">forgot password?</p>
+
+                <button class="login-btn" data-corners="false" data-shadow="false">SIGN IN</button>
+
+                <p class="sign-in-with-txt">Or Sign In with Social Media</p>
+
+                <button class="ui-btn ui-mini sign-face-book-btn">
+                    <i class="fa fa-facebook fa-fw"></i>
+                    &nbsp; Sign In with Facebook</button>
+
+                <button class="ui-btn ui-mini sign-google-acc-btn">
+                    <i class="fa fa-google fa-fw">
+                    </i> &nbsp; Sign In with Google</button>
+            </div>
+
+        </div>
+
+        <p class="dont-hv-acc">Dont have an account? <strong>Sign Up</strong></p>
+
+    </div>
 </body>
+
 </html>
