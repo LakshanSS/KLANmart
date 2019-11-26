@@ -1,0 +1,53 @@
+#customerDetails,#cardDetails,#prodNameH,#prodTotal,#sumTotal,#Total {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    vertical-align: top;
+}
+#leftThing,#leftThing2,#leftprodH{
+    width: 10%;
+}
+#prodTotalleft,#sumTotalleft{
+    width: 50%;
+}
+#prodTotalright,#sumtotalright {
+    width: 50%;
+}
+#totalright {
+    width: 30%;
+}
+#Totalleft{
+    width: 70%;
+}
+#content,#content2,#prodHC {
+    width: 80%;
+}
+#rightThing,#rightThing2 {
+    width: 10%;
+}
+#prodbody {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    vertical-align: top;
+}
+#prodBodyPic {
+    width: 30%;
+}
+#prodBodyCont {
+    width: 70%;
+}
+#btPayNow {
+    background-color: darkblue;
+    color: #d6d6d6;
+}
+    .border {
+        display: block;
+        color: #010201;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }

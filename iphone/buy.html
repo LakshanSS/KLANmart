@@ -5,13 +5,132 @@
     <title>KLANmart - Buy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Buy</h1>
+<div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
+    <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
+    <h1 style="color: rgba(255,255,255,0.9)">Order confirmation</h1>
+</div>
+<div id="customerDetails" data-role="content" data-theme="a">
+    <div id="leftThing">
+        <i class="glyphicon glyphicon-map-marker"></i>
+    </div>
+    <div id="content">
+        <ul data-role="listview">
+            <li><h6>Kumar Sangakkara</h6><p>51/5b, Kawdana road,</p>
+                <p>Dehiwala </p>
+                <p>Western, LK </p>
+                <p>10350. </p>
+                <p>0770727311 </p></li>
+        </ul>
+    </div>
+    <div id="rightThing">
+        <a href="#">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+    </div>
+</div>
+<div id="cardDetails" style="margin-top: 2%"  data-role="content" data-theme="a">
+    <div id="leftThing2">
+        <i class="glyphicon glyphicon-credit-card"></i>
+    </div>
+    <div id="content2">
+        <ul data-role="listview" >
+            <li><h6>421645*******3421</h6><p>Your order will be proceed in LKR</p>
+
+        </ul>
+    </div>
+    <div id="rightThing2">
+        <a href="#">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+    </div>
+</div>
+<div id="productDetails" style="margin-top: 2%" data-role="content" data-theme="a">
+    <div id="prodNameH">
+        <div id="leftprodH">
+            <i class="glyphicon glyphicon-gift"></i>
+        </div>
+        <div id="prodHC">
+            <p style="font-size: medium;font-weight: bold;">Men's cloths</p>
+        </div>
+    </div>
+    <hr class="border">
+    <div class="ui-grid-a" id="prodbody">
+        <div class="ui-body ui-body-d" id="prodBodyPic">
+            <img id="prodImg" style="width: 100%"  src="../assets/images/products/tshirt1-blue.png" />
+        </div>
+        <div id="prodBodyCont">
+            <div class="ui-body ui-body-d">
+                <h6>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h6>
+                <h5 style="font-weight: bold">LKR 2199.00</h5>
+                <h6 style="color: #7285ff">Delivery charge: LKR 100.00</h6>
+            </div>
+        </div>
+    </div>
+    <hr class="border">
+    <div class="ui-grid-a">
+        <input type="text" name="textNote" id="txtNote" placeholder="Note to seller (optional)" value=""
+               data-corners="false" data-clear-btn="true">
+    </div>
+    <hr class="border">
+    <div id="prodTotal">
+        <div id="prodTotalleft" class="ui-body ui-body-d">
+            <h6 style="color: #5f6264">Sub Total :</h6>
+            <h6 style="color: #5f6264">Delivery Charge :</h6>
+            <h6 style="color: #010201">Total :</h6>
+
+        </div>
+        <div id="prodTotalright" class="ui-body ui-body-d">
+            <h6 style="color: #5f6264;text-align: right">LKR 2199.00</h6>
+            <h6 style="color: #5f6264;text-align: right">LKR 100.00</h6>
+            <h6 style="color: #010201;text-align: right">LKR 2299.00</h6>
+
+        </div>
+    </div>
+</div>
+<div id="orderSummary" style="margin-top: 2%" data-role="content" data-theme="a">
+
+    <p style="font-size: medium;font-weight: bold;">Order Summary (1 item)</p>
+
+    </div>
+    <hr class="border">
+    <div id="sumTotal">
+        <div id="sumTotalleft" class="ui-body ui-body-d">
+            <h6 style="color: #5f6264">Sub Total :</h6>
+            <h6 style="color: #5f6264">Promo Code :</h6>
+            <h6 style="color: #5f6264">Special Offer :</h6>
+            <h5 style="color: #010201;font-weight: bold">Total :</h5>
+
+        </div>
+        <div id="sumtotalright" class="ui-body ui-body-d">
+            <h6 style="color: #5f6264;text-align: right">LKR 2299.00</h6>
+            <a href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+            <a href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+            <h5 style="color: #010201;font-weight: bold;text-align: right">LKR 2299.00</h5>
+        </div>
+    </div>
+    <hr class="border">
+<div id="Total">
+    <div id="Totalleft" class="ui-body ui-body-d">
+
+        <h6 style="color: #010201;font-weight: bold">Total</h6>
+        <h4 style="color: #010201;font-weight: bold">LKR 2299.00</h4>
+
+    </div>
+    <div id="totalright" class="ui-body ui-body-d">
+        <button id="btPayNow" class="ui-btn ui-mini">Pay Now</button>
+
+    </div>
+</div>
+
+
 </div>
 </body>
 </html>
