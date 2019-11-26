@@ -1,0 +1,120 @@
+.content-body {
+    background-color: rgb(245, 245, 245) !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    border: 1px solid rgb(224, 240, 253) !important;
+}
+
+.name-tab {
+    height: 65px;
+    margin-bottom: 15px;
+    padding: 4px 12px;
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+    border: 1px solid rgb(224, 240, 253) !important;
+}
+
+.profile-icon {
+    width: 18%;
+    float: left;
+    font-size: 55px;
+    padding: 10px;
+    margin-top: -6px;
+    color: rgb(201, 200, 200);
+}
+
+.user-name {
+    font-size: 21px;
+    float: left;
+}
+
+.detail-tab {
+    height: 15px;
+}
+
+.nav {
+    height: 10px;
+    font-size: 12px;
+}
+
+.arrow-icon {
+    float: right;
+    margin-top: 21px;
+    font-size: 25px;
+    color: slategray;
+}
+
+
+/* personal data */
+
+.personal-tab {
+    width: 25%;
+    float: left;
+    font-size: 15px;
+}
+
+.personal-info {
+    float: right;
+    font-size: 15px;
+    color: slategray;
+    margin-right: 45px;
+}
+
+.personal-tab-arrow {
+    margin-top: -25px;
+    float: right;
+    color: slategray;
+}
+
+
+/* profile-navbar */
+
+.profile-nav {
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white !important;
+}
+
+a {
+    background-color: white !important;
+    color: black !important;
+    border-color: none !important;
+    border: 1px solid rgb(224, 240, 253) !important;
+}
+
+a:hover {
+    background-color: steelblue !important;
+    color: white !important;
+    border-color: none !important;
+    border: none !important;
+}
+
+a:active {
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
+    border: none !important;
+}
+
+
+/* other details */
+
+.shop-detail {
+    width: 10%;
+    float: left;
+    color: slategray;
+}
+
+.shopping-info {
+    float: left;
+    font-size: 14px;
+}
+
+.shop-detail-tab {
+    margin-top: 65px;
+}

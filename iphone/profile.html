@@ -9,134 +9,13 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
-    <style>
-        .content-body {
-            background-color: rgb(245, 245, 245) !important;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        li {
-            border: 1px solid rgb(224, 240, 253) !important;
-
-        }
-
-        .name-tab {
-            height: 65px;
-            margin-bottom: 15px;
-            padding: 4px 12px;
-            background-color: rgb(255, 255, 255);
-            /* width: 100%; */
-            margin: 0px auto;
-            border: 1px solid rgb(224, 240, 253) !important;
-
-        }
-
-        .profile-icon {
-            width: 18%;
-            /* width: 10px; */
-            float: left;
-            font-size: 55px;
-            padding: 10px;
-            margin-top: -6px;
-            color: rgb(201, 200, 200);
-        }
-
-        .user-name {
-            font-size: 21px;
-            float: left;
-            /* margin-left: 10px; */
-        }
-
-        .detail-tab {
-            height: 15px;
-        }
-
-        .nav {
-            height: 10px;
-            font-size: 12px;
-        }
-
-        .arrow-icon {
-            float: right;
-            margin-top: 21px;
-            font-size: 25px;
-            color: slategray;
-        }
-
-        /* personal data */
-        .personal-tab {
-            width: 25%;
-            float: left;
-            font-size: 15px;
-        }
-
-        .personal-info {
-            float: right;
-            font-size: 15px;
-            color: slategray;
-            margin-right: 45px;
-        }
-
-        .personal-tab-arrow {
-            margin-top: -25px;
-            float: right;
-            color: slategray;
-        }
-
-        /* profile-navbar */
-        .profile-nav {
-            width: 95%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: white !important;
-        }
-
-        a {
-            background-color: white !important;
-            color: black !important;
-            border-color: none !important;
-            border: 1px solid rgb(224, 240, 253) !important;
-        }
-
-        a:hover {
-            background-color: steelblue !important;
-            color: white !important;
-            border-color: none !important;
-            border: none !important;
-
-        }
-
-        a:active {
-            background-color: white !important;
-            color: black !important;
-            border-color: white !important;
-            border: none !important;
-
-        }
-
-        /* other details */
-        .shop-detail {
-            width: 10%;
-            float: left;
-            color: slategray;
-        }
-
-        .shopping-info {
-            float: left;
-            font-size: 14px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="../style/profile.css" />
 </head>
 
 <body>
-
     <div data-role="page" data-fullscreen="true">
 
         <div data-role="header" data-position="fixed">
-
         </div>
 
         <div data-role="content" data-theme="a" class="content-body">
@@ -179,47 +58,45 @@
 
             <div data-role="navbar" class="profile-nav">
                 <ul class="nav">
-                    <li><a href="#" data-icon="grid">Wishlist</a></li>
-                    <li><a href="#" data-icon="star">Coipons</a></li>
-                    <li><a href="#" data-icon="gear">Followings</a></li>
+                    <li><a href="#" data-icon="grid">Wish List</a></li>
+                    <li><a href="#" data-icon="star">Coupons</a></li>
+                    <li><a href="#" data-icon="gear">Following</a></li>
                 </ul>
             </div>
 
-            <br>
-            <br>
-
-            <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
-                <li>
-                    <div class="detail-tab">
-                        <i class="fas fa-history shop-detail"></i>
-                        <p><strong class="shopping-info">Order History</strong></p>
-                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="detail-tab">
-                        <i class="fas fa-wallet shop-detail"></i>
-                        <p><strong class="shopping-info">Wallet</strong></p>
-                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="detail-tab">
-                        <i class="fas fa-map-marked-alt shop-detail"></i>
-                        <p><strong class="shopping-info">Shopping Address</strong></p>
-                        <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                    </div>
-                </li>
-            </ul>
+            <div class="shop-detail-tab">
+                <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
+                    <li>
+                        <div class="detail-tab">
+                            <i class="fas fa-history shop-detail"></i>
+                            <p><strong class="shopping-info">Order History</strong></p>
+                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-tab">
+                            <i class="fas fa-wallet shop-detail"></i>
+                            <p><strong class="shopping-info">Wallet</strong></p>
+                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-tab">
+                            <i class="fas fa-map-marked-alt shop-detail"></i>
+                            <p><strong class="shopping-info">Shipping Address</strong></p>
+                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
 
             <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                 <li>
                     <div class="detail-tab">
                         <i style="font-size: 19px;" class="fas fa-question-circle shop-detail"></i>
-                        <p><strong class="shopping-info">Question & Anwsers</strong></p>
+                        <p><strong class="shopping-info">Question & Anwser</strong></p>
                         <i class="fas fa-chevron-right personal-tab-arrow"></i>
-
                     </div>
                 </li>
                 <li>
@@ -239,13 +116,11 @@
                 <li>
                     <div class="detail-tab">
                         <i class="fas fa-hands-helping shop-detail"></i>
-                        <p><strong class="shopping-info"> Help Center</strong></p>
+                        <p><strong class="shopping-info">Help Center</strong></p>
                         <i class="fas fa-chevron-right personal-tab-arrow"></i>
-
                     </div>
                 </li>
             </ul>
-
 
             <div data-role="footer" data-position="fixed">
             </div>

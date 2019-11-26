@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../style/cart.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="index.js"></script>
     <!-- <script>
         function addToCartClicked(event) {
@@ -24,118 +27,6 @@
 
         }
     </script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        .cart-contonier {
-            background-color: rgb(245, 245, 245);
-            width: 100%;
-            margin: 1px auto 30px;
-        }
-
-        .clearfix::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-
-        .cart-contonier .main-contend {
-            width: 100%;
-            float: left;
-            /* border: 1px solid grey;
-            background: rgb(241, 240, 240); */
-        }
-
-        .cart-contonier .main-contend .cart {
-            width: 97%;
-            height: 180px;
-            margin: 10px auto;
-            background: rgb(240, 239, 239);
-            position: relative;
-        }
-
-        .cart-contonier .main-contend .cart .cart-image {
-            width: 30%;
-            height: 75%;
-            float: left;
-            margin-top: 10px;
-            margin-left: 10px;
-            margin-bottom: auto;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail {
-            width: 60%;
-            padding: 10px;
-            float: right;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .cart-category {
-            font-size: 12px;
-            color: rgb(95, 95, 95);
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .cart-name {
-            margin-top: 5px;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .cart-color {
-            font-size: 12px;
-            margin-top: -15px;
-            font-weight: 500 !important;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .cart-delivery {
-            font-size: 11px;
-            margin-top: -5px;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .buy-btn {
-            /* background-color: transparent !important; */
-            background-color: rgb(255, 255, 255);
-            border: 1px solid rgb(199, 1, 1) !important;
-            color: rgb(199, 1, 1) !important;
-            float: right;
-            font-size: 12px;
-            margin-top: -25px;
-            margin-right: 5px;
-            width: 75px;
-            height: 32px;
-            letter-spacing: 1px;
-            border-radius: 5px;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .buy-btn:hover {
-            background-color: rgb(199, 1, 1);
-            color: white !important;
-            letter-spacing: 1px;
-        }
-
-        .cart-contonier .main-contend .cart .cart-detail .cart-price {
-            float: right;
-            padding: 2px;
-            margin-right: -85px;
-        }
-
-        .qty-container {
-            width: 25%;
-        }
-
-        input[type=number] {
-            text-align: center;
-        }
-
-        .inputWrapper {
-            width: 40px;
-            height: 28px;
-            margin-left: 20px;
-            text-align: center;
-        }
-
-        .qty-lable {
-            float: left;
-            font-size: 12px;
-        }
-    </style>
 </head>
 
 <body>
@@ -147,10 +38,10 @@
                     <div class="cart-detail">
                         <p class="cart-category"><b>Sweater</b></p>
                         <i class="fa fa-close" style="font-size:25px; float: right; margin-top: -43px;"></i>
-                        <h4 class="cart-name">Hooded Sweaterer</h4>
+                        <h4 class="cart-name">Hooded Sweater</h4>
                         <p class="cart-color">Grey</p>
                         <p class="cart-delivery">Non-Returnable</p>
-                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)">Buy</button>
+                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)"><p style="margin-top: -3px;">Buy</p></button>
                         <h4 class="cart-price">LKR 2598.00</h4>
                         <div class="qty-container">
                             <!-- <fieldset class="ui-grid-b"><div class="ui-block-a"><button class="ui-btn ui-btn-inline value-btn">-</button></div><div class="ui-block-b"><input type="number" data-corners="false" style="

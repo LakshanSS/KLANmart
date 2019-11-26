@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../style/favourites.css" />
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
 
     <script>
+
         if (document.readyState == 'loading') {
             document.addEventListener('DOMContentLoaded', ready)
         } else {
             ready();
+
         }
 
         function ready() {
@@ -41,9 +47,6 @@
                 // localStorage.removeItem("price");
                 // localStorage.removeItem("image");
             }
-
-
-
             // if (title != null) {
 
             //     viewCart(title, price, image);
@@ -72,99 +75,34 @@
             //         localStorage.removeItem("image");
             //     }
             // }
-
+            function filterItems() {
+                var input, filter, div, i, textValue;
+                // input = document.getElementsByClassName('f-main-content');
+                // filter = in 13b8c18e-85ae-4f1b-88a7-3c9a79fae74c
+            }
 
 
         }
 
-
+        function sendEmail() {
+            var toAddress = 'chandreswaran.2016323@iit.ac.lk';
+            var fromAddress = 'kajenchandran@gmail.com';
+            var smtpUsername = 'kajenchandran@gmail.com';
+            var smtpPassword = 'kaja1114';
+            
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: smtpUsername,
+                Password: smtpPassword,
+                To: toAddress,
+                From: fromAddress,
+                Subject: "KLAN mart",
+                Body: "favourite list",
+            }).then(
+                message => alert("mail sent successfully")
+            );
+        }
     </script>
-    <style>
-        .content-body {
-            background-color: rgb(245, 245, 245) !important;
-        }
-
-        /* Top bar */
-        .top-header {
-            width: 100%;
-            height: 60px;
-            margin: 1px auto;
-            border-radius: 5px;
-            background: white;
-            position: relative;
-        }
-
-        .top-header .share-btn {
-            background-color: transparent !important;
-            border: 1px solid rgb(6, 6, 68) !important;
-            color: rgb(6, 6, 68) !important;
-            float: right;
-            font-size: 12px;
-            margin-top: 12px;
-            margin-right: 20px;
-        }
-
-        .top-header .share-btn:hover {
-            background-color: rgb(6, 6, 68) !important;
-            color: white !important;
-        }
-
-        /* CONTEND */
-        .contend {
-            width: 100%;
-            margin: 1px auto 30px;
-            /* border: 1px solid red; */
-        }
-
-        .clearfix::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-
-        .contend .f-main-contend {
-            width: 100%;
-            float: left;
-            /* border: 1px solid grey;
-            background: rgb(241, 240, 240); */
-        }
-
-        .contend .f-main-contend .post {
-            width: 97%;
-            height: 200px;
-            margin: 10px auto;
-            background: white;
-            position: relative;
-        }
-
-        .contend .f-main-contend .post .post-image {
-            width: 30%;
-            height: 90%;
-            float: left;
-            margin-top: 13px;
-            margin-left: 10px;
-            margin-bottom: auto;
-        }
-
-        .contend .f-main-contend .post .post-preview {
-            width: 60%;
-            padding: 10px;
-            float: right;
-        }
-
-        .contend .f-main-contend .post .post-preview .store-detail {
-            color: rgb(6, 6, 68);
-        }
-
-        .contend .f-main-contend .post .post-preview .price-tag {
-            margin-top: 30px;
-        }
-
-        .contend .f-main-contend .favourite-title {
-            margin: 20px;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -172,8 +110,9 @@
 
         <!-- Contend -->
         <div class="top-header">
-            <button class="ui-btn ui-btn-inline share-btn">Share Via Email</button>
-
+            <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
+                onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+            <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()">Share Via Email</button>
         </div>
 
         <div class="contend clearfix">
@@ -187,16 +126,17 @@
                     <div class="post-preview">
                         <h4>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h4>
                         <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
-                        <h2 class="price-tag">LKR 2199.00</h2>
+                        <h3 class="price-tag">LKR 2199.00</h3>
+                        <!-- <i class="fas fa-heart heart-icon"></i> -->
                     </div>
                 </div>
 
                 <div class="post">
                     <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
                     <div class="post-preview">
-                        <h4>Hayiou gt1 tws Finger print Touch Blutooth Earphones</h4>
+                        <h4>Hayiou gt1 tws water proof Finger print Touch Blutooth Earphones</h4>
                         <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
-                        <h2 class="price-tag">LKR 1500.00</h2>
+                        <h3 class="price-tag">LKR 1500.00</h3>
                     </div>
                 </div>
 

@@ -1,0 +1,130 @@
+.logo-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputWrapper {
+    border: 1px solid rgb(48, 96, 187) !important;
+    color: black;
+}
+
+p {
+    text-align: center;
+    font-size: 12px;
+}
+
+input[type=email] {
+    padding: 8px 15px;
+    margin: 8px 0;
+}
+
+input[type=password] {
+    padding: 8px 15px;
+    margin: 8px 0;
+}
+
+input[type=tel] {
+    padding: 8px 15px;
+    margin: 8px 0;
+}
+
+input[type=text] {
+    padding: 8px 15px;
+    margin: 8px 0;
+}
+
+.button4 {
+    border-radius: 12px;
+    padding: 8px 15px;
+    margin: 8px 0;
+}
+
+.reg-btn {
+    background-color: rgb(22, 69, 158) !important;
+    color: white !important;
+    font-weight: 150;
+    height: 50px !important;
+}
+
+.reg-btn:hover {
+    background-color: rgb(24, 61, 131) !important;
+    color: white !important;
+    font-weight: 150;
+    height: 50px !important;
+}
+
+.sign-face-book-btn {
+    background-color: #3b5998 !important;
+    letter-spacing: 2px;
+    color: white !important;
+    font-weight: 150;
+    border-radius: 15px !important;
+    font-size: 10px !important;
+    width: 300px !important;
+    height: 34px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-face-book-btn:hover {
+    background-color: #334f8b !important;
+    color: white !important;
+    font-weight: 150;
+    border-radius: 15px !important;
+    font-size: 10px !important;
+    width: 300px !important;
+    height: 34px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-google-acc-btn {
+    background-color: #DB4437 !important;
+    letter-spacing: 2px;
+    color: white !important;
+    font-weight: 100;
+    font-size: 10px !important;
+    border-radius: 15px !important;
+    height: 34px !important;
+    width: 300px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-google-acc-btn:hover {
+    background-color: rgb(201, 51, 37) !important;
+    color: white !important;
+    font-weight: 100;
+    font-size: 10px !important;
+    border-radius: 12px !important;
+    width: 300px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aggrement-text {
+    font-size: 13px !important;
+    color: black;
+}
+
+.main-content {
+    color: rgb(22, 69, 158) !important;
+}
+
+.sign-up-with-text {
+    font-size: 19px !important;
+}
+
+.sign-in-with-text {
+    font-size: 13px !important;
+    margin-top: 30px;
+}
+
+i {
+    margin-left: 10px;
+}
