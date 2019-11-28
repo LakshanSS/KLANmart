@@ -1,89 +1,111 @@
 /* Basic styles */
-h3,h4,p {
-    margin: 0;
-    }
+h3, h4, p {
+	margin: 0;
+	}
+
 .rwd-example .ui-body {
-    text-align: left;
-    border-color: #ddd;
-}
+	text-align: left;
+	border-color: #ddd;
+	}
+
 .rwd-example p {
-    color: #777;
-    /*line-height: 140%*/
-}
+	color: #777;
+	/*line-height: 140%*/
+	}
+
 /* Stack all blocks to start */
 .rwd-example .ui-block-a,
-.rwd-example .ui-block-b{
-    width: 100%;
-    /*float: none;*/
-}
+.rwd-example .ui-block-b {
+	width: 100%;
+	/*float: none;*/
+	}
+
 /* Collapsing borders */
 .rwd-example > div + div .ui-body {
-    border-top-width: 0;
-}
+	border-top-width: 0;
+	}
+
 /* 1st breakpoint - A in top, B in bottom*/
 @media all and (min-width: 20em) {
-    .rwd-example {
-        overflow: hidden; /* Use this or a "clearfix" to give the container height */
-    }
-    .rwd-example .ui-body {
-        /*min-height: 14em;*/
-        }
-    .rwd-example .ui-block-b{
-        float: left;
-        }
-    .rwd-example .ui-block-b p{
-        font-size: .8em;
-        }
-    .rwd-example > div + div .ui-body {
-        border-top-width: 1px;
-        }
-    .rwd-example > div:first-child .ui-body {
-        border-bottom-width: 0;
-        }
-    .rwd-example > div:last-child .ui-body {
-        border-left-width: 0;
-        }
-    .product-image {
-        width: 100%;
-        }
-}
+	.rwd-example {
+		overflow: hidden; /* Use this or a "clearfix" to give the container height */
+		}
+	
+	.rwd-example .ui-body {
+		/*min-height: 14em;*/
+		}
+	
+	.rwd-example .ui-block-b {
+		float: left;
+		}
+	
+	.rwd-example .ui-block-b p {
+		font-size: .8em;
+		}
+	
+	.rwd-example > div + div .ui-body {
+		border-top-width: 1px;
+		}
+	
+	.rwd-example > div:first-child .ui-body {
+		border-bottom-width: 0;
+		}
+	
+	.rwd-example > div:last-child .ui-body {
+		border-left-width: 0;
+		}
+	
+	.product-image {
+		width: 100%;
+		}
+	}
+
 /* 2nd breakpoint - Float, 60,40 */
 @media all and (min-width: 40em) {
-    .rwd-example .ui-body {
-        /*min-height: 18em;*/
-        }
-    .rwd-example .ui-block-a{
-        float: left;
-        width: 50%;
-        }
-    .rwd-example .ui-block-b{
-        float: left;
-        width: 50%;
-        }
-    .rwd-example > div:first-child .ui-body {
-        border-bottom-width: 1px;
-        }
-    .rwd-example > div + div .ui-body {
-        border-left-width: 0;
-        }
-    .product-image {
-        width: 100%;
-        }
-}
+	.rwd-example .ui-body {
+		/*min-height: 18em;*/
+		}
+	
+	.rwd-example .ui-block-a {
+		float: left;
+		width: 50%;
+		}
+	
+	.rwd-example .ui-block-b {
+		float: left;
+		width: 50%;
+		}
+	
+	.rwd-example > div:first-child .ui-body {
+		border-bottom-width: 1px;
+		}
+	
+	.rwd-example > div + div .ui-body {
+		border-left-width: 0;
+		}
+	
+	.product-image {
+		width: 100%;
+		}
+	}
+
 /* 3rd breakpoint - Bump up font size at very wide screens */
 @media all and (min-width: 75em) {
-    .rwd-example .ui-body {
-        font-size: 125%;
-        }
-    .rwd-example .ui-block-a{
-        float: left;
-        width: 50%;
-        }
-    .rwd-example .ui-block-b{
-        float: left;
-        width: 50%;
-        }
-    .product-image {
-        width: 100%;
-        }
-}
+	.rwd-example .ui-body {
+		font-size: 125%;
+		}
+	
+	.rwd-example .ui-block-a {
+		float: left;
+		width: 50%;
+		}
+	
+	.rwd-example .ui-block-b {
+		float: left;
+		width: 50%;
+		}
+	
+	.product-image {
+		width: 100%;
+		}
+	}
