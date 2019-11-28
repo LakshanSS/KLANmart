@@ -1,0 +1,28 @@
+.content-body {
+	background-color: rgb(247, 251, 253);
+}
+
+.store-detail-container {
+	padding: 0 20px 10px 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+	border: 1px solid rgb(86, 132, 216) !important;
+}
+
+.location-container {
+	padding: 0 20px 10px 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+	border: 1px solid rgb(86, 132, 216) !important;
+}
+
+.review-container {
+	padding: 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+	border: 1px solid rgb(86, 132, 216) !important;
+}
+
+.checked {
+	color: orange;
+}
