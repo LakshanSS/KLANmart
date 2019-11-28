@@ -7,11 +7,33 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/wallet.css">
+
+
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Wallet</h1>
+<div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
+    <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
+    <h1 style="color: rgba(255,255,255,0.9)">My Wallet</h1>
+</div>
+<div id="carddetails" data-role="content" data-theme="a">
+    <div id="leftThing">
+        <div class="ui-body ui-body-d" id="prodBodyPic">
+        <img id="prodImg" style="width: 100%"  src="../assets/images/wallet/Visa_2014_logo_detail.svg.png" />
+    </div>
+    </div>
+    <div id="content">
+        <h4>421645*******3421</h4>
+
+    </div>
+    <div id="rightThing" style="margin-top: 2%">
+        <a style="color: red" href="#">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+    </div>
 </div>
 </body>
 </html>
