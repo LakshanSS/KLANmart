@@ -2,6 +2,14 @@
 	background-color: rgb(247, 251, 253);
 }
 
+#map {
+	margin-top: 10px;
+	height: 300px;
+}
+.store-detail-list {
+	margin: 9px 0;
+}
+
 .store-detail-container {
 	padding: 0 20px 10px 20px;
 	background-color: rgb(255, 255, 255);
@@ -25,4 +33,9 @@
 
 .checked {
 	color: orange;
+}
+
+.label {
+	color: #5f6264;
+	margin: 0 5px 10px 0;
 }

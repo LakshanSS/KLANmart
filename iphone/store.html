@@ -7,26 +7,9 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <link rel="stylesheet" href="../style/store.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>#map {
-        height: 300px;
-    }</style><!--TODO fix height issue-->
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
-    <script>
-        function initMap() {
-            let place = {lat: 6.917983, lng: 79.860883};
-            let map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 17,
-                center: place
-            });
-            let marker = new google.maps.Marker({
-                position: place,
-                map: map
-            });
-        }
-
-        /*todo Add more functions in the map*/
-    </script>
+    <script src="../js/map-location.js"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFg5LfLkyhaCXllKXk9M29ls7ckuYsNPc&callback=initMap">
     </script>
@@ -42,42 +25,41 @@
 <div data-role="content" data-theme="a" class="content-body">
     <div class="store-detail-container">
         <h2>Trendy Fashion Store</h2>
-        <span>KLANmart Seller Since: </span><span>12 Nov 2018</span>
+        <section class="store-detail-list">
+            <span class="label">KLANmart Seller Since: </span><span>12 Nov 2018</span>
+        </section>
+        <section class="store-detail-list">
+            <span class="label">Positive Feedback: </span><span>96.5%</span>
+        </section>
+        <section class="store-detail-list">
+            <span class="label">Customer Rating:</span>
+            <span>4</span><span>/5</span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+        </section>
+        <section class="store-detail-list">
+            <span class="label"> Store Address:</span>
+            <span>23, 2nd Lane, Hyde Park Corner, Colombo</span>
+        </section>
+        <section class="store-detail-list">
+            <div role="main" id="map">
+                <!-- map loads here... -->
+            </div>
+        </section>
 
-    <br>
-        <h4>Customer Rating:</h4>
-        <span>4</span><span>/5</span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
     </div>
     <br>
-
     <div class="review-container">
-        <ul data-role="listview">
-            <li><a href="">Customer Reviews</a></li>
-            <li><h4>Arjun K.</h4>
-                <p>4.5</p>
-                <p>Nice Quality</p></li><!--
-            <li><h4>Asanka</h4><p>4.9</p><p>I highly recommend this place.</p></li>
-            <li><h4>Daniel</h4><p>4.3</p><p>Nice offers.</p></li>-->
-        </ul>
+        <h4>Customer Reviews</h4>
+        <!--todo: add reviews and integrate with db-->
     </div>
     <br>
 
     <div class="location-container">
-        <h4> Store Location</h4>
-        <p>23, 2nd Lane, Hyde Park Corner, Colombo</p>
-        <div role="main" id="map">
-            <!-- map loads here... -->
-        </div>
-        <!--TODO add location card and add a button to go to another page to show the location-->
-    </div>
-    <br>
-
-    <div>
+        <!--todo: add images for products-->
         <h4>Products from this store</h4>
                     <p>Bla bla bla</p><br><br><br>
         <h4>Top Sellers of this Store</h4>
