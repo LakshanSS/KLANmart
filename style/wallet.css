@@ -1,0 +1,15 @@
+#carddetails {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    vertical-align: top;
+}
+#rightThing {
+    width: 10%;
+}
+#content {
+    width: 60%;
+}
+#leftThing{
+    width: 30%;
+}
