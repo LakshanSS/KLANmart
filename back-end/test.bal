@@ -1,20 +1,59 @@
+import ballerina/log;
+import ballerina/mysql;
 import ballerina/http;
-import ballerina/io;
 
-#port - 9090
-service hello on new http:Listener(9090) {
+//Port 9002
+listener http:Listener httpListener = new(9002);
 
-    # A resource respresenting an invokable API method
-    # accessible at `/hello/sayHello`.
-    #
-    # + caller - the client invoking this resource
-    # + request - the inbound request
-    resource function sayHello(http:Caller caller, http:Request request) {
+//Create mysql client
+mysql:Client testDB = new({
+    host: "localhost",
+    port: 3306,
+    name : "KLANmart",
+    username: "root",
+    password: "rootroot"
+});
 
-        // Sends a response back to the caller.
-        error? result = caller->respond("Hello from Ballerina!");
-        if (result is error) {
-            io:println("Error in responding: ", result);
+//Create a record which matches the selected data
+type Store record {
+    int id;
+    string name;
+};
+
+@http:ServiceConfig {basePath: "/KLANmart"}
+service orderMgt on httpListener {
+
+    @http:ResourceConfig {
+            methods: ["GET"],
+            path: "/store/{storeId}"
         }
-    }
+        resource function findOrder(http:Caller caller, http:Request req, int storeId) {
+            var ret = testDB->select("select store_id, store_name from store where store_id = ?", Store, storeId);
+                var storeName = "-";
+                var status = "Success";
+                if (ret is table<Store>) {
+                    //Iterate each row of the selected data
+                    foreach var row in ret {
+                        storeName = row.name;
+                    }
+                    log:printInfo("Store Name: " + storeName);
+
+                } else if (ret is error) {
+                    status = "Error";
+                    log:printInfo(<string>ret.detail().message);
+                }
+                //Stop the mysql client
+                //testDB.stop();
+
+            http:Response response = new;
+            json payload = { status: status, storeId: storeId, storeName: storeName };
+            // Set the JSON payload in the outgoing response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
 }
