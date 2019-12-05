@@ -10,6 +10,25 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/login.css">
+    <script>
+        function goToSignUp() {
+            document.location.href = "./register.html";
+        }
+
+        function loginBtn() {
+            let username = document.getElementById("txtUsername").value;
+            let password = document.getElementById("txtPassword").value;
+
+            if (username == "") {
+                console.log("no username");
+            } else if (password == "") {
+                console.log("no pass");
+            } else {
+                console.log(username, password);
+            }
+
+        }
+    </script>
 </head>
 
 <body>
@@ -32,9 +51,10 @@
 
                 <p class="forgot-pw-txt">Forgot password?</p>
 
-                <button class="login-btn" data-corners="false" data-shadow="false">SIGN IN</button>
+                <button class="login-btn" data-corners="false" data-shadow="false" onclick="loginBtn ()">SIGN
+                    IN</button>
 
-                <p class="sign-in-with-txt">Or Sign In with Social Media</p>
+                <p class="sign-in-with-txt">or Sign in with</p>
 
                 <button class="ui-btn ui-mini sign-face-book-btn">
                     <i class="fa fa-facebook fa-fw"></i>
@@ -47,7 +67,7 @@
 
         </div>
 
-        <p class="dont-hv-acc">Don't have an account? <strong>Sign Up</strong></p>
+        <p class="dont-hv-acc" onclick="goToSignUp()">Don't have an account? <strong>Sign Up</strong></p>
 
     </div>
 </body>

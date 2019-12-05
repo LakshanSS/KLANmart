@@ -15,21 +15,21 @@
 </head>
 
 <body>
+    <div data-role="header" data-position="fixed" class="header-bar">
+        <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
+        <i class="fas fa-chevron-left back-icon"></i>
+        <h1 class="page-detail">Favourite</h1>
+    </div>
     <div data-role="content " data-theme="a" class="content-body">
-
         <!-- Content -->
         <div class="top-header">
             <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
                 onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
-            <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()">Share Via Email</button>
+            <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()"><i
+                    class="fas fa-share-alt share-icon"></i> Share</button>
         </div>
-
         <div class="content clearfix">
             <div class="f-main-content">
-                <!-- <h1 class="favourite-title">
-                    Favourite Items
-                </h1> -->
-
                 <div class="post">
                     <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
                     <div class="post-preview">
@@ -39,7 +39,6 @@
                         <!-- <i class="fas fa-heart heart-icon"></i> -->
                     </div>
                 </div>
-
                 <div class="post">
                     <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
                     <div class="post-preview">
@@ -48,10 +47,24 @@
                         <h3 class="price-tag">LKR 1500.00</h3>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!-- //Content -->
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="nav">
+                <li><a href="#" data-icon="home" style="font-size: 11px !important; font-weight: 750;"
+                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Home</a></li>
+                <li><a href="#" data-icon="heart" style="font-size: 11px !important; font-weight: 750;"
+                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Favourites</a></li>
+                <li><a href="#" data-icon="comment" style="font-size: 11px !important; font-weight: 750;"
+                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Messages</a></li>
+                <li><a href="#" data-icon="shop" style="font-size: 11px !important; font-weight: 750;"
+                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Cart</a></li>
+                <li><a href="#" data-icon="user" style="font-size: 11px !important; font-weight: 750;"
+                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Profile</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 

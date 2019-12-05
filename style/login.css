@@ -6,7 +6,7 @@
         }
 
         .content-body {
-            background-color: rgb(247, 251, 253);
+            background-color: rgb(248, 251, 255);
         }
 
         .login-container {
@@ -72,9 +72,10 @@
 
         .sign-in-with-txt {
             margin-top: 80px;
-            font-size: 12px;
+            font-size: 13px;
             text-align: center;
-            font-weight: 100;
+            font-weight: 600;
+            color: black !important;
         }
 
         .sign-face-book-btn {
@@ -133,7 +134,7 @@
 
         .dont-hv-acc {
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             margin-top: 50px;
             font-weight: 100;
         }

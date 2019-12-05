@@ -1,5 +1,28 @@
+.body {
+	margin: 0;
+	padding: 0;
+}
+.header-bar {
+	background-color: rgb(12, 64, 161) !important; height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left; 
+	margin-top: 22px; 
+	margin-left: 15px; 
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;    
+	letter-spacing: 2px;
+	font-weight: 100; 
+	font-size: 17px; 
+	margin-top: 8px;
+}
+
 .content-body {
-	background-color: rgb(245, 245, 245) !important;
+	background-color: rgb(247, 251, 255) !important;
 }
 
 /* Top bar */
@@ -7,31 +30,37 @@
 	width: 100%;
 	height: 60px;
 	margin: 1px auto;
-	border-radius: 5px;
-	background: white;
+	/* border-radius: 5px; */
+	background: rgb(255, 255, 255);
 	position: relative;
+	/* border: 1px solid gray; */
 }
 
 .top-header .share-btn {
 	background-color: transparent !important;
-	border: 1px solid rgb(6, 6, 68) !important;
-	color: rgb(6, 6, 68) !important;
+	border: 1px solid rgb(12, 64, 161) !important;
+	color: rgb(12, 64, 161) !important;
 	float: right;
 	font-size: 12px;
 	margin-top: 12px;
 	margin-right: 20px;
 }
 
+.top-header .share-btn .share-icon {
+	color: rgb(12, 64, 161); 
+	font-size: 14px; 
+	margin-top: 3px;
+}
+
 .top-header .share-btn:hover {
-	background-color: rgb(6, 6, 68) !important;
-	color: white !important;
+	background-color: rgb(240, 244, 252) !important;
 }
 
 /* CONTENT */
 .content {
 	width: 100%;
 	margin: 1px auto 30px;
-	/* border: 1px solid red; */
+/* border: 1px solid red; */
 }
 
 .clearfix::after {
@@ -43,26 +72,28 @@
 .content .f-main-content {
 	width: 100%;
 	float: left;
+	
 	/* border: 1px solid grey;
 			background: rgb(241, 240, 240); */
 }
 
 .content .f-main-content .post {
+	border: 1px solid rgb(164, 188, 231) !important;
 	width: 97%;
-	height: 200px;
+	height: 185px;
 	margin: 10px auto;
 	background: white;
 	position: relative;
 	box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19);
-	border: 1px solid rgb(224, 224, 224) !important;
+	/* border: 1px solid rgb(224, 224, 224) !important; */
 	
 }
 
 .content .f-main-content .post .post-image {
 	width: 30%;
-	height: 70%;
+	height: 80%;
 	float: left;
-	margin-top: 25px;
+	margin-top: 19px;
 	margin-left: 10px;
 	margin-bottom: auto;
 }

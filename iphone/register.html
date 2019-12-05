@@ -10,6 +10,40 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/register.css">
+
+    <script>
+        function goToSignIn() {
+            document.location.href = "./login.html";
+        }
+
+        function registerUser() {
+            let fName = document.getElementById("txtName").value;
+            let emailId = document.getElementById("txtEmail").value;
+            let passwod = document.getElementById("txtPW").value;
+            let confPasswod = document.getElementById("txtCPW").value;
+            let mobileNo = document.getElementById("txtMB").value;
+
+            if (fName == "") {
+                console.log("missing fname")
+            }
+            else if (emailId == "") {
+                console.log("missing email")
+                
+            } else if (passwod == "") {
+                console.log("missing pw")
+
+            } else if (confPasswod == "") {
+                console.log("missing cpw")
+
+            } else if (mobileNo == "") {
+                console.log("missing mno")
+
+            } else {
+                console.log(fName, emailId, passwod, confPasswod, mobileNo);
+            }
+
+        }
+    </script>
 </head>
 
 <body>
@@ -29,12 +63,13 @@
                     data-clear-btn="true" data-wrapper-class="inputWrapper">
                 <input type="password" name="textPassword" id="txtPW" placeholder="Password*" value=""
                     data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
-                <input type="password" name="textPassword" id="txtPW" placeholder="Confirm Password*" value=""
+                <input type="password" name="textPassword" id="txtCPW" placeholder="Confirm Password*" value=""
                     data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
                 <input type="tel" name="textMobileNo" id="txtMB" placeholder="Mobile No*" value="" data-corners="false"
                     data-clear-btn="true" data-wrapper-class="inputWrapper">
 
-                <button class="reg-btn" data-corners="false" data-shadow="false">AGREE & CREATE ACCOUNT</button>
+                <button class="reg-btn" data-corners="false" data-shadow="false" onclick="registerUser()">AGREE & CREATE
+                    ACCOUNT</button>
             </div>
 
             <div>
@@ -55,7 +90,7 @@
 
 
                 <p class="sign-in-with-text">Already have an account?
-                    <strong class="main-content">Sign in</strong>
+                    <strong class="main-content" onclick="goToSignIn()">Sign in</strong>
                 </p>
 
             </div>

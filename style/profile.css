@@ -47,6 +47,14 @@ li {
     color: slategray;
 }
 
+.arrow-icon:hover {
+    color: rgb(11, 79, 168) !important;
+}
+
+.personal-tab-arrow:hover {
+    color: rgb(11, 79, 168) !important;
+}
+
 
 /* personal data */
 

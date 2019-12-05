@@ -10,7 +10,7 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="../style/cart.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <!-- <script>
         function addToCartClicked(event) {
@@ -30,6 +30,12 @@
 </head>
 
 <body>
+    <div data-role="header" data-position="fixed" class="header-bar">
+        <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
+        <i class="fas fa-chevron-left back-icon"></i>
+        <h1 class="page-detail">Cart</h1>
+    </div>
+
     <div data-role="content" data-theme="a">
         <div class="cart-contonier">
             <div class="main-content">
@@ -37,11 +43,13 @@
                     <img src="../assets/images/favourite/image1.jpeg" alt="" srcset="" class="cart-image">
                     <div class="cart-detail">
                         <p class="cart-category"><b>Sweater</b></p>
-                        <i class="fa fa-close" style="font-size:25px; float: right; margin-top: -43px;"></i>
+                        <i class="fa fa-close close-icon"></i>
                         <h4 class="cart-name">Hooded Sweater</h4>
                         <p class="cart-color">Grey</p>
                         <p class="cart-delivery">Non-Returnable</p>
-                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)"><p style="margin-top: -3px;">Buy</p></button>
+                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)">
+                            <p style="margin-top: -3px;">Buy</p>
+                        </button>
                         <h4 class="cart-price">LKR 2598.00</h4>
                         <div class="qty-container">
                             <!-- <fieldset class="ui-grid-b"><div class="ui-block-a"><button class="ui-btn ui-btn-inline value-btn">-</button></div><div class="ui-block-b"><input type="number" data-corners="false" style="

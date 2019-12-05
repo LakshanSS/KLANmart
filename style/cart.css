@@ -1,4 +1,23 @@
- .cart-contonier {
+.header-bar {
+	background-color: rgb(12, 64, 161) !important; height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left; 
+	margin-top: 20px; 
+	margin-left: 15px; 
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;    
+	letter-spacing: 2px;
+	font-weight: 100; 
+	font-size: 17px; 
+	margin-top: 8px;
+}
+
+.cart-contonier {
      background-color: rgb(255, 255, 255);
      width: 100%;
      margin: 1px auto 30px;
@@ -21,10 +40,12 @@
      width: 97%;
      height: 166px;
      margin: 10px auto;
-     background: rgb(247, 247, 247);
+     /* background: rgb(247, 247, 247); */
+     background: rgb(247, 251, 255);
      position: relative;
      box-shadow: 0 4px 4px 0 rgba(182, 181, 181, 0.2), 0 6px 10px 0 rgba(161, 161, 161, 0.19);
-     border: 1px solid rgb(236, 236, 236) !important;
+     /* border: 1px solid rgb(236, 236, 236) !important; */
+     border: 1px solid rgb(188, 208, 247) !important;
  }
  
  .cart-contonier .main-content .cart .cart-image {
@@ -49,28 +70,31 @@
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-name {
-     margin-top: 5px;
+     margin-top: -10px;
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-color {
      font-size: 12px;
-     margin-top: -15px;
-     font-weight: 500 !important;
+     margin-top: -19px;
+     font-weight: 600;
+     color: rgb(95, 95, 95);
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-delivery {
      font-size: 11px;
-     margin-top: -5px;
+     margin-top: 18px;
+     font-weight: 600;
  }
  
  .cart-contonier .main-content .cart .cart-detail .buy-btn {
-     /* background-color: transparent !important; */
-     /* background-color: rgb(255, 255, 255);
-     border: 1px solid rgb(199, 1, 1) !important;
-     color: rgb(199, 1, 1) !important; */
      background-color: transparent !important;
-     border: 1px solid rgb(22, 69, 158) !important;
-     color: rgb(22, 69, 158) !important;
+     /* border: 1px solid rgb(22, 69, 158) !important; */
+     border: 1px solid rgb(86, 132, 216) !important;
+
+     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease 0s;
+     cursor: pointer;
+     color: rgb(45, 100, 202) !important;
      float: right;
      font-size: 12px;
      margin-top: -29px;
@@ -78,13 +102,16 @@
      width: 88px;
      height: 29px;
      letter-spacing: 1px;
-     border-radius: 5px;
+     border-radius: 12px;
+     font-weight: 300;
  }
  
  .cart-contonier .main-content .cart .cart-detail .buy-btn:hover {
-     background-color: rgb(22, 69, 158) !important;
+     /* border: 1px solid rgb(8, 8, 8) !important; */
+     background-color: rgb(32, 93, 207) !important;
      color: white !important;
      letter-spacing: 1px;
+     opacity: 0.9;
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-price {
@@ -105,12 +132,27 @@
  .inputWrapper {
      width: 40px;
      height: 28px;
-     margin-left: 20px;
+     margin-left: 24px;
      text-align: center;
      font-size: 12px;
+     border: 1px solid rgb(188, 208, 247) !important;
+     text-shadow: 0px !important;
  }
  
  .qty-lable {
      float: left;
      font-size: 12px;
+     font-weight: 600 !important;
+ }
+
+ .close-icon {
+    font-size:21px; 
+    float: right; 
+    margin-top: -43px;
+    color: rgb(145, 144, 144);
+ }
+
+ .close-icon:hover {
+    color: rgb(85, 84, 84);
+    transition: all 0.3s ease 0s;
  }
