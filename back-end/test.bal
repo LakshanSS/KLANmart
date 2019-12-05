@@ -18,6 +18,10 @@ mysql:Client testDB = new({
 type Store record {
     int id;
     string name;
+    string reg_date;
+    string address;
+    string lat;
+    string lng;
 };
 
 @http:ServiceConfig {basePath: "/KLANmart"}
@@ -28,15 +32,24 @@ service orderMgt on httpListener {
             path: "/store/{storeId}"
         }
         resource function findOrder(http:Caller caller, http:Request req, int storeId) {
-            var ret = testDB->select("select store_id, store_name from store where store_id = ?", Store, storeId);
+            var ret = testDB->select("select store_id, store_name, reg_date, address, lat, lng from store where store_id = ?", Store, storeId);
                 var storeName = "-";
+                var reg_date = "-";
+                var address = "-";
+                var lat = "-";
+                var lng = "-";
+
                 var status = "Success";
                 if (ret is table<Store>) {
                     //Iterate each row of the selected data
                     foreach var row in ret {
                         storeName = row.name;
+                        reg_date = row.reg_date;
+                        address = row.address;
+                        lat = row.lat;
+                        lng = row.lng;
                     }
-                    log:printInfo("Store Name: " + storeName);
+                    log:printInfo("Store details: " + storeName + " " + reg_date + " " + address + " " + lat + " " + lng);
 
                 } else if (ret is error) {
                     status = "Error";
@@ -46,7 +59,8 @@ service orderMgt on httpListener {
                 //testDB.stop();
 
             http:Response response = new;
-            json payload = { status: status, storeId: storeId, storeName: storeName };
+            json payload = { status: status, storeId: storeId, storeName: storeName, reg_date: reg_date,
+             address: address, lat: lat, lng: lng};
             // Set the JSON payload in the outgoing response message.
             response.setJsonPayload(untaint payload);
 
