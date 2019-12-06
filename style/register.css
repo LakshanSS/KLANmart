@@ -4,12 +4,33 @@
     margin-right: auto;
 }
 
+.login-container {
+    margin-top: 40px;
+    padding: 20px 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+    border: 1px solid rgb(86, 132, 216) !important;
+}
+
 .inputWrapper {
     border: 1px solid rgb(86, 132, 216) !important;
     color: black;
     font-size: 14px;
     font-weight: 100;
 }
+
+/* .nameWrapper { 
+    width: 47% !important;
+} 
+
+.lname {
+margin-left: 753px;
+margin-top: -60px;
+}
+
+.line-field {
+    width: 100%;
+} */
 
 p {
     text-align: center;
