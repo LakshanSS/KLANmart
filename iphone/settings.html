@@ -7,11 +7,48 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/wallet.css">
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Settings</h1>
-</div>
+<div data-role="page" data-fullscreen="true">
+
+    <div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
+        <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
+        <h1 style="color: rgba(255,255,255,0.9)">My Wallet</h1>
+    </div>
+
+        <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
+            <li>
+                <div class="detail-tab">
+                    <i style="font-size: 19px;" class="fas fa-question-circle shop-detail"></i>
+                    <p><strong class="shopping-info">Dark Theme</strong></p>
+                    <select style="margin-right: 100%" name="switch" id="switch" data-role="slider">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                    <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                </div>
+            </li>
+            <li>
+                <div class="detail-tab">
+                    <i class="fas fa-users shop-detail"></i>
+                    <p><strong class="shopping-info">Font Size</strong></p>
+                    <select name="select-choice-1" id="select-choice-1">
+                        <option value="standard">Small</option>
+                        <option value="rush">Medium</option>
+                        <option value="express">Large</option>
+                    </select>
+                    <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                </div>
+            </li>
+        </ul>
+
+        <div data-role="footer" data-position="fixed">
+        </div>
+
+    </div>
 </body>
 </html>

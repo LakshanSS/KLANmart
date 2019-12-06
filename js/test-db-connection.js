@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     $.ajax({
         url: "http://localhost:9002/KLANmart/store/1"
