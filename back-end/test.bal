@@ -3,6 +3,7 @@ import ballerina/mysql;
 import ballerina/http;
 import ballerina/io;
 
+//Get
 // http://localhost:9002/product/{productId}
 // http://localhost:9002/user/{userId}
 // http://localhost:9002/store/{storeId}
@@ -10,6 +11,11 @@ import ballerina/io;
 // http://localhost:9002/orders/{userId}
 // http://localhost:9002/products/{storeId}
 // http://localhost:9002/favourites/{userId}
+
+//Post
+// http://localhost:9002/KLANmart/user
+// Ex: curl -v -X POST -d '{ "User": { "email": "jackie@gmail.com", "password": "123123", "join_date": "2019-03-10", "gender": "M", "address": "12, Green Lane, Colombo-04", "f_name": "Jackie", "l_name": "Chan", "mobile_no": "+94744584753" }}' "http://localhost:9002/KLANmart/user" -H "Content-Type:application/json"
+
 
 //Port 9002
 listener http:Listener httpListener = new(9002);
@@ -296,6 +302,60 @@ service klanmart_service on httpListener {
         var result = caller->respond(response);
         if (result is error) {
             log:printError("Error sending response", err = result);
+        }
+    }
+
+    //Post methods
+
+    //1. Add a user
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/user"
+    }
+    resource function addUser(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var userData = req.getJsonPayload();
+        io:println(userData);
+        if (userData is json) {
+            string email = userData.User.email.toString();
+            string password = userData.User.password.toString();
+            string join_date = userData.User.join_date.toString();
+            string gender = userData.User.gender.toString();
+            string address = userData.User.address.toString();
+            string f_name = userData.User.f_name.toString();
+            string l_name = userData.User.l_name.toString();
+            string mobile_no = userData.User.mobile_no.toString();
+
+            json payload = { status: "success", message: "user added" };
+
+            var ret = testDB->update(
+                                  "INSERT INTO user(email, password, join_date, gender, address, f_name, l_name, mobile_no) values (?, ?, ?, ?, ?, ?, ?, ?)"
+                                  , email, password, join_date, gender, address, f_name, l_name,
+                                  mobile_no);
+
+            if (ret is error) {
+                io:println(" Failed: " + <string>ret.detail().message);
+                payload.status = "failed";
+                payload.message = "error";
+            } else {
+                io:println("Success: added user to the KLANmart DB");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
         }
     }
 }
