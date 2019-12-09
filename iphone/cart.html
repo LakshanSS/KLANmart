@@ -40,6 +40,8 @@
         <div class="cart-contonier">
             <div class="main-content">
                 <div class="cart">
+                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector" data-shadow="false" data-cacheval="true"
+                    style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
                     <img src="../assets/images/favourite/image1.jpeg" alt="" srcset="" class="cart-image">
                     <div class="cart-detail">
                         <p class="cart-category"><b>Sweater</b></p>
@@ -48,9 +50,11 @@
                         <p class="cart-color">Grey</p>
                         <p class="cart-delivery">Non-Returnable</p>
                         <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)">
-                            <p style="margin-top: -3px;">Buy</p>
+                            <p style="margin-top: -14px;">Buy</p>
                         </button>
-                        <h4 class="cart-price">LKR 2598.00</h4>
+                        <h5 class="cart-price"><i class="fas fa-tags"
+                                style="font-size: 11px; margin-right: 3px; margin-top: -6px; color: rgb(141, 141, 141);"></i>LKR
+                            2598.00</h5>
                         <div class="qty-container">
                             <!-- <fieldset class="ui-grid-b"><div class="ui-block-a"><button class="ui-btn ui-btn-inline value-btn">-</button></div><div class="ui-block-b"><input type="number" data-corners="false" style="
                             margin-top: 7px;" data-wrapper-class="inputWrapper"></div><div class="ui-block-c"><button class="ui-btn ui-btn-inline value-btn">+</button></div>
@@ -59,11 +63,34 @@
                             <input type="number" data-corners="false" data-wrapper-class="inputWrapper">
                         </div>
                     </div>
+                    <p class="shipping-detail">Free Shipping</p>
                 </div>
             </div>
         </div>
     </div>
+    <div data-role="footer" data-position="fixed" role="banner">
+        <div class="all-buy-btn">
+            <div class="all-select-section"><input type="checkbox" name="checkbox-2a" id="checkbox-2a"
+                 style="cursor: pointer;margin-top: 16px;">
+                <p class="all-select">All</p>
+            </div>
+            <div class="buy-area">
+                <p class="total-price">LKR 0.00</p>
+                <button class="buy-btn" data-corners="false" data-shadow="false" onclick=""><p style="margin-top: -4px;">BUY(0)</p></button>
+            </div>
+        </div>
 
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+            style="height: 32px !important; margin: 0 0;">
+            <ul>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 

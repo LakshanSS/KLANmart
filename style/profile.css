@@ -100,11 +100,12 @@ li {
 /* profile-navbar */
 
 .profile-nav {
+    margin-top: -3px;
     width: 95%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: white !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 a {
@@ -114,19 +115,19 @@ a {
     border: 1px solid rgb(224, 240, 253) !important;
 }
 
-a:hover {
+/* a:hover {
     background-color: steelblue !important;
     color: white !important;
     border-color: none !important;
     border: none !important;
-}
+} */
 
-a:active {
+/* a:active {
     background-color: white !important;
     color: black !important;
     border-color: white !important;
     border: none !important;
-}
+} */
 
 
 /* other details */
@@ -144,4 +145,27 @@ a:active {
 
 .shop-detail-tab {
     margin-top: 65px;
+}
+
+/* navigation bar */
+
+.ui-btn {
+    line-height: 2.3 !important;
+    font-family: sans-serif;
+    font-size: 15px !important;
+	background-color: white !important;
+}
+
+.ui-btn-active {
+    background-color: white !important;
+    color: rgb(21, 98, 146) !important;
+    text-shadow: none !important;
+    border-color: none !important;
+    border-right-width: 1px !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-top-color: rgb(51, 136, 204) !important;
+    border-right-color: rgb(51, 136, 204) !important;
+    border-bottom-color: none !important;
+    border-left-color:none !important;
 }

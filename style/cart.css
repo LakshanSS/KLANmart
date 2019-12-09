@@ -37,8 +37,8 @@
  }
  
  .cart-contonier .main-content .cart {
-     width: 97%;
-     height: 166px;
+     width: 100%;
+     height: 169px;
      margin: 10px auto;
      /* background: rgb(247, 247, 247); */
      background: rgb(247, 251, 255);
@@ -47,26 +47,40 @@
      /* border: 1px solid rgb(236, 236, 236) !important; */
      border: 1px solid rgb(188, 208, 247) !important;
  }
+ .cart-contonier .main-content .cart .selector {
+     /* margin-top: 520p; */
+     background-color: white !important;
+     /* width: 2%; */
+     /* border: 1px solid rgb(7, 56, 56) !important; */
+ }
+
+ .ui-checkbox, .ui-radio {
+    margin: 0 0 !important;
+
+
+}
  
  .cart-contonier .main-content .cart .cart-image {
      width: 30%;
-     height: 80%;
+     height: 82%;
      float: left;
-     margin-top: 14px;
-     margin-left: 10px;
+     margin-top: 6px;
+     margin-left: 28px;
      margin-bottom: auto;
      border: 1px solid rgb(190, 189, 189) !important;
  }
  
  .cart-contonier .main-content .cart .cart-detail {
-     width: 60%;
-     padding: 10px;
+     width: 56%;
+     padding: 9px;
      float: right;
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-category {
      font-size: 12px;
-     color: rgb(95, 95, 95);
+     color: rgb(95, 95, 95);     
+     margin-top: 10px;
+
  }
  
  .cart-contonier .main-content .cart .cart-detail .cart-name {
@@ -90,7 +104,6 @@
      background-color: transparent !important;
      /* border: 1px solid rgb(22, 69, 158) !important; */
      border: 1px solid rgb(86, 132, 216) !important;
-
      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
      transition: all 0.3s ease 0s;
      cursor: pointer;
@@ -98,9 +111,9 @@
      float: right;
      font-size: 12px;
      margin-top: -29px;
-     margin-right: 5px;
-     width: 88px;
-     height: 29px;
+     margin-right: 0px;
+     width: 87px;
+     height: 28px;
      letter-spacing: 1px;
      border-radius: 12px;
      font-weight: 300;
@@ -117,8 +130,9 @@
  .cart-contonier .main-content .cart .cart-detail .cart-price {
      float: right;
      padding: 2px;
-     margin-right: -90px;
+     margin-right: -92px;
      margin-top: 9px;
+     font-weight: 600;
  }
  
  .qty-container {
@@ -148,7 +162,7 @@
  .close-icon {
     font-size:21px; 
     float: right; 
-    margin-top: -43px;
+    margin-top: -40px;
     color: rgb(145, 144, 144);
  }
 
@@ -156,3 +170,102 @@
     color: rgb(85, 84, 84);
     transition: all 0.3s ease 0s;
  }
+
+ .shipping-detail {
+    font-size: 11px;
+    width: 30%;
+    margin-left: 31px;
+    text-align: center;
+    margin-top: 150px;
+    color: rgb(10, 71, 128);
+    font-weight: 100;
+}
+
+
+/* footer */
+
+.all-buy-btn {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255) !important; height: 50px !important;
+    border: 1px solid rgb(244, 245, 245) !important;
+    margin: 0 0;
+    width: 100%;
+    padding: 0 0;
+}
+
+.all-buy-btn .all-select-section {
+    width: 14%;float: left;margin-left: 16px;
+}
+
+.all-select {
+    margin-top: 16px;
+    margin-left: 36px;
+    font-weight: 100;
+}
+
+.buy-area {
+    width: 60%;
+    float: right;
+    margin: 0 0;
+}
+.total-price {
+    margin: 0 0;
+    margin-top: 16px;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.all-buy-btn .buy-btn {
+    width: 20%;
+    float: right;
+    height: 50px !important;
+    margin: 0 0;
+    margin-top: -37px;
+    width: 110px !important;
+    background-color: rgb(44, 104, 216) !important;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 200;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+}
+
+.all-buy-btn .buy-btn:hover {
+    background-color: rgb(23, 79, 184) !important;
+    color: white;
+}
+
+.fa-tags:hover {
+    transition: all 0.3s ease 0s;
+    color: rgb(107, 107, 107) !important;
+}
+
+.ui-checkbox {
+    background-color: white !important;
+} 
+
+/* navigation bar */
+
+.ui-btn {
+    line-height: 2.3 !important;
+    font-family: sans-serif;
+    font-size: 15px !important;
+    background-color: white !important;
+}
+
+.ui-btn-active {
+    background-color: white !important;
+    color: rgb(21, 98, 146) !important;
+    text-shadow: none !important;
+    border-color: none !important;
+    border-right-width: 1px !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-top-color: rgb(51, 136, 204) !important;
+    border-right-color: rgb(51, 136, 204) !important;
+    border-bottom-color: none !important;
+    border-left-color:none !important;
+}
