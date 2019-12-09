@@ -10,8 +10,201 @@
 </head>
 
 <body>
-<div data-role="content" data-theme="a">
-    <h1>Categories</h1>
+<div data-role="page" id="pageone">
+    <div data-role="header" data-postion="fixed" style="background-color:hsl(240, 70%, 22%)">
+        <table>
+            <tr>
+                <td><a class="brand" href="#" style="margin-left: 0%"><img src="../assets/logo/logo-blue.png"
+                                                                           width="150" height="60"
+                                                                           class="d-inline-block align-top navbar-collapse"
+                                                                           alt=""></a></td>
+                <td><a class="brand" href="#" style="margin-left: 100%"></a><img src="../assets/icons/grid.png"
+                                                                                 style="margin-top: 20px; margin-right: 0%"
+                                                                                 width="30px" height="30px"
+                                                                                 class="d-inline-block align-top navbar-collapse"
+                                                                                 alt=""></td>
+
+
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width: 100%"><input type="search" placeholder="Search.."></td>
+                <td><img src="../assets/icons/camera.png" width="30px" height="30px"
+                         class="d-inline-block align-top navbar-collapse" alt=""></td>
+                <td><img src="../assets/icons/qr.png" width="30px" height="30px"
+                         class="d-inline-block align-top navbar-collapse" alt=""></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div data-role="content" data-theme="a">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #f1f1f1;
+                padding: 20px;
+                font-family: Arial;
+            }
+
+            /* Center website */
+            .main {
+                max-width: 1000px;
+                margin: auto;
+            }
+
+            h1 {
+                font-size: 50px;
+                word-break: break-all;
+            }
+
+            .row {
+                margin: 8px -16px;
+            }
+
+            /* Add padding BETWEEN each column */
+            .row,
+            .row > .column {
+                padding: 8px;
+            }
+
+            /* Create four equal columns that floats next to each other */
+            .column {
+                float: left;
+                width: 25%;
+            }
+
+            /* Clear floats after rows */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Content */
+            .content {
+                background-color: white;
+                padding: 10px;
+            }
+
+            /* Responsive layout - makes a two column-layout instead of four columns */
+            @media screen and (max-width: 900px) {
+                .column {
+                    width: 50%;
+                }
+            }
+
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .column {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <h2>All Categories</h2>
+
+        <!-- MAIN (Center website) -->
+        <div class="main">
+
+            <div class="row">
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Baby's.webp" alt="" style="width:100%">
+                        <h3>Baby's</h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <img src="../assets/images/Categories/Watches.jpg" alt="" style="width:100%">
+                    <h3>Watches</h3>
+
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Children's.webp" alt="" style="width:100%">
+                        <h3>Children's</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Cosmetics.jpg" alt="" style="width:100%">
+                        <h3>Cosmetics</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Electronics.webp" alt="" style="width:100%">
+                        <h3>Electronics</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/jewelry-1836088__480.jpg" alt="" style="width:100%">
+                        <h3>Jewellery</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Men's.webp" alt="" style="width:100%">
+                        <h3>Men's</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Shoes.jpg" alt="" style="width:100%">
+                        <h3>Shoes</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Swim-wear.jpg" alt="" style="width:100%">
+                        <h3>Swim wear</h3>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="../assets/images/Categories/Watches.jpg" alt="" style="width:100%">
+                        <h3>Watches</h3>
+
+                    </div>
+                </div>
+                <!-- END GRID -->
+            </div>
+
+
+            <!-- END MAIN -->
+        </div>
+
+
+    </div>
+
+    <div data-role="footer" data-postion="fixed"
+         style="bottom:0; position:absolute !important; top: auto !important; width:100%;">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="home" class="ui-btn-active">Home</a></li>
+                <li><a href="#" data-icon="heart">Favourites</a></li>
+                <li><a href="#" data-icon="mail">Messages</a></li>
+                <li><a href="#" data-icon="shop">Cart</a></li>
+                <li><a href="#" data-icon="user">Profile</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div>
 </div>
 </body>
 </html>
