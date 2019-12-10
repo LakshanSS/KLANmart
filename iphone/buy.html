@@ -11,13 +11,16 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src = "https://checkout.stripe.com/checkout.js" ></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+
+
 
 </head>
 
 <body>
-<div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
-    <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
-    <h1 style="color: rgba(255,255,255,0.9)">Order confirmation</h1>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Order Information</h1>
 </div>
 <div id="allContent">
 <div id="customerDetails" data-role="content" data-theme="a">
@@ -41,7 +44,7 @@
         </a>
     </div>
 </div>
-    
+
 <div id="productDetails" style="margin-top: 2%" data-role="content" data-theme="a">
     <div id="prodNameH">
         <div id="leftprodH">
