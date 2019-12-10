@@ -16,6 +16,7 @@ import ballerina/io;
 //Post
 // http://localhost:9002/KLANmart/user
 // Ex: curl -v -X POST -d '{ "User": { "email": "jackie@gmail.com", "password": "123123", "join_date": "2019-03-10", "gender": "M", "address": "12, Green Lane, Colombo-04", "f_name": "Jackie", "l_name": "Chan", "mobile_no": "+94744584753" }}' "http://localhost:9002/KLANmart/user" -H "Content-Type:application/json"
+// Ex: curl -v -X POST -d '{ "User": { "email": "jackie@gmail.com", "password": "123123"}}' "http://localhost:9002/KLANmart/login" -H "Content-Type:application/json"
 
 
 //Port 9002
@@ -384,6 +385,64 @@ service klanmart_service on httpListener {
             // Create response message.
             response.setJsonPayload(untaint payload);
 
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
+
+    //2. Login
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/login"
+    }
+    resource function login(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var userData = req.getJsonPayload();
+        io:println("Login: Input credintials are");
+        io:println(userData);
+        if (userData is json) {
+            string email = userData.User.email.toString();
+            string password = userData.User.password.toString();
+
+            json payload = { status: "success", message: "login success" };
+
+            var ret = testDB->select("select * from user where email = ?", (), email);
+
+            if (ret is table< record {} >) {
+                var jsonConversionRet = json.convert(ret);
+                if (jsonConversionRet is json) {
+                    if (jsonConversionRet.length() == 0) {
+                        payload.status = "failed";
+                        payload.message = "invalid email";
+                    } else if (jsonConversionRet[0].password === password) {
+                        payload.status = "success";
+                        payload.message = "valid";
+                        payload.data = jsonConversionRet[0];
+                    } else {
+                        payload.status = "failed";
+                        payload.message = "invalid password";
+                    }
+                } else {
+                    payload.status = "failed";
+                    payload.message = "error in converting result into json";
+                }
+            } else {
+                payload.status = "failed";
+                payload.message = "result is not in a table format";
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
             // Send response to the client.
             var result = caller->respond(response);
             if (result is error) {
