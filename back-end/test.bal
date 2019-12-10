@@ -314,7 +314,9 @@ service klanmart_service on httpListener {
     }
     resource function getReviewsOfProduct(http:Caller caller, http:Request req, int productId) {
         //Select query
-        var ret = testDB->select("select * from review where product_id = ?", (), productId);
+        var ret = testDB->select("select review.review_id, review.comment, review.desc_rating, review.comm_rating,
+         review.delivery_rating, user.f_name, user.l_name from review inner join user on review.user_id=user.user_id
+         where product_id = ?", (), productId);
 
         //Initialising the payload and response
         json payload = { status: "success" };
