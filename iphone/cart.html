@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <style>
+
+    </style>
     <!-- <script>
         function addToCartClicked(event) {
             var button = event.target
@@ -40,8 +43,9 @@
         <div class="cart-contonier">
             <div class="main-content">
                 <div class="cart">
-                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector" data-shadow="false" data-cacheval="true"
-                    style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
+                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
+                        data-shadow="false" data-cacheval="true"
+                        style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
                     <img src="../assets/images/favourite/image1.jpeg" alt="" srcset="" class="cart-image">
                     <div class="cart-detail">
                         <p class="cart-category"><b>Sweater</b></p>
@@ -59,8 +63,20 @@
                             <!-- <fieldset class="ui-grid-b"><div class="ui-block-a"><button class="ui-btn ui-btn-inline value-btn">-</button></div><div class="ui-block-b"><input type="number" data-corners="false" style="
                             margin-top: 7px;" data-wrapper-class="inputWrapper"></div><div class="ui-block-c"><button class="ui-btn ui-btn-inline value-btn">+</button></div>
                             </fieldset> -->
-                            <p class="qty-lable">qty</p>
-                            <input type="number" data-corners="false" data-wrapper-class="inputWrapper">
+                            <!-- <p class="qty-lable">qty</p>
+                            <input type="number" data-corners="false" data-wrapper-class="inputWrapper"> -->
+                            <!-- <button class="minus-btn" data-corners="false" data-shadow="false" onclick="">
+                                <p style="margin-top: -19px; margin-left: -2px;">-</p>
+                            </button> -->
+                            <!-- <span class="minus-bg-dark"><p style="margin-top: -3px; margin-left: 4px;">-</p></span> -->
+                            <i class="fas fa-minus-circle"></i>
+                            <input type="number" data-corners="false" data-wrapper-class="qty-space">
+                            <!-- <span class="plus-bg-dark"><p style="margin-top: -1px;">+</p></span> -->
+                            <i class="fas fa-plus-circle"></i>
+
+                            <!-- <button class="minus-btn" data-corners="false" data-shadow="false" onclick="">
+                                <p style="margin-top: -19px; margin-left: -2px;">+</p>
+                            </button> -->
                         </div>
                     </div>
                     <p class="shipping-detail">Free Shipping</p>
@@ -70,13 +86,15 @@
     </div>
     <div data-role="footer" data-position="fixed" role="banner">
         <div class="all-buy-btn">
-            <div class="all-select-section"><input type="checkbox" name="checkbox-2a" id="checkbox-2a"
-                 style="cursor: pointer;margin-top: 16px;">
+            <div class="all-select-section"><input type="checkbox" name="checkbox-2a" id="checkbox-2a" style="cursor: pointer;margin-top: 16px;
+                    margin-bottom: 0px !important;">
                 <p class="all-select">All</p>
             </div>
             <div class="buy-area">
                 <p class="total-price">LKR 0.00</p>
-                <button class="buy-btn" data-corners="false" data-shadow="false" onclick=""><p style="margin-top: -4px;">BUY(0)</p></button>
+                <button class="buy-btn" data-corners="false" data-shadow="false" onclick="">
+                    <p style="margin-top: -4px;">BUY(0)</p>
+                </button>
             </div>
         </div>
 
@@ -86,7 +104,8 @@
                 <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
                 <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
                 <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                </li>
                 <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
             </ul>
         </div>

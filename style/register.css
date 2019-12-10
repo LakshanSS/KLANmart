@@ -2,6 +2,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -3px;
 }
 
 .login-container {
@@ -55,6 +56,11 @@ input[type=tel] {
 
 input[type=text] {
     padding: 8px 15px;
+    margin: 8px 0;
+}
+
+textarea {
+    padding: 12px 15px;
     margin: 8px 0;
 }
 
@@ -151,4 +157,24 @@ input[type=text] {
 
 i {
     margin-left: 10px;
+}
+
+.signup-welcome {
+    font-size: 14px;
+    letter-spacing: 1px;
+    /* float: left; */
+    font-weight: 600;
+    color: rgb(8, 61, 121);
+    margin-bottom: 3px;
+    margin-top: 0px;
+}
+
+.welcome-txt {
+    font-size: 20px;
+    letter-spacing: 1px;
+    /* float: left; */
+    font-weight: 600;
+    color: rgb(1, 13, 27);
+    margin-bottom: 0px;
+    margin-top: 0px;
 }

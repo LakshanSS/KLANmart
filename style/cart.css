@@ -98,6 +98,7 @@
      font-size: 11px;
      margin-top: 18px;
      font-weight: 600;
+     color: rgb(66, 66, 66);
  }
  
  .cart-contonier .main-content .cart .cart-detail .buy-btn {
@@ -136,7 +137,9 @@
  }
  
  .qty-container {
-     width: 25%;
+     margin-top: 7px;
+     width: 32%;
+     display: inline-flex;
  }
  
  input[type=number] {
@@ -268,4 +271,59 @@
     border-right-color: rgb(51, 136, 204) !important;
     border-bottom-color: none !important;
     border-left-color:none !important;
+}
+
+
+/* .minus-btn {
+    height: 15px !important;
+    width: 10px !important;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin: 0 0 0 0;
+} */
+
+.qty-space{
+    height: 20px !important;
+    width: 125px !important;
+    margin-top: 0px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    border: 1px solid rgb(98, 180, 207);
+
+}
+
+.minus-bg-dark {
+    padding: 2px 2px;
+    background: white;
+    border: 1px solid rgb(98, 180, 207);
+    height: 16px;
+}
+
+.plus-bg-dark {
+    padding: 1px 2px;
+    background: white;
+    border: 1px solid rgb(98, 180, 207);
+    height: 18px;
+}
+
+.fa-minus-circle {
+    margin-top: 4px;
+    margin-right: 4px;
+    color: rgb(105, 105, 105);
+    font-size: 13px;
+}
+
+.fa-plus-circle {
+    margin-top: 4px;
+    margin-left: 4px;
+    color: rgb(105, 105, 105);
+    font-size: 13px;
+}
+
+.fa-minus-circle:hover {
+    color: rgb(51, 51, 51);
+}
+
+.fa-plus-circle:hover {
+    color: rgb(51, 51, 51);
 }

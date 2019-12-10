@@ -20,6 +20,14 @@
             function skip() {
                 document.location.href = "./register.html";
             }
+
+            function firstSlide() {
+                document.location.href = "./introductoryPage01.html";
+            }
+
+            function secondSlide() {
+                document.location.href = "./introductoryPage02.html";
+            }
         </script>
 
 </head>
@@ -38,9 +46,9 @@
         <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToRegister()">REGISTER <i
                 class="fas fa-caret-right"></i></button>
         <div style="text-align:center; margin-top: 45px;">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="selected-dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="firstSlide()"></span>
+            <span class="dot" onclick="secondSlide()"></span>
+            <span class="selected-dot"></span>
         </div>
         <!-- </div> -->
 

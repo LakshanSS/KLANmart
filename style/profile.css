@@ -28,7 +28,7 @@ li {
 }
 
 .name-tab {
-    height: 65px;
+    height: 85px;
     margin-bottom: 15px;
     padding: 4px 12px;
     background-color: rgb(255, 255, 255);
@@ -39,15 +39,26 @@ li {
 .profile-icon {
     width: 18%;
     float: left;
-    font-size: 55px;
+    font-size: 59px;
     padding: 10px;
-    margin-top: -6px;
+    margin-top: 2px;
     color: rgb(201, 200, 200);
+}
+
+.info {
+    /* width: 60%; */
 }
 
 .user-name {
     font-size: 21px;
     float: left;
+    margin-top: 28px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+
+.email-display {
+
 }
 
 .detail-tab {
@@ -61,7 +72,7 @@ li {
 
 .arrow-icon {
     float: right;
-    margin-top: 21px;
+    margin-top: 28px;
     font-size: 25px;
     color: slategray;
 }
@@ -87,7 +98,7 @@ li {
     float: right;
     font-size: 15px;
     color: slategray;
-    margin-right: 45px;
+    margin-right: 4px;
 }
 
 .personal-tab-arrow {
@@ -144,7 +155,7 @@ a {
 }
 
 .shop-detail-tab {
-    margin-top: 65px;
+    margin-top: 60px;
 }
 
 /* navigation bar */

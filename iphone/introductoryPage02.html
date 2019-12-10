@@ -19,6 +19,14 @@
         function skip() {
             document.location.href = "./register.html";
         }
+
+        function firstSlide() {
+            document.location.href = "./introductoryPage01.html";
+        }
+
+        function thirdSlide() {
+            document.location.href = "./introductoryPage03.html";
+        }
     </script>
 
 </head>
@@ -37,9 +45,9 @@
         <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToStepThree()">NEXT <i
                 class="fas fa-caret-right"></i></button>
         <div style="text-align:center; margin-top: 41px;">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="selected-dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="firstSlide()"></span>
+            <span class="selected-dot"></span>
+            <span class="dot" onclick="thirdSlide()"></span>
         </div>
         <!-- </div> -->
 

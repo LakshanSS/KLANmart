@@ -23,6 +23,7 @@
             let passwod = document.getElementById("txtPW").value;
             let confPasswod = document.getElementById("txtCPW").value;
             let mobileNo = document.getElementById("txtMB").value;
+            let shippingAddress = document.getElementById("txtAddress").value;
 
             if (fName == "") {
                 console.log("missing fname")
@@ -42,11 +43,37 @@
             } else if (mobileNo == "") {
                 console.log("missing mno")
 
+            } else if (shippingAddress == "") {
+                console.log("missing mno")
+
             } else {
-                console.log(fName, lName, emailId, passwod, confPasswod, mobileNo);
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                today = yyyy + '-' + dd + '-' + mm;
+
+                console.log(fName, lName, emailId, passwod, confPasswod, mobileNo, shippingAddress);
+                let jsonData = {
+                    "User": {
+                        "email": emailId, "password": passwod, "join_date": today, "gender": "M",
+                        "address": shippingAddress, "f_name": fName, "l_name": lName, "mobile_no": mobileNo
+                    }
+                };
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert(this.responseText);
+                    }
+                };
+                xhttp.open("POST", "http://localhost:9002/KLANmart/user", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
             }
 
         }
+
     </script>
 </head>
 
@@ -56,52 +83,73 @@
         </div>
 
         <div data-role="content" data-theme="a">
+            <!-- <a href="#theme" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Theme A</a>
+            <div id="theme" data-role="popup" data-theme="a" class="ui-content">
+                  <p>I have <code>data-theme="a"</code> set on me</p>
+            </div> -->
             <div>
-                <img src="../assets/logo/logo-blue.png" style="width:65%;" class="logo-image">
+                <img src="../assets/logo/logo-blue.png" style="width:55%;" class="logo-image">
+            </div>
+            <!-- <hr> -->
+            <!-- <p class="welcome-txt">WELCOME</p> -->
+            <p class="signup-welcome">Sign up and start Shopping</p>
+            <!-- <div class="login-container"> -->
+            <!-- <p style="font-size: 15px;">Register</p> -->
+            <div class="ui-field-contain" style="margin-top: -8px;">
+                <!-- <div class="line-field">
+                    <input type="text" name="textName" id="txtFName" placeholder="First Name*" value=""
+                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper nameWrapper">
+                    <input type="text" name="textName" id="txtLName" placeholder="Last Name*" value=""
+                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper nameWrapper lname">
+                </div> -->
+                <fieldset class="ui-grid-a" style="
+                margin-bottom: -7px;">
+                    <div class="ui-block-a"><input type="text" name="textName" id="txtFName" placeholder="First Name*"
+                            value="" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"></div>
+                    <div class="ui-block-b"><input type="text" name="txtLName" id="txtLName" placeholder="Last Name*"
+                            value="" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"></div>
+                </fieldset>
+
+                <input type="email" name="textEmail" id="txtEmail" placeholder="Email*" value="" data-corners="false"
+                    data-clear-btn="true" data-wrapper-class="inputWrapper">
+                <input type="password" name="textPassword" id="txtPW" placeholder="Password*" value=""
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+                <input type="password" name="textPassword" id="txtCPW" placeholder="Confirm Password*" value=""
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+                <input type="tel" name="textMobileNo" id="txtMB" placeholder="Mobile No*" value="" data-corners="false"
+                    data-clear-btn="true" data-wrapper-class="inputWrapper">
+                <textarea cols="40" rows="3" data-corners="false" data-clear-btn="true" name="txtAreaAddress"
+                    id="txtAddress" placeholder="Shipping address*" data-wrapper-class="inputWrapper"
+                    style="height: 47px;padding-top: 17px;padding-left: 14px;"></textarea>
+
+
+                <button class="reg-btn" data-corners="false" data-shadow="false" onclick="registerUser();">AGREE &
+                    CREATE
+                    ACCOUNT
+                </button>
+
+                <!-- <div class="popup" onclick="">
+                    <span class="popuptext" id="myPopup">A Simple Popup!</span>
+                </div> -->
             </div>
 
-            <!-- <div class="login-container"> -->
-                <!-- <p style="font-size: 15px;">Register</p> -->
-                <div class="ui-field-contain" style="margin-top: -8px;">
-                    <div class="line-field">
-                        <input type="text" name="textName" id="txtFName" placeholder="First Name*" value=""
-                            data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper nameWrapper">
-                        <input type="text" name="textName" id="txtLName" placeholder="Last Name*" value=""
-                            data-corners="false" data-clear-btn="true"
-                            data-wrapper-class="inputWrapper nameWrapper lname">
-                    </div>
+            <div>
+                <P class="aggrement-text">By registering for an KLANmart account, you agree that you have read and
+                    accepted out<strong class="main-content"> KLANmart Free Membership Agreement</strong> and
+                    <strong class="main-content">Privacy Policy</strong>.</P>
+            </div>
 
-                    <input type="email" name="textEmail" id="txtEmail" placeholder="Email*" value=""
-                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
-                    <input type="password" name="textPassword" id="txtPW" placeholder="Password*" value=""
-                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
-                    <input type="password" name="textPassword" id="txtCPW" placeholder="Confirm Password*" value=""
-                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
-                    <input type="tel" name="textMobileNo" id="txtMB" placeholder="Mobile No*" value=""
-                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+            <div>
+                <p class="sign-up-with-text"><strong>OR</strong></p>
 
-                    <button class="reg-btn" data-corners="false" data-shadow="false" onclick="registerUser()">AGREE &
-                        CREATE
-                        ACCOUNT</button>
-                </div>
+                <button class="ui-btn ui-mini sign-face-book-btn">
+                    <i class="fa fa-facebook fa-fw"></i>
+                    &nbsp; Sign Up with Facebook</button>
+                <button class="ui-btn ui-mini sign-google-acc-btn">
+                    <i class="fa fa-google fa-fw">
+                    </i> &nbsp; Sign Up with Google</button>
 
-                <div>
-                    <P class="aggrement-text">By registering for an KLANmart account, you agree that you have read and
-                        accepted out<strong class="main-content"> KLANmart Free Membership Agreement</strong> and
-                        <strong class="main-content">Privacy Policy</strong>.</P>
-                </div>
-
-                <div>
-                    <p class="sign-up-with-text"><strong>OR</strong></p>
-
-                    <button class="ui-btn ui-mini sign-face-book-btn">
-                        <i class="fa fa-facebook fa-fw"></i>
-                        &nbsp; Sign Up with Facebook</button>
-                    <button class="ui-btn ui-mini sign-google-acc-btn">
-                        <i class="fa fa-google fa-fw">
-                        </i> &nbsp; Sign Up with Google</button>
-
-                </div>
+            </div>
             <!-- </div> -->
             <p class="sign-in-with-text">Already have an account?
                 <strong class="main-content" onclick="goToSignIn()">Sign in</strong>
