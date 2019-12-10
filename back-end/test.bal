@@ -11,6 +11,7 @@ import ballerina/io;
 // http://localhost:9002/orders/{userId}
 // http://localhost:9002/products/{storeId}
 // http://localhost:9002/favourites/{userId}
+// http://localhost:9002/reviews/{productId}
 
 //Post
 // http://localhost:9002/KLANmart/user
@@ -274,6 +275,45 @@ service klanmart_service on httpListener {
     resource function getFavouritesOfUser(http:Caller caller, http:Request req, int userId) {
         //Select query
         var ret = testDB->select("select product_id from favourites where user_id = ?", (), userId);
+
+        //Initialising the payload and response
+        json payload = { status: "success" };
+        http:Response response = new;
+
+        if (ret is table< record {} >) {
+            var jsonConversionRet = json.convert(ret);
+            io:println(io:sprintf("%s", jsonConversionRet));
+
+            if (jsonConversionRet is json) {
+                payload.result = jsonConversionRet;
+            } else {
+                payload.status = "failed";
+                payload.message = "error in converting result into json";
+            }
+
+        } else {
+            payload.status = "failed";
+            payload.message = "result is not in a table format";
+        }
+
+        // Set the JSON payload in the outgoing response message.
+        response.setJsonPayload(untaint payload);
+
+        // Send response to the client.
+        var result = caller->respond(response);
+        if (result is error) {
+            log:printError("Error sending response", err = result);
+        }
+    }
+
+    //8. Get reviews about a product by giving product_id
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/reviews/{productId}"
+    }
+    resource function getReviewsOfProduct(http:Caller caller, http:Request req, int productId) {
+        //Select query
+        var ret = testDB->select("select * from review where product_id = ?", (), productId);
 
         //Initialising the payload and response
         json payload = { status: "success" };
