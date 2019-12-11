@@ -3,6 +3,10 @@ h3, h4, p {
 	margin: 0;
 }
 
+.loaderText{
+	margin-left: 50px !important;
+}
+
 .rwd-example .ui-body {
 	text-align: left;
 	border-color: #ddd;
