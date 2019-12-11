@@ -10,48 +10,41 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src = "https://checkout.stripe.com/checkout.js" ></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+
+
+
 </head>
 
 <body>
-<div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
-    <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
-    <h1 style="color: rgba(255,255,255,0.9)">Order confirmation</h1>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Order Information</h1>
 </div>
+<div id="allContent">
 <div id="customerDetails" data-role="content" data-theme="a">
     <div id="leftThing">
         <i class="glyphicon glyphicon-map-marker"></i>
     </div>
     <div id="content">
         <ul data-role="listview">
-            <li><h6>Kumar Sangakkara</h6><p>51/5b, Kawdana road,</p>
-                <p>Dehiwala </p>
+            <li>
+                <h6 id="custName">Kumar Sangakkara</h6>
+                <p id="custAddressRoad">51/5b, Kawdana road,</p>
+                <p id="custAddress">Dehiwala </p>
                 <p>Western, LK </p>
                 <p>10350. </p>
                 <p>0770727311 </p></li>
         </ul>
     </div>
     <div id="rightThing">
-        <a href="#">
+        <a id="editAddress" href="#popupBasic" data-rel="popup"  data-transition="pop">
             <span class="glyphicon glyphicon-edit"></span>
         </a>
     </div>
 </div>
-<div id="cardDetails" style="margin-top: 2%"  data-role="content" data-theme="a">
-    <div id="leftThing2">
-        <i class="glyphicon glyphicon-credit-card"></i>
-    </div>
-    <div id="content2">
-        <ul data-role="listview" >
-            <li><h6>421645*******3421</h6><p>Your order will be proceed in LKR</p>
 
-        </ul>
-    </div>
-    <div id="rightThing2">
-        <a href="#">
-            <span class="glyphicon glyphicon-edit"></span>
-        </a>
-    </div>
-</div>
 <div id="productDetails" style="margin-top: 2%" data-role="content" data-theme="a">
     <div id="prodNameH">
         <div id="leftprodH">
@@ -130,6 +123,63 @@
     </div>
 </div>
 
+    <div style="margin-top: 20%;align-content: center" data-role="popup" id="popupBasic" data-overlay-theme="a" data-theme="a" data-dismissible="false" data-position-to="window" style="max-width:400px;" align="center">
+        <div data-role="header">
+            <h1>Edit Address</h1>
+        </div>
+        <p>This address will be used for shipping this product.</p>
+        <label for="popupBasic">Street:</label>
+        <input type="text" name="name" id="streetInput" value="">
+        <label for="popupBasic">City :</label>
+        <input type="text" name="name" id="cityInput" value="">
+        <label for="popupBasic">Province:</label>
+        <input type="text" name="name" id="provinceInput" value="">
+        <label for="popupBasic">Zip Code:</label>
+        <input type="text" name="name" id="zipCodeInput" value="">
+
+        <a href="" data-role="button" data-inline="true" data-rel="back">Cancel</a>
+        <a href="" data-role="button" data-theme="b" data-inline="true">Save</a>
+
+
+    </div>
+<div align="center" id="thankyouPayment">
+
+    <script type="text/javascript">
+        jQuery(function($){
+            var $form = $('#frmBooking');
+            var handler = StripeCheckout.configure({
+                key:'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                token : function(token){
+                    if(token.id){
+                       // $('#allContent').addClass('ui-disabled');
+                       // document.location.href = "./login.html";
+
+                    }
+                }
+            })
+
+            $('#btPayNow').on('click', function(e) {
+                handler.open({
+                    name : 'Demo Site',
+                    currency: 'LKR',
+                    description: $('#item_name').val(),
+                    amount: $('#item_value').val() * 100
+                });
+
+
+            });
+        });
+
+        $("#editAddress").on({
+            popupbeforeposition: function () {
+                $('.ui-popup-screen').off();
+            }
+        });
+
+    </script>
+
+</div>
+</div>
 
 </div>
 </body>

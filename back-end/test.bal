@@ -15,9 +15,13 @@ import ballerina/io;
 
 //Post
 // http://localhost:9002/KLANmart/user
-// Ex: curl -v -X POST -d '{ "User": { "email": "jackie@gmail.com", "password": "123123", "join_date": "2019-03-10", "gender": "M", "address": "12, Green Lane, Colombo-04", "f_name": "Jackie", "l_name": "Chan", "mobile_no": "+94744584753" }}' "http://localhost:9002/KLANmart/user" -H "Content-Type:application/json"
+// Ex: curl -v -X POST -d '{ "User": { "email": "kk@gmail.com", "password": "123123", "join_date": "2019-03-10", "gender": "M", "address": "12, Green Lane, Colombo-04", "f_name": "Jackie", "l_name": "Chan", "mobile_no": "+94744584753" }}' "http://localhost:9002/KLANmart/user" -H "Content-Type:application/json"
+
+// http://localhost:9002/KLANmart/login
 // Ex: curl -v -X POST -d '{ "User": { "email": "jackie@gmail.com", "password": "123123"}}' "http://localhost:9002/KLANmart/login" -H "Content-Type:application/json"
 
+// http://localhost:9002/KLANmart/favourite
+// curl -v -X POST -d '{ "Favourite": { "user_id": 2, "product_id": 1}}' "http://localhost:9002/KLANmart/favourite" -H "Content-Type:application/json"
 
 //Port 9002
 listener http:Listener httpListener = new(9002);
@@ -275,7 +279,8 @@ service klanmart_service on httpListener {
     }
     resource function getFavouritesOfUser(http:Caller caller, http:Request req, int userId) {
         //Select query
-        var ret = testDB->select("select product_id from favourites where user_id = ?", (), userId);
+        var ret = testDB->select("select * from favourites f inner join product p on f.product_id=p.product_id inner
+        join store s on s.store_id= p.store_id where user_id =?", (), userId);
 
         //Initialising the payload and response
         json payload = { status: "success" };
@@ -314,7 +319,9 @@ service klanmart_service on httpListener {
     }
     resource function getReviewsOfProduct(http:Caller caller, http:Request req, int productId) {
         //Select query
-        var ret = testDB->select("select * from review where product_id = ?", (), productId);
+        var ret = testDB->select("select review.review_id, review.comment, review.desc_rating, review.comm_rating,
+         review.delivery_rating, user.f_name, user.l_name from review inner join user on review.user_id=user.user_id
+         where product_id = ?", (), productId);
 
         //Initialising the payload and response
         json payload = { status: "success" };
@@ -370,9 +377,9 @@ service klanmart_service on httpListener {
             json payload = { status: "success", message: "user added" };
 
             var ret = testDB->update(
-                                  "INSERT INTO user(email, password, join_date, gender, address, f_name, l_name, mobile_no) values (?, ?, ?, ?, ?, ?, ?, ?)"
-                                  , email, password, join_date, gender, address, f_name, l_name,
-                                  mobile_no);
+                                  "INSERT INTO user(email, password, join_date, gender, address, f_name, l_name,
+                                  mobile_no) values (?, ?, ?, ?, ?, ?, ?, ?)", email, password, join_date, gender,
+                                  address, f_name, l_name, mobile_no);
 
             if (ret is error) {
                 io:println(" Failed: " + <string>ret.detail().message);
@@ -416,7 +423,7 @@ service klanmart_service on httpListener {
 
             json payload = { status: "success", message: "login success" };
 
-            var ret = testDB->select("select * from user where email = ?", (), email);
+            var ret = testDB->select("select * from user where email = ? limit 1", (), email);
 
             if (ret is table< record {} >) {
                 var jsonConversionRet = json.convert(ret);
@@ -443,6 +450,49 @@ service klanmart_service on httpListener {
 
             // Create response message.
             response.setJsonPayload(untaint payload);
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
+
+    //3. Add favourite by giving user_id and product_id
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/favourite"
+    }
+    resource function addFavourite(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var favData = req.getJsonPayload();
+        io:println(favData);
+        if (favData is json) {
+            string user_id = favData.Favourite.user_id.toString();
+            string product_id = favData.Favourite.product_id.toString();
+
+            json payload = { status: "success", message: "favourite added" };
+
+            var ret = testDB->update("INSERT INTO favourites(user_id, product_id) values (?, ?)", user_id, product_id);
+
+            if (ret is error) {
+                io:println(" Failed: " + <string>ret.detail().message);
+                payload.status = "failed";
+                payload.message = "error";
+            } else {
+                io:println("Success: added favourite to the KLANmart DB");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
             // Send response to the client.
             var result = caller->respond(response);
             if (result is error) {
