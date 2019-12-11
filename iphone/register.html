@@ -57,7 +57,8 @@
                 let jsonData = {
                     "User": {
                         "email": emailId, "password": passwod, "join_date": today, "gender": "M",
-                        "address": shippingAddress, "f_name": fName, "l_name": lName, "mobile_no": mobileNo
+                        "address": shippingAddress, "f_name": fName, "l_name": lName, "mobile_no": mobileNo,
+                        "pref_currency": "LKR"
                     }
                 };
 
@@ -65,11 +66,14 @@
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         alert(this.responseText);
+
                     }
                 };
                 xhttp.open("POST", "http://localhost:9002/KLANmart/user", true);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.send(JSON.stringify(jsonData));
+
+
             }
 
         }
