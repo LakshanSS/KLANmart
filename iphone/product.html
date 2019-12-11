@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/product.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script>
         $(document).on("pagecreate", function () {
             $(".photopopup").on({
@@ -19,90 +20,255 @@
             });
         });
     </script>
+    <style>
+        .mySlides {
+            display: none
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .prev, .next {
+                font-size: 11px
+            }
+        }
+    </style>
+    <script>
+        //The following has to be done from other pages which contain list of products
+        $(document).ready(function () {
+            window.sessionStorage.setItem('product_id', "1");//This has to be done in the previous page
+            let product_id = window.sessionStorage.getItem('product_id');
+            console.log("Current product id is " + product_id);
+            if (product_id != null) {
+                let msgText = 'Custom Loader';
+                let textVisible = 'true';
+                let theme = 'a';
+                let textonly = 'true';
+                let html = "<span class=\"ui-bar ui-shadow ui-overlay-d ui-corner-all\"><img alt='Loading' src=\"../lib/images/loader-logo-blue.png\"><h1 class='loaderText'>Loading ...</h1></span>";
+
+                $.mobile.loading("show", {
+                    text: msgText,
+                    textVisible: textVisible,
+                    theme: theme,
+                    textonly: textonly,
+                    html: html
+                });
+                var millisecondsToWait = 2000;
+                setTimeout(function () {
+                    // Whatever you want to do after the wait
+                    $.ajax({
+                        url: "http://localhost:9002/KLANmart/product/" + product_id
+                    }).then(function (data) {
+                        console.log(data);
+                        if (data.status === "success") {
+                            let prod_data = data.result[0];
+                            document.getElementById("priceDisplay").innerHTML = prod_data.price;
+                            document.getElementById("offerDisplay").innerHTML = prod_data.promotion;
+                            document.getElementById("productName").innerHTML = prod_data.product_name;
+                            document.getElementById("descriptionDisplay").innerHTML = prod_data.description;
+                        }
+                    });
+                    $.mobile.loading('hide');
+                }, millisecondsToWait);
+
+            }
+            $("#viewReviews").click(function () {
+                //window.sessionStorage.setItem('product_id', "1");
+                window.location = 'customerReviews.html';
+            });
+            $("#viewQandA").click(function () {
+                window.location = 'questionsAndAnswers.html';
+            });
+            $("#storeName").click(function () {
+                window.location = 'store.html';
+            });
+
+        });
+    </script>
+
 </head>
 
 <body>
-<div data-role="header" data-position="fixed">
-    <a href="" data-ajax="false" data-icon="back">Back</a>
-    <h1>View Product</h1>
-    <a href="" data-ajax="false" data-icon="action">Share</a>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Product Info</h1>
+    <i class="fas fa-chevron-left share-icon"></i>
 </div>
 <div data-role="content" data-theme="a">
-    <!-- Popups for lightbox images -->
+
+    <!-- Popup fullscreen view -->
     <div id="tshirt1" data-role="popup" class="photopopup" data-overlay-theme="a" data-corners="false"
          data-tolerance="30,15">
         <a href="#" data-rel="back"
            class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <img src="../assets/images/products/tshirt1-blue.png">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img id="slideShowImage" src="../assets/images/products/tshirt1-blue.png">
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <div class="rwd-example">
-        <div class="ui-block-a prod-img-container">
+
+    <div class="rwd-example prod-img-container">
+        <div class="ui-block-a">
             <div class="ui-body ui-body-d">
-                <a href="#tshirt1" data-rel="popup" data-position-to="window">
-                    <img class="product-image" src="../assets/images/products/tshirt1-blue.png"></a>  
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                            <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
+                            <!--<div class="text">Caption Text</div>-->
+                        </a> 
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                            <img src="../assets/images/products/tshirt1-black.png" style="width:100%">
+                            <!--<div class="text">Caption Two</div>-->
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                            <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
+                            <!--<div class="text">Caption Three</div>-->
+                        </a>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
             </div>
-        </div>
-            <!-- secondary story block #1 -->
+
+        </div><!--UI block A ends-->
             
         <div class="ui-block-b">
-                    
-            <div class="ui-body ui-body-d prod-desk-container">
-                            <h3>LKR 2199.00</h3>
-                            <h4>-10% Special Offer</h4>
-                            <p>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
-                <br>
-                <h3>4.0/5</h3>
+            <div class="ui-body ui-body-d">
+                <div>
+                    <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span><br>
+                    <span id="offerDisplay">-10% Special Offer</span>
+                </div>
+                <div><br>
+                    <p id="productName">Long Sleeve T-Shirt Men</p>
+                     <p id="descriptionDisplay">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
+                </div>
+                        
+                <br><!--Rating-->
+                <span id="ratingDisplay">4.0</span>
+                <span id="ratingDisplayTotal">/5</span>
+                <!--Stars for rating-->
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
-                <h3>123 Orders</h3>
-                        
+                <!--No of Orders-->
+                <span id="noOfOrdersDisplay">123</span>
+                <span id="labelOrders">Orders</span><br>
+                <div id="reviewAndQAContainer"><!--Reviews and Q and A-->
+                    <span id="viewReviews">Reviews</span>
+                    <span id="viewQandA">Questions and Answers</span>
+                </div>
+                <br>
+                <div><!--Display store name-->
+                    <span id="labelStore">Store:</span>
+                    <span id="storeName">Trendy Fashion Store</span>
+                </div>
+
             </div>
             <br>
-            <div class="ui-body ui-body-d prod-img-container">
-                <div data-role="collapsible" data-collapsed="false">
-                    <ul data-role="listview">
-                        <li><a href="">Color, Size and Quantity</a></li>
-                        <li>Blue, L</li>
-                    </ul>
-                </div>
-                <br>
-                <div data-role="collapsible" data-collapsed="false">
-                    <ul data-role="listview">
-                        <li><a href="">Specifications</a></li>
-                    </ul>
-                </div>
-                <br>
-                <div data-role="collapsible" data-collapsed="false">
-                    <ul data-role="listview">
-                        <li><a href="">Customer Reviews</a></li>
-                        <li><h3>4.0/5</h3></li>
-                        <li><h4>Arjun K.</h4>
-                            <p>4.5</p>
-                            <p>Nice Quality</p></li>
-                    </ul>
-                </div>
-                <br>
-                <div data-role="collapsible" data-collapsed="false">
-                    <ul data-role="listview">
-                        <li><a href="">Questions and Answers</a></li>
-                        <li><h4>Is it made in SriLanka</h4>
-                            <p>No. It is imported from China</p></li>
-                    </ul>
-                </div>
-                <br>
-                <div data-role="collapsible" data-collapsed="false">
-                    <ul data-role="listview">
-                        <li><a href="">Store</a></li>
-                        <li><h3>Trendy Fashion Store</h3></li>
-                    </ul>
-                </div>
-                <br>
-                <br><br><br>
-            </div>
-        </div>
+            <!--todo Add color size and quantity-->
+        </div><!--UI Block B ends-->
     </div>
     <br>
     <div class="suggestion-container">
@@ -117,5 +283,37 @@
     </div>
 
 </div>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 </body>
 </html>
