@@ -16,15 +16,38 @@
         }
 
         function loginBtn() {
-            let username = document.getElementById("txtUsername").value;
+            let email = document.getElementById("txtEmailId").value;
             let password = document.getElementById("txtPassword").value;
 
-            if (username == "") {
+            if (email == "") {
                 console.log("no username");
             } else if (password == "") {
                 console.log("no pass");
             } else {
-                console.log(username, password);
+                console.log(email, password);
+
+                let jsonData = {
+                    "User": {
+                        "email": email, "password": password
+                    }
+                };
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        
+                        var jsonObj = JSON.parse(this.responseText);
+                        console.log(jsonObj.data);
+                        sessionStorage.setItem("logged_user", JSON.stringify(jsonObj.data));
+                        alert(jsonObj.status);
+
+                        window.location = "./profile.html";
+
+                    }
+                };
+                xhttp.open("POST", "http://localhost:9002/KLANmart/login", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
             }
 
         }
@@ -44,15 +67,18 @@
 
             <div class="ui-field-contain">
 
-                <input type="text" name="textUsername" id="txtUsername" placeholder="Username*" value=""
-                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
+                <input type="email" name="textEmail" id="txtEmailId" placeholder="Email Id*" value=""
+                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper" 
+                    style="padding-top: 15px !important; padding-bottom: 8px;
+                    padding-right: 15px;padding-left: 15px;">
+                    
 
                 <input type="password" name="textPasseord" id="txtPassword" placeholder="Password*" value=""
                     data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
 
                 <p class="forgot-pw-txt">Forgot password?</p>
 
-                <button class="login-btn" data-corners="false" data-shadow="false" onclick="login()">SIGN
+                <button class="login-btn" data-corners="false" data-shadow="false" onclick="loginBtn()">SIGN
                     IN</button>
 
                 <p class="sign-in-with-txt">or Sign in with</p>
