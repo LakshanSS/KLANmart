@@ -10,12 +10,17 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/profile.css" />
+    <script src="../js/common.js"></script>
     <script>
 
         window.onload = function () {
             var loggedUser = sessionStorage.getItem("logged_user");
 
             if (loggedUser != null) {
+                document.getElementById("logged").style.display = "none";
+                document.getElementById("if_logged").style.display = "block";
+
+
                 var myJson = JSON.parse(loggedUser);
                 console.log(myJson);
                 document.getElementById('name').innerHTML = myJson.f_name + "  " + myJson.l_name;
@@ -24,6 +29,8 @@
                 document.getElementById('pref_currency').innerHTML = myJson.pref_currency;
             } else {
                 document.getElementById("if_logged").style.display = "none";
+                document.getElementById("logged").style.display = "block";
+
             }
         }
 
@@ -40,6 +47,12 @@
         </div>
 
         <div data-role="content" data-theme="a" class="content-body">
+            <div class="not-logged" style="height: 574px !important;" id="logged">
+                <i class="far fa-user-circle" style="
+                margin-top: 145px !important;"></i>
+                <p style="text-align: center; font-size: 15px;" onclick="startJourney()">You don't have an account,<br>
+                    <strong style="color: rgb(16, 57, 146);">Sign up</strong> with KLANmart to access more featues.</p>
+            </div>
             <div id="if_logged">
                 <div class="name-tab">
                     <i class="fas fa-user-circle profile-icon"></i>
@@ -164,15 +177,15 @@
                     <ul>
                         <li><a href="#" id="" data-icon="" id="ui-btn"><i class="fas fa-home"
                                     style="font-size: 20px;"></i></a></li>
-                        <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a>
+                        <li onclick="favourite()"><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a>
                         </li>
-                        <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots"
+                        <li onclick="message()"><a href="#" id="" data-icon=""><i class="far fa-comment-dots"
                                     style="font-size: 20px;"></i></a>
                         </li>
-                        <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart"
+                        <li onclick="cart()"><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart"
                                     style="font-size: 20px;"></i></a>
                         </li>
-                        <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a>
+                        <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a>
                         </li>
                     </ul>
                 </div>

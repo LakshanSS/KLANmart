@@ -180,3 +180,12 @@ a {
     border-bottom-color: none !important;
     border-left-color:none !important;
 }
+
+.fa-user-circle {
+    color: rgb(94, 94, 94) !important;
+    text-align: center !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    font-size: 60px;
+}
