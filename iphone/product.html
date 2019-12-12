@@ -165,6 +165,12 @@
             $("#storeName").click(function () {
                 window.location = 'store.html';
             });
+            $("#btnCart").click(function () {
+                window.location = 'cart.html';
+            });
+            $("#btnBuy").click(function () {
+                window.location = 'buy.html';
+            });
 
         });
     </script>
@@ -235,35 +241,48 @@
         <div class="ui-block-b">
             <div class="ui-body ui-body-d">
                 <div>
-                    <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span><br>
+                    <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span>
+                    <br>
                     <span id="offerDisplay">-10% Special Offer</span>
+                    <span id="favContainer">
+                    <span id="favouriteIcon"><i class="far fa-heart"></i></span>
+                    <span id="favouriteLabel">Favourite</span>
+                    </span>
+
                 </div>
-                <div><br>
+                <div><br><!--Product Name and Description-->
                     <p id="productName">Long Sleeve T-Shirt Men</p>
                      <p id="descriptionDisplay">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
                 </div>
+                <div><!--Buttons for Cart and Buy-->
+                    <button id="btnCart" class="btnCartAndBuy ui-btn ui-btn-inline">Add to Cart</button>
+                    <button id="btnBuy" class="btnCartAndBuy ui-btn ui-btn-inline">Buy Now</button>
+                </div>
                         
-                <br><!--Rating-->
-                <span id="ratingDisplay">4.0</span>
-                <span id="ratingDisplayTotal">/5</span>
-                <!--Stars for rating-->
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <!--No of Orders-->
-                <span id="noOfOrdersDisplay">123</span>
-                <span id="labelOrders">Orders</span><br>
-                <div id="reviewAndQAContainer"><!--Reviews and Q and A-->
-                    <span id="viewReviews">Reviews</span>
-                    <span id="viewQandA">Questions and Answers</span>
+                <div><!--Rating-->
+                    <span id="ratingDisplay">4.0</span>
+                    <span id="ratingDisplayTotal">/5</span>
+                    <!--Stars for rating-->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <!--No of Orders-->
+                    <span id="noOfOrdersDisplay">123</span>
+                    <span id="labelOrders">Orders</span>
                 </div>
                 <br>
                 <div><!--Display store name-->
                     <span id="labelStore">Store:</span>
                     <span id="storeName">Trendy Fashion Store</span>
                 </div>
+                <br>
+                <div id="reviewAndQAContainer"><!--Reviews and Q and A-->
+                    <span id="viewReviews">Reviews</span>
+                    <span id="viewQandA">Questions and Answers</span>
+                </div>
+
 
             </div>
             <br>
@@ -282,6 +301,17 @@
                     <p>Bla bla bla</p>
     </div>
 
+</div>
+<div data-role="footer" data-position="fixed" role="banner">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d" style="height: 32px !important; margin: 0 0;">
+        <ul>
+            <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+        </ul>
+    </div>
 </div>
 <script>
     let slideIndex = 1;
