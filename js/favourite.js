@@ -1,88 +1,69 @@
-if (document.readyState == 'loading') {
-            document.addEventListener('DOMContentLoaded', ready)
-        } else {
-            ready();
+window.onload = function () {
+    var loggedUser = sessionStorage.getItem("logged_user");
 
-        }
+    if (loggedUser != null) {
+        document.getElementById("if_not_logged_favourite").style.display = "none";
+        document.getElementById("if_logged_favourite").style.display = "block";
 
-        function ready() {
+        var myJson = JSON.parse(loggedUser);
+        console.log(myJson.user_id);
 
-            var title = sessionStorage.getItem("title");
-            var price = localStorage.getItem("price");
-            var image = localStorage.getItem("image");
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://localhost:9002/KLANmart/favourites/" + myJson.user_id
+            }).then(function (data) {
+                console.log(data.result);
 
-            addToObject(title, price, image);
+                var i;
+                for (i = 0; i < data.result.length; i++) {
+                    console.log(data.result[i].images);
+                    var favouriteRow = document.createElement('div');
+                    var favouriteItems = document.getElementsByClassName('f-main-content')[0]
+                    console.log(favouriteItems);
 
-            function addToObject(title, price, image) {
-                var product = {
-                    title: title,
-                    price: price,
-                    image: image
+                    var favouriteContents = `
+                    <div class="post">
+                    <img src=${data.result[i].images} alt="" srcset="" class="post-image">
+                        <div class="post-preview">
+                            <h4>${data.result[i].description}</h4>
+                            <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
+                            <h3 class="price-tag">LKR ${data.result[i].price}.00</h3>
+                            <!-- <i class="fas fa-heart heart-icon"></i> -->
+                                        </div>
+                                    </div>`
+                    favouriteRow.innerHTML = favouriteContents;
+                    console.log(favouriteRow);
+                    favouriteItems.append(favouriteRow);
                 }
-
-                const favouriteList = [];
-                favouriteList.push(product);
-
-                console.log(product);
-                console.log(favouriteList);
-
-                // localStorage.removeItem("title");
-                // localStorage.removeItem("price");
-                // localStorage.removeItem("image");
-            }
-            // if (title != null) {
-
-            //     viewCart(title, price, image);
-
-            //     function viewCart(title, price, image) {
-            //         console.log(title, price, image)
-            //         var cartRow = document.createElement('div')
-            //         var cartItems = document.getElementsByClassName('f-main-contend')[0]
-            //         var cartRowContents = `
-            //     <div class="post">
-            //         <img src="${image}" 
-            //             class="post-image">
-            //         <div class="post-preview">
-            //             <h4>${title}</h4>
-            //             <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
-            //             <h2 class="price-tag">${price}</h2>
-            //         </div>
-            //     </div>`
-
-            //         cartRow.innerHTML = cartRowContents
-            //         console.log(cartRow)
-            //         cartItems.append(cartRow)
-
-            //         localStorage.removeItem("title");
-            //         localStorage.removeItem("price");
-            //         localStorage.removeItem("image");
-            //     }
-            // }
-            function filterItems() {
-                var input, filter, div, i, textValue;
-                // input = document.getElementsByClassName('f-main-content');
-                // filter = in 13b8c18e-85ae-4f1b-88a7-3c9a79fae74c
-            }
+            });
+        });
+    } else {
+        document.getElementById("if_logged_favourite").style.display = "none";
+        document.getElementById("if_not_logged_favourite").style.display = "block";
+    }
+}
 
 
-        }
 
-        function sendEmail() {
-            var toAddress = 'chandreswaran.2016323@iit.ac.lk';
-            var fromAddress = 'kajenchandran@gmail.com';
-            var smtpUsername = 'kajenchandran@gmail.com';
-            var smtpPassword = '';
-            
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: 'kajenchandran@gmail.com',
-                Password: smtpPassword,
-                To: 'chandreswaran.2016323@iit.ac.lk',
-                From: 'kajenchandran@gmail.com',
-                Subject: "KLAN mart",
-                Body: "favourite list",
-                port: 587
-            }).then(
-                message => alert("mail sent successfully")
-            );
-        }
+
+// function sendEmail() {
+//     var toAddress = 'chandreswaran.2016323@iit.ac.lk';
+//     var fromAddress = 'kajenchandran@gmail.com';
+//     var smtpUsername = 'kajenchandran@gmail.com';
+//     var smtpPassword = '';
+
+//     Email.send({
+//         Host: "smtp.gmail.com",
+//         Username: 'kajenchandran@gmail.com',
+//         Password: smtpPassword,
+//         To: 'chandreswaran.2016323@iit.ac.lk',
+//         From: 'kajenchandran@gmail.com',
+//         Subject: "KLAN mart",
+//         Body: "favourite list",
+//         port: 587
+//     }).then(
+//         message => alert("mail sent successfully")
+//     );
+// }
+
+

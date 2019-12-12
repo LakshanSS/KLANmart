@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KLANmart - order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-bar {
+            background-color: rgb(12, 64, 161) !important;
+            height: 60px !important;
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-top: 22px;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 17px;
+            margin-top: 8px;
+        }
+
+        .content-body {
+            background-color: rgb(247, 251, 255) !important;
+        }
+
+        /* CONTENT */
+        .content {
+            width: 100%;
+            margin: 1px auto 30px;
+            /* border: 1px solid red; */
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .content .f-main-content {
+            width: 100%;
+            float: left;
+
+            /* border: 1px solid grey;
+			background: rgb(241, 240, 240); */
+        }
+
+        .content .f-main-content .post {
+            border: 1px solid rgb(164, 188, 231) !important;
+            width: 97%;
+            height: 150px;
+            margin: 10px auto;
+            background: rgb(255, 255, 255);
+            position: relative;
+            box-shadow: 0 4px 4px 0 rgba(240, 239, 239, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19);
+            /* border: 1px solid rgb(224, 224, 224) !important; */
+
+        }
+
+        .content .f-main-content .post .post-image {
+            width: 30%;
+            height: 85%;
+            float: left;
+            margin-top: 8px;
+            margin-left: 14px;
+            margin-bottom: auto;
+        }
+
+        .content .f-main-content .post .post-preview {
+            width: 60%;
+            height: 66%;
+            padding: 1px;
+            float: right;
+            margin-top: -10px;
+        }
+
+        .content .f-main-content .post .post-preview .store-detail {
+            color: rgb(6, 6, 68);
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: -3px;
+        }
+
+        .content .f-main-content .post .post-preview .price-tag {
+            margin-top: 10px;
+            font-size: 15px;
+
+        }
+
+        .content .f-main-content .post .post-preview .heart-icon {
+            float: right;
+            font-size: 30px;
+            margin-top: -49px;
+            color: rgb(219, 15, 15);
+        }
+
+        .content .f-main-content .favourite-title {
+            margin: 20px;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="header" data-position="fixed" class="header-bar">
+        <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
+        <i class="fas fa-chevron-left back-icon"></i>
+        <h1 class="page-detail">My Orders</h1>
+    </div>
+
+    <div data-role="content" data-theme="a">
+        <!-- <div id="if_not_logged_favourite" style="background: #f9f9f9 !important;">
+            <i class="far fa-user-circle" style="
+                        margin-top: 145px !important;"></i>
+            <p style="text-align: center; font-size: 15px;" onclick="startJourney()">You don't have an account,<br>
+                <strong style="color: rgb(16, 57, 146);">Sign up</strong> with KLANmart to access more featues.</p>
+        </div> -->
+
+
+        <div id="if_logged_favourite">
+            <div class="content clearfix">
+                <div class="f-main-content">
+                    <div class="post">
+                        <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
+                        <div class="post-preview">
+                            <h3>Men's Long Sleeve Rounded Neck T-Shirt</h3>
+                            <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
+                            <h3 class="price-tag">LKR 2199.00</h3>
+                            <p><i class="fas fa-star"></i> delivered</p>
+                            <!-- <i class="fas fa-heart heart-icon"></i> -->
+                        </div>
+                    </div>
+                    <div class="post">
+                        <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
+                        <div class="post-preview">
+                            <h3>Hayiou gt1 Touch Blutooth Earphones</h3>
+                            <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
+                            <h3 class="price-tag">LKR 1500.00</h3>
+                            <p><i class="fas fa-star"></i> delivered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="../js/favourite.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 
 <body>
@@ -21,59 +22,40 @@
         <h1 class="page-detail">Favourite</h1>
     </div>
     <div data-role="content " data-theme="a" class="content-body">
-        <!-- Content -->
-        <div class="top-header">
-            <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
-                onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
-            <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()"><i
-                    class="fas fa-share-alt share-icon"></i> Share</button>
+        <div id="if_not_logged_favourite" style="background: #f9f9f9 !important;">
+            <i class="far fa-user-circle" style="
+                margin-top: 145px !important;"></i>
+            <p style="text-align: center; font-size: 15px;" onclick="startJourney()">You don't have an account,<br>
+                <strong style="color: rgb(16, 57, 146);">Sign up</strong> with KLANmart to access more featues.</p>
         </div>
-        <div class="content clearfix">
-            <div class="f-main-content">
-                <div class="post">
-                    <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
-                    <div class="post-preview">
-                        <h4>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h4>
-                        <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
-                        <h3 class="price-tag">LKR 2199.00</h3>
-                        <!-- <i class="fas fa-heart heart-icon"></i> -->
-                    </div>
-                </div>
-                <div class="post">
-                    <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
-                    <div class="post-preview">
-                        <h4>Hayiou gt1 tws water proof Finger print Touch Blutooth Earphones</h4>
-                        <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
-                        <h3 class="price-tag">LKR 1500.00</h3>
-                    </div>
+        <div id="if_logged_favourite">
+            <!-- Content -->
+            <div class="top-header">
+                <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
+                onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+                <button class="ui-btn ui-btn-inline share-btn" onclick="sendEmail()"><i
+                        class="fas fa-share-alt share-icon"></i> Share</button>
+            </div>
+            <div class="content clearfix">
+                <div class="f-main-content">
+                    
                 </div>
             </div>
         </div>
     </div>
     <div data-role="footer" data-position="fixed" role="banner">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d" style="height: 32px !important; margin: 0 0;">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+            style="height: 32px !important; margin: 0 0;">
             <ul>
                 <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
                 <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
+                </li>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                </li>
                 <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
             </ul>
         </div>
-        <!-- <div data-role="navbar">
-            <ul class="nav">
-                <li><a href="#" data-icon="home" style="font-size: 11px !important; font-weight: 750;"
-                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Home</a></li>
-                <li><a href="#" data-icon="heart" style="font-size: 11px !important; font-weight: 750;"
-                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Favourites</a></li>
-                <li><a href="#" data-icon="comment" style="font-size: 11px !important; font-weight: 750;"
-                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Messages</a></li>
-                <li><a href="#" data-icon="shop" style="font-size: 11px !important; font-weight: 750;"
-                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Cart</a></li>
-                <li><a href="#" data-icon="user" style="font-size: 11px !important; font-weight: 750;"
-                        class="ui-nodisc-icon ui-alt-icon ui-btn ui-shadow">Profile</a></li>
-            </ul>
-        </div> -->
     </div>
 </body>
 
