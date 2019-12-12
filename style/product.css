@@ -183,12 +183,14 @@ h3, h4, p {
 	color: #1b1b1b;
 	font-weight: 500;
 	font-size: large;
+	display: contents !important;
 }
 
 #descriptionDisplay {
 	color: #5f6264;
 	font-weight: normal;
 	font-size: medium;
+	margin-top: 5px;
 }
 
 #ratingDisplay {
@@ -220,13 +222,13 @@ h3, h4, p {
 #labelStore {
 	color: #1b1b1b;
 	font-weight: 540;
-	font-size: large;
+	font-size: medium;
 }
 
 #storeName {
 	color: #005599;
 	font-weight: 400;
-	font-size: large;
+	font-size: medium;
 	text-decoration: underline;
 }
 
@@ -245,4 +247,30 @@ h3, h4, p {
 	font-size: medium;
 	text-decoration: underline;
 	margin-right: 56px;
+}
+
+.btnCartAndBuy {
+	font-size: small !important;
+	color: whitesmoke !important;
+	background-color: #005599 !important;
+	border-color: #3b5998 !important;
+	width: 130px !important;
+	text-shadow: none !important;
+}
+
+#btnCart {
+	/*margin-right: 15px;*/
+}
+
+#favouriteIcon {
+	font-size: larger;
+}
+
+#favouriteLabel {
+	font-size: large;
+	font-weight: 100;
+}
+
+#favContainer {
+	float: right;
 }
