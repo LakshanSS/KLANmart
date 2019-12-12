@@ -23,6 +23,17 @@ import ballerina/io;
 // http://localhost:9002/KLANmart/favourite
 // curl -v -X POST -d '{ "Favourite": { "user_id": 2, "product_id": 1}}' "http://localhost:9002/KLANmart/favourite" -H "Content-Type:application/json"
 
+// http://localhost:9002/KLANmart/cart
+// curl -v -X POST -d '{ "Item": { "user_id": 2, "product_id": 1, "order_time": "2019-10-11 10:45:14", "order_status": "cart", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/cart" -H "Content-Type:application/json"
+
+// http://localhost:9002/KLANmart/buy
+
+//when clicking buy in cart page
+//curl -v -X POST -d '{ "Item": { "order_id": 3, "user_id": 2, "product_id": 1, "total_amount": 2199, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/buy" -H "Content-Type:application/json"
+
+//when clicking buy from product page
+//curl -v -X POST -d '{ "Item": { "user_id": 2, "product_id": 1, "total_amount": 333, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/buy" -H "Content-Type:application/json"
+
 //Port 9002
 listener http:Listener httpListener = new(9002);
 
@@ -201,7 +212,8 @@ service klanmart_service on httpListener {
     }
     resource function getOrdersByUserId(http:Caller caller, http:Request req, int userId) {
         //Select query
-        var ret = testDB->select("select * from KLANmart.order where user_id = ?", (), userId);
+        var ret = testDB->select("select * from KLANmart.order inner join product on product.product_id =
+         order.product_id inner join store on order.store_id = store.store_id where user_id = ?;", (), userId);
 
         //Initialising the payload and response
         json payload = { status: "success" };
@@ -488,6 +500,117 @@ service klanmart_service on httpListener {
                 payload.message = "error";
             } else {
                 io:println("Success: added favourite to the KLANmart DB");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
+
+    //4. Add a product to cart
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/cart"
+    }
+    resource function addToCart(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var cartData = req.getJsonPayload();
+        io:println(cartData);
+        if (cartData is json) {
+            string user_id = cartData.Item.user_id.toString();
+            string product_id = cartData.Item.product_id.toString();
+            string order_time = cartData.Item.order_time.toString();
+            string order_status = cartData.Item.order_status.toString();
+            string quantity = cartData.Item.quantity.toString();
+            string store_id = cartData.Item.store_id.toString();
+
+            json payload = { status: "success", message: "product added to cart" };
+
+            var ret = testDB->update("INSERT INTO KLANmart.order(user_id, product_id, order_time, order_status, quantity,
+            store_id) values (?, ?, ?, ?, ?, ?)", user_id, product_id, order_time, order_status, quantity, store_id);
+
+            if (ret is error) {
+                io:println(" Failed: " + <string>ret.detail().message);
+                payload.status = "failed";
+                payload.message = "error";
+            } else {
+                io:println("Success: added product to the cart");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
+
+    //5. Buy a product
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/buy"
+    }
+    resource function buyProduct(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var buyData = req.getJsonPayload();
+        io:println(buyData);
+        if (buyData is json) {
+            string user_id = buyData.Item.user_id.toString();
+            string product_id = buyData.Item.product_id.toString();
+            string order_time = buyData.Item.order_time.toString();
+            string order_status = buyData.Item.order_status.toString();
+            string quantity = buyData.Item.quantity.toString();
+            string store_id = buyData.Item.store_id.toString();
+            string total_amount = buyData.Item.total_amount.toString();
+            string order_id = buyData.Item.order_id.toString();
+
+            json payload = { status: "success", message: "order added" };
+            if (order_id == "null") {
+                //curl -v -X POST -d '{ "Item": { "user_id": 2, "product_id": 1, "total_amount": 333, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/buy" -H "Content-Type:application/json"
+                var ret = testDB->update("INSERT INTO KLANmart.order(user_id, product_id, order_time, order_status,
+                 quantity, store_id, total_amount) values (?, ?, ?, ?, ?, ?, ?)", user_id, product_id, order_time,
+                    order_status, quantity, store_id, total_amount);
+                if (ret is error) {
+                    io:println(" Failed: " + <string>ret.detail().message);
+                    payload.status = "failed";
+                    payload.message = "error";
+                } else {
+                    io:println("Added new order");
+                }
+            } else {
+                //curl -v -X POST -d '{ "Item": { "order_id": 3, "user_id": 2, "product_id": 1, "total_amount": 2199, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/buy" -H "Content-Type:application/json"
+                var ret = testDB->update("UPDATE KLANmart.order SET order_status = (?) WHERE order_id = (?)",
+                    order_status, order_id);
+                if (ret is error) {
+                    io:println(" Failed: " + <string>ret.detail().message);
+                    payload.status = "failed";
+                    payload.message = "error";
+                } else {
+                    io:println("Set order status of order id " + order_id + " to " + order_status);
+                }
             }
 
             // Create response message.
