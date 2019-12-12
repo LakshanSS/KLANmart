@@ -3,6 +3,10 @@ h3, h4, p {
 	margin: 0;
 }
 
+.loaderText {
+	margin-left: 50px !important;
+}
+
 .rwd-example .ui-body {
 	text-align: left;
 	border-color: #ddd;
@@ -119,7 +123,7 @@ h3, h4, p {
 }
 
 .prod-desk-container {
-	padding: 0 0 5px 10px;
+	padding: 5px 0 5px 20px;
 	background-color: rgb(255, 255, 255);
 	box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
 	border: 1px solid rgb(86, 132, 216) !important;
@@ -127,4 +131,146 @@ h3, h4, p {
 
 .checked {
 	color: orange;
+}
+
+.header-bar {
+	background-color: rgb(12, 64, 161) !important;
+	height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
+	color: white;
+}
+
+/*.header-bar .share-icon {
+	float: right;
+	!*margin-top: 22px;
+	margin-left: 15px;
+	color: white;*!
+}*/
+
+.header-bar .page-detail {
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 100;
+	font-size: 17px;
+	margin-top: 8px;
+}
+
+#priceUnit {
+	color: #1b1b1b;
+	font-weight: 500;
+	font-size: x-large;
+	margin-right: 10px;
+}
+
+#priceDisplay {
+	color: #1b1b1b;
+	font-weight: 500;
+	font-size: x-large;
+}
+
+#offerDisplay {
+	color: #db4437;
+	font-weight: bold;
+	font-size: medium;
+}
+
+#productName {
+	color: #1b1b1b;
+	font-weight: 500;
+	font-size: large;
+	display: contents !important;
+}
+
+#descriptionDisplay {
+	color: #5f6264;
+	font-weight: normal;
+	font-size: medium;
+	margin-top: 5px;
+}
+
+#ratingDisplay {
+	color: #1b1b1b;
+	font-weight: 400;
+	font-size: x-large;
+}
+
+#ratingDisplayTotal {
+	color: #5f6264;
+	font-weight: 300;
+	font-size: medium;
+	margin-right: 20px;
+}
+
+#noOfOrdersDisplay {
+	margin-left: 20px;
+	color: #5f6264;
+	font-weight: 300;
+	font-size: medium;
+}
+
+#labelOrders {
+	color: #5f6264;
+	font-weight: 300;
+	font-size: medium;
+}
+
+#labelStore {
+	color: #1b1b1b;
+	font-weight: 540;
+	font-size: medium;
+}
+
+#storeName {
+	color: #005599;
+	font-weight: 400;
+	font-size: medium;
+	text-decoration: underline;
+}
+
+#reviewAndQAContainer {
+	margin-top: 5px;
+}
+
+#viewQandA {
+	color: #005599;
+	font-size: medium;
+	text-decoration: underline;
+}
+
+#viewReviews {
+	color: #005599;
+	font-size: medium;
+	text-decoration: underline;
+	margin-right: 56px;
+}
+
+.btnCartAndBuy {
+	font-size: small !important;
+	color: whitesmoke !important;
+	background-color: #005599 !important;
+	border-color: #3b5998 !important;
+	width: 130px !important;
+	text-shadow: none !important;
+}
+
+#btnCart {
+	/*margin-right: 15px;*/
+}
+
+#favouriteIcon {
+	font-size: larger;
+}
+
+#favouriteLabel {
+	font-size: large;
+	font-weight: 100;
+}
+
+#favContainer {
+	float: right;
 }
