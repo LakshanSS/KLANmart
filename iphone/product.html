@@ -240,47 +240,58 @@
             
         <div class="ui-block-b">
             <div class="ui-body ui-body-d">
-                <div>
+
+                <div style="margin-bottom: 10px">
                     <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span>
+                    <span id="favContainer">
+                    <span id="favouriteIcon"><i class="fas fa-share-square"></i>&nbsp&nbsp&nbsp<i class="far fa-heart"></i></span><!--todo fas-> for full heart-->
+                    </span>
                     <br>
                     <span id="offerDisplay">-10% Special Offer</span>
-                    <span id="favContainer">
-                    <span id="favouriteIcon"><i class="far fa-heart"></i></span>
-                    <span id="favouriteLabel">Favourite</span>
-                    </span>
-
                 </div>
-                <div><br><!--Product Name and Description-->
+
+                <div style='text-align:center;'>
+                    <div style='float:left;width:50%'>
+                        <button id="btnCart" class="btnCartAndBuy ui-btn ui-btn-inline">Add to Cart</button>
+                    </div>
+                    <div style='float:right;width:50%'>
+                        <button id="btnBuy" class="btnCartAndBuy ui-btn ui-btn-inline">Buy Now</button>
+                    </div>
+                </div>
+                <br><br>
+                <div style="margin-top: 15px"><!--Product Name and Description-->
                     <p id="productName">Long Sleeve T-Shirt Men</p>
                      <p id="descriptionDisplay">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
                 </div>
-                <div><!--Buttons for Cart and Buy-->
-                    <button id="btnCart" class="btnCartAndBuy ui-btn ui-btn-inline">Add to Cart</button>
-                    <button id="btnBuy" class="btnCartAndBuy ui-btn ui-btn-inline">Buy Now</button>
+
+                <div style='text-align:center; margin-bottom: 10px; margin-top: 5px;'>
+                        <!--Rating-->
+                        <span id="ratingDisplay">4.0</span>
+                        <span id="ratingDisplayTotal">/5</span>
+                        <!--Stars for rating-->
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <!--No of Orders-->
+                        <span id="noOfOrdersDisplay">123</span>
+                        <span id="labelOrders">Orders</span>
                 </div>
-                        
-                <div><!--Rating-->
-                    <span id="ratingDisplay">4.0</span>
-                    <span id="ratingDisplayTotal">/5</span>
-                    <!--Stars for rating-->
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <!--No of Orders-->
-                    <span id="noOfOrdersDisplay">123</span>
-                    <span id="labelOrders">Orders</span>
-                </div>
-                <br>
-                <div><!--Display store name-->
-                    <span id="labelStore">Store:</span>
-                    <span id="storeName">Trendy Fashion Store</span>
-                </div>
-                <br>
-                <div id="reviewAndQAContainer"><!--Reviews and Q and A-->
-                    <span id="viewReviews">Reviews</span>
-                    <span id="viewQandA">Questions and Answers</span>
+
+                <div id="reviewAndQAContainer" style='text-align:center;'>
+                    <div style='float:left;width:36%'>
+                        <i class="fas fa-users"></i>
+                        <span id="viewReviews">Reviews</span>
+                    </div>
+                    <div style='float:left;width:31%'>
+                        <i class="fas fa-question-circle"></i>
+                        <span id="viewQandA">Q & A</span>
+                    </div>
+                    <div style='float:right;width:31%'><!--Display store name-->
+                        <span id="labelStore"><i class="fas fa-store-alt"></i></span>
+                        <span id="storeName">Store</span>
+                    </div>
                 </div>
 
 
