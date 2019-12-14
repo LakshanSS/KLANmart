@@ -1,59 +1,72 @@
-#customerDetails,#cardDetails,#prodNameH,#prodTotal,#sumTotal,#Total {
+#customerDetails, #cardDetails, #prodNameH, #prodTotal, #sumTotal, #Total {
     height: 100%;
     width: 100%;
     display: flex;
     vertical-align: top;
 }
-#leftThing,#leftThing2,#leftprodH{
+
+#leftThing, #leftThing2, #leftprodH {
     width: 10%;
 }
-#prodTotalleft,#sumTotalleft{
+
+#prodTotalleft, #sumTotalleft {
     width: 50%;
 }
-#prodTotalright,#sumtotalright {
+
+#prodTotalright, #sumtotalright {
     width: 50%;
 }
+
 #totalright {
     width: 30%;
 }
-#Totalleft{
+
+#Totalleft {
     width: 70%;
 }
-#content,#content2,#prodHC {
+
+#content, #content2, #prodHC {
     width: 80%;
 }
-#rightThing,#rightThing2 {
+
+#rightThing, #rightThing2 {
     width: 10%;
 }
+
 #prodbody {
     height: 100%;
     width: 100%;
     display: flex;
     vertical-align: top;
 }
+
 #prodBodyPic {
     width: 30%;
 }
+
 #prodBodyCont {
     width: 70%;
 }
+
 #btPayNow {
     background-color: darkblue;
     color: #d6d6d6;
 }
-    .border {
-        display: block;
-        color: #010201;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        margin-left: auto;
-        margin-right: auto;
-        border-style: inset;
-        border-width: 1px;
-    }
+
+.border {
+    display: block;
+    color: #010201;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
 
 .header-bar {
-    background-color: rgb(12, 64, 161) !important; height: 60px !important;
+    background-color: rgb(12, 64, 161) !important;
+    height: 60px !important;
 }
 
 .header-bar .back-icon {
@@ -69,4 +82,118 @@
     font-weight: 100;
     font-size: 17px;
     margin-top: 8px;
+}
+
+.rwd-example .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+
+.rwd-example p {
+    color: #777;
+}
+
+/* Stack all blocks to start */
+.rwd-example .ui-block-a,
+.rwd-example .ui-block-b,
+.rwd-example .ui-block-c {
+    width: 100%;
+}
+
+/* Collapsing borders */
+.rwd-example > div + div .ui-body {
+    border-top-width: 0;
+}
+
+/* 1st breakpoint - A in top, B in bottom*/
+@media all and (min-width: 20em) {
+    .rwd-example {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+
+    .rwd-example .ui-block-b {
+        float: left;
+    }
+
+    .rwd-example .ui-block-b p {
+        font-size: .8em;
+    }
+
+    .rwd-example > div + div .ui-body {
+        border-top-width: 1px;
+    }
+
+    .rwd-example > div:first-child .ui-body {
+        border-bottom-width: 0;
+    }
+
+    .rwd-example > div:last-child .ui-body {
+        border-left-width: 0;
+    }
+
+    .product-image {
+        width: 100%;
+    }
+
+}
+
+/* 2nd breakpoint - Float, 60,40 */
+@media all and (min-width: 40em) {
+    .rwd-example .ui-body {
+        /*min-height: 18em;*/
+    }
+
+    .rwd-example .ui-block-a {
+        float: left;
+        width: 50%;
+    }
+
+    .rwd-example .ui-block-b {
+        float: left;
+        width: 50%;
+    }
+
+    .rwd-example > div:first-child .ui-body {
+        border-bottom-width: 1px;
+    }
+
+    .rwd-example > div + div .ui-body {
+        border-left-width: 0;
+    }
+
+    .product-image {
+        width: 100%;
+    }
+}
+
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+    .rwd-example .ui-body {
+        font-size: 125%;
+    }
+
+    .rwd-example .ui-block-a {
+        float: left;
+        width: 50%;
+
+    }
+
+    .rwd-example .ui-block-b {
+        float: left;
+        width: 50%;;
+    }
+
+    .product-image {
+        width: 100%;
+    }
+    .payButton {
+
+            }
+}
+
+.prod-img-container {
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+    border: 1px solid rgb(86, 132, 216) !important;
 }
