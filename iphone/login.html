@@ -35,7 +35,7 @@
                 let xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        
+
                         var jsonObj = JSON.parse(this.responseText);
                         console.log(jsonObj.data);
                         sessionStorage.setItem("logged_user", JSON.stringify(jsonObj.data));
@@ -62,34 +62,37 @@
         </div>
 
         <div class="login-container">
-            <h1 class="welcome-txt" style="font-weight: 100;">Welcome</h1>
-            <p class="login-txt">Sign In to your KLANmart account</p>
-
+            <div class="ui-a-grid">
+                <h1 class="welcome-txt" style="font-weight: 100;">Welcome</h1>
+                <p class="login-txt">Sign In to your KLANmart account</p>
+            </div>
             <div class="ui-field-contain">
+                <div class="ui-b-grid">
 
-                <input type="email" name="textEmail" id="txtEmailId" placeholder="Email Id*" value=""
-                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper" 
-                    style="padding-top: 15px !important; padding-bottom: 8px;
+                    <input type="email" name="textEmail" id="txtEmailId" placeholder="Email Id*" value=""
+                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper" style="padding-top: 15px !important; padding-bottom: 8px;
                     padding-right: 15px;padding-left: 15px;">
-                    
 
-                <input type="password" name="textPasseord" id="txtPassword" placeholder="Password*" value=""
-                    data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
 
-                <p class="forgot-pw-txt">Forgot password?</p>
+                    <input type="password" name="textPasseord" id="txtPassword" placeholder="Password*" value=""
+                        data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper">
 
-                <button class="login-btn" data-corners="false" data-shadow="false" onclick="loginBtn()">SIGN
-                    IN</button>
+                    <p class="forgot-pw-txt">Forgot password?</p>
 
+                    <button class="login-btn" data-corners="false" data-shadow="false" onclick="loginBtn()">SIGN
+                        IN</button>
+                </div>
                 <p class="sign-in-with-txt">or Sign in with</p>
+                <div class="ui-c-grid">
 
-                <button class="ui-btn ui-mini sign-face-book-btn">
-                    <i class="fa fa-facebook fa-fw"></i>
-                    &nbsp; Sign In with Facebook</button>
+                    <button class="ui-btn ui-mini sign-face-book-btn">
+                        <i class="fa fa-facebook fa-fw"></i>
+                        &nbsp; Sign In with Facebook</button>
 
-                <button class="ui-btn ui-mini sign-google-acc-btn">
-                    <i class="fa fa-google fa-fw">
-                    </i> &nbsp; Sign In with Google</button>
+                    <button class="ui-btn ui-mini sign-google-acc-btn">
+                        <i class="fa fa-google fa-fw">
+                        </i> &nbsp; Sign In with Google</button>
+                </div>
             </div>
 
         </div>
