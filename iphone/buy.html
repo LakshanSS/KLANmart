@@ -10,157 +10,172 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src = "https://checkout.stripe.com/checkout.js" ></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
-
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 
 
 </head>
 
 <body>
+
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon"></i>
+    <i data-rel="back" class="fas fa-chevron-left back-icon"></i>
     <h1 class="page-detail">Order Information</h1>
 </div>
-<div id="allContent">
-<div id="customerDetails" data-role="content" data-theme="a">
-    <div id="leftThing">
-        <i class="glyphicon glyphicon-map-marker"></i>
-    </div>
-    <div id="content">
-        <ul data-role="listview">
-            <li>
-                <h6 id="custName">Kumar Sangakkara</h6>
-                <p id="custAddressRoad">51/5b, Kawdana road,</p>
-                <p id="custAddress">Dehiwala </p>
-                <p>Western, LK </p>
-                <p>10350. </p>
-                <p>0770727311 </p></li>
-        </ul>
-    </div>
-    <div id="rightThing">
-        <a id="editAddress" href="#popupBasic" data-rel="popup"  data-transition="pop">
-            <span class="glyphicon glyphicon-edit"></span>
-        </a>
-    </div>
-</div>
 
-<div id="productDetails" style="margin-top: 2%" data-role="content" data-theme="a">
-    <div id="prodNameH">
-        <div id="leftprodH">
-            <i class="glyphicon glyphicon-gift"></i>
+<div data-role="content" data-theme="a">
+
+    <div id="allContent" class="rwd-example prod-img-container">
+
+        <div class="ui-block-a">
+            <div id="customerDetails" class="ui-body ui-body-d">
+                <div id="leftThing">
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                </div>
+                <div id="content">
+                    <ul data-role="listview">
+                        <li>
+                            <h6 id="custName">Kumar Sangakkara</h6>
+                            <p id="custAddressRoad">51/5b, Kawdana road,</p>
+                            <p id="custAddressCity">Dehiwala </p>
+                            <p id="custAddressProvince">Western, LK </p>
+                            <p id="custZipCode">10350. </p>
+                            <p id="custMobileNumber">0770727311 </p></li>
+                    </ul>
+                </div>
+                <div id="rightThing">
+                    <a id="editAddress" href="#popupBasic" data-rel="popup" data-transition="pop">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                </div>
+            </div>
+            <hr class="border">
         </div>
-        <div id="prodHC">
-            <p style="font-size: medium;font-weight: bold;">Men's cloths</p>
-        </div>
-    </div>
-    <hr class="border">
-    <div class="ui-grid-a" id="prodbody">
-        <div class="ui-body ui-body-d" id="prodBodyPic">
-            <img id="prodImg" style="width: 100%"  src="../assets/images/products/tshirt1-blue.png" />
-        </div>
-        <div id="prodBodyCont">
+
+        <div id="productDetailss" class="ui-block-b" style="margin-top: 2%">
             <div class="ui-body ui-body-d">
-                <h6>2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h6>
-                <h5 style="font-weight: bold">LKR 2199.00</h5>
-                <h6 style="color: #7285ff">Delivery charge: LKR 100.00</h6>
+                <div id="prodNameH">
+                    <div id="leftprodH">
+                        <i class="glyphicon glyphicon-gift"></i>
+                    </div>
+                    <div id="prodHC">
+                        <p id="productCategory" style="font-size: medium;font-weight: bold;">Men's cloths</p>
+                    </div>
+                </div>
+                <hr class="border">
+                <div class="ui-grid-a" id="prodbody">
+                    <div class="ui-body ui-body-d" id="prodBodyPic">
+                        <img id="prodImg" style="width: 100%" src="../assets/images/products/tshirt1-blue.png"/>
+                    </div>
+                    <div id="prodBodyCont">
+                        <div class="ui-body ui-body-d">
+                            <h6 id="prodName">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</h6>
+                            <h5 id="prodPrice" style="font-weight: bold">LKR 2199.00</h5>
+                            <h6 id="prodDelivery" style="color: #7285ff">Delivery charge: LKR 100.00</h6>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border">
+                <div class="ui-grid-a">
+                    <input type="text" name="textNote" id="txtNote" placeholder="Note to seller (optional)" value=""
+                           data-corners="false" data-clear-btn="true">
+                </div>
+                <hr class="border">
+                <div id="prodTotal">
+                    <div id="prodTotalleft" class="ui-body ui-body-d">
+                        <h6 style="color: #5f6264">Sub Total :</h6>
+                        <h6 style="color: #5f6264">Delivery Charge :</h6>
+                        <h6 style="color: #010201">Total :</h6>
+
+                    </div>
+                    <div id="prodTotalright" class="ui-body ui-body-d">
+                        <h6 id="calProdPrice" style="color: #5f6264;text-align: right">LKR 2199.00</h6>
+                        <h6 id="calProdDel" style="color: #5f6264;text-align: right">LKR 100.00</h6>
+                        <h6 id="calProdTotal" style="color: #010201;text-align: right">LKR 2299.00</h6>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <hr class="border">
-    <div class="ui-grid-a">
-        <input type="text" name="textNote" id="txtNote" placeholder="Note to seller (optional)" value=""
-               data-corners="false" data-clear-btn="true">
-    </div>
-    <hr class="border">
-    <div id="prodTotal">
-        <div id="prodTotalleft" class="ui-body ui-body-d">
-            <h6 style="color: #5f6264">Sub Total :</h6>
-            <h6 style="color: #5f6264">Delivery Charge :</h6>
-            <h6 style="color: #010201">Total :</h6>
+
+        <div id="orderSummary" class="ui-block-c"  style="margin-top: 2%" data-role="content" data-theme="a">
+            <p style="font-size: medium;font-weight: bold;">Order Summary (1 item)</p>
+            <hr class="border">
+            <div id="sumTotal">
+                <div id="sumTotalleft">
+                    <h6 style="color: #5f6264">Sub Total :</h6>
+                    <h6 style="color: #5f6264">Promo Code :</h6>
+                    <h6 style="color: #5f6264">Special Offer :</h6>
+                    <h5 style="color: #010201;font-weight: bold">Total :</h5>
+
+                </div>
+                <div id="sumtotalright" class="ui-body ui-body-d">
+                    <h6 id="prodSumTotal" style="color: #5f6264;text-align: right">LKR 2299.00</h6>
+                    <a id="prodPromoCode" href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+                    <a id="ProdSpecialOff" href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+                    <h5 id="prodSumAmount" style="color: #010201;font-weight: bold;text-align: right">LKR 2299.00</h5>
+                </div>
+            </div>
+            <hr class="border">
+            <div id="Total">
+                <div id="Totalleft" class="ui-body ui-body-d">
+
+                    <h6 style="color: #010201;font-weight: bold">Total</h6>
+                    <h4 id="PayAmount" style="color: #010201;font-weight: bold">LKR 2299.00</h4>
+
+                </div>
+                <div id="totalright" style="text-align: center;margin-right: 5%">
+                    <button style="justify-content: center" id="btPayNow" class="ui-btn ui-btn-inline">Pay Now</button>
+
+                </div>
+            </div>
 
         </div>
-        <div id="prodTotalright" class="ui-body ui-body-d">
-            <h6 style="color: #5f6264;text-align: right">LKR 2199.00</h6>
-            <h6 style="color: #5f6264;text-align: right">LKR 100.00</h6>
-            <h6 style="color: #010201;text-align: right">LKR 2299.00</h6>
-
-        </div>
     </div>
-</div>
-<div id="orderSummary" style="margin-top: 2%" data-role="content" data-theme="a">
 
-    <p style="font-size: medium;font-weight: bold;">Order Summary (1 item)</p>
-
-    </div>
-    <hr class="border">
-    <div id="sumTotal">
-        <div id="sumTotalleft" class="ui-body ui-body-d">
-            <h6 style="color: #5f6264">Sub Total :</h6>
-            <h6 style="color: #5f6264">Promo Code :</h6>
-            <h6 style="color: #5f6264">Special Offer :</h6>
-            <h5 style="color: #010201;font-weight: bold">Total :</h5>
-
-        </div>
-        <div id="sumtotalright" class="ui-body ui-body-d">
-            <h6 style="color: #5f6264;text-align: right">LKR 2299.00</h6>
-            <a href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
-            <a href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
-            <h5 style="color: #010201;font-weight: bold;text-align: right">LKR 2299.00</h5>
-        </div>
-    </div>
-    <hr class="border">
-<div id="Total">
-    <div id="Totalleft" class="ui-body ui-body-d">
-
-        <h6 style="color: #010201;font-weight: bold">Total</h6>
-        <h4 style="color: #010201;font-weight: bold">LKR 2299.00</h4>
-
-    </div>
-    <div id="totalright" class="ui-body ui-body-d">
-        <button id="btPayNow" class="ui-btn ui-mini">Pay Now</button>
-
-    </div>
 </div>
 
-    <div style="margin-top: 20%;align-content: center" data-role="popup" id="popupBasic" data-overlay-theme="a" data-theme="a" data-dismissible="false" data-position-to="window" style="max-width:400px;" align="center">
-        <div data-role="header">
-            <h1>Edit Address</h1>
-        </div>
-        <p>This address will be used for shipping this product.</p>
-        <label for="popupBasic">Street:</label>
-        <input type="text" name="name" id="streetInput" value="">
-        <label for="popupBasic">City :</label>
-        <input type="text" name="name" id="cityInput" value="">
-        <label for="popupBasic">Province:</label>
-        <input type="text" name="name" id="provinceInput" value="">
-        <label for="popupBasic">Zip Code:</label>
-        <input type="text" name="name" id="zipCodeInput" value="">
 
-        <a href="" data-role="button" data-inline="true" data-rel="back">Cancel</a>
-        <a href="" data-role="button" data-theme="b" data-inline="true">Save</a>
-
-
+<div style="margin-top: 20%;align-content: center" data-role="popup" id="popupBasic" data-overlay-theme="a"
+     data-theme="a" data-dismissible="false" data-position-to="window" style="max-width:400px;" align="center">
+    <div data-role="header">
+        <h1>Edit Address</h1>
     </div>
+    <p>This address will be used for shipping this product.</p>
+    <label for="popupBasic">Street:</label>
+    <input type="text" name="name" id="streetInput" value="">
+    <label for="popupBasic">City :</label>
+    <input type="text" name="name" id="cityInput" value="">
+    <label for="popupBasic">Province:</label>
+    <input type="text" name="name" id="provinceInput" value="">
+    <label for="popupBasic">Zip Code:</label>
+    <input type="text" name="name" id="zipCodeInput" value="">
+
+    <a href="" data-role="button" data-inline="true" data-rel="back">Cancel</a>
+    <a href="" data-role="button" data-theme="b" data-inline="true">Save</a>
+
+</div>
+
 <div align="center" id="thankyouPayment">
-
     <script type="text/javascript">
-        jQuery(function($){
+        jQuery(function ($) {
             var $form = $('#frmBooking');
             var handler = StripeCheckout.configure({
-                key:'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
-                token : function(token){
-                    if(token.id){
-                       // $('#allContent').addClass('ui-disabled');
-                       // document.location.href = "./login.html";
+                key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                token: function (token) {
+                    if (token.id) {
+                        // $('#allContent').addClass('ui-disabled');
+                        document.location.href = "./login.html";
 
                     }
                 }
             })
 
-            $('#btPayNow').on('click', function(e) {
+            $('#btPayNow').on('click', function (e) {
                 handler.open({
-                    name : 'Demo Site',
+                    name: 'Demo Site',
                     currency: 'LKR',
                     description: $('#item_name').val(),
                     amount: $('#item_value').val() * 100
@@ -177,10 +192,6 @@
         });
 
     </script>
-
-</div>
-</div>
-
 </div>
 </body>
 </html>
