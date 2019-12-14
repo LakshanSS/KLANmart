@@ -34,6 +34,10 @@
             }
         }
 
+        function viewMyOrders() {
+            document.location.href = "./order.html";
+        }
+
     </script>
 </head>
 
@@ -114,10 +118,10 @@
 
                     <div class="shop-detail-tab">
                         <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
-                            <li>
+                            <li onclick="viewMyOrders()">
                                 <div class="detail-tab">
                                     <i class="fas fa-history shop-detail"></i>
-                                    <p><strong class="shopping-info">Order History</strong></p>
+                                    <p><strong class="shopping-info">My Order</strong></p>
                                     <i class="fas fa-chevron-right personal-tab-arrow"></i>
                                 </div>
                             </li>
