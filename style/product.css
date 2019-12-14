@@ -203,11 +203,11 @@ h3, h4, p {
 	color: #5f6264;
 	font-weight: 300;
 	font-size: medium;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
 }
 
 #noOfOrdersDisplay {
-	margin-left: 20px;
+	margin-left: 5px;
 	color: #5f6264;
 	font-weight: 300;
 	font-size: medium;
@@ -246,7 +246,7 @@ h3, h4, p {
 	color: #005599;
 	font-size: medium;
 	text-decoration: underline;
-	margin-right: 56px;
+	/*margin-right: 56px;*/
 }
 
 .btnCartAndBuy {
@@ -254,16 +254,13 @@ h3, h4, p {
 	color: whitesmoke !important;
 	background-color: #005599 !important;
 	border-color: #3b5998 !important;
-	width: 130px !important;
+	width: 80% !important;
 	text-shadow: none !important;
 }
 
-#btnCart {
-	/*margin-right: 15px;*/
-}
-
 #favouriteIcon {
-	font-size: larger;
+	font-size: x-large;
+	padding-right: 20px;
 }
 
 #favouriteLabel {
