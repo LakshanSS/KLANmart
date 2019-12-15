@@ -10,6 +10,44 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
 
+    <script>
+        window.onload = function () {
+            var loggedUser = sessionStorage.getItem("logged_user");
+            var myJson = JSON.parse(loggedUser);
+            $(document).ready(function () {
+                $.ajax({
+                    url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
+                }).then(function (data) {
+                    console.log(data.result);
+
+                    var i;
+                    for (i = 0; i < data.result.length; i++) {
+
+                        if (data.result[i].status == 'order') {
+                            var favouriteRow = document.createElement('div');
+                            var favouriteItems = document.getElementsByClassName('f-main-content')[0]
+                            console.log(favouriteItems);
+                            // ${data.result[i].images}
+                            var favouriteContents = `
+                    <div class="post">
+                        <img src=${data.result[i].images} alt="" srcset="" class="post-image"> 
+                        <div class="post-preview">
+                            <h3>${data.result[i].product_name}</h3>
+                            <p class="store-detail"><strong>Store</strong> ${data.result[i].store_name}</p> 
+                            <p class="status-order"><i class="fas fa-star"></i>  ${data.result[i].status}</p>
+                            <p class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</p>
+                        </div>
+                    </div>`
+                            favouriteRow.innerHTML = favouriteContents;
+                            favouriteItems.append(favouriteRow);
+                        }
+                    }
+                });
+            });
+        }
+
+    </script>
+
     <style>
         .body {
             margin: 0;
@@ -64,7 +102,7 @@
         .content .f-main-content .post {
             border: 1px solid rgb(164, 188, 231) !important;
             width: 97%;
-            height: 150px;
+            height: 104px;
             margin: 10px auto;
             background: rgb(255, 255, 255);
             position: relative;
@@ -93,13 +131,14 @@
         .content .f-main-content .post .post-preview .store-detail {
             color: rgb(6, 6, 68);
             font-size: 14px;
-            margin-top: -8px;
+            margin-top: -6px;
             margin-bottom: -3px;
         }
 
         .content .f-main-content .post .post-preview .price-tag {
             margin-top: 10px;
             font-size: 15px;
+            float: left;
 
         }
 
@@ -115,7 +154,44 @@
         }
 
         h3 {
-            font-size: 16px;
+            font-size: 14px;
+            margin-top: 18px;
+        }
+
+        .status-order {
+            margin-top: 8px;
+            font-size: 14px;
+            float: left;
+        }
+
+        .date-order {
+            float: left;
+            margin-top: 9px;
+            font-size: 13px;
+            /* margin-right: 7px; */
+            margin-left: 14px;
+        }
+
+        @media all and (min-width: 40em) {
+            .content {
+                width: 80%;
+            }
+
+            .content .f-main-content .post .post-image {
+                margin-top: 6px;
+            }
+
+            .content .f-main-content .post {
+                height: 90px;
+            }
+
+            .content .f-main-content .post .post-preview .store-detail {
+                margin-top: -5px;
+            }
+
+            .date-order {
+                margin-left: 18px;
+            }
         }
     </style>
 </head>
@@ -139,25 +215,26 @@
         <div id="if_logged_favourite">
             <div class="content clearfix">
                 <div class="f-main-content">
-                    <div class="post">
+                    <!-- <div class="post">
                         <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
+
                         <div class="post-preview">
                             <h3>Men's Long Sleeve Rounded Neck T-Shirt</h3>
                             <p class="store-detail"><strong>Store</strong> Trendy Fashion Store</p>
-                            <h3 class="price-tag">LKR 2199.00</h3>
-                            <p><i class="fas fa-star"></i> delivered</p>
-                            <!-- <i class="fas fa-heart heart-icon"></i> -->
+                            <p class="status-order"><i class="fas fa-star"></i> delivered</p>
+                            <p class="date-order"><i class="far fa-calendar-alt"></i> 12-06-2019</p>
                         </div>
-                    </div>
-                    <div class="post">
+
+                    </div> -->
+                    <!-- <div class="post">
                         <img src="../assets/images/favourite/image2.jpeg" alt="" srcset="" class="post-image">
                         <div class="post-preview">
                             <h3>Hayiou gt1 Touch Blutooth Earphones</h3>
                             <p class="store-detail"><strong>Store</strong> 3C Global Tradings</p>
-                            <h3 class="price-tag">LKR 1500.00</h3>
-                            <p><i class="fas fa-star"></i> delivered</p>
+                            <p class="status-order"><i class="fas fa-star"></i> delivered</p>
+                            <p class="date-order"><i class="far fa-calendar-alt"></i> 12-06-2019</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

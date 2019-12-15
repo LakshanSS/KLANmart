@@ -34,6 +34,10 @@
             }
         }
 
+        function viewMyOrders() {
+            document.location.href = "./order.html";
+        }
+
     </script>
 </head>
 
@@ -62,122 +66,123 @@
                     </div>
                     <i class="fas fa-chevron-right arrow-icon"></i>
                 </div>
-
-                <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false" style="
+                <div class="grid-ui-a">
+                    <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false" style="
             margin-top: 13px;">
-                    <li style="padding-bottom: 21px;">
-                        <div class="detail-tab">
-                            <p><strong class="personal-tab">Email</strong> <strong class="personal-info"
-                                    id="email"></strong></p>
-                            <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
-                        </div>
-                    </li>
-                    <li style="padding-bottom: 21px;">
-                        <div class="detail-tab">
-                            <p><strong class="personal-tab">Phone No</strong> <strong class="personal-info"
-                                    id="mobile"></strong></p>
-                            <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
-                        </div>
-                    </li>
-                    <li style="padding-bottom: 21px;">
-                        <div class="detail-tab">
-                            <p><strong class="personal-tab">DOB</strong> <strong class="personal-info">1997 - 05 -
-                                    27</strong></p>
-                            <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
-                        </div>
-                    </li>
-                    <!-- <li style="padding-bottom: 21px;">
+                        <li style="padding-bottom: 21px;">
+                            <div class="detail-tab">
+                                <p><strong class="personal-tab">Email</strong> <strong class="personal-info"
+                                        id="email"></strong></p>
+                                <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
+                            </div>
+                        </li>
+                        <li style="padding-bottom: 21px;">
+                            <div class="detail-tab">
+                                <p><strong class="personal-tab">Phone No</strong> <strong class="personal-info"
+                                        id="mobile"></strong></p>
+                                <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
+                            </div>
+                        </li>
+                        <li style="padding-bottom: 21px;">
+                            <div class="detail-tab">
+                                <p><strong class="personal-tab">DOB</strong> <strong class="personal-info">1997 - 05 -
+                                        27</strong></p>
+                                <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
+                            </div>
+                        </li>
+                        <!-- <li style="padding-bottom: 21px;">
                     <div class="detail-tab">
                         <p><strong class="personal-tab">Gender</strong> <strong class="personal-info">Male</strong></p>
                                 <i class="fas fa-chevron-right personal-tab-arrow"></i>
                     </div>
                 </li> -->
-                    <li style="padding-bottom: 21px;">
-                        <div class="detail-tab">
-                            <p><strong class="personal-tab">Prefered Currancy</strong> <strong class="personal-info"
-                                    id="pref_currency">lkr</strong></p>
-                            <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
-                        </div>
-                    </li>
-                </ul>
-
-                <div data-role="navbar" class="profile-nav">
-                    <ul class="nav">
-                        <li><a href="#" data-icon="grid" style="line-height: 0.7 !important;font-size: 14px !important;
-                        font-weight: 600;">Wish List</a></li>
-                        <li><a href="#" data-icon="star" style="line-height: 0.7 !important;font-size: 14px !important;
-                        font-weight: 600;">Coupons</a></li>
-                        <li><a href="#" data-icon="gear" style="line-height: 0.7 !important;font-size: 14px !important;
-                        font-weight: 600;">Following</a></li>
+                        <li style="padding-bottom: 21px;">
+                            <div class="detail-tab">
+                                <p><strong class="personal-tab">Prefered Currancy</strong> <strong class="personal-info"
+                                        id="pref_currency">lkr</strong></p>
+                                <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
+                            </div>
+                        </li>
                     </ul>
-                </div>
 
-                <div class="shop-detail-tab">
+                    <div data-role="navbar" class="profile-nav">
+                        <ul class="nav">
+                            <li><a href="#" data-icon="grid" style="line-height: 0.7 !important;font-size: 14px !important;
+                        font-weight: 600;">Wish List</a></li>
+                            <li><a href="#" data-icon="star" style="line-height: 0.7 !important;font-size: 14px !important;
+                        font-weight: 600;">Coupons</a></li>
+                            <li><a href="#" data-icon="gear" style="line-height: 0.7 !important;font-size: 14px !important;
+                        font-weight: 600;">Following</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-detail-tab">
+                        <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
+                            <li onclick="viewMyOrders()">
+                                <div class="detail-tab">
+                                    <i class="fas fa-history shop-detail"></i>
+                                    <p><strong class="shopping-info">My Order</strong></p>
+                                    <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="detail-tab">
+                                    <i class="fas fa-wallet shop-detail"></i>
+                                    <p><strong class="shopping-info">Wallet</strong></p>
+                                    <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="detail-tab">
+                                    <i class="fas fa-map-marked-alt shop-detail"></i>
+                                    <p><strong class="shopping-info">Shipping Address</strong></p>
+                                    <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
                     <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                         <li>
                             <div class="detail-tab">
-                                <i class="fas fa-history shop-detail"></i>
-                                <p><strong class="shopping-info">Order History</strong></p>
+                                <i style="font-size: 19px;" class="fas fa-question-circle shop-detail"></i>
+                                <p><strong class="shopping-info">Question & Anwser</strong></p>
                                 <i class="fas fa-chevron-right personal-tab-arrow"></i>
                             </div>
                         </li>
                         <li>
                             <div class="detail-tab">
-                                <i class="fas fa-wallet shop-detail"></i>
-                                <p><strong class="shopping-info">Wallet</strong></p>
+                                <i class="fas fa-users shop-detail"></i>
+                                <p><strong class="shopping-info">Invite Friends</strong></p>
                                 <i class="fas fa-chevron-right personal-tab-arrow"></i>
                             </div>
                         </li>
                         <li>
                             <div class="detail-tab">
-                                <i class="fas fa-map-marked-alt shop-detail"></i>
-                                <p><strong class="shopping-info">Shipping Address</strong></p>
+                                <i style="font-size: 19px !important;" class="fas fa-cog shop-detail"></i>
+                                <p><strong class="shopping-info">Settings</strong></p>
+                                <i class="fas fa-chevron-right personal-tab-arrow"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="detail-tab">
+                                <i class="fas fa-hands-helping shop-detail"></i>
+                                <p><strong class="shopping-info">Help Center</strong></p>
                                 <i class="fas fa-chevron-right personal-tab-arrow"></i>
                             </div>
                         </li>
                     </ul>
                 </div>
-
-
-                <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
-                    <li>
-                        <div class="detail-tab">
-                            <i style="font-size: 19px;" class="fas fa-question-circle shop-detail"></i>
-                            <p><strong class="shopping-info">Question & Anwser</strong></p>
-                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="detail-tab">
-                            <i class="fas fa-users shop-detail"></i>
-                            <p><strong class="shopping-info">Invite Friends</strong></p>
-                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="detail-tab">
-                            <i style="font-size: 19px !important;" class="fas fa-cog shop-detail"></i>
-                            <p><strong class="shopping-info">Settings</strong></p>
-                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="detail-tab">
-                            <i class="fas fa-hands-helping shop-detail"></i>
-                            <p><strong class="shopping-info">Help Center</strong></p>
-                            <i class="fas fa-chevron-right personal-tab-arrow"></i>
-                        </div>
-                    </li>
-                </ul>
             </div>
-
             <div data-role="footer" data-position="fixed" role="banner">
                 <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
                     style="height: 32px !important; margin: 0 0;">
                     <ul>
                         <li><a href="#" id="" data-icon="" id="ui-btn"><i class="fas fa-home"
                                     style="font-size: 20px;"></i></a></li>
-                        <li onclick="favourite()"><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a>
+                        <li onclick="favourite()"><a href="#" id="" data-icon=""><i class="far fa-heart"
+                                    style="font-size: 20px;"></i></a>
                         </li>
                         <li onclick="message()"><a href="#" id="" data-icon=""><i class="far fa-comment-dots"
                                     style="font-size: 20px;"></i></a>
@@ -185,7 +190,8 @@
                         <li onclick="cart()"><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart"
                                     style="font-size: 20px;"></i></a>
                         </li>
-                        <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a>
+                        <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user"
+                                    style="font-size: 20px;"></i></a>
                         </li>
                     </ul>
                 </div>

@@ -178,3 +178,58 @@ i {
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
+
+@media all and (min-width: 20em) {
+    .grid-a-ui {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid-c-ui {
+        width: 78%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media all and (min-width: 40em) {
+    .grid-a-ui {
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid-a-ui .aggrement-text {
+        font-size: 15px !important;
+    }
+
+    .logo-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -3px;
+        height: 120px;
+        width: 50px;
+    }
+
+    .sign-in-with-text {
+        font-size: 15px !important;
+    }
+
+    .signup-welcome {
+        margin-bottom: 15px;
+        font-size: 15px !important;
+    }
+
+    .grid-c-ui {
+        width: 55%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

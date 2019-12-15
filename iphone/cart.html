@@ -12,7 +12,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
-   
+
+    <script>
+        window.onload = function () {
+            var loggedUser = sessionStorage.getItem("logged_user");
+
+            // if (loggedUser != null) {
+
+            var myJson = JSON.parse(loggedUser);
+            console.log(myJson.user_id);
+
+            $(document).ready(function () {
+                $.ajax({
+                    url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
+                }).then(function (data) {
+                    console.log(data.result);
+
+                    var i;
+                    for (i = 0; i < data.result.length; i++) {
+                        if (data.result[i].status == 'cart') {
+                            var cartRow = document.createElement('div');
+                            var cartItems = document.getElementsByClassName('main-content')[0]
+                            console.log(cartItems);
+                            // ${data.result[i].images}
+                            var cartContents = `<div class="cart">
+                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
+                        data-shadow="false" data-cacheval="true"
+                        style="cursor: pointer; margin-top: 66px; margin-left: 4px; background-color: black !important; float:left">
+                    <img src=${data.result[i].images} alt="" srcset="" class="cart-image">
+                    <div class="cart-detail">
+                        <p class="cart-category"><b>Sweater</b></p>
+                        <i class="fa fa-close close-icon"></i>
+                        <h5 class="cart-name">${data.result[i].product_name}</h5>
+                        <p class="cart-color">Grey</p>
+                        <p class="cart-delivery">Non-Returnable</p>
+                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)">
+                            <p style="margin-top: -14px;">Buy</p>
+                        </button>
+                        <h5 class="cart-price"><i class="fas fa-tags"
+                                style="font-size: 11px; margin-right: 3px; margin-top: -6px; color: rgb(141, 141, 141);"></i>LKR
+                                ${data.result[i].price}.00</h5>
+                        <div class="qty-container">
+                            <i class="fas fa-minus-circle"></i>
+                            <input type="number" data-corners="false" data-wrapper-class="qty-space" style="width: 25px;">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                    </div>
+                    <p class="shipping-detail">Free Shipping</p>
+                </div>
+                            `
+
+                            cartRow.innerHTML = cartContents;
+                            cartItems.append(cartRow);
+                        }
+                    }
+                });
+            });
+            // } else {
+
+            // }
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -25,7 +87,7 @@
     <div data-role="content" data-theme="a">
         <div class="cart-contonier">
             <div class="main-content">
-                <div class="cart">
+                <!-- <div class="cart">
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
                         data-shadow="false" data-cacheval="true"
                         style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
@@ -43,27 +105,13 @@
                                 style="font-size: 11px; margin-right: 3px; margin-top: -6px; color: rgb(141, 141, 141);"></i>LKR
                             2598.00</h5>
                         <div class="qty-container">
-                            <!-- <fieldset class="ui-grid-b"><div class="ui-block-a"><button class="ui-btn ui-btn-inline value-btn">-</button></div><div class="ui-block-b"><input type="number" data-corners="false" style="
-                            margin-top: 7px;" data-wrapper-class="inputWrapper"></div><div class="ui-block-c"><button class="ui-btn ui-btn-inline value-btn">+</button></div>
-                            </fieldset> -->
-                            <!-- <p class="qty-lable">qty</p>
-                            <input type="number" data-corners="false" data-wrapper-class="inputWrapper"> -->
-                            <!-- <button class="minus-btn" data-corners="false" data-shadow="false" onclick="">
-                                <p style="margin-top: -19px; margin-left: -2px;">-</p>
-                            </button> -->
-                            <!-- <span class="minus-bg-dark"><p style="margin-top: -3px; margin-left: 4px;">-</p></span> -->
                             <i class="fas fa-minus-circle"></i>
                             <input type="number" data-corners="false" data-wrapper-class="qty-space">
-                            <!-- <span class="plus-bg-dark"><p style="margin-top: -1px;">+</p></span> -->
                             <i class="fas fa-plus-circle"></i>
-
-                            <!-- <button class="minus-btn" data-corners="false" data-shadow="false" onclick="">
-                                <p style="margin-top: -19px; margin-left: -2px;">+</p>
-                            </button> -->
                         </div>
                     </div>
                     <p class="shipping-detail">Free Shipping</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -89,7 +137,8 @@
                 <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
                 <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
                 </li>
-                <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user"
+                            style="font-size: 20px;"></i></a></li>
             </ul>
         </div>
     </div>
