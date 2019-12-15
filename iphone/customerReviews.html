@@ -7,97 +7,222 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <link rel="stylesheet" href="../style/review.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <!--<script>
+        $(document).ready(function () {
+            let product_id = window.sessionStorage.getItem('product_id');
+            console.log("Current product id is " + product_id);
+            if (product_id != null) {
+                $.ajax({
+                    url: "http://localhost:9002/KLANmart/reviews/1"
+                }).then(function (data) {
+                    console.log(data);
+                });
+            }
+        });
+    </script>-->
+    <style>
+
+        .stars-outer {
+            display: inline-block;
+            position: relative;
+            font-family: FontAwesome;
+        }
+
+        .stars-outer::before {
+            content: "\f006 \f006 \f006 \f006 \f006";
+        }
+
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+        }
+
+        .stars-inner::before {
+            content: "\f005 \f005 \f005 \f005 \f005";
+            color: orange;
+        }
+    </style>
+    <style>
+
+    </style>
+
 </head>
 
 <body>
-<div data-role="header" data-position="fixed">
-    <a href="" data-ajax="false" data-icon="back">Back</a>
-    <h1>Customer Reviews</h1>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Reviews</h1>
+    <i class="fas fa-chevron-left share-icon"></i>
 </div>
 <div data-role="content" data-theme="a">
-    <div class="ui-body ui-body-a ui-corner-all">
-        <h1>4.0/5</h1>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <h3>742 Ratings</h3>
+    <div style='text-align:center;'>
+        <div class="review-block-a">
+            <div class="ui-body ui-body-d">
+                <!--Rating-->
+                <div style="text-align: center">
+                    <span id="ratingDisplay">4.0</span>
+                    <span id="ratingDisplayTotal">/5</span>
+                </div>
+                <!--Stars for rating-->
+                <div style="text-align: center">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span><br>
+                    <!--No of Orders-->
+                    <span id="noOfOrdersDisplay">123</span>
+                    <span id="labelOrders">Orders</span>
+                </div>
+            </div>
+        </div>
+        <div style='float:right;width:50%' class="review-block-b">
+            <div class="ui-body ui-body-d">
+                <div class="row">
+                    <div class="side">
+                        <span class="ratingCount">5 </span>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar-5"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <span class="ratingCount">150</span>
+                    </div>
+                    <div class="side">
+                        <span class="ratingCount">4 </span>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar-4"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <span class="ratingCount">63</span>
+                    </div>
+                    <div class="side">
+                        <span class="ratingCount">3 </span>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar-3"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <span class="ratingCount">15</span>
+                    </div>
+                    <div class="side">
+                        <span class="ratingCount">2 </span>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar-2"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <span class="ratingCount">6</span>
+                    </div>
+                    <div class="side">
+                        <span class="ratingCount">1 </span>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar-1"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <span class="ratingCount">20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="ui-field-contain">
+    <div class="ui-field-contain filterContainer">
             <select name="select-custom-1" id="select-custom-1" data-native-menu="false">
                 
         <option value="1">All Reviews</option>
-                
-        <option value="2">4-5</option>
-                
-        <option value="3">3-4</option>
-                
-        <option value="4">2-3</option>
-                
-        <option value="4">1-2</option>
+        <option value="2">5</option>
+        <option value="3">4</option>
+        <option value="4">3</option>
+        <option value="4">2</option>
+        <option value="4">1</option>
             </select>
     </div>
 
     <ul data-role="listview" data-inset="true">
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
+        <li class="reviewListItem">
+            <span class="reviewUserName">Stephen Weber</span><br>
+            <!--<span>4/5</span>-->
+            <span class="stars-outer">
+                            <span class="stars-inner" style="width:80%"></span>
+                        </span>&nbsp;
+            <span>4/5</span>
+            <p class="reviewComment">Great Product. I recommend this seller.</p>
                 <p class="ui-li-aside"><strong>22 Nov</strong></p>
         </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
+        <li class="reviewListItem">
+            <span class="reviewUserName">Stephen Weber</span><br>
+            <!--<span>4/5</span>-->
+            <span class="stars-outer">
+                            <span class="stars-inner" style="width:80%"></span>
+                        </span>&nbsp;
+            <span>4/5</span>
+            <p class="reviewComment">Great Product. I recommend this seller.</p>
                 <p class="ui-li-aside"><strong>22 Nov</strong></p>
         </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
-        </li>
-        <li>
-                <h2>Stephen Weber</h2>
-            <p>4.5</p>
-            <p>Great Product. I recommend this seller.</p>
+        <li class="reviewListItem">
+            <span class="reviewUserName">Stephen Weber</span><br>
+            <!--<span>4/5</span>-->
+            <span class="stars-outer">
+                            <span class="stars-inner" style="width:80%"></span>
+                        </span>&nbsp;
+            <span>4/5</span>
+            <p class="reviewComment">Great Product. I recommend this seller.</p>
                 <p class="ui-li-aside"><strong>22 Nov</strong></p>
         </li>
     </ul>
+    <div data-role="footer" data-position="fixed" role="banner">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+             style="height: 32px !important; margin: 0 0;">
+            <ul>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
+                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                </li>
+                <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+            </ul>
+        </div>
+    </div>
 </div>
+<script>
+    /*const ratings = {
+        hotel_a : 2.8,
+        hotel_b : 3.3,
+        hotel_c : 1.9,
+        hotel_d : 4.3,
+        hotel_e : 4.74
+    };
+
+    const starTotal = 5;
+
+    for(const rating in ratings) {
+        // 2
+        const starPercentage = (ratings[rating] / starTotal) * 100;
+        // 3
+        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+        // 4
+        document.querySelector(".${rating} .stars-inner").style.width = starPercentageRounded;
+    }*/
+</script>
 </body>
 </html>
