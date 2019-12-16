@@ -1,0 +1,36 @@
+.header-bar {
+	background-color: rgb(12, 64, 161) !important;
+	height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 100;
+	font-size: 17px;
+	margin-top: 8px;
+}
+
+#submitBtn{
+	background-color: rgb(12, 64, 161) !important;
+	color: white;
+	text-shadow: none;
+	/*width: 80% !important;*/
+	border-radius: 25px;
+}
+
+.starRating{
+	font-size: xx-large !important;
+	color: #2a2a2a;
+}
+
+.questionStar{
+	color: #db4437;
+}

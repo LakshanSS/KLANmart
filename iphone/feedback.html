@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KLANmart - Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../style/feedback.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../js/feedback.js"></script>
+</head>
+
+<body>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Feedback</h1>
+    <i class="fas fa-chevron-left share-icon"></i>
+</div>
+
+<div data-role="content" data-theme="a">
+    <div>
+
+        <div style='text-align:center;'>
+            <span class="questionStar">*</span>
+            <span>How accurate was the product description</span>
+        </div>
+        <br>
+        <div style='text-align:center;'>
+            <div style="text-align: center">
+                <span id="star_desc1" class="fa fa-star starRating" onclick="starClicked(1,'star_desc')"></span>
+                <span id="star_desc2" class="fa fa-star starRating" onclick="starClicked(2,'star_desc')"></span>
+                <span id="star_desc3" class="fa fa-star starRating" onclick="starClicked(3,'star_desc')"></span>
+                <span id="star_desc4" class="fa fa-star starRating" onclick="starClicked(4,'star_desc')"></span>
+                <span id="star_desc5" class="fa fa-star starRating" onclick="starClicked(5,'star_desc')"></span><br>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <div style='text-align:center;'>
+            <span class="questionStar">*</span>
+            <span>How satisfied were you with the seller's communication</span>
+        </div>
+        <br>
+        <div style='text-align:center;'>
+            <div style="text-align: center">
+                <span id="star_comm1" class="fa fa-star starRating" onclick="starClicked(1,'star_comm')"></span>
+                <span id="star_comm2" class="fa fa-star starRating" onclick="starClicked(2,'star_comm')"></span>
+                <span id="star_comm3" class="fa fa-star starRating" onclick="starClicked(3,'star_comm')"></span>
+                <span id="star_comm4" class="fa fa-star starRating" onclick="starClicked(4,'star_comm')"></span>
+                <span id="star_comm5" class="fa fa-star starRating" onclick="starClicked(5,'star_comm')"></span><br>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <div style='text-align:center;'>
+            <span class="questionStar">*</span>
+            <span>How quickly did the seller deliver the item</span>
+        </div>
+        <br>
+        <div style='text-align:center;'>
+            <div style="text-align: center">
+                <span id="star_delivery1" class="fa fa-star starRating" onclick="starClicked(1,'star_delivery')"></span>
+                <span id="star_delivery2" class="fa fa-star starRating" onclick="starClicked(2,'star_delivery')"></span>
+                <span id="star_delivery3" class="fa fa-star starRating" onclick="starClicked(3,'star_delivery')"></span>
+                <span id="star_delivery4" class="fa fa-star starRating" onclick="starClicked(4,'star_delivery')"></span>
+                <span id="star_delivery5" class="fa fa-star starRating" onclick="starClicked(5,'star_delivery')"></span><br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="text-align: center">
+            <textarea name="textarea-1" id="textarea-1"></textarea>
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-0" data-mini="true">
+            <label for="checkbox-mini-0">Leave Feedback as Anonymous</label>
+        <button id="submitBtn" class="ui-btn">Submit Feedback</button>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
