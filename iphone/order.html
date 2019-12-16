@@ -23,7 +23,7 @@
                     var i;
                     for (i = 0; i < data.result.length; i++) {
 
-                        if (data.result[i].status == 'order') {
+                        if (data.result[i].order_status == 'order') {
                             var favouriteRow = document.createElement('div');
                             var favouriteItems = document.getElementsByClassName('f-main-content')[0]
                             console.log(favouriteItems);
@@ -34,7 +34,7 @@
                         <div class="post-preview">
                             <h3>${data.result[i].product_name}</h3>
                             <p class="store-detail"><strong>Store</strong> ${data.result[i].store_name}</p> 
-                            <p class="status-order"><i class="fas fa-star"></i>  ${data.result[i].status}</p>
+                            <p class="status-order"><i class="fas fa-star"></i>  ${data.result[i].order_status}</p>
                             <p class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</p>
                         </div>
                     </div>`
