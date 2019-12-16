@@ -133,6 +133,10 @@ h3, h4, p {
 	color: orange;
 }
 
+/*.starRating{
+	font-size: 13px !important;
+}*/
+
 .header-bar {
 	background-color: rgb(12, 64, 161) !important;
 	height: 60px !important;
@@ -255,6 +259,7 @@ h3, h4, p {
 	border-color: #3b5998 !important;
 	width: 80% !important;
 	text-shadow: none !important;
+	border-radius: 20px;
 }
 
 #favouriteIcon {
