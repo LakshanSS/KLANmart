@@ -119,3 +119,9 @@ body {
             font-family: 'Roboto', sans-serif !important;
 
         }
+
+        @media all and (min-width: 40em) {
+            .grid-a-responsive {
+                /* width: 75%; */
+            }
+        }

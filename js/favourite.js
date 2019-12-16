@@ -23,7 +23,7 @@ window.onload = function () {
                     <div class="post">
                         <img src=${data.result[i].images} alt="" srcset="" class="post-image">
                         <div class="post-preview">
-                            <h4>${data.result[i].description}</h4>
+                            <h4 class="product-name">${data.result[i].description}</h4>
                             <p class="store-detail"><i class="fas fa-store"></i><strong></strong> Trendy Fashion Store
                             </p>
                             <h4 class="price-tag"><i class="fas fa-tags"></i> ${data.result[i].price}.00</h4>
@@ -34,6 +34,7 @@ window.onload = function () {
                     favouriteRow.innerHTML = favouriteContents;
                     favouriteItems.append(favouriteRow);
                 }
+                sessionStorage.setItem("favourite-count", i);
             });
         });
     } else {
@@ -44,26 +45,47 @@ window.onload = function () {
 
 
 function sendEmail() {
-    var body = null;
+    var countF = sessionStorage.getItem("favourite-count");
+    var body = [];
     var toAddress = null;
     toAddress = document.getElementById('txtToEmailId').value;
     var fromAddress = 'kajenchandran@gmail.com';
     var smtpUsername = 'kajenchandran@gmail.com';
-    var smtpPassword = '';
+    var smtpPassword = 'kaja1114';
+
     if (toAddress == "") {
+        document.getElementById("sendBtn").disabled = true;
 
     } else if (toAddress != "") {
+        //generate subject data
+        var i;
+        for (i = 0; i < countF; i++) {
+            var productName = document.getElementsByClassName('product-name')[i].innerText;
+            var storeName = document.getElementsByClassName('store-detail')[i].innerText;
+            var price = document.getElementsByClassName('price-tag')[i].innerText;
+            console.log(productName,storeName,price);
+            body[i] = "<br>"+"product name : " + productName +"<br>" + " store name : " + storeName +"<br>"+ " price : " + "LKR"+price;
+        }
+        console.log(body);
+        var emailbody= "";
+        var x;
+        for(x = 0; x < 1; x++) {
+            emailbody += body[x] + "<br>";
+        }
+
+        console.log(emailbody);
         Email.send({
             Host: "smtp.gmail.com",
             Username: 'kajenchandran@gmail.com',
-            Password: smtpPassword,
+            Password: "kaja1114",
             To: toAddress,
             From: 'kajenchandran@gmail.com',
             Subject: "KLAN mart",
-            Body: "favourite list",
+            Body: "FAVOURITE ITEMS" +"<br>"+ emailbody,
             port: 587
         }).then(
-            message => alert("mail sent successfully")
+            message => alert("mail sent successfully"),
+            // document.location.href = "./favourites.html"
         );
     }
 
