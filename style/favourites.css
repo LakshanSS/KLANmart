@@ -251,9 +251,34 @@ input[type=email] {
 	font-size: 13px !important;
 }
 
-/* .ui-panel-page-container-b {
-	background-color: lightblue !important;
-} */
+.filter-favourite {
+	height: 25px !important;
+	font-size: 14px;
+	color: rgb(16, 57, 146);
+	text-shadow: none !important;
+	width: 63px !important;
+	padding: 0px 0px;
+	margin-top: -4px;
+	padding-bottom: 4px;
+}
+
+.ui-select .ui-btn select {
+	left: 10px !important;
+	font-size: 12px !important;
+	text-align: center !important;
+	color: black !important;
+	background-color: rgb(255, 255, 255) !important;
+	width: 90px !important;
+	padding-left: 23px !important;
+}
+
+.ui-select {
+	border: 1px solid rgb(6, 54, 109);
+	margin-left: 20px;
+	box-shadow: 0 1px 1px 0 rgba(54, 114, 163, 0.2), 0 6px 10px 0 rgba(79, 128, 161, 0.19);
+
+}
+
 
 @media all and (min-width: 40em) {
 	.content .f-main-content .post {

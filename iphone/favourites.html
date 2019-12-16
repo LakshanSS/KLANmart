@@ -31,6 +31,13 @@
         <div id="if_logged_favourite">
             <!-- Content -->
             <div class="top-header">
+                <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
+                    class="filter-favourite">
+                        <option value="standard">Filter By</option>
+                        <option value="rush">Price</option>
+                        <option value="express">Category</option>
+                        <option value="overnight">ratings</option>
+                </select>
                 <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
                 onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
                 <a href="#popupLogin" data-rel="popup" data-position-to="window"
@@ -43,9 +50,9 @@
                             <h5 class="form-header">Share the Favourite List with your friends via Email</h5>
                             <!-- <label for="pw" class="ui-hidden-accessible">Password:</label> -->
                             <input type="email" name="textEmail" id="txtToEmailId" placeholder="To Address*" value=""
-                        data-corners="false" data-clear-btn="true" data-wrapper-class="emailInputWrapper">
-                            <button type="submit" onclick="sendEmail()"
-                                class="ui-btn ui-shadow  ui-icon-check btn-send">Send</button>
+                                data-corners="false" data-clear-btn="true" data-wrapper-class="emailInputWrapper">
+                            <button onclick="sendEmail()" id="sendBtn"
+                                class="ui-btn ui-shadow ui-icon-check btn-send">Send</button>
                         </div>
                     </form>
                 </div>

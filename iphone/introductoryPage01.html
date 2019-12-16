@@ -32,26 +32,27 @@
 
 <body>
     <div data-role="content" data-theme="a" class="content-body">
-        <button class="skip-btn" data-corners="false" data-shadow="false" onclick="skip()">Skip <i class="fas fa-forward"></i></button>
+        <button class="skip-btn" data-corners="false" data-shadow="false" onclick="skip()">Skip <i
+                class="fas fa-forward"></i></button>
+        <div class="grid-a-responsive">
+            <h1 class="step-count-text">1 ) Account</h1>
 
-        <h1 class="step-count-text">1 ) Account</h1>
 
+            <!-- <div class="intro-container"> -->
+            <img src="../assets/images/introdutory steps/usera.png" class="tip-one-image">
+            <p class="instruction-txt"> create a KLANmart account for persoanalized shopping experiences.
+            </p>
 
-        <!-- <div class="intro-container"> -->
-        <img src="../assets/images/introdutory steps/usera.png" class="tip-one-image">
-        <p class="instruction-txt"> create a KLANmart account for persoanalized shopping experiences.
-        </p>
+            <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToStepTwo()">NEXT <i
+                    class="fas fa-caret-right"></i></button>
 
-        <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToStepTwo()">NEXT <i
-                class="fas fa-caret-right"></i></button>
-
-        <div style="text-align:center; margin-top: 40px;">
-            <span class="selected-dot"></span>
-            <span class="dot" onclick="secondSlid()"></span>
-            <span class="dot" onclick="thirdSlid()"></span>
+            <div style="text-align:center; margin-top: 40px;">
+                <span class="selected-dot"></span>
+                <span class="dot" onclick="secondSlid()"></span>
+                <span class="dot" onclick="thirdSlid()"></span>
+            </div>
+            <!-- </div> -->
         </div>
-        <!-- </div> -->
-
     </div>
 </body>
 
