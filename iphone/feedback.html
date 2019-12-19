@@ -25,7 +25,7 @@
 
         <div style='text-align:center;'>
             <span class="questionStar">*</span>
-            <span>How accurate was the product description</span>
+            <span class="question">How accurate was the product description?</span>
         </div>
         <br>
         <div style='text-align:center;'>
@@ -43,7 +43,7 @@
     <div>
         <div style='text-align:center;'>
             <span class="questionStar">*</span>
-            <span>How satisfied were you with the seller's communication</span>
+            <span class="question">How satisfied were you with the seller's communication?</span>
         </div>
         <br>
         <div style='text-align:center;'>
@@ -60,7 +60,7 @@
     <div>
         <div style='text-align:center;'>
             <span class="questionStar">*</span>
-            <span>How quickly did the seller deliver the item</span>
+            <span class="question">How quickly did the seller deliver the item?</span>
         </div>
         <br>
         <div style='text-align:center;'>
@@ -74,16 +74,15 @@
         </div>
     </div>
     <br>
-    <div style="text-align: center">
-            <textarea name="textarea-1" id="textarea-1"></textarea>
-        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-0" data-mini="true">
-            <label for="checkbox-mini-0">Leave Feedback as Anonymous</label>
-        <button id="submitBtn" class="ui-btn">Submit Feedback</button>
+    <div style="text-align: center" id="feedbackContainerA">
+            <textarea name="textareaFeedback" id="textareaFeedback"
+                      placeholder="Tell us about what you think ..."></textarea>
+        <div id="feedbackContainerB">
+            <input type="checkbox" name="checkboxCusFeedback" id="checkboxCusFeedback" data-mini="true">
+                <label id="lblCheckbox" for="checkboxCusFeedback">Leave Feedback as Anonymous</label>
+            <button id="submitBtn" class="ui-btn">Submit Feedback</button>
+        </div>
     </div>
-
 </div>
-
-
-
 </body>
 </html>

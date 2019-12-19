@@ -18,19 +18,50 @@
 	margin-top: 8px;
 }
 
-#submitBtn{
+#submitBtn {
 	background-color: rgb(12, 64, 161) !important;
 	color: white;
 	text-shadow: none;
-	/*width: 80% !important;*/
+	width: 220px;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 25px;
 }
 
-.starRating{
-	font-size: xx-large !important;
-	color: #2a2a2a;
+#feedbackContainerB {
+	width: 250px !important;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.questionStar{
+.starRating {
+	font-size: xx-large !important;
+	color: #5f6264;
+}
+
+.questionStar {
 	color: #db4437;
+}
+
+@media all and (min-width: 40em) {
+	#feedbackContainerA {
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 150%;
+	}
+	
+	.starRating {
+		font-size: 45px !important;
+	}
+	
+	.question, .questionStar {
+		font-size: 20px;
+	}
+	
+	#submitBtn {
+		font-size: 20px;
+		width: 280px;
+		border-radius: 40px;
+	}
 }

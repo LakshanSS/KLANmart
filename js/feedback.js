@@ -8,31 +8,31 @@ function starClicked(value, ratingItem) {
     switch (value) {
         case 1:
             document.getElementById(ratingItem + 1).style.color = "orange";
-            document.getElementById(ratingItem + 2).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 3).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 4).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 5).style.color = "#2a2a2a";
+            document.getElementById(ratingItem + 2).style.color = "#5f6264";
+            document.getElementById(ratingItem + 3).style.color = "#5f6264";
+            document.getElementById(ratingItem + 4).style.color = "#5f6264";
+            document.getElementById(ratingItem + 5).style.color = "#5f6264";
             break;
         case 2:
             document.getElementById(ratingItem + 1).style.color = "orange";
             document.getElementById(ratingItem + 2).style.color = "orange";
-            document.getElementById(ratingItem + 3).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 4).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 5).style.color = "#2a2a2a";
+            document.getElementById(ratingItem + 3).style.color = "#5f6264";
+            document.getElementById(ratingItem + 4).style.color = "#5f6264";
+            document.getElementById(ratingItem + 5).style.color = "#5f6264";
             break;
         case 3:
             document.getElementById(ratingItem + 1).style.color = "orange";
             document.getElementById(ratingItem + 2).style.color = "orange";
             document.getElementById(ratingItem + 3).style.color = "orange";
-            document.getElementById(ratingItem + 4).style.color = "#2a2a2a";
-            document.getElementById(ratingItem + 5).style.color = "#2a2a2a";
+            document.getElementById(ratingItem + 4).style.color = "#5f6264";
+            document.getElementById(ratingItem + 5).style.color = "#5f6264";
             break;
         case 4:
             document.getElementById(ratingItem + 1).style.color = "orange";
             document.getElementById(ratingItem + 2).style.color = "orange";
             document.getElementById(ratingItem + 3).style.color = "orange";
             document.getElementById(ratingItem + 4).style.color = "orange";
-            document.getElementById(ratingItem + 5).style.color = "#2a2a2a";
+            document.getElementById(ratingItem + 5).style.color = "#5f6264";
             break;
         case 5:
             document.getElementById(ratingItem + 1).style.color = "orange";
