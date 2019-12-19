@@ -275,3 +275,11 @@ h3, h4, p {
 #favContainer {
 	float: right;
 }
+
+#closeBtnSlideshow{
+	background-color: #005599;
+}
+
+.slideshowBtn:hover {
+	background-color: transparent !important;
+}
