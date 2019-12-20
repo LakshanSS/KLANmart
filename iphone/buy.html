@@ -129,7 +129,7 @@
         <div style='float:left;width:70%' class="ui-body ui-body-d">
 
             <h6 style="color: #010201;font-weight: bold">Total</h6>
-            <h4 id="PayAmount" style="color: #010201;font-weight: bold">LKR 2299.00</h4>
+            <h4 id="PayAmount" style="color: #010201;font-weight: bold">2299.00</h4>
 
         </div>
         <div style='float:right;width:30%; height: 73.19px; text-align: center'>
@@ -175,6 +175,20 @@
     </div>
 </div>
 
+<div id="promopop" data-role="popup" data-dialog="true"  data-transition="pop">
+
+    <div data-role="header" data-theme="b">
+        <h1>Add promo code</h1>
+    </div>
+    <label for="popupBasic">Street:</label>
+    <input type="text" name="name" id="promoInput" value="">
+    <div role="main" class="ui-content">
+        <!-- <h1>Delete page?</h1> -->
+
+        <a href="home.html" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
+    </div>
+</div>
+
 
 <div align="center" id="thankyouPayment">
     <script type="text/javascript">
@@ -188,8 +202,8 @@
 
             document.getElementById('custAddressRoad').innerHTML = street;
             document.getElementById('custAddressCity').innerHTML = city;
-            document.getElementById('custAddressProvince').innerHTML = city;
-            document.getElementById('custZipCode').innerHTML = city;
+            document.getElementById('custAddressProvince').innerHTML = province;
+            document.getElementById('custZipCode').innerHTML = zip;
 
             console.log(street);
             $("#popupBasic").popup('close');
@@ -239,7 +253,7 @@
 
                             document.getElementById("prodSumTotal").innerHTML = "LKR "+totalAmount+".00";
                             document.getElementById("prodSumAmount").innerHTML = "LKR "+totalAmount+".00";
-                            document.getElementById("PayAmount").innerHTML = "LKR "+totalAmount+".00";
+                            document.getElementById("PayAmount").innerHTML = totalAmount+".00";
 
                         }
                     });
@@ -259,27 +273,30 @@
                         // $('#allContent').addClass('ui-disabled');
 
                         $("#popuppayment").popup("open");
+                        hide ();
                     }
                 }
             })
 
+            let payAmount = document.getElementById('PayAmount').textContent;
+            console.log("amount"+ payAmount);
+
             $('#btPayNow').on('click', function (e) {
                 handler.open({
-                    name: 'Demo Site',
+                    name: 'Enter Payment',
                     currency: 'LKR',
-                    description: $('#item_name').val(),
-                    amount: $('#item_value').val() * 100
+                    description: payAmount,
+                    amount: payAmount *100
                 },'_self');
 
 
             });
         });
 
-        $("#btPayNow").on({
-            popupbeforeposition: function () {
-                $('.ui-popup-screen').off();
-            }
-        });
+        popupbeforeposition: function hide () {
+            $('.ui-popup-screen').off();
+        }
+
 
         $("#editAddress").on({
             popupbeforeposition: function () {
