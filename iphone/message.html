@@ -7,11 +7,158 @@
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <style>
+        .header-bar {
+            background-color: rgb(12, 64, 161) !important;
+            height: 60px !important;
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-top: 22px;
+            margin-left: 15px;
+            color: white;
+        }
+
+        /*.header-bar .share-icon {
+            float: right;
+            !*margin-top: 22px;
+            margin-left: 15px;
+            color: white;*!
+        }*/
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 17px;
+            margin-top: 8px;
+            text-shadow: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #textareaQA{
+            height: 36px !important;
+        }
+
+        #askBtn{
+            border-radius: 20px;
+            margin-top: 8px;
+            background-color: rgb(12, 64, 161) !important;
+            color: white;
+            text-shadow: none;
+        }
+        .ui-grid-a>.ui-block-a{
+            width: 75%;
+            margin-left: 10px;
+        }
+        .ui-grid-a>.ui-block-b {
+            width: 15%;
+        }
+    </style>
+    <style>
+        /* Chat containers */
+        .container {
+            border: 2px solid #dedede;
+            background-color: #062e69;
+            color: white;
+            text-shadow: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .light{
+            margin-left: 15%;
+        }
+
+        /* Darker chat container */
+        .darker {
+            border-color: #ccc;
+            background-color: lightgray;
+            color: black;
+            text-shadow: none;
+            margin-right: 15%;
+        }
+
+        /* Clear floats */
+        .container::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Style images */
+        .container img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        /* Style the right image */
+        .container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+        }
+
+        /* Style time text */
+        .time-right {
+            float: right;
+            color: #aaa;
+        }
+
+        /* Style time text */
+        .time-left {
+            float: left;
+            color: #999;
+        }
+
+    </style>
 </head>
 
 <body>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">Trendy Fashion Store</h1>
+</div>
 <div data-role="content" data-theme="a">
-    <h1>Message</h1>
+    <div class="container light">
+        <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
+        <p>Hello. How are you today?</p>
+        <span class="time-right">11:00</span>
+    </div>
+
+    <div class="container darker">
+        <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
+        <p>Hey! I'm fine. Thanks for asking!</p>
+        <span class="time-left">11:01</span>
+    </div>
+
+    <div class="container light">
+        <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
+        <p>Sweet! So, what do you wanna do today?</p>
+        <span class="time-right">11:02</span>
+    </div>
+
+    <div class="container darker">
+        <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
+        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+        <span class="time-left">11:05</span>
+    </div>
+</div>
+<div data-role="footer" data-position="fixed" role="banner">
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <input type="text" id="url" name="url" placeholder="Tell us about what you think ..."/>
+        </div>
+        <div class="ui-block-b">
+            <button id="askBtn" data-inline="true" class="ui-btn">Send</button>
+        </div>
+    </div>
 </div>
 </body>
 </html>

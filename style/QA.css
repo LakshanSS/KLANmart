@@ -1,0 +1,38 @@
+#textareaQA{
+	height: 36px !important;
+}
+
+#askBtn{
+	border-radius: 20px;
+	margin-top: 8px;
+	background-color: rgb(12, 64, 161) !important;
+	color: white;
+	text-shadow: none;
+}
+.ui-grid-a>.ui-block-a{
+	width: 80%;
+	margin-left: 10px;
+}
+.ui-grid-a>.ui-block-b {
+	width: 15%;
+}
+
+.header-bar {
+	background-color: rgb(12, 64, 161) !important;
+	height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 100;
+	font-size: 17px;
+	margin-top: 8px;
+}

@@ -49,8 +49,18 @@
 }
 
 #btPayNow {
-    background-color: darkblue;
-    color: #d6d6d6;
+    /*background-color: darkblue;*/
+    /*color: #d6d6d6;*/
+    /*margin-top: 0;*/
+    /*text-shadow: none;*/
+    font-size: small !important;
+    color: whitesmoke !important;
+    background-color: #005599 !important;
+    border-color: #3b5998 !important;
+    width: 90% !important;
+    height: 70%;
+    text-shadow: none !important;
+    border-radius: 25px;
 }
 
 .border {
@@ -131,10 +141,6 @@
         border-left-width: 0;
     }
 
-    .product-image {
-        width: 100%;
-    }
-
 }
 
 /* 2nd breakpoint - Float, 60,40 */
@@ -161,9 +167,6 @@
         border-left-width: 0;
     }
 
-    .product-image {
-        width: 100%;
-    }
 }
 
 /* 3rd breakpoint - Bump up font size at very wide screens */
@@ -183,12 +186,6 @@
         width: 50%;;
     }
 
-    .product-image {
-        width: 100%;
-    }
-    .payButton {
-
-            }
 }
 
 .prod-img-container {

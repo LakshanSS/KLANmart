@@ -39,3 +39,23 @@
 	color: #5f6264;
 	margin: 0 5px 10px 0;
 }
+
+.header-bar {
+	background-color: rgb(12, 64, 161) !important;
+	height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 100;
+	font-size: 17px;
+	margin-top: 8px;
+}

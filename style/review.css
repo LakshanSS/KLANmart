@@ -16,20 +16,24 @@
 	font-weight: 100;
 	font-size: 17px;
 	margin-top: 8px;
+	text-shadow: none;
 }
 
 .review-block-a {
-	width: 50%;
+	width: 40%;
 	float: left;
 	border: none;
 }
 
 .review-block-b {
 	border: none;
-	width: 50%;
+	width: 60%;
 	float: right;
 }
 
+.starRating{
+	font-size: 13px !important;
+}
 #ratingDisplay {
 	color: #1b1b1b;
 	font-weight: 400;
