@@ -9,7 +9,11 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
-
+    <script>
+        function goToHome() {
+            document.location.href = "./home.html";
+        }
+    </script>
     <style>
         .body {
             margin: 0;
@@ -36,15 +40,11 @@
             background-color: white !important;
             color: rgb(21, 98, 146) !important;
             text-shadow: none !important;
-            border-color: none !important;
+            border-color: transparent !important;
             border-left-width: 0px !important;
             border-right-width: 0px !important;
             border-top-width: 0px !important;
             border-bottom-width: 0px !important;
-            border-top-color: none !important;
-            border-right-color: none !important;
-            border-bottom-color: none !important;
-            border-left-color: none !important;
             text-shadow: none !important;
             box-shadow: none !important;
         }
@@ -267,7 +267,7 @@
                 <!-- <img src="../assets/logo/logo-white.png" style="width: 164px;
                 height: 50px;  margin-right: auto;
                 margin-left: auto;display: block !important; margin-top: 5px;" class="logo-image" height="20%"> -->
-                <i class="fas fa-chevron-left back-icon"></i>
+                <i class="fas fa-chevron-left back-icon" onclick="goToHome()"></i>
                 <!-- <h1 class="page-detail">Search Result</h1> -->
                 <div class="search-container">
                     <!-- <i class="fas fa-bars"></i> -->
@@ -285,14 +285,14 @@
                         <option value="standard">Categories</option>
                         <option value="rush">Accessories</option>
                         <option value="express">Baby items</option>
-                        <option value="overnight">Clothings</option>
-                    <option value="overnight">Cosmatics</option>
+                        <option value="overnight">Clothing</option>
+                    <option value="overnight">Cosmetics</option>
                     <option value="overnight">Electronics</option>
-                    <option value="overnight">Furnitures</option>
+                    <option value="overnight">Furniture</option>
 
-                    <option value="overnight">Jewwllery</option>
+                    <option value="overnight">Jewellery</option>
                     <option value="overnight">Shoes</option>
-                    <option value="overnight">Stationeries</option>
+                    <option value="overnight">Stationary</option>
                 </select>
                 <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
                 onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
@@ -303,7 +303,7 @@
                 left: 12px; background-color:  rgb(193, 217, 241); border: 1px solid rgb(10, 83, 131) !important;">
 
                 </div> -->
-                <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
+                <select name="select-choice-mini" id="select-choice-mini2" data-mini="true" data-inline="true"
                     class="filter-favourite">
                         <option value="standard">Fiter By</option>
                         <option value="rush">Price(A-Z)</option>
@@ -405,13 +405,13 @@
             <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
                 style="height: 32px !important; margin: 0 0;">
                 <ul>
-                    <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-                    <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-                    <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
+                    <li><a href="#" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
                     </li>
-                    <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                    <li><a href="#" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
                     </li>
-                    <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
                 </ul>
             </div>
         </div>
