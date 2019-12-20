@@ -10,16 +10,16 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="../js/map-location.js"></script>
-    <script src="../js/test-db-connection.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFg5LfLkyhaCXllKXk9M29ls7ckuYsNPc&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZM5Fc_a4AerbmBTZ9SD8VeFtAK5hkOr0&callback=initMap">
     </script>
+
 </head>
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon"></i>
+    <i class="fas fa-chevron-left back-icon" onclick="goToProduct()"></i>
     <h1 class="page-detail">Store Info</h1>
 </div>
 
@@ -45,6 +45,7 @@
             <span class="label"> Store Address:</span>
             <span>23, 2nd Lane, Hyde Park Corner, Colombo</span>
         </section>
+        <br>
         <section class="store-detail-list">
             <div role="main" id="map">
                 <!-- map loads here... -->
@@ -52,22 +53,226 @@
         </section>
 
     </div>
-    <br>
-    <div class="review-container">
+    <!--<br>-->
+    <!--<div class="review-container">
         <h4>Customer Reviews</h4>
-        <!--todo: add reviews and integrate with db-->
-    </div>
+        &lt;!&ndash;todo: add reviews and integrate with db&ndash;&gt;
+    </div>-->
     <br>
 
-    <div class="location-container">
-        <!--todo: add images for products-->
-        <h4>Products from this store</h4>
-                    <p>Bla bla bla</p><br><br><br>
-        <h4>Top Sellers of this Store</h4>
-                    <p>Bla bla bla</p><br><br><br>
+    <div>
+        <div class="carosol-today-deal">
+            <div class="title-deal">
+                <p style="color:hsl(240, 70%, 22%)">
+                <div style="font-size: 20px; font-weight: 500;">Products from this store</div>
+                <span class=padd-title>
+                        </span>
+                <div style="float: right;     float: right;
+                        margin-top: -25px;
+                        margin-right: 6px;" class="al-sell-all-tab">See all
+                </div>
+                </p>
+            </div>
+
+            <!-- 2nd scrol -->
+            <div class="scrollmenu">
+                <table class="change-table">
+                    <tr>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/products/tshirt1-blue.png">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">Men's round neck hooded tshirt</p>
+
+                                    <h5 class="price-tag">LKR 1522.00</h5>
+                                    <p class="discount"> 10% off</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
+                                <div class='card-body'>
+                                    <hr class="product-hr">
+                                    <p class="product-name">Beats Studio³ Wireless headphone</p>
+
+                                    <h5 class="price-tag">LKR 3950.00</h5>
+                                    <p class="discount"> 26% off</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">Men's Reborn hooded Tshirt</p>
+
+                                    <h5 class="price-tag">LKR 2550.00</h5>
+                                    <p class="discount"> 15% off</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image2.jpeg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">JBL Reflect Headphones</p>
+
+                                    <h5 class="price-tag">LKR 4650.00</h5>
+                                    <p class="discount"> 20% off</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
+                                <div class='card-body'>
+                                    <hr class="product-hr">
+                                    <p class="product-name">Beats Studio³ Wireless headphone</p>
+
+                                    <h5 class="price-tag">LKR 3950.00</h5>
+                                    <p class="discount"> 26% off</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">Men's Reborn hooded Tshirt</p>
+
+                                    <h5 class="price-tag">LKR 2550.00</h5>
+                                    <p class="discount"> 15% off</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+
+        <div class="carosol-today-deal">
+            <div class="title-deal" style="margin-top: -8px;">
+                <p style="color:hsl(240, 70%, 22%)">
+                <div style="font-size: 20px; font-weight: 500;">Best Sellers of this Store</div>
+                <span class=padd-title>
+                        </span>
+                <div style="float: right;     float: right;
+                        margin-top: -25px;
+                        margin-right: 6px;" class="al-sell-all-tab">See all
+                </div>
+                </p>
+            </div>
+
+            <!-- 3rd scrol -->
+            <div class="scrollmenu">
+                <table class="change-table">
+                    <tr>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/Home/todaysDeals/a__01.jpg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">USB Car Charger Adapter for iphone</p>
+                                    <h5 class="price-tag"></i>LKR 1200.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        3268
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/Home/todaysDeals/f__01.jpg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
+
+                                    <h5 class="price-tag"></i>LKR 1126.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        2561
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/Home/todaysDeals/d__01.jpg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p style="text-align: center; font-weight: 600;">Carfidant Scratch and Swirl
+                                        Remover</p>
+
+                                    <h5 class="price-tag"></i>LKR 2200.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        1985
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image' src="../assets/images/favourite/image3.jpeg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p style="text-align: center; font-weight: 600;">Gildan Men's Fleece Hooded
+                                        Sweatshirt</p>
+
+                                    <h5 class="price-tag"></i>LKR 1522.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        1750
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/Home/todaysDeals/a__01.jpg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p class="product-name">USB Car Charger Adapter for iphone</p>
+                                    <h5 class="price-tag"></i>LKR 1200.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        3268
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gap-product">
+                            <div class='card card-view'>
+                                <img class='card-img-top card-image'
+                                     src="../assets/images/Home/todaysDeals/f__01.jpg">
+                                <hr class="product-hr">
+                                <div class='card-body'>
+                                    <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
+
+                                    <h5 class="price-tag"></i>LKR 1126.00</h5>
+                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                        2561
+                                        Sold</P>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-<div data-role="footer" data-position="fixed" role="banner">
+
+<!--<div data-role="footer" data-position="fixed" role="banner">
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
          style="height: 32px !important; margin: 0 0;">
         <ul>
@@ -80,7 +285,7 @@
             <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
         </ul>
     </div>
-</div>
+</div>-->
 
 </body>
 </html>
