@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <link rel="stylesheet" href="../style/review.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
@@ -24,7 +24,6 @@
         });
     </script>-->
     <style>
-
         .stars-outer {
             display: inline-block;
             position: relative;
@@ -49,17 +48,12 @@
             color: orange;
         }
     </style>
-    <style>
-
-    </style>
-
 </head>
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
     <i class="fas fa-chevron-left back-icon"></i>
     <h1 class="page-detail">Reviews</h1>
-    <i class="fas fa-chevron-left share-icon"></i>
 </div>
 <div data-role="content" data-theme="a">
     <div style='text-align:center;'>
@@ -190,39 +184,20 @@
                 <p class="ui-li-aside"><strong>22 Nov</strong></p>
         </li>
     </ul>
-    <div data-role="footer" data-position="fixed" role="banner">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-             style="height: 32px !important; margin: 0 0;">
-            <ul>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
-                </li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
-            </ul>
-        </div>
+
+</div>
+<div data-role="footer" data-position="fixed" role="banner">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+         style="height: 32px !important; margin: 0 0;">
+        <ul>
+            <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
+            <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+            </li>
+            <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+        </ul>
     </div>
 </div>
-<script>
-    /*const ratings = {
-        hotel_a : 2.8,
-        hotel_b : 3.3,
-        hotel_c : 1.9,
-        hotel_d : 4.3,
-        hotel_e : 4.74
-    };
-
-    const starTotal = 5;
-
-    for(const rating in ratings) {
-        // 2
-        const starPercentage = (ratings[rating] / starTotal) * 100;
-        // 3
-        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-        // 4
-        document.querySelector(".${rating} .stars-inner").style.width = starPercentageRounded;
-    }*/
-</script>
 </body>
 </html>

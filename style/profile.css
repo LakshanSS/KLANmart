@@ -205,3 +205,10 @@ a {
         display: block;
     }
 }
+
+.dont-hv-acc {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 50px;
+    font-weight: 100;
+}

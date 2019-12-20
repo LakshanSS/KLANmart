@@ -23,19 +23,22 @@
                     var i;
                     for (i = 0; i < data.result.length; i++) {
 
-                        if (data.result[i].order_status == 'order') {
+                        if (data.result[i].order_status != 'cart') {
                             var favouriteRow = document.createElement('div');
                             var favouriteItems = document.getElementsByClassName('f-main-content')[0]
                             console.log(favouriteItems);
                             // ${data.result[i].images}
+                            let firstImageURL = JSON.parse(data.result[i].images)[0];
+                            console.log(firstImageURL);
                             var favouriteContents = `
                     <div class="post">
-                        <img src=${data.result[i].images} alt="" srcset="" class="post-image"> 
+                        <!--<img src=${data.result[i].images} alt="" srcset="" class="post-image">-->
+                        <img src=${firstImageURL} class="post-image">
                         <div class="post-preview">
                             <h3>${data.result[i].product_name}</h3>
                             <p class="store-detail"><strong>Store</strong> ${data.result[i].store_name}</p> 
-                            <p class="status-order"><i class="fas fa-star"></i>  ${data.result[i].order_status}</p>
-                            <p class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</p>
+                            <span class="status-order"><i class="fas fa-star"></i>  ${data.result[i].order_status}</span>
+                            <span class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</span>
                         </div>
                     </div>`
                             favouriteRow.innerHTML = favouriteContents;
@@ -49,11 +52,6 @@
     </script>
 
     <style>
-        .body {
-            margin: 0;
-            padding: 0;
-        }
-
         .header-bar {
             background-color: rgb(12, 64, 161) !important;
             height: 60px !important;
@@ -94,9 +92,6 @@
         .content .f-main-content {
             width: 100%;
             float: left;
-
-            /* border: 1px solid grey;
-			background: rgb(241, 240, 240); */
         }
 
         .content .f-main-content .post {
@@ -107,8 +102,6 @@
             background: rgb(255, 255, 255);
             position: relative;
             box-shadow: 0 4px 4px 0 rgba(240, 239, 239, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19);
-            /* border: 1px solid rgb(224, 224, 224) !important; */
-
         }
 
         .content .f-main-content .post .post-image {
@@ -118,6 +111,7 @@
             margin-top: 8px;
             margin-left: 14px;
             margin-bottom: auto;
+            border: 1px solid rgb(164, 188, 231) !important;
         }
 
         .content .f-main-content .post .post-preview {
@@ -161,7 +155,7 @@
         .status-order {
             margin-top: 8px;
             font-size: 14px;
-            float: left;
+            /*float: left;*/
         }
 
         .date-order {
@@ -198,7 +192,6 @@
 
 <body>
     <div data-role="header" data-position="fixed" class="header-bar">
-        <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
         <i class="fas fa-chevron-left back-icon"></i>
         <h1 class="page-detail">My Orders</h1>
     </div>

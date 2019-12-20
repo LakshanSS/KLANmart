@@ -157,3 +157,33 @@
 		display: none;
 	}
 }
+
+/* navigation bar */
+
+.ui-btn {
+	line-height: 2.3 !important;
+	font-family: sans-serif;
+	font-size: 15px !important;
+	background-color: white !important;
+	border-left-width: 0px !important;
+	border-right-width: 0px !important;
+	border-top-width: 0px !important;
+	border-bottom-width: 0px !important;
+}
+
+.ui-btn-active {
+	background-color: white !important;
+	color: rgb(21, 98, 146) !important;
+	text-shadow: none !important;
+	border-color: none !important;
+	border-left-width: 0px !important;
+	border-right-width: 0px !important;
+	border-top-width: 0px !important;
+	border-bottom-width: 0px !important;
+	border-top-color: none !important;
+	border-right-color: none !important;
+	border-bottom-color: none !important;
+	border-left-color:none !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+}

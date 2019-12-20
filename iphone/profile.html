@@ -38,6 +38,10 @@
             document.location.href = "./order.html";
         }
 
+        function goToSignUp() {
+            document.location.href = "./login.html";
+        }
+
     </script>
 </head>
 
@@ -54,8 +58,9 @@
             <div class="not-logged" style="height: 574px !important;" id="logged">
                 <i class="far fa-user-circle" style="
                 margin-top: 145px !important;"></i>
-                <p style="text-align: center; font-size: 15px;" onclick="startJourney()">You don't have an account,<br>
-                    <strong style="color: rgb(16, 57, 146);">Sign up</strong> with KLANmart to access more featues.</p>
+                <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.<br>
+                    <strong style="color: rgb(16, 57, 146);">Sign in</strong> to continue.</p>
+                <p class="dont-hv-acc" onclick="startJourney()">Don't have an account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
             </div>
             <div id="if_logged">
                 <div class="name-tab">
@@ -175,28 +180,22 @@
                     </ul>
                 </div>
             </div>
-            <div data-role="footer" data-position="fixed" role="banner">
-                <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-                    style="height: 32px !important; margin: 0 0;">
-                    <ul>
-                        <li><a href="#" id="" data-icon="" id="ui-btn"><i class="fas fa-home"
-                                    style="font-size: 20px;"></i></a></li>
-                        <li onclick="favourite()"><a href="#" id="" data-icon=""><i class="far fa-heart"
-                                    style="font-size: 20px;"></i></a>
-                        </li>
-                        <li onclick="message()"><a href="#" id="" data-icon=""><i class="far fa-comment-dots"
-                                    style="font-size: 20px;"></i></a>
-                        </li>
-                        <li onclick="cart()"><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart"
-                                    style="font-size: 20px;"></i></a>
-                        </li>
-                        <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user"
-                                    style="font-size: 20px;"></i></a>
-                        </li>
-                    </ul>
-                </div>
+        </div>
+        <div data-role="footer" data-position="fixed" role="banner">
+            <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+                 style="height: 32px !important; margin: 0 0;">
+                <ul>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                    </li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                </ul>
             </div>
         </div>
+        </div>
+
 
 </body>
 
