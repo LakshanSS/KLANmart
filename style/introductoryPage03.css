@@ -26,8 +26,9 @@ body {
 .next-btn {
 	width: 150px !important;
 	height: 50px !important;
-	color: darkblue !important;
-	background-color: rgb(253, 219, 24) !important;
+	text-shadow: none;
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(245, 213, 35) !important;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	display: block;
 	margin-left: auto;

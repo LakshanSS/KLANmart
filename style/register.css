@@ -161,12 +161,20 @@ i {
 }
 
 .signup-welcome {
-	font-size: 20px;
-	letter-spacing: 1px;
+	font-size: 15px;
+	letter-spacing: 4px;
 	font-weight: 400;
-	color: rgb(8, 61, 121);
+	color: rgb(12, 79, 202);
+	text-shadow: none;
 	margin-bottom: 3px;
 	margin-top: 0;
+	padding-bottom: 7px;
+	border-bottom: 1px solid rgb(119, 164, 247);
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	/* text-align: center !important; */
 }
 
 .welcome-txt {
@@ -222,7 +230,8 @@ i {
 	
 	.signup-welcome {
 		margin-bottom: 15px;
-		font-size: 22px !important;
+		font-size: 20px !important;
+		width: 85%;
 	}
 	
 	.grid-c-ui {

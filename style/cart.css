@@ -1,3 +1,12 @@
+.fa-user-circle {
+    color: rgb(94, 94, 94) !important;
+    text-align: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    display: block !important;
+    font-size: 60px;
+}
+
 .header-bar {
 	background-color: rgb(12, 64, 161) !important; height: 60px !important;
 }

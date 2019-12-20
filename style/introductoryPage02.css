@@ -26,8 +26,9 @@ body {
 .next-btn {
 	width: 120px !important;
 	height: 50px !important;
-	color: darkblue !important;
-	background-color: rgb(253, 219, 24) !important;
+	text-shadow: none;
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(245, 213, 35) !important;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	display: block;
 	margin-left: auto;
@@ -114,4 +115,13 @@ body {
 	height: 45px !important;
 	font-family: 'Roboto', sans-serif !important;
 	text-shadow: none !important;
+}
+
+@media all and (min-width: 40em) {
+	.instruction-txt {
+		width: 75%;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
