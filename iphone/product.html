@@ -19,6 +19,9 @@
                 }
             });
         });
+        function goToHome() {
+            document.location.href = "./home.html";
+        }
     </script>
     <style>
         .mySlides {
@@ -179,7 +182,7 @@
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon"></i>
+    <i class="fas fa-chevron-left back-icon" onclick="goToHome()"></i>
     <h1 class="page-detail">Product Info</h1>
     <i class="fas fa-chevron-left share-icon"></i>
 </div>
