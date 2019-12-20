@@ -1,4 +1,4 @@
-#customerDetails, #cardDetails, #prodNameH, #prodTotal, #sumTotal, #Total {
+#customerDetails, #prodNameH, #prodTotal, #sumTotal, #Total {
     height: 100%;
     width: 100%;
     display: flex;
