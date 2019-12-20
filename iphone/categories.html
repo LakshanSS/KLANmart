@@ -1,210 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>KLANmart - Categories</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-bar {
+            background-color: rgb(12, 64, 161) !important;
+            height: 113px !important;
+        }
+
+        .ui-btn {
+            line-height: 2.3 !important;
+            font-family: sans-serif;
+            font-size: 15px !important;
+            background-color: white !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+        }
+
+        .ui-btn-active {
+            background-color: white !important;
+            color: rgb(21, 98, 146) !important;
+            text-shadow: none !important;
+            border-color: none !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+            border-top-color: none !important;
+            border-right-color: none !important;
+            border-bottom-color: none !important;
+            border-left-color: none !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        .fa-bars {
+            color: white;
+            margin-left: 10px;
+            float: left;
+
+            margin-top: 14px;
+            margin-right: 7px;
+            font-size: 24px;
+        }
+
+        .serachInputWrapper {
+            float: left;
+            height: 40px !important;
+            border: 1px solid rgb(86, 132, 216) !important;
+            font-size: 15px;
+            font-weight: 100;
+            width: 70%;
+        }
+
+        /* .header-bar .search-container {
+            width: 75% !important;
+        } */
+
+        .fa-camera {
+            color: rgb(224, 224, 223);
+            float: left;
+            margin-top: 15px;
+            margin-left: 7px;
+            font-size: 23px;
+        }
+
+        .heading-category {
+            margin-top: -25px;
+            padding-left: 5px;
+        }
+
+        .category-text {
+            font-weight: 100;
+            text-shadow: none;
+            font-size: 22px;
+        }
+
+        .category-content {
+            margin-top: -7px;
+            padding-left: 2px;
+            padding-right: 2px;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+            position: relative;
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+            text-shadow: none;
+        }
+
+        .category-name {
+            position: absolute;
+            left: 6px;
+            top: 4px;
+            color: rgb(39, 39, 39);
+            text-shadow: none !important;
+            background-color: rgb(240, 240, 240);
+            padding: 3px 3px;
+            opacity: 0.9;
+            width: 96%;
+            font-weight: 600;
+            height: 24px;
+            font-size: 18px;
+        }
+
+        .fa-chevron-circle-right {
+            position: absolute;
+            left: 311px;
+            top: 108px;
+            
+            font-size: 25px;
+            color: rgb(231, 231, 233);
+        }
+
+        @media all and (min-width: 768px) {
+            .search-container {
+                width: 122%;
+            }
+
+            .category-content {
+                width: 44%;
+                float: left;
+                margin-right: 20px;
+                margin-bottom: 15px;
+            }
+
+            .grid-b {
+                margin-left: 58px;
+            }
+
+            .category-text {
+                text-align: center;
+            }
+
+            .fa-chevron-circle-right {
+                left: 284px !important;
+            }
+        }
+
+        @media all and (min-width: 1024px) {
+            .fa-chevron-circle-right {
+                left: 269px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div data-role="page" id="pageone">
-    <div data-role="header" data-postion="fixed" style="background-color:hsl(240, 70%, 22%)">
-        <table>
-            <tr>
-                <td><a class="brand" href="#" style="margin-left: 0%"><img src="../assets/logo/logo-blue.png"
-                                                                           width="150" height="60"
-                                                                           class="d-inline-block align-top navbar-collapse"
-                                                                           alt=""></a></td>
-                <td><a class="brand" href="#" style="margin-left: 100%"></a><img src="../assets/icons/grid.png"
-                                                                                 style="margin-top: 20px; margin-right: 0%"
-                                                                                 width="30px" height="30px"
-                                                                                 class="d-inline-block align-top navbar-collapse"
-                                                                                 alt=""></td>
-
-
-            </tr>
-        </table>
-
-        <table>
-            <tr>
-                <td style="width: 100%"><input type="search" placeholder="Search.."></td>
-                <td><img src="../assets/icons/camera.png" width="30px" height="30px"
-                         class="d-inline-block align-top navbar-collapse" alt=""></td>
-                <td><img src="../assets/icons/qr.png" width="30px" height="30px"
-                         class="d-inline-block align-top navbar-collapse" alt=""></td>
-
-            </tr>
-        </table>
-    </div>
-
-    <div data-role="content" data-theme="a">
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-
-            body {
-                background-color: #f1f1f1;
-                padding: 20px;
-                font-family: Arial;
-            }
-
-            /* Center website */
-            .main {
-                max-width: 1000px;
-                margin: auto;
-            }
-
-            h1 {
-                font-size: 50px;
-                word-break: break-all;
-            }
-
-            .row {
-                margin: 8px -16px;
-            }
-
-            /* Add padding BETWEEN each column */
-            .row,
-            .row > .column {
-                padding: 8px;
-            }
-
-            /* Create four equal columns that floats next to each other */
-            .column {
-                float: left;
-                width: 25%;
-            }
-
-            /* Clear floats after rows */
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            /* Content */
-            .content {
-                background-color: white;
-                padding: 10px;
-            }
-
-            /* Responsive layout - makes a two column-layout instead of four columns */
-            @media screen and (max-width: 900px) {
-                .column {
-                    width: 50%;
-                }
-            }
-
-            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 600px) {
-                .column {
-                    width: 100%;
-                }
-            }
-        </style>
-
-        <h2>All Categories</h2>
-
-        <!-- MAIN (Center website) -->
-        <div class="main">
-
-            <div class="row">
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Baby's.webp" alt="" style="width:100%">
-                        <h3>Baby's</h3>
-
-                    </div>
+    <div data-role="page">
+        <div data-role="header" data-position="fixed" class="header-bar">
+            <div>
+                <img src="../assets/logo/logo-white.png" style="width: 164px;
+                height: 50px;  margin-right: auto;
+                margin-left: auto;display: block !important; margin-top: 5px;" class="logo-image" height="20%">
+                <div class="search-container">
+                    <i class="fas fa-bars"></i>
+                    <input type="search" name="password" id="search" value="" placeholder=" Search..."
+                        data-wrapper-class="serachInputWrapper" style="padding-top: 11px !important; padding-bottom: 8px;
+                        padding-right: 15px;padding-left: 19px;">
+                    <i class="fas fa-camera"></i>
                 </div>
             </div>
-            <div class="column">
-                <div class="content">
-                    <img src="../assets/images/Categories/Watches.jpg" alt="" style="width:100%">
-                    <h3>Watches</h3>
+        </div>
 
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Children's.webp" alt="" style="width:100%">
-                        <h3>Children's</h3>
+        <div data-role="content" style="background-color: #edf1f8 !important;padding-left: 7px;">
 
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Cosmetics.jpg" alt="" style="width:100%">
-                        <h3>Cosmetics</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Electronics.webp" alt="" style="width:100%">
-                        <h3>Electronics</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/jewelry-1836088__480.jpg" alt="" style="width:100%">
-                        <h3>Jewellery</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Men's.webp" alt="" style="width:100%">
-                        <h3>Men's</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Shoes.jpg" alt="" style="width:100%">
-                        <h3>Shoes</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Swim-wear.jpg" alt="" style="width:100%">
-                        <h3>Swim wear</h3>
-
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="../assets/images/Categories/Watches.jpg" alt="" style="width:100%">
-                        <h3>Watches</h3>
-
-                    </div>
-                </div>
-                <!-- END GRID -->
+            <div class="heading-category">
+                <h3 class="category-text">All Categories</h3>
             </div>
+            <div class="grid-b">
+                <div class="category-content">
+                    <div class="category-name">Accessories</div>
+                    <img src="../assets/images/Categories/accessories.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
 
+                <div class="category-content">
+                    <div class="category-name">Baby items</div>
+                    <img src="../assets/images/Categories/baby.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%;
+                     height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
 
-            <!-- END MAIN -->
+                <div class="category-content">
+                    <div class="category-name">Clothings</div>
+                    <img src="../assets/images/Categories/clothes.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%;
+                     height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="category-content">
+                    <div class="category-name">Electronics</div>
+                    <img src="../assets/images/Categories/Electronics.webp" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="category-content">
+                    <div class="category-name">Furnitures</div>
+                    <img src="../assets/images/Categories/Furniture.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="category-content">
+                    <div class="category-name">Home Appliances</div>
+                    <img src="../assets/images/Categories/HomeAppliances.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="category-content">
+                    <div class="category-name">Jewellery</div>
+                    <img src="../assets/images/Categories/jewllery.jpeg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="category-content">
+                    <div class="category-name">Stationeries</div>
+                    <img src="../assets/images/Categories/stationery.jpg" alt="" style="box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19); width:100%; 
+                    height: 145px; border: 2px solid rgb(27, 61, 124);">
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+            </div>
         </div>
 
 
+        <div data-role="footer" data-position="fixed" role="banner">
+            <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+                style="height: 32px !important; margin: 0 0;">
+                <ul>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
+                    </li>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                    </li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div data-role="footer" data-postion="fixed"
-         style="bottom:0; position:absolute !important; top: auto !important; width:100%;">
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#" data-icon="home" class="ui-btn-active">Home</a></li>
-                <li><a href="#" data-icon="heart">Favourites</a></li>
-                <li><a href="#" data-icon="mail">Messages</a></li>
-                <li><a href="#" data-icon="shop">Cart</a></li>
-                <li><a href="#" data-icon="user">Profile</a></li>
-            </ul>
-        </div><!-- /navbar -->
-    </div>
-</div>
 </body>
+
 </html>
