@@ -19,13 +19,12 @@
             let email = document.getElementById("txtEmailId").value;
             let password = document.getElementById("txtPassword").value;
 
-            if (email == "") {
+            if (email === "") {
                 console.log("no username");
-            } else if (password == "") {
+            } else if (password === "") {
                 console.log("no pass");
             } else {
                 console.log(email, password);
-
                 let jsonData = {
                     "User": {
                         "email": email, "password": password
@@ -34,24 +33,19 @@
 
                 let xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-
+                    if (this.readyState === 4 && this.status === 200) {
                         var jsonObj = JSON.parse(this.responseText);
                         console.log(jsonObj.data);
                         sessionStorage.setItem("logged_user", JSON.stringify(jsonObj.data));
                         alert(jsonObj.status);
-
                         window.location = "./profile.html";
-
                     }
                 };
                 xhttp.open("POST", "http://localhost:9002/KLANmart/login", true);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.send(JSON.stringify(jsonData));
             }
-
         }
-
     </script>
 </head>
 
@@ -82,9 +76,8 @@
                     <button class="login-btn" data-corners="false" data-shadow="false" onclick="loginBtn()">SIGN
                         IN</button>
                 </div>
-                <p class="sign-in-with-txt">or Sign in with</p>
+                <p class="sign-in-with-txt">You can also</p>
                 <div class="ui-c-grid">
-
                     <button class="ui-btn ui-mini sign-face-book-btn">
                         <i class="fa fa-facebook fa-fw"></i>
                         &nbsp; Sign In with Facebook</button>
@@ -94,12 +87,11 @@
                         </i> &nbsp; Sign In with Google</button>
                 </div>
             </div>
-
-        </div>
+        </div><!--End of Login Container-->
 
         <p class="dont-hv-acc" onclick="goToSignUp()">Don't have an account? <strong>Sign Up</strong></p>
 
-    </div>
+    </div><!--End of data role content-->
 </body>
 
 </html>

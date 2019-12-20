@@ -1,23 +1,23 @@
 .logo-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -3px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -3px;
 }
 
 .login-container {
-    margin-top: 40px;
-    padding: 20px 20px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
-    border: 1px solid rgb(86, 132, 216) !important;
+	margin-top: 40px;
+	padding: 20px 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 8px 0 rgba(214, 213, 213, 0.2), 0 12px 20px 0 rgba(185, 183, 183, 0.19);
+	border: 1px solid rgb(86, 132, 216) !important;
 }
 
 .inputWrapper {
-    border: 1px solid rgb(86, 132, 216) !important;
-    color: black;
-    font-size: 14px;
-    font-weight: 100;
+	border: 1px solid rgb(86, 132, 216) !important;
+	color: black;
+	font-size: 14px;
+	font-weight: 100;
 }
 
 /* .nameWrapper { 
@@ -34,202 +34,201 @@ margin-top: -60px;
 } */
 
 p {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 100;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 100;
 }
 
 input[type=email] {
-    padding: 8px 15px;
-    margin: 8px 0;
+	padding: 8px 15px;
+	margin: 8px 0;
 }
 
 input[type=password] {
-    padding: 8px 15px;
-    margin: 8px 0;
+	padding: 8px 15px;
+	margin: 8px 0;
 }
 
 input[type=tel] {
-    padding: 8px 15px;
-    margin: 8px 0;
+	padding: 8px 15px;
+	margin: 8px 0;
 }
 
 input[type=text] {
-    padding: 8px 15px;
-    margin: 8px 0;
+	padding: 8px 15px;
+	margin: 8px 0;
 }
 
 textarea {
-    padding: 12px 15px;
-    margin: 8px 0;
+	padding: 12px 15px;
+	margin: 8px 0;
 }
 
 .button4 {
-    border-radius: 12px;
-    padding: 8px 15px;
-    margin: 8px 0;
+	border-radius: 12px;
+	padding: 8px 15px;
+	margin: 8px 0;
 }
 
 .reg-btn {
-    background-color: rgb(22, 69, 158) !important;
-    color: white !important;
-    font-weight: 150;
-    height: 50px !important;
+	background-color: rgb(22, 69, 158) !important;
+	color: white !important;
+	font-weight: 200;
+	height: 50px !important;
+	text-shadow: none !important;
 }
 
 .reg-btn:hover {
-    background-color: rgb(24, 61, 131) !important;
-    color: white !important;
-    font-weight: 150;
-    height: 50px !important;
+	background-color: rgb(24, 61, 131) !important;
+	color: white !important;
+	font-weight: 200;
+	height: 50px !important;
 }
 
 .sign-face-book-btn {
-    background-color: #3b5998 !important;
-    letter-spacing: 2px;
-    color: white !important;
-    font-weight: 150;
-    border-radius: 15px !important;
-    font-size: 10px !important;
-    /* width: 300px !important; */
-    height: 34px !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	background-color: #3b5998 !important;
+	letter-spacing: 2px;
+	color: white !important;
+	font-weight: 200;
+	border-radius: 15px !important;
+	font-size: 10px !important;
+	/* width: 300px !important; */
+	height: 34px !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sign-face-book-btn:hover {
-    background-color: #334f8b !important;
-    color: white !important;
-    font-weight: 150;
-    border-radius: 15px !important;
-    font-size: 10px !important;
-    /* width: 300px !important; */
-    height: 34px !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	background-color: #334f8b !important;
+	color: white !important;
+	font-weight: 200;
+	border-radius: 15px !important;
+	font-size: 10px !important;
+	/* width: 300px !important; */
+	height: 34px !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sign-google-acc-btn {
-    background-color: #DB4437 !important;
-    letter-spacing: 2px;
-    color: white !important;
-    font-weight: 100;
-    font-size: 10px !important;
-    border-radius: 15px !important;
-    height: 34px !important;
-    /* width: 300px !important; */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	background-color: #db4437 !important;
+	letter-spacing: 2px;
+	color: white !important;
+	font-weight: 100;
+	font-size: 10px !important;
+	border-radius: 15px !important;
+	height: 34px !important;
+	/* width: 300px !important; */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sign-google-acc-btn:hover {
-    background-color: rgb(201, 51, 37) !important;
-    color: white !important;
-    font-weight: 100;
-    font-size: 10px !important;
-    border-radius: 12px !important;
-    /* width: 300px !important; */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	background-color: rgb(201, 51, 37) !important;
+	color: white !important;
+	font-weight: 100;
+	font-size: 10px !important;
+	border-radius: 12px !important;
+	/* width: 300px !important; */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .aggrement-text {
-    font-size: 13px !important;
-    color: black;
+	font-size: 13px !important;
+	color: black;
 }
 
 .main-content {
-    color: rgb(22, 69, 158) !important;
+	color: rgb(22, 69, 158) !important;
 }
 
 .sign-up-with-text {
-    font-size: 19px !important;
+	font-size: 19px !important;
 }
 
 .sign-in-with-text {
-    font-size: 13px !important;
-    margin-top: 30px;
+	font-size: 13px !important;
+	margin-top: 30px;
 }
 
 i {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .signup-welcome {
-    font-size: 14px;
-    letter-spacing: 1px;
-    /* float: left; */
-    font-weight: 600;
-    color: rgb(8, 61, 121);
-    margin-bottom: 3px;
-    margin-top: 0px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+	color: rgb(8, 61, 121);
+	margin-bottom: 3px;
+	margin-top: 0;
 }
 
 .welcome-txt {
-    font-size: 20px;
-    letter-spacing: 1px;
-    /* float: left; */
-    font-weight: 600;
-    color: rgb(1, 13, 27);
-    margin-bottom: 0px;
-    margin-top: 0px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	/* float: left; */
+	font-weight: 600;
+	color: rgb(1, 13, 27);
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-
 @media all and (min-width: 20em) {
-    .grid-a-ui {
-        width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .grid-c-ui {
-        width: 78%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	.grid-a-ui {
+		width: 100%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.grid-c-ui {
+		width: 78%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 @media all and (min-width: 40em) {
-    .grid-a-ui {
-        width: 85%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .grid-a-ui .aggrement-text {
-        font-size: 15px !important;
-    }
-
-    .logo-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: -3px;
-        height: 120px;
-        width: 50px;
-    }
-
-    .sign-in-with-text {
-        font-size: 15px !important;
-    }
-
-    .signup-welcome {
-        margin-bottom: 15px;
-        font-size: 15px !important;
-    }
-
-    .grid-c-ui {
-        width: 55%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	.grid-a-ui {
+		width: 85%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.grid-a-ui .aggrement-text {
+		font-size: 15px !important;
+	}
+	
+	.logo-image {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -3px;
+		height: 120px;
+		width: 50px;
+	}
+	
+	.sign-in-with-text {
+		font-size: 15px !important;
+	}
+	
+	.signup-welcome {
+		margin-bottom: 15px;
+		font-size: 22px !important;
+	}
+	
+	.grid-c-ui {
+		width: 55%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }

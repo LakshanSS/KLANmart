@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>KLANmart</title>
+    <title>KLANmart - Intro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style/introductoryPage01.css" />
+    <link rel="stylesheet" href="../style/introductoryPage01.css"/>
     <script>
         function goToStepTwo() {
             document.location.href = "./introductoryPage02.html";
@@ -31,29 +31,28 @@
 </head>
 
 <body>
-    <div data-role="content" data-theme="a" class="content-body">
-        <button class="skip-btn" data-corners="false" data-shadow="false" onclick="skip()">Skip <i
-                class="fas fa-forward"></i></button>
-        <div class="grid-a-responsive">
-            <h1 class="step-count-text">1 ) Account</h1>
+<div data-role="content" data-theme="a" class="content-body">
+    <button class="skip-btn" data-corners="false" data-shadow="false" onclick="skip()">Skip <i
+            class="fas fa-forward"></i></button>
+    <div class="grid-a-responsive">
+        <h1 class="step-count-text">1 ) Account</h1>
 
+        <!-- <div class="intro-container"> -->
+        <img src="../assets/images/introdutory steps/usera.png" class="tip-one-image">
+        <p class="instruction-txt"> Create a KLANmart account and enjoy personalized shopping experiences.
+        </p>
 
-            <!-- <div class="intro-container"> -->
-            <img src="../assets/images/introdutory steps/usera.png" class="tip-one-image">
-            <p class="instruction-txt"> create a KLANmart account for persoanalized shopping experiences.
-            </p>
+        <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToStepTwo()">NEXT <i
+                class="fas fa-caret-right"></i></button>
 
-            <button class="next-btn" data-corners="false" data-shadow="false" onclick="goToStepTwo()">NEXT <i
-                    class="fas fa-caret-right"></i></button>
-
-            <div style="text-align:center; margin-top: 40px;">
-                <span class="selected-dot"></span>
-                <span class="dot" onclick="secondSlid()"></span>
-                <span class="dot" onclick="thirdSlid()"></span>
-            </div>
-            <!-- </div> -->
+        <div style="text-align:center; margin-top: 40px;">
+            <span class="selected-dot"></span>
+            <span class="dot" onclick="secondSlid()"></span>
+            <span class="dot" onclick="thirdSlid()"></span>
         </div>
+        <!-- </div> -->
     </div>
+</div>
 </body>
 
 </html>
