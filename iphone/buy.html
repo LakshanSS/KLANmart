@@ -53,6 +53,7 @@
                 </div>
             </div>
             <hr class="border">
+
         </div>
 
         <div id="productDetailss" class="ui-block-b" style="margin-top: 2%">
@@ -115,7 +116,7 @@
                 <div id="sumtotalright" class="ui-body ui-body-d">
                     <h6 id="prodSumTotal" style="color: #5f6264;text-align: right">LKR 2299.00</h6>
                     <a id="prodPromoCode" href="" onclick="GotoAR()"><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
-                    <a id="ProdSpecialOff" href=""><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+                    <a id="ProdSpecialOff" href="popups/PaymentPopup.html"><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
                     <h5 id="prodSumAmount" style="color: #010201;font-weight: bold;text-align: right">LKR 2299.00</h5>
                 </div>
             </div>
@@ -128,7 +129,7 @@
         <div style='float:left;width:70%' class="ui-body ui-body-d">
 
             <h6 style="color: #010201;font-weight: bold">Total</h6>
-            <h4 id="PayAmount" style="color: #010201;font-weight: bold">LKR 2299.00</h4>
+            <h4 id="PayAmount" style="color: #010201;font-weight: bold">2299.00</h4>
 
         </div>
         <div style='float:right;width:30%; height: 73.19px; text-align: center'>
@@ -139,10 +140,12 @@
 </div>
 
 
-<div style="margin-top: 20%;align-content: center" data-role="popup" id="popupBasic" data-overlay-theme="a"
+
+
+<div style="margin-top: 20%;align-content: center;" class="ui-block-d"  data-role="popup" id="popupBasic" data-overlay-theme="a"
      data-theme="a" data-dismissible="false" data-position-to="window" style="max-width:400px;" align="center">
-    <div data-role="header">
-        <h1>Edit Address</h1>
+    <div data-role="header" data-theme="b">
+        <h1 >Edit Address</h1>
     </div>
     <p>This address will be used for shipping this product.</p>
     <label for="popupBasic">Street:</label>
@@ -159,19 +162,59 @@
 
 </div>
 
+<div id="popuppayment" data-role="popup" data-dialog="true"  data-transition="pop">
+
+    <div data-role="header" data-theme="b">
+        <h1>Payment Successful</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <!-- <h1>Delete page?</h1> -->
+        <p style="text-align: center;">Your payment is successful. </br>Thank you !</p>
+        <a href="home.html" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
+    </div>
+</div>
+
+<div id="promopop" data-role="popup" data-dialog="true"  data-transition="pop">
+
+    <div data-role="header" data-theme="b">
+        <h1>Add promo code</h1>
+    </div>
+    <label for="popupBasic">Street:</label>
+    <input type="text" name="name" id="promoInput" value="">
+    <div role="main" class="ui-content">
+        <!-- <h1>Delete page?</h1> -->
+
+        <a href="home.html" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
+    </div>
+</div>
+
+
 <div align="center" id="thankyouPayment">
     <script type="text/javascript">
         function SaveAddress () {
 
             let street = document.getElementById("streetInput").value;
+            let city = document.getElementById("cityInput").value;
+            let province = document.getElementById("provinceInput").value;
+            let zip = document.getElementById("zipCodeInput").value;
+
+
             document.getElementById('custAddressRoad').innerHTML = street;
+            document.getElementById('custAddressCity').innerHTML = city;
+            document.getElementById('custAddressProvince').innerHTML = province;
+            document.getElementById('custZipCode').innerHTML = zip;
+
             console.log(street);
             $("#popupBasic").popup('close');
 
         }
 
         function GotoAR() {
-            window.open("arForProduct.html",'_self');
+           // window.open("popups/PaymentPopup.html",'_self');
+            location.href = "popups/PaymentPopup.html";
+            //$("#popuppayment").popup("open");
+
         }
         $(document).ready(function () {
             let product_id = window.sessionStorage.getItem('product_id');
@@ -210,7 +253,7 @@
 
                             document.getElementById("prodSumTotal").innerHTML = "LKR "+totalAmount+".00";
                             document.getElementById("prodSumAmount").innerHTML = "LKR "+totalAmount+".00";
-                            document.getElementById("PayAmount").innerHTML = "LKR "+totalAmount+".00";
+                            document.getElementById("PayAmount").innerHTML = totalAmount+".00";
 
                         }
                     });
@@ -228,29 +271,41 @@
                 token: function (token) {
                     if (token.id) {
                         // $('#allContent').addClass('ui-disabled');
-                        document.location.href = "./login.html";
 
+                        $("#popuppayment").popup("open");
+                        hide ();
                     }
                 }
             })
 
+            let payAmount = document.getElementById('PayAmount').textContent;
+            console.log("amount"+ payAmount);
+
             $('#btPayNow').on('click', function (e) {
                 handler.open({
-                    name: 'Demo Site',
+                    name: 'Enter Payment',
                     currency: 'LKR',
-                    description: $('#item_name').val(),
-                    amount: $('#item_value').val() * 100
+                    description: payAmount,
+                    amount: payAmount *100
                 },'_self');
 
 
             });
         });
 
+        popupbeforeposition: function hide () {
+            $('.ui-popup-screen').off();
+        }
+
+
         $("#editAddress").on({
             popupbeforeposition: function () {
                 $('.ui-popup-screen').off();
             }
         });
+
+
+
 
 
         window.onload = function () {
@@ -266,6 +321,15 @@
                 document.getElementById('custMobileNumber').innerHTML = myJson.mobile_no;
                // document.getElementById('streetInput').innerHTML = myJson.address;
                 $('#streetInput').val(myJson.address);
+
+                let city = document.getElementById('custAddressCity').value;
+                let province = document.getElementById('custAddressProvince').value;
+                let zip = document.getElementById('custZipCode').value;
+
+                $('#cityInput').val(city);
+                $('#provinceInput').val(province);
+                $('#zipCodeInput').val(zip);
+
 
 
 
