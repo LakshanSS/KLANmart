@@ -43,6 +43,10 @@ window.onload = function () {
     }
 }
 
+function goToSignUp() {
+    document.location.href = "./login.html";
+}
+
 
 function sendEmail() {
     var countF = sessionStorage.getItem("favourite-count");

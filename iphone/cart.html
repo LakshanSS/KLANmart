@@ -17,25 +17,27 @@
         window.onload = function () {
             var loggedUser = sessionStorage.getItem("logged_user");
 
-            // if (loggedUser != null) {
+            if (loggedUser != null) {
+                document.getElementById("logged").style.display = "none";
+                document.getElementById("if_logged").style.display = "block";
 
-            var myJson = JSON.parse(loggedUser);
-            console.log(myJson.user_id);
+                var myJson = JSON.parse(loggedUser);
+                console.log(myJson.user_id);
 
-            $(document).ready(function () {
-                $.ajax({
-                    url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
-                }).then(function (data) {
-                    console.log(data.result);
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
+                    }).then(function (data) {
+                        console.log(data.result);
 
-                    var i;
-                    for (i = 0; i < data.result.length; i++) {
-                        if (data.result[i].status == 'cart') {
-                            var cartRow = document.createElement('div');
-                            var cartItems = document.getElementsByClassName('main-content')[0]
-                            console.log(cartItems);
-                            // ${data.result[i].images}
-                            var cartContents = `<div class="cart">
+                        var i;
+                        for (i = 0; i < data.result.length; i++) {
+                            if (data.result[i].status == 'cart') {
+                                var cartRow = document.createElement('div');
+                                var cartItems = document.getElementsByClassName('main-content')[0]
+                                console.log(cartItems);
+                                // ${data.result[i].images}
+                                var cartContents = `<div class="cart">
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
                         data-shadow="false" data-cacheval="true"
                         style="cursor: pointer; margin-top: 66px; margin-left: 4px; background-color: black !important; float:left">
@@ -62,15 +64,20 @@
                 </div>
                             `
 
-                            cartRow.innerHTML = cartContents;
-                            cartItems.append(cartRow);
+                                cartRow.innerHTML = cartContents;
+                                cartItems.append(cartRow);
+                            }
                         }
-                    }
+                    });
                 });
-            });
-            // } else {
+            } else {
+                document.getElementById("if_logged").style.display = "none";
+                document.getElementById("logged").style.display = "block";
+            }
+        }
 
-            // }
+        function goToSignUp() {
+            document.location.href = "./login.html";
         }
 
     </script>
@@ -85,9 +92,17 @@
     </div>
 
     <div data-role="content" data-theme="a">
-        <div class="cart-contonier">
-            <div class="main-content">
-                <!-- <div class="cart">
+        <div class="not-logged" style="height: 574px !important;" id="logged">
+            <i class="far fa-user-circle" style="
+            margin-top: 145px !important;"></i>
+            <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.
+                <strong style="color: rgb(16, 57, 146);">Sign in</strong><br> to continue.</p>
+            <p class="dont-hv-acc" style="text-align: center; font-size: 15px;" onclick="startJourney()">Don't have an account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
+        </div>
+        <div id="if_logged">
+            <div class="cart-contonier">
+                <div class="main-content">
+                    <!-- <div class="cart">
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
                         data-shadow="false" data-cacheval="true"
                         style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
@@ -112,6 +127,7 @@
                     </div>
                     <p class="shipping-detail">Free Shipping</p>
                 </div> -->
+                </div>
             </div>
         </div>
     </div>

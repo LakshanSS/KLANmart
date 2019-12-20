@@ -18,7 +18,7 @@
 
         .header-bar {
             background-color: rgb(12, 64, 161) !important;
-            height: 113px !important;
+            height: 60px !important;
         }
 
         .ui-btn {
@@ -53,18 +53,20 @@
             color: white;
             margin-left: 10px;
             float: left;
-            margin-top: 14px;
+            margin-top: 12px;
             margin-right: 7px;
             font-size: 24px;
         }
 
         .serachInputWrapper {
+            padding-top: 2px;
+            margin-left: 10px;
             float: left;
             height: 40px !important;
             border: 1px solid rgb(86, 132, 216) !important;
             font-size: 15px;
             font-weight: 100;
-            width: 70%;
+            width: 78%;
         }
 
         /* .header-bar .search-container {
@@ -139,7 +141,7 @@
             margin-top: -4px;
             float: left;
             margin-left: 2px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
         .fa-tags {
@@ -154,6 +156,7 @@
             font-size: 8px;
             padding-left: 10px;
             margin-top: -1px;
+            margin-bottom: 0px;
         }
 
         .fa-chevron-circle-right {
@@ -164,6 +167,96 @@
             color: rgb(52, 53, 53);
 
         }
+
+        .fa-star {
+            font-size: 8px;
+            color: rgb(243, 77, 47);
+            padding-left: 3px;
+            float: left;
+            margin-top: 2px;
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-top: 22px;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 17px;
+            margin-top: 18px;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        /* Top bar */
+        .top-header {
+            width: 100%;
+            height: 54px;
+            margin: 1px auto;
+            /* border-radius: 5px; */
+            background: rgb(234, 247, 253);
+            position: relative;
+            /* border: 1px solid gray; */
+        }
+
+        .top-header .share-btn {
+            background-color: transparent !important;
+            border: 1px solid rgb(12, 64, 161) !important;
+            color: rgb(12, 64, 161) !important;
+            float: right;
+            font-size: 12px;
+            margin-top: 5px;
+            height: 30px;
+            margin-right: 20px;
+            padding-top: 6px;
+        }
+
+        .top-header .share-btn .share-icon {
+            color: rgb(12, 64, 161);
+            font-size: 14px;
+            margin-top: 3px;
+            margin-right: 5px;
+        }
+
+        .top-header .share-btn:hover {
+            background-color: rgb(240, 244, 252) !important;
+        }
+
+        .filter-favourite {
+            height: 17px !important;
+            font-size: 11px;
+            color: rgb(16, 57, 146);
+            text-shadow: none !important;
+            width: 65px !important;
+            padding: 0px 0px;
+            margin-top: -4px;
+            padding-bottom: 4px;
+            float: left;
+        }
+
+        .ui-select .ui-btn select {
+            left: 10px !important;
+            font-size: 12px !important;
+            text-align: center !important;
+            color: black !important;
+            background-color: rgb(255, 255, 255) !important;
+            width: 90px !important;
+            padding-left: 23px !important;
+        }
+
+        .ui-select {
+            border: 1px solid rgb(6, 54, 109);
+            margin-left: 41px;
+            box-shadow: 0 1px 1px 0 rgba(54, 114, 163, 0.2), 0 6px 10px 0 rgba(79, 128, 161, 0.19);
+            /* display: block;
+            margin-left: auto;
+            margin-right: auto; */
+        }
     </style>
 </head>
 
@@ -171,22 +264,57 @@
     <div data-role="page">
         <div data-role="header" data-postion="fixed" class="header-bar">
             <div>
-                <img src="../assets/logo/logo-white.png" style="width: 164px;
+                <!-- <img src="../assets/logo/logo-white.png" style="width: 164px;
                 height: 50px;  margin-right: auto;
-                margin-left: auto;display: block !important; margin-top: 5px;" class="logo-image" height="20%">
+                margin-left: auto;display: block !important; margin-top: 5px;" class="logo-image" height="20%"> -->
+                <i class="fas fa-chevron-left back-icon"></i>
+                <!-- <h1 class="page-detail">Search Result</h1> -->
                 <div class="search-container">
-                    <i class="fas fa-bars"></i>
-                    <input type="search" name="password" id="search" value="" placeholder="Search..."
-                        data-wrapper-class="serachInputWrapper" style="padding-top: 11px !important; padding-bottom: 8px;
+                    <!-- <i class="fas fa-bars"></i> -->
+                    <input type="search" name="password" id="search" value="" placeholder=" Watch"
+                        data-wrapper-class="serachInputWrapper" style="padding-top: 9px !important; padding-bottom: 8px;
                         padding-right: 15px;padding-left: 25px;">
-                    <i class="fas fa-camera"></i>
+                    <!-- <i class="fas fa-camera"></i> -->
                 </div>
             </div>
         </div>
-        <div data-role="content" data-theme="a">
-            <div class="heading-category">
-                <h3 class="category-text">Watch</h3>
+        <div data-role="content" data-theme="a" style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
+            <div class="top-header">
+                <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
+                    class="filter-favourite">
+                        <option value="standard">Categories</option>
+                        <option value="rush">Accessories</option>
+                        <option value="express">Baby items</option>
+                        <option value="overnight">Clothings</option>
+                    <option value="overnight">Cosmatics</option>
+                    <option value="overnight">Electronics</option>
+                    <option value="overnight">Furnitures</option>
+
+                    <option value="overnight">Jewwllery</option>
+                    <option value="overnight">Shoes</option>
+                    <option value="overnight">Stationeries</option>
+                </select>
+                <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
+                onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+                <!-- <a href="#popupLogin" data-rel="popup" data-position-to="window"
+                    class="share-btn ui-btn ui-shadow ui-btn-inline ui-icon-check ui-btn-a" data-transition="pop"><i
+                        class="fas fa-share-alt share-icon" data-transition="pop"></i>Share</a>
+                <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all" style="max-width: 250px;top: -186.5px !important;
+                left: 12px; background-color:  rgb(193, 217, 241); border: 1px solid rgb(10, 83, 131) !important;">
+
+                </div> -->
+                <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
+                    class="filter-favourite">
+                        <option value="standard">Fiter By</option>
+                        <option value="rush">Price(A-Z)</option>
+                        <option value="express">Price(Z-A)</option>
+                </select>
             </div>
+
+            <!-- <div class="heading-category">
+                <h3 class="category-text">Watch</h3>
+            </div> -->
+            <br>
             <div class="item-container">
                 <div class="item">
                     <img src="../assets/images/Categories/Watch/watch3.jpg" width="35%" height="90%" class="item-image">
@@ -194,20 +322,81 @@
                         <p class="product-name">PALADA Men's Digital Sports Watch Waterproof Tactical Watch with LED
                             Backlight Watch for Men</p>
                         <i class="fas fa-tags"></i>
-                        <p class="price-tag">LKR 1250.00</p> <br>
+                        <p class="price-tag">LKR 3550.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
+
+                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                            4.8</div>
+                        <i class="fas fa-star"></i>
                     </div>
 
                     <!-- <i class="fas fa-chevron-circle-right"></i> -->
                 </div>
-                <!-- <div class="item">
-                    <img src="../assets/images/Categories/Watch/watch3.jpg" width="80%" height="110px"
-                        class="item-image">
-                        <p class="product-name">Leather Chronograph Quartz Watch</p>
+
+                <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch6.jpg" width="35%" height="90%" class="item-image">
+                    <div class="item-description">
+                        <p class="product-name">CAGOS Compatible Galaxy Watch 42mm Band Set, 2 Pack Stainless Steel Bracelet Replacement for Samsung Galaxy Watch</p>
                         <i class="fas fa-tags"></i>
-                        <p class="price-tag">LKR 1250.00</p>
-                        <i class="fas fa-chevron-circle-right"></i>
-                </div> -->
+                        <p class="price-tag">LKR 2950.00</p> <br>
+                        <p class="shiping-details">Free Shipping</p>
+
+                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                            4.8</div>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch1.jpg" width="35%" height="90%" class="item-image">
+                    <div class="item-description">
+                        <p class="product-name">Casio Men's GD100-1BCR G-Shock X-Large Black Multi-Functional Digital Sport Watch</p>
+                        <i class="fas fa-tags"></i>
+                        <p class="price-tag">LKR 2650.00</p> <br>
+                        <p class="shiping-details">Free Shipping</p>
+
+                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                            4.6</div>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch7.jpg" width="35%" height="90%" class="item-image">
+                    <div class="item-description">
+                        <p class="product-name">Marathon by Timex Men's T5K359 Digital Full-Size Black/Blue Resin Strap Watch version 3</p>
+                        <i class="fas fa-tags"></i>
+                        <p class="price-tag">LKR 1450.00</p> <br>
+                        <p class="shiping-details">Free Shipping</p>
+
+                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                            4.5</div>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+
+                <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch8.jpg" width="35%" height="90%" class="item-image">
+                    <div class="item-description">
+                        <p class="product-name">Digital Sports Watch Water Resistant 60 Lap 3 Alarm Stopwatch Dual Time Black Men's Watch
+                        </p>
+                        <i class="fas fa-tags"></i>
+                        <p class="price-tag">LKR 1380.00</p> <br>
+                        <p class="shiping-details">Free Shipping</p>
+
+                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                            4.3</div>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
 
             </div>
         </div>
