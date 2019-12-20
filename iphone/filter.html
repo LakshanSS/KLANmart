@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KLANmart - Items</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-bar {
+            background-color: rgb(12, 64, 161) !important;
+            height: 113px !important;
+        }
+
+        .ui-btn {
+            line-height: 2.3 !important;
+            font-family: sans-serif;
+            font-size: 15px !important;
+            background-color: white !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+        }
+
+        .ui-btn-active {
+            background-color: white !important;
+            color: rgb(21, 98, 146) !important;
+            text-shadow: none !important;
+            border-color: none !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+            border-top-color: none !important;
+            border-right-color: none !important;
+            border-bottom-color: none !important;
+            border-left-color: none !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        .fa-bars {
+            color: white;
+            margin-left: 10px;
+            float: left;
+            margin-top: 14px;
+            margin-right: 7px;
+            font-size: 24px;
+        }
+
+        .serachInputWrapper {
+            float: left;
+            height: 40px !important;
+            border: 1px solid rgb(86, 132, 216) !important;
+            font-size: 15px;
+            font-weight: 100;
+            width: 70%;
+        }
+
+        /* .header-bar .search-container {
+            width: 75% !important;
+        } */
+
+        .fa-camera {
+            color: rgb(224, 224, 223);
+            float: left;
+            margin-top: 15px;
+            margin-left: 7px;
+            font-size: 23px;
+        }
+
+        .category-text {
+            font-weight: 100;
+            text-shadow: none;
+            font-size: 22px;
+            margin-top: -2px;
+            margin-left: 12px;
+        }
+
+        .item-container {
+            margin-top: -9px;
+            width: 97%;
+            margin-left: 10px;
+            /* margin-right: auto;
+            margin-left: auto;
+            display: block !important; */
+        }
+
+        .item {
+            width: 95%;
+            height: 100px;
+            border: 1px solid lightblue;
+            padding-top: 10px;
+            padding-left: 2px;
+            padding-right: 2px;
+            box-shadow: 0 4px 4px 0 rgba(214, 213, 213, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19);
+            margin-bottom: 10px;
+            margin-right: 10px;
+            /* float: left; */
+        }
+
+        .item .item-image {
+            border-right: 1px solid lightblue;
+            padding-bottom: 8px;
+            float: left;
+            /* margin-right: auto;
+            margin-left: auto;
+            display: block !important; */
+        }
+
+        .item .item-description {
+            width: 60%;
+            float: left;
+            margin-left: 5px;
+            margin-top: -12px;
+        }
+
+        .item .product-name {
+            font-size: 10px;
+            /* text-align: left; */
+            padding-left: 10px;
+        }
+
+        .item .price-tag {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            margin-top: -4px;
+            float: left;
+            margin-left: 2px;
+            font-style: italic;
+        }
+
+        .fa-tags {
+            font-size: 9px;
+            padding-left: 10px;
+            float: left;
+            color: rgb(91, 92, 92);
+            /* margin-top: -4px; */
+        }
+
+        .shiping-details {
+            font-size: 8px;
+            padding-left: 10px;
+            margin-top: -1px;
+        }
+
+        .fa-chevron-circle-right {
+            float: right;
+            margin-top: -5px;
+            margin-right: 5px;
+            font-size: 19px;
+            color: rgb(52, 53, 53);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header" data-postion="fixed" class="header-bar">
+            <div>
+                <img src="../assets/logo/logo-white.png" style="width: 164px;
+                height: 50px;  margin-right: auto;
+                margin-left: auto;display: block !important; margin-top: 5px;" class="logo-image" height="20%">
+                <div class="search-container">
+                    <i class="fas fa-bars"></i>
+                    <input type="search" name="password" id="search" value="" placeholder="Search..."
+                        data-wrapper-class="serachInputWrapper" style="padding-top: 11px !important; padding-bottom: 8px;
+                        padding-right: 15px;padding-left: 25px;">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </div>
+        </div>
+        <div data-role="content" data-theme="a">
+            <div class="heading-category">
+                <h3 class="category-text">Watch</h3>
+            </div>
+            <div class="item-container">
+                <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch3.jpg" width="35%" height="90%" class="item-image">
+                    <div class="item-description">
+                        <p class="product-name">PALADA Men's Digital Sports Watch Waterproof Tactical Watch with LED
+                            Backlight Watch for Men</p>
+                        <i class="fas fa-tags"></i>
+                        <p class="price-tag">LKR 1250.00</p> <br>
+                        <p class="shiping-details">Free Shipping</p>
+                    </div>
+
+                    <!-- <i class="fas fa-chevron-circle-right"></i> -->
+                </div>
+                <!-- <div class="item">
+                    <img src="../assets/images/Categories/Watch/watch3.jpg" width="80%" height="110px"
+                        class="item-image">
+                        <p class="product-name">Leather Chronograph Quartz Watch</p>
+                        <i class="fas fa-tags"></i>
+                        <p class="price-tag">LKR 1250.00</p>
+                        <i class="fas fa-chevron-circle-right"></i>
+                </div> -->
+
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" role="banner">
+            <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+                style="height: 32px !important; margin: 0 0;">
+                <ul>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
+                    </li>
+                    <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                    </li>
+                    <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
