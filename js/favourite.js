@@ -16,12 +16,14 @@ window.onload = function () {
 
                 var i;
                 for (i = 0; i < data.result.length; i++) {
-                    console.log(data.result[i].images);
+                    //console.log(data.result[i].images);
+                    let firstImageURL = JSON.parse(data.result[i].images)[0];
+                    console.log('url is'+firstImageURL);
                     var favouriteRow = document.createElement('div');
                     var favouriteItems = document.getElementsByClassName('f-main-content')[0]
                     var favouriteContents = `
                     <div class="post">
-                        <img src=${data.result[i].images} alt="" srcset="" class="post-image">
+                        <img src=${firstImageURL} alt="" srcset="" class="post-image">
                         <div class="post-preview">
                             <h4 class="product-name">${data.result[i].description}</h4>
                             <p class="store-detail"><i class="fas fa-store"></i><strong></strong> Trendy Fashion Store
