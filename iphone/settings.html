@@ -10,14 +10,38 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style/wallet.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+
+    <style>
+        .header-bar {
+            background-color: rgb(12, 64, 161) !important;
+            height: 60px !important;
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-top: 22px;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 17px;
+            margin-top: 8px;
+        }
+        </style>
 </head>
 
 <body>
 <div data-role="page" data-fullscreen="true">
 
-    <div style="background-color: rgba(8,72,117,0.9);height: 8%" data-role="header" data-position="fixed">
-        <a href="" data-ajax="false" data-icon="arrow-l" style="background-color:rgba(8,72,117,0.9);border-color: rgba(8,72,117,0.9);color: white;">Back</a>
-        <h1 style="color: rgba(255,255,255,0.9)">My Wallet</h1>
+    <div data-role="header" data-position="fixed" class="header-bar">
+        <i data-rel="back"  class="fas fa-chevron-left back-icon"></i>
+        <h1 class="page-detail">Settings</h1>
     </div>
 
         <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
