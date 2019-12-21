@@ -42,7 +42,9 @@
 	border: 1px solid rgb(12, 64, 161) !important;
 	color: rgb(12, 64, 161) !important;
 	float: right;
-	font-size: 12px;
+	font-size: 10px;
+	text-shadow: none;
+	font-weight: 400;
 	margin-top: 6px;
 	height: 28px;
 	margin-right: 20px;
@@ -261,7 +263,8 @@ input[type=email] {
 	width: 63px !important;
 	padding: 0px 0px;
 	margin-top: -4px;
-	padding-bottom: 4px;
+	padding-bottom: 5px;
+	font-weight: 100;
 }
 
 .ui-select .ui-btn select {
