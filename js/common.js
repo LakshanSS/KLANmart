@@ -33,6 +33,10 @@ function goToMyOrders() {
     document.location.href = "./order.html";
 }
 
+function goToAR() {
+    document.location.href = "./arForProduct.html";
+}
+
 
 {/* <div class="post">
     <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
