@@ -49,6 +49,8 @@ function goToSignUp() {
 
 
 function sendEmail() {
+    $("#popupLogin").popup("open");
+
     var countF = sessionStorage.getItem("favourite-count");
     var body = [];
     var toAddress = null;
@@ -58,26 +60,34 @@ function sendEmail() {
     var smtpPassword = 'kaja1114';
 
     if (toAddress == "") {
-        document.getElementById("sendBtn").disabled = true;
+        // document.getElementById("sendBtn").disabled = true;faillshare
+        setTimeout(function () {
+            $("#faillshare").popup("open");
+        }, 5);
 
     } else if (toAddress != "") {
+        setTimeout(function () {
+            $("#emailSend").popup("open");
+        }, 5);
         //generate subject data
         var i;
         for (i = 0; i < countF; i++) {
             var productName = document.getElementsByClassName('product-name')[i].innerText;
             var storeName = document.getElementsByClassName('store-detail')[i].innerText;
             var price = document.getElementsByClassName('price-tag')[i].innerText;
-            console.log(productName,storeName,price);
-            body[i] = "<br>"+"product name : " + productName +"<br>" + " store name : " + storeName +"<br>"+ " price : " + "LKR"+price;
+            console.log(productName, storeName, price);
+            body[i] = "<br>" + "product name : " + productName + "<br>" + " store name : " + storeName + "<br>" + " price : " + "LKR" + price;
         }
         console.log(body);
-        var emailbody= "";
+        var emailbody = "";
         var x;
-        for(x = 0; x < 1; x++) {
+        for (x = 0; x < 1; x++) {
             emailbody += body[x] + "<br>";
         }
 
         console.log(emailbody);
+
+
         Email.send({
             Host: "smtp.gmail.com",
             Username: 'kajenchandran@gmail.com',
@@ -85,16 +95,33 @@ function sendEmail() {
             To: toAddress,
             From: 'kajenchandran@gmail.com',
             Subject: "KLAN mart",
-            Body: "FAVOURITE ITEMS" +"<br>"+ emailbody,
+            Body: "FAVOURITE ITEMS" + "<br>" + emailbody,
             port: 587
         }).then(
-            message => alert("mail sent successfully"),
-            // document.location.href = "./favourites.html"
+            // message => alert("mail sent successfully"),
+            // message => 
+            // document.location.href = "./favourites.html",
+
+
         );
+
     }
+
+
 
 }
 
+function sucesshide() {
+    // $('.ui-popup-screen').off();
+    $("#emailSend").popup('close');
+
+}
+
+function failedhide() {
+    // $('.ui-popup-screen').off();
+    $("#faillshare").popup('close');
+
+}
 
 {/* <div class="post">
                         <img src="../assets/images/favourite/tshirt1-blue.png" alt="" srcset="" class="post-image">
