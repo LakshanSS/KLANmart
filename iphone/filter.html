@@ -113,7 +113,7 @@
 
         .item .item-image {
             border-right: 1px solid lightblue;
-            padding-bottom: 8px;
+            padding-bottom: 1px;
             float: left;
             /* margin-right: auto;
             margin-left: auto;
@@ -257,6 +257,66 @@
             margin-left: auto;
             margin-right: auto; */
         }
+
+        .rating {
+            float: left;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 100;
+            margin-top: 1px;
+        }
+
+        @media all and (min-width: 20em) {}
+
+        @media all and (min-width: 40em) {
+            .item {
+                width: 75%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .item .product-name {
+                font-size: 12px;
+                /* font-weight: 600; */
+            }
+
+            .item .price-tag {
+                margin-left: 4px;
+                font-size: 14px;
+            }
+
+            .shiping-details {
+                font-size: 10px;
+            }
+
+            .rating {
+                font-size: 12px;
+            }
+
+            .fa-star {
+                margin-top: 4px;
+            }
+
+            .serachInputWrapper {
+                width: 89%;
+            }
+
+            .filter-section {
+                /* margin-left: auto;
+                margin-right: auto;
+                display: block !important; */
+                margin-left: 28%;
+            }
+
+            /* .top-header {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            } */
+
+
+
+        }
     </style>
 </head>
 
@@ -280,36 +340,40 @@
         </div>
         <div data-role="content" data-theme="a" style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
             <div class="top-header">
-                <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
-                    class="filter-favourite">
-                        <option value="standard">Categories</option>
-                        <option value="rush">Accessories</option>
-                        <option value="express">Baby items</option>
-                        <option value="overnight">Clothing</option>
-                    <option value="overnight">Cosmetics</option>
-                    <option value="overnight">Electronics</option>
-                    <option value="overnight">Furniture</option>
+                <div class="filter-section">
+                    <select name="select-choice-mini" id="select-choice-mini" data-mini="true" data-inline="true"
+                        class="filter-favourite">
+                            <option value="standard">Categories</option>
+                            <option value="rush">Accessories</option>
+                            <option value="express">Baby items</option>
+                            <option value="overnight">Clothing</option>
+                        <option value="overnight">Cosmetics</option>
+                        <option value="overnight">Electronics</option>
+                        <option value="overnight">Furniture</option>
 
-                    <option value="overnight">Jewellery</option>
-                    <option value="overnight">Shoes</option>
-                    <option value="overnight">Stationary</option>
-                </select>
-                <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
+                        <option value="overnight">Jewellery</option>
+                        <option value="overnight">Shoes</option>
+                        <option value="overnight">Stationary</option>
+                    </select>
+                    <!-- <input type="text" id="myInput" data-corners="false" data-clear-btn="true" data-wrapper-class="inputWrapper"
                 onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
-                <!-- <a href="#popupLogin" data-rel="popup" data-position-to="window"
+                    <!-- <a href="#popupLogin" data-rel="popup" data-position-to="window"
                     class="share-btn ui-btn ui-shadow ui-btn-inline ui-icon-check ui-btn-a" data-transition="pop"><i
                         class="fas fa-share-alt share-icon" data-transition="pop"></i>Share</a>
                 <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all" style="max-width: 250px;top: -186.5px !important;
                 left: 12px; background-color:  rgb(193, 217, 241); border: 1px solid rgb(10, 83, 131) !important;">
 
                 </div> -->
-                <select name="select-choice-mini" id="select-choice-mini2" data-mini="true" data-inline="true"
-                    class="filter-favourite">
-                        <option value="standard">Fiter By</option>
-                        <option value="rush">Price(A-Z)</option>
-                        <option value="express">Price(Z-A)</option>
-                </select>
+                    <select name="select-choice-mini" id="select-choice-mini2" data-mini="true" data-inline="true"
+                        class="filter-favourite">
+                            <option value="standard">Fiter By</option>
+                            <option value="rush">Price(A-Z)</option>
+                            <option value="express">Price(Z-A)</option>
+                    </select>
+                </div>
+
             </div>
+
 
             <!-- <div class="heading-category">
                 <h3 class="category-text">Watch</h3>
@@ -325,7 +389,7 @@
                         <p class="price-tag">LKR 3550.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
 
-                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                        <div class="rating">
                             4.8</div>
                         <i class="fas fa-star"></i>
                     </div>
@@ -336,12 +400,14 @@
                 <div class="item">
                     <img src="../assets/images/Categories/Watch/watch6.jpg" width="35%" height="90%" class="item-image">
                     <div class="item-description">
-                        <p class="product-name">CAGOS Compatible Galaxy Watch 42mm Band Set, 2 Pack Stainless Steel Bracelet Replacement for Samsung Galaxy Watch</p>
+                        <p class="product-name">CAGOS Compatible Watch 42mm Band Set, 2 Pack Stainless Steel
+                            Bracelet Replacement for Samsung Galaxy Watch</p>
                         <i class="fas fa-tags"></i>
                         <p class="price-tag">LKR 2950.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
 
-                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                        <div class="rating">
+
                             4.8</div>
                         <i class="fas fa-star"></i>
                     </div>
@@ -352,12 +418,13 @@
                 <div class="item">
                     <img src="../assets/images/Categories/Watch/watch1.jpg" width="35%" height="90%" class="item-image">
                     <div class="item-description">
-                        <p class="product-name">Casio Men's GD100-1BCR G-Shock X-Large Black Multi-Functional Digital Sport Watch</p>
+                        <p class="product-name">Casio Men's GD100-1BCR G-Shock X-Large Black Multi-Functional Digital
+                            Sport Watch</p>
                         <i class="fas fa-tags"></i>
                         <p class="price-tag">LKR 2650.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
 
-                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                        <div class="rating">
                             4.6</div>
                         <i class="fas fa-star"></i>
                     </div>
@@ -368,12 +435,13 @@
                 <div class="item">
                     <img src="../assets/images/Categories/Watch/watch7.jpg" width="35%" height="90%" class="item-image">
                     <div class="item-description">
-                        <p class="product-name">Marathon by Timex Men's T5K359 Digital Full-Size Black/Blue Resin Strap Watch version 3</p>
+                        <p class="product-name">Marathon by Timex Men's T5K359 Digital Full-Size Black/Blue Resin Strap
+                            Watch version 3</p>
                         <i class="fas fa-tags"></i>
                         <p class="price-tag">LKR 1450.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
 
-                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                        <div class="rating">
                             4.5</div>
                         <i class="fas fa-star"></i>
                     </div>
@@ -384,13 +452,14 @@
                 <div class="item">
                     <img src="../assets/images/Categories/Watch/watch8.jpg" width="35%" height="90%" class="item-image">
                     <div class="item-description">
-                        <p class="product-name">Digital Sports Watch Water Resistant 60 Lap 3 Alarm Stopwatch Dual Time Black Men's Watch
+                        <p class="product-name">Digital Sports Watch Water Resistant 60 Lap 3 Alarm Stopwatch Dual Time
+                            Black Men's Watch
                         </p>
                         <i class="fas fa-tags"></i>
                         <p class="price-tag">LKR 1380.00</p> <br>
                         <p class="shiping-details">Free Shipping</p>
 
-                        <div style="float: left; margin-left: 10px; font-size: 10px; font-weight: 100;margin-top: 1px;">
+                        <div class="rating">
                             4.3</div>
                         <i class="fas fa-star"></i>
                     </div>

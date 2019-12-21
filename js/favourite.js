@@ -26,7 +26,7 @@ window.onload = function () {
                             <h4 class="product-name">${data.result[i].description}</h4>
                             <p class="store-detail"><i class="fas fa-store"></i><strong></strong> Trendy Fashion Store
                             </p>
-                            <h4 class="price-tag"><i class="fas fa-tags"></i> ${data.result[i].price}.00</h4>
+                            <h4 class="price-tag"><i class="fas fa-tags"></i> LKR ${data.result[i].price}.00</h4>
                             <!-- <i class="fas fa-heart heart-icon"></i> -->
                             <button class="view-more" data-corners="true" data-shadow="false"><p class="view-more-text">view more</p><i class="fas fa-chevron-circle-right"></i></button>
                         </div>
@@ -66,6 +66,7 @@ function sendEmail() {
         }, 5);
 
     } else if (toAddress != "") {
+
         setTimeout(function () {
             $("#emailSend").popup("open");
         }, 5);
