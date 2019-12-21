@@ -42,6 +42,12 @@
         function goToSignUp() {
             document.location.href = "./login.html";
         }
+        function viewWallet() {
+            document.location.href = "./wallet.html";
+        }
+        function viewSettings() {
+            document.location.href = "./settings.html";
+        }
 
     </script>
 </head>
@@ -131,7 +137,7 @@
                                     <i class="fas fa-chevron-right personal-tab-arrow"></i>
                                 </div>
                             </li>
-                            <li>
+                            <li onclick="viewWallet()">
                                 <div class="detail-tab">
                                     <i class="fas fa-wallet shop-detail"></i>
                                     <p><strong class="shopping-info">Wallet</strong></p>
@@ -165,7 +171,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="detail-tab">
+                            <div onclick="viewSettings()" class="detail-tab">
                                 <i style="font-size: 19px !important;" class="fas fa-cog shop-detail"></i>
                                 <p><strong class="shopping-info">Settings</strong></p>
                                 <i class="fas fa-chevron-right personal-tab-arrow"></i>
