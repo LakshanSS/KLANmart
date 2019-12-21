@@ -283,3 +283,99 @@ h3, h4, p {
 .slideshowBtn:hover {
 	background-color: transparent !important;
 }
+
+
+/*suggestions*/
+
+div.scrollmenu {
+	overflow: auto;
+	/* white-space: nowrap; */
+	height: 273px;
+}
+
+div.scrollmenu a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+	background-color: rgb(255, 255, 255);
+}
+
+.carosol-today-deal {
+	margin-top: -3px;
+	margin-bottom: 0px;
+}
+
+.card-view {
+	width: 166px;
+	height: 264px;
+	border: 1px solid rgb(86, 132, 216) !important;
+	background-color: white;
+}
+
+.card-image {
+	width: 88%;
+	/* height: 60%; */
+	height: 137px;
+	margin-right: auto;
+	margin-left: auto;
+	display: block !important;
+	margin-top: 5px;
+	/* border-bottom: 1px solid rgb(27, 113, 163); */
+	
+	/* margin-bottom: 5px; */
+}
+
+.card-body {
+	padding: 3px 3px !important;
+}
+
+.product-name {
+	text-align: center;
+	font-weight: 600;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.card-view .price-tag {
+	margin-top: 10px;
+	font-size: medium;
+	font-weight: 700;
+	text-align: center;
+	color: rgb(12, 64, 161)
+}
+
+.discount {
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: -13px;
+	margin-bottom: 0;
+	display: block !important;
+	text-align: center !important;
+	background-color: rgb(236, 42, 42);
+	color: white;
+	width: 40%;
+	padding: 0px 1px 1px 1px;
+	border-radius: 10px;
+	text-shadow: none !important;
+}
+
+.product-hr {
+	padding: 0;
+	/* margin: 6px; */
+	margin-top: 5px;
+	margin-bottom: -3px;
+	width: 90%;
+	display: block;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	border-top: 1px solid rgb(38, 126, 197);
+}
+
+.gap-product {
+	padding-right: 1px !important;
+}

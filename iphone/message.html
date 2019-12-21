@@ -8,6 +8,11 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script>
+        function goToMessages() {
+            document.location.href = "./messages.html";
+        }
+    </script>
     <style>
         .header-bar {
             background-color: rgb(12, 64, 161) !important;
@@ -122,31 +127,31 @@
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon"></i>
+    <i class="fas fa-chevron-left back-icon" onclick="goToMessages()"></i>
     <h1 class="page-detail">Trendy Fashion Store</h1>
 </div>
 <div data-role="content" data-theme="a">
     <div class="container light">
         <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
-        <p>Hello. How are you today?</p>
+        <p>Hello. Have you sent my product?</p>
         <span class="time-right">11:00</span>
     </div>
 
     <div class="container darker">
         <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
-        <p>Hey! I'm fine. Thanks for asking!</p>
+        <p>Not yet sir, we are processing your order. Soon we will send it.</p>
         <span class="time-left">11:01</span>
     </div>
 
     <div class="container light">
         <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
-        <p>Sweet! So, what do you wanna do today?</p>
+        <p>Oh. Please send it as soon as possibble.</p>
         <span class="time-right">11:02</span>
     </div>
 
     <div class="container darker">
         <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
-        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+        <p>Sure sir, We will do our best.</p>
         <span class="time-left">11:05</span>
     </div>
 </div>
