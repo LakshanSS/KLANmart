@@ -34,7 +34,7 @@
                             var favouriteContents = `
                     <div class="post">
                         <img src=${firstImageURL} class="post-image">
-                        <div class="post-preview">
+                        <div onclick="goToFeedback()" class="post-preview">
                             <h3>${data.result[i].product_name}</h3>
                             <p class="store-detail"><strong>Store</strong> ${data.result[i].store_name}</p> 
                             <p class="status-order"> ${data.result[i].order_status}</p>

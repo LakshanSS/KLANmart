@@ -33,6 +33,10 @@ function goToMyOrders() {
     document.location.href = "./order.html";
 }
 
+function goToFeedback() {
+    document.location.href = "./feedback.html";
+}
+
 function goToAR() {
     document.location.href = "./arForProduct.html";
 }
