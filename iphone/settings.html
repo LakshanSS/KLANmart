@@ -13,6 +13,12 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
 
+    <script>
+        function viewprofile() {
+            document.location.href = "./profile.html";
+        }
+        </script>
+
     <style>
         .header-bar {
             background-color: rgb(12, 64, 161) !important;
@@ -40,7 +46,7 @@
 <div data-role="page" data-fullscreen="true">
 
     <div data-role="header" data-position="fixed" class="header-bar">
-        <i data-rel="back"  class="fas fa-chevron-left back-icon"></i>
+        <i onclick="viewprofile()"  class="fas fa-chevron-left back-icon"></i>
         <h1 class="page-detail">Settings</h1>
     </div>
 

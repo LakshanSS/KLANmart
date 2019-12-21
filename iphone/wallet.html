@@ -14,12 +14,16 @@
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
 
 
-
+    <script>
+        function viewprofile() {
+            document.location.href = "./profile.html";
+        }
+        </script>
 </head>
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i data-rel="back"  class="fas fa-chevron-left back-icon"></i>
+    <i onclick="viewprofile()"  class="fas fa-chevron-left back-icon"></i>
     <h1 class="page-detail">My Wallet</h1>
 </div>
 <div id="carddetails" data-role="content" data-theme="a">
