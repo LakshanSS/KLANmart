@@ -23,7 +23,7 @@
 <body>
 
     <div data-role="header" data-position="fixed" class="header-bar">
-        <i data-rel="back" class="fas fa-chevron-left back-icon"></i>
+        <i onclick="goToProduct()"  class="fas fa-chevron-left back-icon"></i>
         <h1 class="page-detail">Order Information</h1>
     </div>
 
@@ -117,11 +117,9 @@
                     </div>
                     <div id="sumtotalright" class="ui-body ui-body-d">
                         <h6 id="prodSumTotal" style="color: #5f6264;text-align: right">LKR 2299.00</h6>
-                        <a id="prodPromoCode" href="" onclick="GotoAR()">
-                            <h6 style="color: #7285ff;text-align: right">Enter code here</h6>
-                        </a>
-                        <a id="ProdSpecialOff" href="popups/PaymentPopup.html">
-                            <h6 style="color: #7285ff;text-align: right">Enter code here</h6>
+                        <a id="prodPromoCode" href="#promopop" onclick="" data-rel="popup" data-transition="pop"><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+                        <a id="ProdSpecialOff" href="#offeropop" onclick="" data-rel="popup" data-transition="pop"><h6 style="color: #7285ff;text-align: right">Enter code here</h6></a>
+
                         </a>
                         <h5 id="prodSumAmount" style="color: #010201;font-weight: bold;text-align: right">LKR 2299.00
                         </h5>
@@ -170,30 +168,45 @@
 
     </div>
 
-    <div id="popuppayment" data-role="popup" data-dialog="true" data-transition="pop">
+    <div id="popuppayment" style="margin-top: 20%;align-content: center;" data-role="popup" data-dialog="true" class="ui-block-d" data-transition="pop" data-overlay-theme="a"
+         data-theme="a" data-dismissible="false" data-position-to="window" style="max-width:400px;">
 
         <div data-role="header" data-theme="b">
-            <h1>Payment Successful</h1>
+            <h1>Successful</h1>
         </div>
 
         <div role="main" class="ui-content">
             <!-- <h1>Delete page?</h1> -->
             <p style="text-align: center;">Your payment is successful. </br>Thank you !</p>
-            <a href="home.html" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
+            <a href="" onclick="paymentSuccs()" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
         </div>
     </div>
 
-    <div id="promopop" data-role="popup" data-dialog="true" data-transition="pop">
+    <div id="promopop" data-role="popup" data-dialog="true"  data-transition="pop" data-position-to="window">
 
         <div data-role="header" data-theme="b">
-            <h1>Add promo code</h1>
         </div>
-        <label for="popupBasic">Street:</label>
-        <input type="text" name="name" id="promoInput" value="">
+
+        <label for="popupBasic">Promo code:</label>
+    <input type="text" name="name" id="promoInput" value="">
+
+    <a href="" data-role="button" data-inline="true" data-rel="back">Cancel</a>
+    <a href="" onclick="promoCode()" data-role="button" data-theme="b" data-inline="true">OK</a>
+
+    </div>
+
+    <div id="offeropop" data-role="popup" data-dialog="true"  data-transition="pop" data-position-to="window">
+
+        <div data-role="header" data-theme="b">
+            <h1>Add Offer</h1>
+        </div>
+        <label for="popupBasic">offer code:</label>
+        <input type="text" name="name" id="offerInput" value="">
         <div role="main" class="ui-content">
             <!-- <h1>Delete page?</h1> -->
+            <a href="" data-role="button" data-inline="true" data-rel="back">Cancel</a>
+            <a href="" onclick="offerCode()" data-role="button" data-theme="b" data-inline="true">OK</a>
 
-            <a href="home.html" class="ui-btn ui-shadow ui-corner-all ui-btn-b">OK</a>
         </div>
     </div>
 
@@ -223,6 +236,10 @@
                 location.href = "popups/PaymentPopup.html";
                 //$("#popuppayment").popup("open");
 
+            }
+
+            function goToProduct() {
+                document.location.href = "./product.html";
             }
             $(document).ready(function () {
                 let product_id = window.sessionStorage.getItem('product_id');
@@ -281,15 +298,34 @@
                             // $('#allContent').addClass('ui-disabled');
 
                             $("#popuppayment").popup("open");
-                            
+
+                            let payAmount = document.getElementById('PayAmount').textContent;
+                            let jsonData = { "Item": { "user_id": 2, "product_id": 1, "total_amount": payAmount, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 1, "store_id": 2}};
+                            $(document).ready(function () {
+                                $("button").click(function () {
+
+                                    let xhttp = new XMLHttpRequest();
+                                    xhttp.onreadystatechange = function() {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                            alert(this.responseText);
+                                        }
+                                    };
+                                    xhttp.open("POST", "http://localhost:9002/KLANmart/buy", true);
+                                    xhttp.setRequestHeader("Content-type", "application/json");
+                                    xhttp.send(JSON.stringify(jsonData));
+                                });
+                            });
+
+
                         }
                     }
                 })
 
-                let payAmount = document.getElementById('PayAmount').textContent;
-                console.log("amount" + payAmount);
+
 
                 $('#btPayNow').on('click', function (e) {
+                    let payAmount = document.getElementById('PayAmount').textContent;
+                    console.log("amount" + payAmount);
                     handler.open({
                         name: 'Enter Payment',
                         currency: 'LKR',
@@ -304,6 +340,55 @@
             popupbeforeposition: function hide() {
                 $('.ui-popup-screen').off();
             }
+
+            function promoCode() {
+                let promo = document.getElementById("promoInput").value;
+                let payAmount = document.getElementById('PayAmount').textContent;
+
+                if(promo !=null && promo !=""){
+                    payAmount = payAmount-100;
+                    document.getElementById('prodPromoCode').innerHTML = "100 Off";
+                    document.getElementById("prodSumAmount").innerHTML = "LKR "+payAmount+".00";
+                    document.getElementById("PayAmount").innerHTML = payAmount;
+                    $("#promopop").popup('close');
+                    console.log(promo);
+                    $('#prodPromoCode').href = "javascript:void(0)";
+                    $('#prodPromoCode').color = "gray";
+
+
+                }else {
+                    $("#promopop").popup('close');
+                }
+
+            }
+
+            function offerCode() {
+                let offer = document.getElementById("offerInput").value;
+                let payAmount = document.getElementById('PayAmount').textContent;
+
+                if(offer !=null && offer !=""){
+                    payAmount = payAmount*90/100;
+                    document.getElementById('ProdSpecialOff').innerHTML = "10% Off";
+                    document.getElementById("prodSumAmount").innerHTML = "LKR "+payAmount;
+                    document.getElementById("PayAmount").innerHTML = payAmount;
+                    $("#offeropop").popup('close');
+                    console.log(offer);
+                    $('#ProdSpecialOff').href = "javascript:void(0)";
+                    $('#ProdSpecialOff').color = "gray";
+
+
+                }else {
+                    $("#offeropop").popup('close');
+                }
+
+            }
+
+            function paymentSuccs() {
+                window.location.href = "home.html";
+
+            }
+
+
 
 
             $("#editAddress").on({
