@@ -1,0 +1,156 @@
+.prodName{
+	margin: 14px 0 2px 0;
+}
+
+.orderStatusLbl{
+	margin-top: 5px;
+	margin-bottom: 3px;
+	font-size: small;
+}
+
+.orderStatus{
+	font-size: medium;
+	color: #2a4db5;
+}
+
+.header-bar {
+	background-color: rgb(12, 64, 161) !important;
+	height: 60px !important;
+}
+
+.header-bar .back-icon {
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
+	color: white;
+}
+
+.header-bar .page-detail {
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 100;
+	font-size: 17px;
+	margin-top: 8px;
+	text-shadow: none !important;
+}
+
+.content-body {
+	background-color: rgb(247, 251, 255) !important;
+}
+
+/* CONTENT */
+.content {
+	width: 100%;
+	margin: 1px auto 30px;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.content .f-main-content {
+	width: 100%;
+	float: left;
+}
+
+.content .f-main-content .post {
+	border: 1px solid rgb(164, 188, 231) !important;
+	width: 97%;
+	height: 104px;
+	margin: 10px auto;
+	background: rgb(255, 255, 255);
+	position: relative;
+	box-shadow: 0 4px 4px 0 rgba(240, 239, 239, 0.2), 0 6px 10px 0 rgba(185, 183, 183, 0.19);
+}
+
+.content .f-main-content .post .post-image {
+	width: 30%;
+	height: 85%;
+	float: left;
+	margin-top: 8px;
+	margin-left: 14px;
+	margin-bottom: auto;
+	border: 1px solid rgb(164, 188, 231) !important;
+}
+
+.content .f-main-content .post .post-preview {
+	width: 60%;
+	height: 66%;
+	padding: 1px;
+	float: right;
+	margin-top: -10px;
+}
+
+.content .f-main-content .post .post-preview .store-detail {
+	color: rgb(6, 6, 68);
+	font-size: 14px;
+	margin-top: -6px;
+	margin-bottom: -3px;
+}
+
+.content .f-main-content .post .post-preview .price-tag {
+	margin-top: 10px;
+	font-size: 15px;
+	float: left;
+}
+
+.content .f-main-content .post .post-preview .heart-icon {
+	float: right;
+	font-size: 30px;
+	margin-top: -49px;
+	color: rgb(219, 15, 15);
+}
+
+.content .f-main-content .favourite-title {
+	margin: 20px;
+}
+
+.date-order {
+	font-size: 13px;
+}
+
+@media all and (min-width: 40em) {
+	.content {
+		width: 80%;
+	}
+	
+	.content .f-main-content .post .post-image {
+		margin-top: 6px;
+	}
+	
+	.content .f-main-content .post {
+		height: 180px;
+	}
+	
+	.content .f-main-content .post .post-preview .store-detail {
+		margin-top: -5px;
+		font-size: larger;
+	}
+	.prodName {
+		margin: 30px 0 7px 0;
+		font-size: larger;
+	}
+	
+	.date-order{
+		font-size: 18px;
+	}
+	
+	.orderStatus{
+		font-size: larger;
+	}
+	
+	.orderStatusLbl{
+		font-size: large;
+		margin-top: 12px;
+	}
+	
+	.divContainer{
+		margin-top: 11px;
+	}
+	
+	.store-detail{
+	
+	}
+}
