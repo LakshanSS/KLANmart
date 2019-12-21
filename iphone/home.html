@@ -10,9 +10,11 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <script>
         $('document').ready(function(){
             $('#search').keypress(function(e){
@@ -508,13 +510,14 @@
         <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
              style="height: 32px !important; margin: 0 0;">
             <ul>
-                <li><a href="#" class="ui-btn-active"  data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" data-icon=""><i class="fas fa-heart" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" data-icon=""><i class="fas fa-comment-dots" style="font-size: 20px;"></i></a>
+                <li><a href="#" class="ui-btn-active"  data-icon=""><i class="fi-xnluxx-home-solid" ></i></a></li>
+                <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
+
+                <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
                 </li>
-                <li><a href="#" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a>
                 </li>
-                <li><a href="#" data-icon=""><i class="fas fa-user" style="font-size: 20px;"></i></a></li>
+                <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
             </ul>
         </div>
     </div>

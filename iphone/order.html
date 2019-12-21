@@ -9,6 +9,7 @@
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script src="../js/common.js"></script>
 
     <script>
         window.onload = function () {
@@ -25,22 +26,21 @@
 
                         if (data.result[i].order_status != 'cart') {
                             var favouriteRow = document.createElement('div');
-                            var favouriteItems = document.getElementsByClassName('f-main-content')[0]
+                            var favouriteItems = document.getElementsByClassName('f-main-content')[0];
                             console.log(favouriteItems);
                             // ${data.result[i].images}
                             let firstImageURL = JSON.parse(data.result[i].images)[0];
                             console.log(firstImageURL);
                             var favouriteContents = `
                     <div class="post">
-                        <!--<img src=${data.result[i].images} alt="" srcset="" class="post-image">-->
                         <img src=${firstImageURL} class="post-image">
                         <div class="post-preview">
                             <h3>${data.result[i].product_name}</h3>
                             <p class="store-detail"><strong>Store</strong> ${data.result[i].store_name}</p> 
-                            <span class="status-order"><i class="fas fa-star"></i>  ${data.result[i].order_status}</span>
-                            <span class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</span>
+                            <p class="status-order"> ${data.result[i].order_status}</p>
+                            <p class="date-order"><i class="far fa-calendar-alt"></i>  ${data.result[i].order_time}</p>
                         </div>
-                    </div>`
+                    </div>`;
                             favouriteRow.innerHTML = favouriteContents;
                             favouriteItems.append(favouriteRow);
                         }
@@ -70,6 +70,7 @@
             font-weight: 100;
             font-size: 17px;
             margin-top: 8px;
+            text-shadow: none !important;
         }
 
         .content-body {
@@ -159,11 +160,11 @@
         }
 
         .date-order {
-            float: left;
-            margin-top: 9px;
+            /*float: left;
+            margin-top: 9px;*/
             font-size: 13px;
             /* margin-right: 7px; */
-            margin-left: 14px;
+            /*margin-left: 14px;*/
         }
 
         @media all and (min-width: 40em) {
@@ -183,16 +184,16 @@
                 margin-top: -5px;
             }
 
-            .date-order {
+            /*.date-order {
                 margin-left: 18px;
-            }
+            }*/
         }
     </style>
 </head>
 
 <body>
     <div data-role="header" data-position="fixed" class="header-bar">
-        <i class="fas fa-chevron-left back-icon"></i>
+        <i onclick="profile()" class="fas fa-chevron-left back-icon"></i>
         <h1 class="page-detail">My Orders</h1>
     </div>
 

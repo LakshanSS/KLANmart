@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../js/common.js"></script>
     <!--<script>
         $(document).ready(function () {
             let product_id = window.sessionStorage.getItem('product_id');
@@ -52,7 +53,7 @@
 
 <body>
 <div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon"></i>
+    <i onclick="product()" class="fas fa-chevron-left back-icon"></i>
     <h1 class="page-detail">Reviews</h1>
 </div>
 <div data-role="content" data-theme="a">
@@ -185,19 +186,6 @@
         </li>
     </ul>
 
-</div>
-<div data-role="footer" data-position="fixed" role="banner">
-    <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-         style="height: 32px !important; margin: 0 0;">
-        <ul>
-            <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-            <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-            <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
-            <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
-            </li>
-            <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
-        </ul>
-    </div>
 </div>
 </body>
 </html>

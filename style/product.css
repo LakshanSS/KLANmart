@@ -162,6 +162,7 @@ h3, h4, p {
 	font-weight: 100;
 	font-size: 17px;
 	margin-top: 8px;
+	text-shadow: none !important;
 }
 
 #priceUnit {

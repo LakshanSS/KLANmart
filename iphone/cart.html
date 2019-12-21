@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
 
     <script>
         window.onload = function () {
@@ -87,7 +88,7 @@
 <body>
     <div data-role="header" data-position="fixed" class="header-bar">
         <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
-        <i class="fas fa-chevron-left back-icon"></i>
+        <!--<i class="fas fa-chevron-left back-icon"></i>-->
         <h1 class="page-detail">Cart</h1>
     </div>
 
@@ -145,18 +146,21 @@
             </div>
         </div>
 
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-            style="height: 32px !important; margin: 0 0;">
-            <ul>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
-                </li>
-                <li onclick="profile()"><a href="#" id="" data-icon=""><i class="far fa-user"
-                            style="font-size: 20px;"></i></a></li>
-            </ul>
-        </div>
+
+            <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+                 style="height: 32px !important; margin: 0 0;">
+                <ul>
+                    <li><a onclick="home()" data-icon=""><i class="fi-xnluxx-home" ></i></a></li>
+                    <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
+
+                    <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
+                    </li>
+                    <li><a href="#" class="ui-btn-active"data-icon=""><i class="fi-xnluhx-shopping-cart-solid"></i></a>
+                    </li>
+                    <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
+                </ul>
+            </div>
+
     </div>
 
 </body>

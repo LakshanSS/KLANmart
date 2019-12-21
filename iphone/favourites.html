@@ -13,6 +13,7 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="../js/favourite.js"></script>
     <script src="../js/common.js"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
 </head>
 
 <body>
@@ -109,15 +110,16 @@
     </div>
     <div data-role="footer" data-position="fixed" role="banner">
         <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-            style="height: 32px !important; margin: 0 0;">
+             style="height: 32px !important; margin: 0 0;">
             <ul>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-heart" style="font-size: 20px;"></i></a></li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-comment-dots" style="font-size: 20px;"></i></a>
+                <li><a onclick="favourite()" data-icon=""><i class="fi-xnluxx-home" ></i></a></li>
+                <li><a class="ui-btn-active" href="#" data-icon=""><i class="fi-xnluxx-heart-solid"></i></a></li>
+
+                <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
                 </li>
-                <li><a href="#" id="" data-icon=""><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></a>
+                <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a>
                 </li>
-                <li><a href="#" id="" data-icon=""><i class="far fa-user" style="font-size: 20px;"></i></a></li>
+                <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
             </ul>
         </div>
     </div>
