@@ -23,7 +23,7 @@
 <body>
 
     <div data-role="header" data-position="fixed" class="header-bar">
-        <i data-rel="back" class="fas fa-chevron-left back-icon"></i>
+        <i onclick="goToProduct()"  class="fas fa-chevron-left back-icon"></i>
         <h1 class="page-detail">Order Information</h1>
     </div>
 
@@ -236,6 +236,10 @@
                 location.href = "popups/PaymentPopup.html";
                 //$("#popuppayment").popup("open");
 
+            }
+
+            function goToProduct() {
+                document.location.href = "./product.html";
             }
             $(document).ready(function () {
                 let product_id = window.sessionStorage.getItem('product_id');
