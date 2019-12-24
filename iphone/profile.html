@@ -13,14 +13,11 @@
     <script src="../js/common.js"></script>
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <script>
-
         window.onload = function () {
             var loggedUser = sessionStorage.getItem("logged_user");
-
             if (loggedUser != null) {
-                document.getElementById("logged").style.display = "none";
                 document.getElementById("if_logged").style.display = "block";
-
+                document.getElementById("logged").style.display = "none";
 
                 var myJson = JSON.parse(loggedUser);
                 console.log(myJson);
@@ -29,11 +26,10 @@
                 document.getElementById('mobile').innerHTML = myJson.mobile_no;
                 document.getElementById('pref_currency').innerHTML = myJson.pref_currency;
             } else {
-                document.getElementById("if_logged").style.display = "none";
                 document.getElementById("logged").style.display = "block";
-
+                document.getElementById("if_logged").style.display = "none";
             }
-        }
+        };
 
         function viewMyOrders() {
             document.location.href = "./order.html";
@@ -48,7 +44,6 @@
         function viewSettings() {
             document.location.href = "./settings.html";
         }
-
     </script>
 </head>
 
@@ -56,19 +51,12 @@
     <div data-role="page" data-fullscreen="true">
 
         <div data-role="header" data-position="fixed" class="header-bar">
-            <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
-            <!--<i class="fas fa-chevron-left back-icon"></i>-->
             <h1 class="page-detail">Profile</h1>
         </div>
 
         <div data-role="content" data-theme="a" class="content-body">
-            <div class="not-logged" style="height: 574px !important;" id="logged">
-                <i class="far fa-user-circle" style="
-                margin-top: 145px !important;"></i>
-                <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.
-                    <strong style="color: rgb(16, 57, 146);">Sign in</strong><br> to continue.</p>
-                <p class="dont-hv-acc" style="text-align: center; font-size: 15px;" onclick="startJourney()">Don't have an account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
-            </div>
+
+            <!--Display the following if a user has logged in-->
             <div id="if_logged">
                 <div class="name-tab">
                     <i class="fas fa-user-circle profile-icon"></i>
@@ -110,7 +98,7 @@
                 </li> -->
                         <li style="padding-bottom: 21px;">
                             <div class="detail-tab">
-                                <p><strong class="personal-tab">Prefered Currancy</strong> <strong class="personal-info"
+                                <p><strong class="personal-tab">Preferred Currency</strong> <strong class="personal-info"
                                         id="pref_currency">lkr</strong></p>
                                 <!-- <i class="fas fa-chevron-right personal-tab-arrow"></i> -->
                             </div>
@@ -154,7 +142,6 @@
                         </ul>
                     </div>
 
-
                     <ul data-role="listview" data-inset="true" data-theme="a" data-corners="false">
                         <li>
                             <div class="detail-tab">
@@ -187,6 +174,15 @@
                     </ul>
                 </div>
             </div>
+
+            <!--Display the following if there is no user has logged in-->
+            <div class="not-logged" style="height: 574px !important;" id="logged">
+                <i class="far fa-user-circle" style="
+                margin-top: 145px !important;"></i>
+                <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.
+                    <strong style="color: rgb(16, 57, 146);">Sign in</strong><br> to continue.</p>
+                <p class="dont-hv-acc" style="text-align: center; font-size: 15px;" onclick="startJourney()">Don't have an account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
+            </div>
         </div>
         <div data-role="footer" data-position="fixed" role="banner">
             <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
@@ -194,18 +190,12 @@
                 <ul>
                     <li><a onclick="home()"   data-icon=""><i class="fi-xnluxx-home" ></i></a></li>
                     <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
-
-                    <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
-                    </li>
-                    <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a>
-                    </li>
+                    <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a></li>
+                    <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a></li>
                     <li><a class="ui-btn-active" href="#" data-icon=""><i class="fi-xnluxl-user-solid"></i></a></li>
                 </ul>
             </div>
         </div>
         </div>
-
-
 </body>
-
 </html>

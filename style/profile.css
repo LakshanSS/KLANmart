@@ -3,18 +3,19 @@
 }
 
 .header-bar .back-icon {
-	float: left; 
-	margin-top: 22px; 
-	margin-left: 15px; 
+	float: left;
+	margin-top: 22px;
+	margin-left: 15px;
 	color: white;
 }
 
 .header-bar .page-detail {
-	color: white;    
+	color: white;
 	letter-spacing: 2px;
-	font-weight: 100; 
-	font-size: 17px; 
+	font-weight: 100;
+	font-size: 17px;
 	margin-top: 8px;
+    text-shadow: none;
 }
 
 .content-body {
@@ -122,7 +123,6 @@ li {
 a {
     background-color: white !important;
     color: black !important;
-    border-color: none !important;
     border: 1px solid rgb(224, 240, 253) !important;
 }
 
@@ -175,16 +175,11 @@ a {
     background-color: white !important;
     color: rgb(21, 98, 146) !important;
     text-shadow: none !important;
-	border-color: none !important;
+	border-color: transparent !important;
 	border-left-width: 0px !important;
     border-right-width: 0px !important;
     border-top-width: 0px !important;
     border-bottom-width: 0px !important;
-    border-top-color: none !important;
-    border-right-color: none !important;
-    border-bottom-color: none !important;
-	border-left-color:none !important;
-	text-shadow: none !important;
 	box-shadow: none !important;
 }
 
