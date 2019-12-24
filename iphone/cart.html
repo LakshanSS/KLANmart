@@ -5,24 +5,25 @@
     <meta charset="utf-8">
     <title>KLANmart - Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../style/cart.css" />
+    <link rel="stylesheet" href="../style/cart.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
-    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
 
     <script>
         window.onload = function () {
-            var loggedUser = sessionStorage.getItem("logged_user");
+            let loggedUser = sessionStorage.getItem("logged_user");
 
             if (loggedUser != null) {
-                document.getElementById("logged").style.display = "none";
                 document.getElementById("if_logged").style.display = "block";
+                document.getElementById("logged").style.display = "none";
 
-                var myJson = JSON.parse(loggedUser);
+
+                let myJson = JSON.parse(loggedUser);
                 console.log(myJson.user_id);
 
                 $(document).ready(function () {
@@ -30,17 +31,14 @@
                         url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
                     }).then(function (data) {
                         console.log(data.result);
-
-                        var i;
-                        for (i = 0; i < data.result.length; i++) {
+                        for (let i = 0; i < data.result.length; i++) {
                             let firstImageURL = JSON.parse(data.result[i].images)[0];
                             console.log(firstImageURL);
                             if (data.result[i].order_status == 'cart') {
-                                var cartRow = document.createElement('div');
-                                var cartItems = document.getElementsByClassName('main-content')[0]
+                                let cartRow = document.createElement('div');
+                                let cartItems = document.getElementsByClassName('main-content')[0];
                                 console.log(cartItems);
-                                // ${data.result[i].images}
-                                var cartContents = `<div class="cart">
+                                let cartContents = `<div class="cart">
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
                         data-shadow="false" data-cacheval="true"
                         style="cursor: pointer; margin-top: 66px; margin-left: 4px; background-color: black !important; float:left">
@@ -64,9 +62,7 @@
                         </div>
                     </div>
                     <p class="shipping-detail">Free Shipping</p>
-                </div>
-                            `
-
+                    </div>`;
                                 cartRow.innerHTML = cartContents;
                                 cartItems.append(cartRow);
                             }
@@ -74,10 +70,10 @@
                     });
                 });
             } else {
-                document.getElementById("if_logged").style.display = "none";
                 document.getElementById("logged").style.display = "block";
+                document.getElementById("if_logged").style.display = "none";
             }
-        }
+        };
 
         function goToSignUp() {
             document.location.href = "./login.html";
@@ -88,82 +84,58 @@
 </head>
 
 <body>
-    <div data-role="header" data-position="fixed" class="header-bar">
-        <!-- <a href="" data-ajax="false" data-icon="back"><</a> -->
-        <!--<i class="fas fa-chevron-left back-icon"></i>-->
-        <h1 class="page-detail">Cart</h1>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <h1 class="page-detail">Cart</h1>
+</div>
+
+<div data-role="content" data-theme="a">
+
+    <div id="if_logged">
+        <div class="cart-contonier">
+            <div class="main-content">
+            </div>
+        </div>
     </div>
 
-    <div data-role="content" data-theme="a">
-        <div class="not-logged" style="height: 574px !important;" id="logged">
-            <i class="far fa-user-circle" style="
+    <div class="not-logged" style="height: 574px !important;" id="logged">
+        <i class="far fa-user-circle" style="
             margin-top: 145px !important;"></i>
-            <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.
-                <strong style="color: rgb(16, 57, 146);">Sign in</strong><br> to continue.</p>
-            <p class="dont-hv-acc" style="text-align: center; font-size: 15px;" onclick="startJourney()">Don't have an account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
-        </div>
-        <div id="if_logged">
-            <div class="cart-contonier">
-                <div class="main-content">
-                    <!-- <div class="cart">
-                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
-                        data-shadow="false" data-cacheval="true"
-                        style="cursor: pointer; margin-top: 66px; margin-left: -4px; background-color: black !important;">
-                    <img src="../assets/images/favourite/image1.jpeg" alt="" srcset="" class="cart-image">
-                    <div class="cart-detail">
-                        <p class="cart-category"><b>Sweater</b></p>
-                        <i class="fa fa-close close-icon"></i>
-                        <h4 class="cart-name">Hooded Sweater</h4>
-                        <p class="cart-color">Grey</p>
-                        <p class="cart-delivery">Non-Returnable</p>
-                        <button class="ui-btn ui-btn-inline buy-btn" onclick="addToCartClicked(event)">
-                            <p style="margin-top: -14px;">Buy</p>
-                        </button>
-                        <h5 class="cart-price"><i class="fas fa-tags"
-                                style="font-size: 11px; margin-right: 3px; margin-top: -6px; color: rgb(141, 141, 141);"></i>LKR
-                            2598.00</h5>
-                        <div class="qty-container">
-                            <i class="fas fa-minus-circle"></i>
-                            <input type="number" data-corners="false" data-wrapper-class="qty-space">
-                            <i class="fas fa-plus-circle"></i>
-                        </div>
-                    </div>
-                    <p class="shipping-detail">Free Shipping</p>
-                </div> -->
-                </div>
-            </div>
-        </div>
+        <p style="text-align: center; font-size: 15px;" onclick="goToSignUp()">You haven't signed in.
+            <strong style="color: rgb(16, 57, 146);">Sign in</strong><br> to continue.</p>
+        <p class="dont-hv-acc" style="text-align: center; font-size: 15px;" onclick="startJourney()">Don't have an
+            account? <strong style="color: rgb(16, 57, 146);">Sign up</strong></p>
     </div>
-    <div data-role="footer" data-position="fixed" role="banner">
-        <div class="all-buy-btn">
-            <div class="all-select-section"><input type="checkbox" name="checkbox-2a" id="checkbox-2a" style="cursor: pointer;margin-top: 16px;
+</div>
+<div data-role="footer" data-position="fixed" role="banner">
+    <div class="all-buy-btn">
+        <div class="all-select-section"><input type="checkbox" name="checkbox-2a" id="checkbox-2a" style="cursor: pointer;margin-top: 16px;
                     margin-bottom: 0px !important;">
-                <p class="all-select">All</p>
-            </div>
-            <div class="buy-area">
-                <p class="total-price">LKR 0.00</p>
-                <button class="buy-btn" data-corners="false" data-shadow="false" onclick="">
-                    <p style="margin-top: -4px;">BUY(0)</p>
-                </button>
-            </div>
+            <p class="all-select">All</p>
         </div>
-
-
-            <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
-                 style="height: 32px !important; margin: 0 0;">
-                <ul>
-                    <li><a onclick="home()" data-icon=""><i class="fi-xnluxx-home" ></i></a></li>
-                    <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
-
-                    <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
-                    </li>
-                    <li><a href="#" class="ui-btn-active"data-icon=""><i class="fi-xnluhx-shopping-cart-solid"></i></a>
-                    </li>
-                    <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
-                </ul>
-            </div>
-
+        <div class="buy-area">
+            <p class="total-price">LKR 0.00</p>
+            <button class="buy-btn" data-corners="false" data-shadow="false" onclick="">
+                <p style="margin-top: -4px; text-shadow: none">BUY(0)</p>
+            </button>
+        </div>
     </div>
+
+
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
+         style="height: 32px !important; margin: 0 0;">
+        <ul>
+            <li><a onclick="home()" data-icon=""><i class="fi-xnluxx-home"></i></a></li>
+            <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
+
+            <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
+            </li>
+            <li><a href="#" class="ui-btn-active" data-icon=""><i class="fi-xnluhx-shopping-cart-solid"></i></a>
+            </li>
+            <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
+        </ul>
+    </div>
+
+</div>
 
 </body>
 

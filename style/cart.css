@@ -24,6 +24,7 @@
 	font-weight: 100; 
 	font-size: 17px; 
 	margin-top: 8px;
+    text-shadow: none;
 }
 
 .cart-contonier {
@@ -163,7 +164,7 @@
      text-align: center;
      font-size: 12px;
      border: 1px solid rgb(188, 208, 247) !important;
-     text-shadow: 0px !important;
+     text-shadow: none!important;
  }
  
  .qty-lable {
@@ -277,15 +278,11 @@
     background-color: white !important;
     color: rgb(21, 98, 146) !important;
     text-shadow: none !important;
-	border-color: none !important;
+	border-color: transparent !important;
 	border-left-width: 0px !important;
     border-right-width: 0px !important;
     border-top-width: 0px !important;
     border-bottom-width: 0px !important;
-    border-top-color: none !important;
-    border-right-color: none !important;
-    border-bottom-color: none !important;
-	border-left-color:none !important;
 	text-shadow: none !important;
 	box-shadow: none !important;
 }
@@ -347,7 +344,7 @@
 
 @media all and (min-width: 40em) {
     .cart-contonier .main-content .cart {
-        width: 75%;
+        width: 65%;
     }
 
     .buy-area {
