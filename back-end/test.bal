@@ -630,4 +630,54 @@ service klanmart_service on httpListener {
             }
         }
     }
+
+    //6. Add Feedback
+    @http:ResourceConfig {
+        methods: ["POST"],
+        path: "/feedback"
+    }
+    resource function addFeedback(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var feedbackData = req.getJsonPayload();
+        io:println(feedbackData);
+        if (feedbackData is json) {
+            string user_id = feedbackData.userId.toString();
+            string product_id = feedbackData.productId.toString();
+            string comment = feedbackData.comment.toString();
+            string desc_rating = feedbackData.desc_rating.toString();
+            string comm_rating = feedbackData.comm_rating.toString();
+            string delivery_rating = feedbackData.delivery_rating.toString();
+            string store_id = feedbackData.storeId.toString();
+
+            json payload = { status: "success", message: "order added" };
+
+            //curl -v -X POST -d '{ "Item": { "user_id": 2, "product_id": 1, "total_amount": 333, "order_time": "2019-10-11 10:45:14", "order_status": "paid", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/buy" -H "Content-Type:application/json"
+            var ret = testDB->update("INSERT INTO KLANmart.review(user_id, product_id, comment, desc_rating,
+                 comm_rating, delivery_rating, store_id) values (?, ?, ?, ?, ?, ?, ?)", user_id, product_id, comment,
+                desc_rating, comm_rating, delivery_rating, store_id);
+            if (ret is error) {
+                io:println(" Failed: " + <string>ret.detail().message);
+                payload.status = "failed";
+                payload.message = "error";
+            } else {
+                io:println("Added new order");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
 }
