@@ -14,6 +14,7 @@
 
     <script>
         var myOrdersData;
+        var clickedOrderIndex;
         window.onload = function () {
             let loggedUser = sessionStorage.getItem("logged_user");
             let myJson = JSON.parse(loggedUser);
@@ -64,11 +65,22 @@
             document.getElementById("pOrderQuantity").innerHTML = myOrdersData[id].quantity;
             document.getElementById("pOrderTotalAmount").innerHTML = "LKR " + myOrdersData[id].total_amount + ".00";
             $("#orderDetailPopup").popup("open");
+            clickedOrderIndex = id;
             console.log(id);
             console.log(myOrdersData[id]);
         }
 
         function confirmDelivery(){
+            let productId = myOrdersData[clickedOrderIndex].product_id;
+            let storeId = myOrdersData[clickedOrderIndex].store_id;
+            let userId = myOrdersData[clickedOrderIndex].user_id;
+
+            let feedbackData = {
+                "productId": productId,
+                "storeId": storeId,
+                "userId": userId
+            };
+            sessionStorage.setItem("feedbackData", JSON.stringify(feedbackData));
             $("#orderDetailPopup").popup("close");
             document.location.href = "./feedback.html";
         }
