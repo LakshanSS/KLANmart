@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <title>KLANmart - order</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../style/myOrders.css" />
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../style/myOrders.css"/>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
 
     <script>
+        var myOrdersData;
         window.onload = function () {
-            var loggedUser = sessionStorage.getItem("logged_user");
-            var myJson = JSON.parse(loggedUser);
+            let loggedUser = sessionStorage.getItem("logged_user");
+            let myJson = JSON.parse(loggedUser);
             $(document).ready(function () {
                 $.ajax({
                     url: "http://localhost:9002/KLANmart/orders/" + myJson.user_id
@@ -30,7 +31,7 @@
                             let firstImageURL = JSON.parse(data.result[i].images)[0];
                             console.log(firstImageURL);
                             var favouriteContents = `
-                    <div class="post" onclick="goToFeedback()">
+                    <div class="post" onclick="orderClicked(${i})">
                         <img alt="product image" src=${firstImageURL} class="post-image">
                         <div class="post-preview">
                             <p class="prodName">${data.result[i].product_name}</p>
@@ -48,32 +49,76 @@
                             favouriteItems.append(favouriteRow);
                         }
                     }
+                    myOrdersData = data.result;
                 });
             });
+        };
+
+        function orderClicked(id){
+            document.getElementById("pOrderId").innerHTML = myOrdersData[id].order_id;
+            document.getElementById("pOrderDate").innerHTML = myOrdersData[id].order_time;
+            document.getElementById("pOrderStoreName").innerHTML = myOrdersData[id].store_name;
+            document.getElementById("pOrderStatus").innerHTML = myOrdersData[id].order_status;
+            document.getElementById("pOrderName").innerHTML = myOrdersData[id].product_name;
+            document.getElementById("pOrderProdID").innerHTML = myOrdersData[id].product_id;
+            document.getElementById("pOrderQuantity").innerHTML = myOrdersData[id].quantity;
+            document.getElementById("pOrderTotalAmount").innerHTML = "LKR " + myOrdersData[id].total_amount + ".00";
+            $("#orderDetailPopup").popup("open");
+            console.log(id);
+            console.log(myOrdersData[id]);
+        }
+
+        function confirmDelivery(){
+            $("#orderDetailPopup").popup("close");
+            document.location.href = "./feedback.html";
         }
 
     </script>
 
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <div data-role="header" data-position="fixed" class="header-bar">
-        <i onclick="profile()" class="fas fa-chevron-left back-icon"></i>
-        <h1 class="page-detail">My Orders</h1>
-    </div>
+<div data-role="header" data-position="fixed" class="header-bar">
+    <i onclick="profile()" class="fas fa-chevron-left back-icon"></i>
+    <h1 class="page-detail">My Orders</h1>
+</div>
 
-    <div data-role="content" data-theme="a">
-        <div id="if_logged_favourite">
-            <div class="content clearfix">
-                <div class="f-main-content">
-                    <!--This is the main content. List appends here-->
-                </div>
+<div data-role="content" data-theme="a">
+    <div id="if_logged_favourite">
+        <div class="content clearfix">
+            <div class="f-main-content">
+                <!--This is the main content. List appends here-->
             </div>
         </div>
     </div>
+</div>
+
+<div id="orderDetailPopup" data-role="popup" data-dialog="true" data-transition="pop"
+     style="width: 300px; border: none;">
+
+    <div data-role="header" data-theme="b" style="border: none; background-color: rgb(34, 109, 179) !important;">
+        <h1 style="font-size: 18px; text-shadow: none; font-weight: 500; letter-spacing: 1px;">Order Details</h1>
+        <a id="closeBtnSlideshow" href="#" data-rel="back"
+           class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    </div>
+
+    <div role="main" class="ui-content">
+        <!--<p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Welome to
+            KLANmart</br>Thank you !</p>-->
+        <span>Order ID: </span> <span id="pOrderId"></span><br>
+        <span>Order Date: </span> <span id="pOrderDate"></span><br>
+        <span>Store: </span> <span id="pOrderStoreName"></span><br>
+        <span>Status: </span> <span id="pOrderStatus"></span><br><br>
+        <span>Product Name: </span> <span id="pOrderName"></span><br>
+        <span>Product ID: </span> <span id="pOrderProdID"></span><br>
+        <span>Quantity: </span> <span id="pOrderQuantity"></span><br>
+        <span>Total: </span> <span id="pOrderTotalAmount"></span><br>
+
+        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="confirmDelivery()"
+           style="background-color: rgb(22, 69, 158) !important; font-size: 13px;border: none; text-shadow: none;
+            font-weight: 100;">Confirm Delivery</a>
+    </div>
+</div>
 </body>
 
 </html>
