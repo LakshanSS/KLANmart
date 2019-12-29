@@ -12,6 +12,102 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="../js/feedback.js"></script>
     <script src="../js/common.js"></script>
+    <script>
+        let descriptionRating = 0;
+        let communicationRating = 0;
+        let deliveryRating = 0;
+
+        let data = JSON.parse(sessionStorage.getItem("feedbackData"));
+        console.log(data);
+
+
+        function starClicked(value, ratingItem) {
+            switch (value) {
+                case 1:
+                    document.getElementById(ratingItem + 1).style.color = "orange";
+                    document.getElementById(ratingItem + 2).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 3).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 4).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 5).style.color = "#5f6264";
+                    break;
+                case 2:
+                    document.getElementById(ratingItem + 1).style.color = "orange";
+                    document.getElementById(ratingItem + 2).style.color = "orange";
+                    document.getElementById(ratingItem + 3).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 4).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 5).style.color = "#5f6264";
+                    break;
+                case 3:
+                    document.getElementById(ratingItem + 1).style.color = "orange";
+                    document.getElementById(ratingItem + 2).style.color = "orange";
+                    document.getElementById(ratingItem + 3).style.color = "orange";
+                    document.getElementById(ratingItem + 4).style.color = "#5f6264";
+                    document.getElementById(ratingItem + 5).style.color = "#5f6264";
+                    break;
+                case 4:
+                    document.getElementById(ratingItem + 1).style.color = "orange";
+                    document.getElementById(ratingItem + 2).style.color = "orange";
+                    document.getElementById(ratingItem + 3).style.color = "orange";
+                    document.getElementById(ratingItem + 4).style.color = "orange";
+                    document.getElementById(ratingItem + 5).style.color = "#5f6264";
+                    break;
+                case 5:
+                    document.getElementById(ratingItem + 1).style.color = "orange";
+                    document.getElementById(ratingItem + 2).style.color = "orange";
+                    document.getElementById(ratingItem + 3).style.color = "orange";
+                    document.getElementById(ratingItem + 4).style.color = "orange";
+                    document.getElementById(ratingItem + 5).style.color = "orange";
+                    break;
+            }
+
+            switch (ratingItem) {
+                case 'star_desc':
+                    descriptionRating = value;
+                    console.log('hi1 ' + value);
+                    break;
+                case 'star_comm':
+                    communicationRating = value;
+                    console.log('hi2 ' + value);
+                    break;
+                case 'star_delivery':
+                    deliveryRating = value;
+                    console.log('hi3 ' + value);
+                    break;
+            }
+            console.log(ratingItem + " Rating is : " + value);
+        }
+
+        function submitFeedbackClicked() {
+            if (communicationRating > 0 && descriptionRating > 0 && deliveryRating > 0) {
+                let comment = $.trim($("#textareaFeedback").val());
+                var buttonStatus = $('#checkboxCusFeedback').prop('checked');
+                console.log(buttonStatus);
+                if (buttonStatus === true) {
+                    data.userId = 999;
+                }
+                data.comm_rating = communicationRating;
+                data.desc_rating = descriptionRating;
+                data.delivery_rating = deliveryRating;
+                data.comment = comment;
+                console.log(data);
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        console.log("hi");
+                    }
+                };
+                xhttp.open("POST", "http://localhost:9002/KLANmart/feedback", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(data));
+
+            } else {
+                console.log("validation");
+            }
+
+
+        }
+    </script>
 </head>
 
 <body>
@@ -75,12 +171,12 @@
     </div>
     <br>
     <div style="text-align: center" id="feedbackContainerA">
-            <textarea name="textareaFeedback" id="textareaFeedback"
+            <textarea id="textareaFeedback"
                       placeholder="Tell us about what you think ..."></textarea>
         <div id="feedbackContainerB">
             <input type="checkbox" name="checkboxCusFeedback" id="checkboxCusFeedback" data-mini="true">
                 <label id="lblCheckbox" for="checkboxCusFeedback">Leave Feedback as Anonymous</label>
-            <button onclick="home()" id="submitBtn" class="ui-btn">Submit Feedback</button>
+            <button onclick="submitFeedbackClicked()" id="submitBtn" class="ui-btn">Submit Feedback</button>
         </div>
     </div>
 </div>
