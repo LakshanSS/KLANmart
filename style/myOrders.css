@@ -13,6 +13,14 @@
 	color: #2a4db5;
 }
 
+
+#closeBtnSlideshow{
+	background-color: #005599;
+}
+
+.fa-store-alt{
+	font-size: small;
+}
 .header-bar {
 	background-color: rgb(12, 64, 161) !important;
 	height: 60px !important;
@@ -150,7 +158,7 @@
 		margin-top: 11px;
 	}
 	
-	.store-detail{
-	
+	.fa-store-alt{
+		font-size: large;
 	}
 }
