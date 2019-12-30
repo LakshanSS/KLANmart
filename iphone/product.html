@@ -133,7 +133,7 @@
     </style>
     <script>
         //The following has to be done from other pages which contain list of products
-        
+
         window.onload = function () {
             $(document).ready(function () {
                 var loggedUser = sessionStorage.getItem("logged_user");
@@ -147,82 +147,85 @@
 
                     var i;
                     for (i = 0; i < data.result.length; i++) {
-                        if(data.result[i].product_id == 1) {
+                        if (data.result[i].product_id == 1) {
                             console.log("same favourite");
                             $("#heartIcon").removeClass('far fa-heart');
                             $("#heartIcon").addClass('fas fa-heart');
                         }
                     }
-                    
+
                 });
             });
 
             $(document).ready(function () {
-            window.sessionStorage.setItem('product_id', "1");//This has to be done in the previous page
-            let product_id = window.sessionStorage.getItem('product_id');
-            console.log("Current product id is " + product_id);
-            if (product_id != null) {
-                let msgText = 'Custom Loader';
-                let textVisible = 'true';
-                let theme = 'a';
-                let textonly = 'true';
-                let html = "<span class=\"ui-bar ui-shadow ui-overlay-d ui-corner-all\"><img alt='Loading' src=\"../lib/images/loader-logo-blue.png\"><h1 class='loaderText'>Loading ...</h1></span>";
+                window.sessionStorage.setItem('product_id', "1");//This has to be done in the previous page
+                let product_id = window.sessionStorage.getItem('product_id');
+                console.log("Current product id is " + product_id);
+                if (product_id != null) {
+                    let msgText = 'Custom Loader';
+                    let textVisible = 'true';
+                    let theme = 'a';
+                    let textonly = 'true';
+                    let html = "<span class=\"ui-bar ui-shadow ui-overlay-d ui-corner-all\"><img alt='Loading' src=\"../lib/images/loader-logo-blue.png\"><h1 class='loaderText'>Loading ...</h1></span>";
 
-                $.mobile.loading("show", {
-                    text: msgText,
-                    textVisible: textVisible,
-                    theme: theme,
-                    textonly: textonly,
-                    html: html
-                });
-                var millisecondsToWait = 2000;
-                setTimeout(function () {
-                    // Whatever you want to do after the wait
-                    $.ajax({
-                        url: "http://localhost:9002/KLANmart/product/" + product_id
-                    }).then(function (data) {
-                        console.log(data);
-                        if (data.status === "success") {
-                            let prod_data = data.result[0];
-                            document.getElementById("priceDisplay").innerHTML = prod_data.price;
-                            document.getElementById("offerDisplay").innerHTML = prod_data.promotion;
-                            document.getElementById("productName").innerHTML = prod_data.product_name;
-                            document.getElementById("descriptionDisplay").innerHTML = prod_data.description;
-                        }
+                    $.mobile.loading("show", {
+                        text: msgText,
+                        textVisible: textVisible,
+                        theme: theme,
+                        textonly: textonly,
+                        html: html
                     });
-                    $.mobile.loading('hide');
-                }, millisecondsToWait);
+                    var millisecondsToWait = 2000;
+                    setTimeout(function () {
+                        // Whatever you want to do after the wait
+                        $.ajax({
+                            url: "http://localhost:9002/KLANmart/product/" + product_id
+                        }).then(function (data) {
+                            console.log(data);
+                            if (data.status === "success") {
+                                let prod_data = data.result[0];
+                                document.getElementById("priceDisplay").innerHTML = prod_data.price;
+                                document.getElementById("offerDisplay").innerHTML = prod_data.promotion;
+                                document.getElementById("productName").innerHTML = prod_data.product_name;
+                                document.getElementById("descriptionDisplay").innerHTML = prod_data.description;
+                            }
+                        });
+                        $.mobile.loading('hide');
+                    }, millisecondsToWait);
 
-            }
-            $("#viewReviews").click(function () {
-                //window.sessionStorage.setItem('product_id', "1");
-                window.location = 'customerReviews.html';
-            });
-            $("#viewQandA").click(function () {
-                window.location = 'questionsAndAnswers.html';
-            });
-            $("#storeName").click(function () {
-                window.location = 'store.html';
-            });
-            $("#btnCart").click(function () {
-                window.location = 'cart.html';
-            });
-            $("#btnBuy").click(function () {
-                window.location = 'buy.html';
-            });
+                }
+                $("#viewReviews").click(function () {
+                    //window.sessionStorage.setItem('product_id', "1");
+                    window.location = 'customerReviews.html';
+                });
+                $("#viewQandA").click(function () {
+                    window.location = 'questionsAndAnswers.html';
+                });
+                $("#storeName").click(function () {
+                    window.location = 'store.html';
+                });
+                $("#btnCart").click(function () {
+                    window.location = 'cart.html';
+                });
+                $("#btnBuy").click(function () {
+                    window.location = 'buy.html';
+                });
 
 
 
-        });
+            });
         }
 
         function addToFavourite() {
+
+            var addFav = sessionStorage.getItem("added_to_fav");
+            console.log(addFav);
+
             console.log("hello");
 
             var loggedUser = sessionStorage.getItem("logged_user");
             var myJson = JSON.parse(loggedUser);
             console.log(myJson.user_id);
-
 
             let jsonData = {
                 "Favourite": {
@@ -230,39 +233,75 @@
                 }
             };
 
-            console.log(jsonData);
 
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var jsonObj = JSON.parse(this.responseText);
-                    console.log(jsonObj.status);
-                    var systemResponse = jsonObj.status;
-                    if (systemResponse == "success") {
-                        $("#sucessFavourite").popup("open");
-                        // hide(); faillogin
-                        console.log("came here");
+            if (addFav != "P1 Added") {
 
-                        $("#heartIcon").removeClass('far fa-heart');
-                        $("#heartIcon").addClass('fas fa-heart');
+                console.log(jsonData);
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var jsonObj = JSON.parse(this.responseText);
+                        console.log(jsonObj.status);
+                        var systemResponse = jsonObj.status;
+                        if (systemResponse == "success") {
+                            $("#sucessFavourite").popup("open");
+                            // hide(); faillogin
+                            console.log("came here");
+                            sessionStorage.setItem("added_to_fav", "P1 Added");
+
+                            $("#heartIcon").removeClass('far fa-heart');
+                            $("#heartIcon").addClass('fas fa-heart');
 
 
-                    } else if (systemResponse == "failed") {
-                        $("#faillFavourite").popup("open");
+                        } else if (systemResponse == "failed") {
+                            // $("#faillFavourite").popup("open");
+                        }
                     }
-                }
-            };
-            xhttp.open("POST", "http://localhost:9002/KLANmart/favourite", true);
-            xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send(JSON.stringify(jsonData));
+                };
+                xhttp.open("POST", "http://localhost:9002/KLANmart/favourite", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
+            } else {
+                console.log("already added a1")
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var jsonObj = JSON.parse(this.responseText);
+                        console.log(jsonObj.status);
+                        var systemResponse = jsonObj.status;
+                        if (systemResponse == "success") {
+                            $("#removeFavourite").popup("open");
+                            // hide(); faillogin
+                            console.log("came here");
+                            sessionStorage.removeItem("added_to_fav");
+
+                            $("#heartIcon").removeClass('fas fa-heart');
+                            $("#heartIcon").addClass('far fa-heart');
+                            
+                        } else if (systemResponse == "failed") {
+                            // $("#faillFavourite").popup("open");
+                        }
+                    }
+                };
+                xhttp.open("DELETE", "http://localhost:9002/KLANmart/favourite", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
+            }
+
+
+
+
+
         }
 
         function sucessHide() {
             $("#sucessFavourite").popup('close');
         }
 
-        function failHide() {
-            $("#faillFavourite").popup('close');
+        function removeHide() {
+            $("#removeFavourite").popup('close');
         }
 
         // <i class="fas fa-heart"></i>
@@ -339,28 +378,31 @@
 
                     <div data-role="header" data-theme="b"
                         style="border: none; background-color: rgb(34, 109, 179) !important;">
-                        <h1 style="font-size: 12px; text-shadow: none; font-weight: 600; letter-spacing: 1px;">Sucess</h1>
+                        <h1 style="font-size: 12px; text-shadow: none; font-weight: 600; letter-spacing: 1px;">Sucess
+                        </h1>
                     </div>
 
                     <div role="main" class="ui-content">
-                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Sucessfully Added to Favourite</br>Thank you !</p>
+                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Sucessfully Added to
+                            Favourite</br>Thank you !</p>
                         <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="sucessHide()"
                             style="background-color: rgb(22, 69, 158) !important; font-size: 13px;border: none; text-shadow: none; font-weight: 100;">OK</a>
                     </div>
                 </div>
 
-                <div id="faillFavourite" data-role="popup" data-dialog="true" data-transition="pop"
+                <div id="removeFavourite" data-role="popup" data-dialog="true" data-transition="pop"
                     style="width: 300px; border: none;">
 
                     <div data-role="header" data-theme="b"
                         style="border: none; background-color: rgb(223, 72, 52) !important;">
                         <h1 style="font-size: 12px; text-shadow: none; font-weight: 600; letter-spacing: 1px;">
-                            Failed</h1>
+                            Sucess</h1>
                     </div>
 
                     <div role="main" class="ui-content">
-                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">We are facing some technical issues, Try again later</br>Try Again !</p>
-                        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="failHide()"
+                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Sucessfully removed to
+                            Favourite</br>Try Again !</p>
+                        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="removeHide()"
                             style="background-color: rgb(236, 97, 72) !important; font-size: 13px;border: none; text-shadow: none; font-weight: 100;">OK</a>
                     </div>
                 </div>
