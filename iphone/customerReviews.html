@@ -6,24 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
     <link rel="stylesheet" href="../style/review.css"/>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="../js/common.js"></script>
-    <!--<script>
-        $(document).ready(function () {
-            let product_id = window.sessionStorage.getItem('product_id');
-            console.log("Current product id is " + product_id);
-            if (product_id != null) {
-                $.ajax({
-                    url: "http://localhost:9002/KLANmart/reviews/1"
-                }).then(function (data) {
-                    console.log(data);
-                });
-            }
-        });
-    </script>-->
     <style>
         .stars-outer {
             display: inline-block;
@@ -32,7 +19,7 @@
         }
 
         .stars-outer::before {
-            content: "\f006 \f006 \f006 \f006 \f006";
+            content: "\f005 \f005 \f005 \f005 \f005";
         }
 
         .stars-inner {
@@ -49,6 +36,51 @@
             color: orange;
         }
     </style>
+    <script>
+        let feedbackData;
+        $(document).ready(function () {
+            let product_id = window.sessionStorage.getItem('product_id');
+            console.log("Current product id is " + product_id);
+            /*todo product id dynamic in GET*/
+            if (product_id != null) {
+                $.ajax({
+                    url: "http://localhost:9002/KLANmart/reviews/1"
+                }).then(function (data) {
+                    console.log(data);
+                    let ulList = document.getElementsByClassName('review-ul')[0];
+                    for (let i = 0; i < data.result.length; i++) {
+
+                        let deliveryRating = data.result[i].delivery_rating;
+                        let commRating = data.result[i].comm_rating;
+                        let descRating = data.result[i].desc_rating;
+
+                        let totReview = deliveryRating + commRating + descRating;
+                        let reviewPercentage = (totReview/15)*100;
+                        let avgReview = Math.round(totReview*10/3)/10;
+                        console.log("total "+totReview + " per " + reviewPercentage+ " avg "+ avgReview);
+                        var liReview = document.createElement('li');
+                        liReview.classList.add("reviewListItem");
+                        liReview.classList.add("ui-li-static");
+                        liReview.classList.add("ui-body-inherit");
+                        liReview.classList.add("ui-first-child");
+
+                        let liContent = `
+                            <span class="reviewUserName">${data.result[i].f_name} ${data.result[i].l_name} </span><br>
+                            <span class="stars-outer">
+                            <span class="stars-inner" style="width:${reviewPercentage}%;"></span>
+                            </span>&nbsp;
+                             <span>${avgReview}/5</span>
+                            <p class="reviewComment">${data.result[i].comment}</p>
+                            <p class="ui-li-aside"><strong>22 Nov 2019</strong></p>`;
+                        liReview.innerHTML = liContent;
+                        ulList.append(liReview);
+                    };
+                    feedbackData = data.result;
+                });
+            }
+        });
+    </script>
+
 </head>
 
 <body>
@@ -56,7 +88,7 @@
     <i onclick="product()" class="fas fa-chevron-left back-icon"></i>
     <h1 class="page-detail">Reviews</h1>
 </div>
-<div data-role="content" data-theme="a">
+<div data-role="content" data-theme="a" class="f-main-content">
     <div style='text-align:center;'>
         <div class="review-block-a">
             <div class="ui-body ui-body-d">
@@ -153,7 +185,7 @@
             </select>
     </div>
 
-    <ul data-role="listview" data-inset="true">
+    <ul data-role="listview" data-inset="true" class="review-ul">
         <li class="reviewListItem">
             <span class="reviewUserName">Stephen Weber</span><br>
             <!--<span>4/5</span>-->
@@ -162,7 +194,7 @@
                         </span>&nbsp;
             <span>4/5</span>
             <p class="reviewComment">Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
+                <p class="ui-li-aside"><strong>12 Mar 2019</strong></p>
         </li>
         <li class="reviewListItem">
             <span class="reviewUserName">Stephen Weber</span><br>
@@ -172,7 +204,7 @@
                         </span>&nbsp;
             <span>4/5</span>
             <p class="reviewComment">Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
+                <p class="ui-li-aside"><strong>13 Oct 2019</strong></p>
         </li>
         <li class="reviewListItem">
             <span class="reviewUserName">Stephen Weber</span><br>
@@ -182,7 +214,7 @@
                         </span>&nbsp;
             <span>4/5</span>
             <p class="reviewComment">Great Product. I recommend this seller.</p>
-                <p class="ui-li-aside"><strong>22 Nov</strong></p>
+                <p class="ui-li-aside"><strong>17 Nov 2019</strong></p>
         </li>
     </ul>
 

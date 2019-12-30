@@ -85,6 +85,10 @@ h3, h4, p {
 	.product-image {
 		width: 100%;
 	}
+	
+	.favPopup {
+		font-size: large !important;
+	}
 }
 
 /* 3rd breakpoint - Bump up font size at very wide screens */
@@ -105,6 +109,10 @@ h3, h4, p {
 	
 	.product-image {
 		width: 100%;
+	}
+	
+	.favPopup {
+		font-size: large !important;
 	}
 }
 
