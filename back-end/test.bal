@@ -22,6 +22,7 @@ import ballerina/io;
 
 // http://localhost:9002/KLANmart/favourite
 // curl -v -X POST -d '{ "Favourite": { "user_id": 2, "product_id": 1}}' "http://localhost:9002/KLANmart/favourite" -H "Content-Type:application/json"
+// curl -v -X DELETE -d '{ "Favourite": { "user_id": 2, "product_id": 2}}' "http://localhost:9002/KLANmart/favourite" -H "Content-Type:application/json"
 
 // http://localhost:9002/KLANmart/cart
 // curl -v -X POST -d '{ "Item": { "user_id": 2, "product_id": 1, "order_time": "2019-10-11 10:45:14", "order_status": "cart", "quantity": 2, "store_id": 2}}' "http://localhost:9002/KLANmart/cart" -H "Content-Type:application/json"
@@ -661,6 +662,50 @@ service klanmart_service on httpListener {
                 payload.message = "error";
             } else {
                 io:println("Added new order");
+            }
+
+            // Create response message.
+            response.setJsonPayload(untaint payload);
+
+            // Send response to the client.
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        } else {
+            response.statusCode = 400;
+            response.setPayload("Invalid payload received");
+            var result = caller->respond(response);
+            if (result is error) {
+                log:printError("Error sending response", err = result);
+            }
+        }
+    }
+
+    //7. Delete favourite by giving user_id and product_id
+    @http:ResourceConfig {
+        methods: ["DELETE"],
+        path: "/favourite"
+    }
+    resource function deleteFavourite(http:Caller caller, http:Request req) {
+        http:Response response = new;
+        var favData = req.getJsonPayload();
+        io:println(favData);
+        if (favData is json) {
+            string user_id = favData.Favourite.user_id.toString();
+            string product_id = favData.Favourite.product_id.toString();
+
+            json payload = { status: "success", message: "favourite deleted" };
+
+            var ret = testDB->update("DELETE FROM favourites WHERE user_id=(?) and product_id=(?)", user_id, product_id);
+            // curl -v -X DELETE -d '{ "Favourite": { "user_id": 2, "product_id": 2}}' "http://localhost:9002/KLANmart/favourite" -H "Content-Type:application/json"
+
+            if (ret is error) {
+                io:println(" Failed: " + <string>ret.detail().message);
+                payload.status = "failed";
+                payload.message = "error";
+            } else {
+                io:println("Success: deleted favourite from KLANmart DB");
             }
 
             // Create response message.
