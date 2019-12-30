@@ -13,6 +13,13 @@
 	color: #2a4db5;
 }
 
+.lblOrderPopup{
+	color: #5f6264;
+}
+
+.valOrderPopup{
+	font-weight: 600;
+}
 
 #closeBtnSlideshow{
 	background-color: #005599;
@@ -160,5 +167,17 @@
 	
 	.fa-store-alt{
 		font-size: large;
+	}
+	
+	.lblOrderPopup{
+		font-size: large;
+	}
+	
+	.valOrderPopup{
+		font-size: large;
+	}
+	
+	#confirmBtn{
+		font-size: larger;
 	}
 }

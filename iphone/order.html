@@ -117,17 +117,47 @@
     <div role="main" class="ui-content">
         <!--<p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Welome to
             KLANmart</br>Thank you !</p>-->
-        <span>Order ID: </span> <span id="pOrderId"></span><br>
-        <span>Order Date: </span> <span id="pOrderDate"></span><br>
-        <span>Store: </span> <span id="pOrderStoreName"></span><br>
-        <span>Status: </span> <span id="pOrderStatus"></span><br><br>
-        <span>Product Name: </span> <span id="pOrderName"></span><br>
-        <span>Product ID: </span> <span id="pOrderProdID"></span><br>
-        <span>Quantity: </span> <span id="pOrderQuantity"></span><br>
-        <span>Total: </span> <span id="pOrderTotalAmount"></span><br>
 
-        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="confirmDelivery()"
-           style="background-color: rgb(22, 69, 158) !important; font-size: 13px;border: none; text-shadow: none;
+        <br>
+        <table>
+            <tr>
+                <td><span class="lblOrderPopup">Order ID: </span></td>
+                <td><span id="pOrderId" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Order Date: </span></td>
+                <td><span id="pOrderDate" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Store: </span> </td>
+                <td><span id="pOrderStoreName" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Status: </span> </td>
+                <td><span id="pOrderStatus" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Product Name: </span></td>
+                <td><span id="pOrderName" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Product ID: </span> </td>
+                <td><span id="pOrderProdID" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Quantity: </span></td>
+                <td><span id="pOrderQuantity" class="valOrderPopup"></span></td>
+            </tr>
+            <tr>
+                <td><span class="lblOrderPopup">Total: </span> </td>
+                <td><span id="pOrderTotalAmount" class="valOrderPopup"></span></td>
+            </tr>
+
+
+        </table>
+
+        <a href="" class="ui-btn ui-shadow ui-btn-b" id="confirmBtn" onclick="confirmDelivery()"
+           style="background-color: rgb(22, 69, 158) !important; font-size: medium;border: none; text-shadow: none;
             font-weight: 100;">Confirm Delivery</a>
     </div>
 </div>
