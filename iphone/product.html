@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>KLANmart - Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../style/product.css"/>
+    <link rel="stylesheet" href="../style/product.css" />
     <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
@@ -35,7 +36,8 @@
         }
 
         /* Next & previous buttons */
-        .prev, .next {
+        .prev,
+        .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
@@ -57,7 +59,8 @@
         }
 
         /* On hover, add a black background color with a little bit see-through */
-        .prev:hover, .next:hover {
+        .prev:hover,
+        .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
 
@@ -82,7 +85,8 @@
             transition: background-color 0.6s ease;
         }
 
-        .active, .dot:hover {
+        .active,
+        .dot:hover {
             background-color: #717171;
         }
 
@@ -98,6 +102,7 @@
             from {
                 opacity: .4
             }
+
             to {
                 opacity: 1
             }
@@ -107,6 +112,7 @@
             from {
                 opacity: .4
             }
+
             to {
                 opacity: 1
             }
@@ -114,160 +120,324 @@
 
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
-            .prev, .next {
+
+            .prev,
+            .next {
                 font-size: 11px
             }
+        }
+
+        .fa-heart {
+            color: red;
         }
     </style>
     <script>
         //The following has to be done from other pages which contain list of products
-        $(document).ready(function () {
-            window.sessionStorage.setItem('product_id', "1");//This has to be done in the previous page
-            let product_id = window.sessionStorage.getItem('product_id');
-            console.log("Current product id is " + product_id);
-            if (product_id != null) {
-                let msgText = 'Custom Loader';
-                let textVisible = 'true';
-                let theme = 'a';
-                let textonly = 'true';
-                let html = "<span class=\"ui-bar ui-shadow ui-overlay-d ui-corner-all\"><img alt='Loading' src=\"../lib/images/loader-logo-blue.png\"><h1 class='loaderText'>Loading ...</h1></span>";
 
-                $.mobile.loading("show", {
-                    text: msgText,
-                    textVisible: textVisible,
-                    theme: theme,
-                    textonly: textonly,
-                    html: html
-                });
-                var millisecondsToWait = 2000;
-                setTimeout(function () {
-                    // Whatever you want to do after the wait
-                    $.ajax({
-                        url: "http://localhost:9002/KLANmart/product/" + product_id
-                    }).then(function (data) {
-                        console.log(data);
-                        if (data.status === "success") {
-                            let prod_data = data.result[0];
-                            document.getElementById("priceDisplay").innerHTML = prod_data.price;
-                            document.getElementById("offerDisplay").innerHTML = prod_data.promotion;
-                            document.getElementById("productName").innerHTML = prod_data.product_name;
-                            document.getElementById("descriptionDisplay").innerHTML = prod_data.description;
+        window.onload = function () {
+            $(document).ready(function () {
+                var loggedUser = sessionStorage.getItem("logged_user");
+                var myJson = JSON.parse(loggedUser);
+                console.log(myJson.user_id);
+
+                $.ajax({
+                    url: "http://localhost:9002/KLANmart/favourites/" + myJson.user_id
+                }).then(function (data) {
+                    console.log(data.result);
+
+                    var i;
+                    for (i = 0; i < data.result.length; i++) {
+                        if (data.result[i].product_id == 1) {
+                            console.log("same favourite");
+                            $("#heartIcon").removeClass('far fa-heart');
+                            $("#heartIcon").addClass('fas fa-heart');
                         }
+                    }
+
+                });
+            });
+
+            $(document).ready(function () {
+                window.sessionStorage.setItem('product_id', "1");//This has to be done in the previous page
+                let product_id = window.sessionStorage.getItem('product_id');
+                console.log("Current product id is " + product_id);
+                if (product_id != null) {
+                    let msgText = 'Custom Loader';
+                    let textVisible = 'true';
+                    let theme = 'a';
+                    let textonly = 'true';
+                    let html = "<span class=\"ui-bar ui-shadow ui-overlay-d ui-corner-all\"><img alt='Loading' src=\"../lib/images/loader-logo-blue.png\"><h1 class='loaderText'>Loading ...</h1></span>";
+
+                    $.mobile.loading("show", {
+                        text: msgText,
+                        textVisible: textVisible,
+                        theme: theme,
+                        textonly: textonly,
+                        html: html
                     });
-                    $.mobile.loading('hide');
-                }, millisecondsToWait);
+                    var millisecondsToWait = 2000;
+                    setTimeout(function () {
+                        // Whatever you want to do after the wait
+                        $.ajax({
+                            url: "http://localhost:9002/KLANmart/product/" + product_id
+                        }).then(function (data) {
+                            console.log(data);
+                            if (data.status === "success") {
+                                let prod_data = data.result[0];
+                                document.getElementById("priceDisplay").innerHTML = prod_data.price;
+                                document.getElementById("offerDisplay").innerHTML = prod_data.promotion;
+                                document.getElementById("productName").innerHTML = prod_data.product_name;
+                                document.getElementById("descriptionDisplay").innerHTML = prod_data.description;
+                            }
+                        });
+                        $.mobile.loading('hide');
+                    }, millisecondsToWait);
 
+                }
+                $("#viewReviews").click(function () {
+                    //window.sessionStorage.setItem('product_id', "1");
+                    window.location = 'customerReviews.html';
+                });
+                $("#viewQandA").click(function () {
+                    window.location = 'questionsAndAnswers.html';
+                });
+                $("#storeName").click(function () {
+                    window.location = 'store.html';
+                });
+                $("#btnCart").click(function () {
+                    window.location = 'cart.html';
+                });
+                $("#btnBuy").click(function () {
+                    window.location = 'buy.html';
+                });
+
+
+
+            });
+        }
+
+        function addToFavourite() {
+
+            var addFav = sessionStorage.getItem("added_to_fav");
+            console.log(addFav);
+
+            console.log("hello");
+
+            var loggedUser = sessionStorage.getItem("logged_user");
+            var myJson = JSON.parse(loggedUser);
+            console.log(myJson.user_id);
+
+            let jsonData = {
+                "Favourite": {
+                    "user_id": myJson.user_id, "product_id": 1
+                }
+            };
+
+
+            if (addFav != "P1 Added") {
+
+                console.log(jsonData);
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var jsonObj = JSON.parse(this.responseText);
+                        console.log(jsonObj.status);
+                        var systemResponse = jsonObj.status;
+                        if (systemResponse == "success") {
+                            $("#sucessFavourite").popup("open");
+                            // hide(); faillogin
+                            console.log("came here");
+                            sessionStorage.setItem("added_to_fav", "P1 Added");
+
+                            $("#heartIcon").removeClass('far fa-heart');
+                            $("#heartIcon").addClass('fas fa-heart');
+
+
+                        } else if (systemResponse == "failed") {
+                            // $("#faillFavourite").popup("open");
+                        }
+                    }
+                };
+                xhttp.open("POST", "http://localhost:9002/KLANmart/favourite", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
+            } else {
+                console.log("already added a1")
+
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var jsonObj = JSON.parse(this.responseText);
+                        console.log(jsonObj.status);
+                        var systemResponse = jsonObj.status;
+                        if (systemResponse == "success") {
+                            $("#removeFavourite").popup("open");
+                            // hide(); faillogin
+                            console.log("came here");
+                            sessionStorage.removeItem("added_to_fav");
+
+                            $("#heartIcon").removeClass('fas fa-heart');
+                            $("#heartIcon").addClass('far fa-heart');
+                            
+                        } else if (systemResponse == "failed") {
+                            // $("#faillFavourite").popup("open");
+                        }
+                    }
+                };
+                xhttp.open("DELETE", "http://localhost:9002/KLANmart/favourite", true);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(JSON.stringify(jsonData));
             }
-            $("#viewReviews").click(function () {
-                //window.sessionStorage.setItem('product_id', "1");
-                window.location = 'customerReviews.html';
-            });
-            $("#viewQandA").click(function () {
-                window.location = 'questionsAndAnswers.html';
-            });
-            $("#storeName").click(function () {
-                window.location = 'store.html';
-            });
-            $("#btnCart").click(function () {
-                window.location = 'cart.html';
-            });
-            $("#btnBuy").click(function () {
-                window.location = 'buy.html';
-            });
 
-        });
+
+
+
+
+        }
+
+        function sucessHide() {
+            $("#sucessFavourite").popup('close');
+        }
+
+        function removeHide() {
+            $("#removeFavourite").popup('close');
+        }
+
+        // <i class="fas fa-heart"></i>
+        // delete favourite , login check ,  change icon
     </script>
 
 </head>
 
 <body>
-<div data-role="header" data-position="fixed" class="header-bar">
-    <i class="fas fa-chevron-left back-icon" onclick="goToHome()"></i>
-    <h1 class="page-detail">Product Info</h1>
-    <i class="fas fa-chevron-left share-icon"></i>
-</div>
-<div data-role="content" data-theme="a">
-
-    <!-- Popup fullscreen view -->
-    <div id="tshirt1" data-role="popup" class="photopopup" data-overlay-theme="a" data-corners="false"
-         data-tolerance="30,15">
-        <a id="closeBtnSlideshow" href="#" data-rel="back"
-           class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <!--<a class="prev slideshowBtn" onclick="plusSlides(-1)">&#10094;</a>-->
-        <img id="slideShowImage" src="../assets/images/products/tshirt1-blue.png">
-        <!--<a class="next slideshowBtn" onclick="plusSlides(1)">&#10095;</a>-->
+    <div data-role="header" data-position="fixed" class="header-bar">
+        <i class="fas fa-chevron-left back-icon" onclick="goToHome()"></i>
+        <h1 class="page-detail">Product Info</h1>
+        <i class="fas fa-chevron-left share-icon"></i>
     </div>
+    <div data-role="content" data-theme="a">
 
-    <div class="rwd-example prod-img-container">
-        <div class="ui-block-a">
-            <div class="ui-body ui-body-d">
-                <div class="slideshow-container">
+        <!-- Popup fullscreen view -->
+        <div id="tshirt1" data-role="popup" class="photopopup" data-overlay-theme="a" data-corners="false"
+            data-tolerance="30,15">
+            <a id="closeBtnSlideshow" href="#" data-rel="back"
+                class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <!--<a class="prev slideshowBtn" onclick="plusSlides(-1)">&#10094;</a>-->
+            <img id="slideShowImage" src="../assets/images/products/tshirt1-blue.png">
+            <!--<a class="next slideshowBtn" onclick="plusSlides(1)">&#10095;</a>-->
+        </div>
 
-                    <div class="mySlides fade">
-                        <div class="numbertext">1 / 3</div>
-                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
-                            <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
-                            <!--<div class="text">Caption Text</div>-->
-                        </a> 
+        <div class="rwd-example prod-img-container">
+            <div class="ui-block-a">
+                <div class="ui-body ui-body-d">
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                                <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
+                                <!--<div class="text">Caption Text</div>-->
+                            </a> 
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                                <img src="../assets/images/products/tshirt1-black.png" style="width:100%">
+                                <!--<div class="text">Caption Two</div>-->
+                            </a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <a href="#tshirt1" data-rel="popup" data-position-to="window">
+                                <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
+                                <!--<div class="text">Caption Three</div>-->
+                            </a>
+                        </div>
+
+                        <a class="prev slideshowBtn" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next slideshowBtn" onclick="plusSlides(1)">&#10095;</a>
+
                     </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">2 / 3</div>
-                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
-                            <img src="../assets/images/products/tshirt1-black.png" style="width:100%">
-                            <!--<div class="text">Caption Two</div>-->
-                        </a>
+                    <br>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
                     </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">3 / 3</div>
-                        <a href="#tshirt1" data-rel="popup" data-position-to="window">
-                            <img src="../assets/images/products/tshirt1-blue.png" style="width:100%">
-                            <!--<div class="text">Caption Three</div>-->
-                        </a>
-                    </div>
-
-                    <a class="prev slideshowBtn" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next slideshowBtn" onclick="plusSlides(1)">&#10095;</a>
-
                 </div>
-                <br>
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
+
+            </div>
+            <!--UI block A ends-->
+                
+            <div>
+                <div id="sucessFavourite" data-role="popup" data-dialog="true" data-transition="pop"
+                    style="width: 300px; border: none;">
+
+                    <div data-role="header" data-theme="b"
+                        style="border: none; background-color: rgb(34, 109, 179) !important;">
+                        <h1 style="font-size: 12px; text-shadow: none; font-weight: 600; letter-spacing: 1px;">Sucess
+                        </h1>
+                    </div>
+
+                    <div role="main" class="ui-content">
+                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Sucessfully Added to
+                            Favourite</br>Thank you !</p>
+                        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="sucessHide()"
+                            style="background-color: rgb(22, 69, 158) !important; font-size: 13px;border: none; text-shadow: none; font-weight: 100;">OK</a>
+                    </div>
+                </div>
+
+                <div id="removeFavourite" data-role="popup" data-dialog="true" data-transition="pop"
+                    style="width: 300px; border: none;">
+
+                    <div data-role="header" data-theme="b"
+                        style="border: none; background-color: rgb(223, 72, 52) !important;">
+                        <h1 style="font-size: 12px; text-shadow: none; font-weight: 600; letter-spacing: 1px;">
+                            Sucess</h1>
+                    </div>
+
+                    <div role="main" class="ui-content">
+                        <p style="text-align: center; font-size: 13px; letter-spacing: 1px;">Sucessfully removed to
+                            Favourite</br>Try Again !</p>
+                        <a href="" class="ui-btn ui-shadow ui-btn-b" onclick="removeHide()"
+                            style="background-color: rgb(236, 97, 72) !important; font-size: 13px;border: none; text-shadow: none; font-weight: 100;">OK</a>
+                    </div>
                 </div>
             </div>
 
-        </div><!--UI block A ends-->
-            
-        <div class="ui-block-b">
-            <div class="ui-body ui-body-d">
+            <div class="ui-block-b">
+                <div class="ui-body ui-body-d">
 
-                <div style="margin-bottom: 10px">
-                    <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span>
-                    <span id="favContainer">
-                    <span id="favouriteIcon"><i class="fas fa-share-square"></i>&nbsp&nbsp&nbsp<i class="far fa-heart"></i></span><!--todo fas-> for full heart-->
-                    </span>
-                    <br>
-                    <span id="offerDisplay">-10% Special Offer</span>
-                </div>
-
-                <div style='text-align:center;'>
-                    <div style='float:left;width:50%'>
-                        <button id="btnCart" class="btnCartAndBuy ui-btn ui-btn-inline">Add to Cart</button>
+                    <div style="margin-bottom: 10px">
+                        <span id="priceUnit">LKR</span><span id="priceDisplay">2199.00</span>
+                        <span id="favContainer">
+                            <span id="favouriteIcon"><i class="fas fa-share-square"></i>&nbsp&nbsp&nbsp<i
+                                    class="far fa-heart" onclick="addToFavourite()" id="heartIcon"></i></span>
+                            <!--todo fas-> for full heart-->
+                        </span>
+                        <br>
+                        <span id="offerDisplay">-10% Special Offer</span>
                     </div>
-                    <div style='float:right;width:50%'>
-                        <button id="btnBuy" class="btnCartAndBuy ui-btn ui-btn-inline">Buy Now</button>
-                    </div>
-                </div>
-                <br><br>
-                <div style="margin-top: 15px"><!--Product Name and Description-->
-                    <p id="productName">Long Sleeve T-Shirt Men</p>
-                     <p id="descriptionDisplay">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
-                </div>
 
-                <div style='text-align:center; margin-bottom: 10px; margin-top: 5px;'>
+                    <div style='text-align:center;'>
+                        <div style='float:left;width:50%'>
+                            <button id="btnCart" class="btnCartAndBuy ui-btn ui-btn-inline">Add to Cart</button>
+                        </div>
+                        <div style='float:right;width:50%'>
+                            <button id="btnBuy" class="btnCartAndBuy ui-btn ui-btn-inline">Buy Now</button>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div style="margin-top: 15px">
+                        <!--Product Name and Description-->
+                        <p id="productName">Long Sleeve T-Shirt Men</p>
+                         <p id="descriptionDisplay">2019 Spring Brand Clothing Men's Long Sleeve Round Neck T-Shirt</p>
+                    </div>
+
+                    <div style='text-align:center; margin-bottom: 10px; margin-top: 5px;'>
                         <!--Rating-->
                         <span id="ratingDisplay">4.0</span>
                         <span id="ratingDisplayTotal">/5</span>
@@ -280,245 +450,253 @@
                         <!--No of Orders-->
                         <span id="noOfOrdersDisplay">123</span>
                         <span id="labelOrders">Orders</span>
+                    </div>
+
+                    <div id="reviewAndQAContainer" style='text-align:center;'>
+                        <div style='float:left;width:36%'>
+                            <i class="fas fa-users"></i>
+                            <span id="viewReviews">Reviews</span>
+                        </div>
+                        <div style='float:left;width:31%'>
+                            <i class="fas fa-question-circle"></i>
+                            <span id="viewQandA">Q & A</span>
+                        </div>
+                        <div style='float:right;width:31%'>
+                            <!--Display store name-->
+                            <span id="labelStore"><i class="fas fa-store-alt"></i></span>
+                            <span id="storeName">Store</span>
+                        </div>
+                    </div>
+
+
                 </div>
-
-                <div id="reviewAndQAContainer" style='text-align:center;'>
-                    <div style='float:left;width:36%'>
-                        <i class="fas fa-users"></i>
-                        <span id="viewReviews">Reviews</span>
-                    </div>
-                    <div style='float:left;width:31%'>
-                        <i class="fas fa-question-circle"></i>
-                        <span id="viewQandA">Q & A</span>
-                    </div>
-                    <div style='float:right;width:31%'><!--Display store name-->
-                        <span id="labelStore"><i class="fas fa-store-alt"></i></span>
-                        <span id="storeName">Store</span>
-                    </div>
-                </div>
-
-
+                <br>
+                <!--todo Add color size and quantity-->
             </div>
-            <br>
-            <!--todo Add color size and quantity-->
-        </div><!--UI Block B ends-->
-    </div>
-    <br>
-    <br>
+            <!--UI Block B ends-->
+        </div>
+        <br>
+        <br>
 
-    <div>
-        <div class="carosol-today-deal">
-            <div class="title-deal">
-                <p style="color:hsl(240, 70%, 22%)">
-                <div style="font-size: 20px; font-weight: 500;">Similar Products</div>
-                <span class=padd-title>
+        <div>
+            <div class="carosol-today-deal">
+                <div class="title-deal">
+                    <p style="color:hsl(240, 70%, 22%)">
+                        <div style="font-size: 20px; font-weight: 500;">Similar Products</div>
+                        <span class=padd-title>
                         </span>
-                <div style="float: right;     float: right;
+                        <div style="float: right;     float: right;
                         margin-top: -25px;
                         margin-right: 6px;" class="al-sell-all-tab">See all
+                        </div>
+                    </p>
                 </div>
-                </p>
-            </div>
 
-            <!-- 2nd scrol -->
-            <div class="scrollmenu">
-                <table class="change-table">
-                    <tr>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/products/tshirt1-blue.png">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">Men's round neck hooded tshirt</p>
-
-                                    <h5 class="price-tag">LKR 1522.00</h5>
-                                    <p class="discount"> 10% off</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
-                                <div class='card-body'>
+                <!-- 2nd scrol -->
+                <div class="scrollmenu">
+                    <table class="change-table">
+                        <tr>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/products/tshirt1-blue.png">
                                     <hr class="product-hr">
-                                    <p class="product-name">Beats Studio³ Wireless headphone</p>
+                                    <div class='card-body'>
+                                        <p class="product-name">Men's round neck hooded tshirt</p>
 
-                                    <h5 class="price-tag">LKR 3950.00</h5>
-                                    <p class="discount"> 26% off</p>
+                                        <h5 class="price-tag">LKR 1522.00</h5>
+                                        <p class="discount"> 10% off</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">Men's Reborn hooded Tshirt</p>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
+                                    <div class='card-body'>
+                                        <hr class="product-hr">
+                                        <p class="product-name">Beats Studio³ Wireless headphone</p>
 
-                                    <h5 class="price-tag">LKR 2550.00</h5>
-                                    <p class="discount"> 15% off</p>
+                                        <h5 class="price-tag">LKR 3950.00</h5>
+                                        <p class="discount"> 26% off</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image2.jpeg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">JBL Reflect Headphones</p>
-
-                                    <h5 class="price-tag">LKR 4650.00</h5>
-                                    <p class="discount"> 20% off</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
-                                <div class='card-body'>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
                                     <hr class="product-hr">
-                                    <p class="product-name">Beats Studio³ Wireless headphone</p>
+                                    <div class='card-body'>
+                                        <p class="product-name">Men's Reborn hooded Tshirt</p>
 
-                                    <h5 class="price-tag">LKR 3950.00</h5>
-                                    <p class="discount"> 26% off</p>
+                                        <h5 class="price-tag">LKR 2550.00</h5>
+                                        <p class="discount"> 15% off</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">Men's Reborn hooded Tshirt</p>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image2.jpeg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p class="product-name">JBL Reflect Headphones</p>
 
-                                    <h5 class="price-tag">LKR 2550.00</h5>
-                                    <p class="discount"> 15% off</p>
+                                        <h5 class="price-tag">LKR 4650.00</h5>
+                                        <p class="discount"> 20% off</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image4.jpeg">
+                                    <div class='card-body'>
+                                        <hr class="product-hr">
+                                        <p class="product-name">Beats Studio³ Wireless headphone</p>
+
+                                        <h5 class="price-tag">LKR 3950.00</h5>
+                                        <p class="discount"> 26% off</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image1.jpeg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p class="product-name">Men's Reborn hooded Tshirt</p>
+
+                                        <h5 class="price-tag">LKR 2550.00</h5>
+                                        <p class="discount"> 15% off</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
-        <br><br>
+            <br><br>
 
-        <div class="carosol-today-deal">
-            <div class="title-deal" style="margin-top: -8px;">
-                <p style="color:hsl(240, 70%, 22%)">
-                <div style="font-size: 20px; font-weight: 500;">Recommended for you</div>
-                <span class=padd-title>
+            <div class="carosol-today-deal">
+                <div class="title-deal" style="margin-top: -8px;">
+                    <p style="color:hsl(240, 70%, 22%)">
+                        <div style="font-size: 20px; font-weight: 500;">Recommended for you</div>
+                        <span class=padd-title>
                         </span>
-                <div style="float: right;     float: right;
+                        <div style="float: right;     float: right;
                         margin-top: -25px;
                         margin-right: 6px;" class="al-sell-all-tab">See all
+                        </div>
+                    </p>
                 </div>
-                </p>
-            </div>
 
-            <!-- 3rd scrol -->
-            <div class="scrollmenu">
-                <table class="change-table">
-                    <tr>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/Home/todaysDeals/a__01.jpg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">USB Car Charger Adapter for iphone</p>
-                                    <h5 class="price-tag"></i>LKR 1200.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        3268
-                                        Sold</P>
+                <!-- 3rd scrol -->
+                <div class="scrollmenu">
+                    <table class="change-table">
+                        <tr>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/Home/todaysDeals/a__01.jpg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p class="product-name">USB Car Charger Adapter for iphone</p>
+                                        <h5 class="price-tag"></i>LKR 1200.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            3268
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/Home/todaysDeals/f__01.jpg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/Home/todaysDeals/f__01.jpg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
 
-                                    <h5 class="price-tag"></i>LKR 1126.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        2561
-                                        Sold</P>
+                                        <h5 class="price-tag"></i>LKR 1126.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            2561
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
 
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/Home/todaysDeals/d__01.jpg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p style="text-align: center; font-weight: 600;">Carfidant Scratch and Swirl
-                                        Remover</p>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/Home/todaysDeals/d__01.jpg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p style="text-align: center; font-weight: 600;">Carfidant Scratch and Swirl
+                                            Remover</p>
 
-                                    <h5 class="price-tag"></i>LKR 2200.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        1985
-                                        Sold</P>
+                                        <h5 class="price-tag"></i>LKR 2200.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            1985
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
 
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image' src="../assets/images/favourite/image3.jpeg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p style="text-align: center; font-weight: 600;">Gildan Men's Fleece Hooded
-                                        Sweatshirt</p>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image' src="../assets/images/favourite/image3.jpeg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p style="text-align: center; font-weight: 600;">Gildan Men's Fleece Hooded
+                                            Sweatshirt</p>
 
-                                    <h5 class="price-tag"></i>LKR 1522.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        1750
-                                        Sold</P>
+                                        <h5 class="price-tag"></i>LKR 1522.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            1750
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/Home/todaysDeals/a__01.jpg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p class="product-name">USB Car Charger Adapter for iphone</p>
-                                    <h5 class="price-tag"></i>LKR 1200.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        3268
-                                        Sold</P>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/Home/todaysDeals/a__01.jpg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p class="product-name">USB Car Charger Adapter for iphone</p>
+                                        <h5 class="price-tag"></i>LKR 1200.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            3268
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="gap-product">
-                            <div class='card card-view'>
-                                <img class='card-img-top card-image'
-                                     src="../assets/images/Home/todaysDeals/f__01.jpg">
-                                <hr class="product-hr">
-                                <div class='card-body'>
-                                    <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
+                            </td>
+                            <td class="gap-product">
+                                <div class='card card-view'>
+                                    <img class='card-img-top card-image'
+                                        src="../assets/images/Home/todaysDeals/f__01.jpg">
+                                    <hr class="product-hr">
+                                    <div class='card-body'>
+                                        <p style="text-align: center; font-weight: 600;">LED Sports Luminous Watch</p>
 
-                                    <h5 class="price-tag"></i>LKR 1126.00</h5>
-                                    <P style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
-                                        2561
-                                        Sold</P>
+                                        <h5 class="price-tag"></i>LKR 1126.00</h5>
+                                        <P
+                                            style="text-align: center; font-weight: 400; color: rgb(82, 82, 82); margin-top: -14px; margin-bottom: 0">
+                                            2561
+                                            Sold</P>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
-<!--<div data-role="footer" data-position="fixed" role="banner">
+    </div>
+    <!--<div data-role="footer" data-position="fixed" role="banner">
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d" style="height: 32px !important; margin: 0 0;">
         <ul>
             <li><a href="#" id="" data-icon=""><i class="fas fa-home" style="font-size: 20px;"></i></a></li>
@@ -529,37 +707,38 @@
         </ul>
     </div>
 </div>-->
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
 
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-            slideIndex = 1
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
         }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-</script>
+    </script>
 </body>
+
 </html>
