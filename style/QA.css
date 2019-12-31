@@ -36,3 +36,14 @@
 	font-size: 17px;
 	margin-top: 8px;
 }
+
+p, h2 {
+	margin: 0 !important;
+}
+
+@media all and (min-width: 40em) {
+	#askBtn{
+		width: 100px;
+		font-size: smaller;
+	}
+}
