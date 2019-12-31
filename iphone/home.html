@@ -10,8 +10,6 @@
     <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="../js/common.js"></script>
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
@@ -30,8 +28,6 @@
                 window.location = 'product.html';
             });
         });
-
-
     </script>
 
     <style>
@@ -165,9 +161,6 @@
             margin-left: auto;
             display: block !important;
             margin-top: 5px;
-            /* border-bottom: 1px solid rgb(27, 113, 163); */
-
-            /* margin-bottom: 5px; */
         }
 
         .card-body {
@@ -224,7 +217,7 @@
 
         #videoFrame{
             width: 100%;
-            height: 300px;
+            height: 192px;
             margin-left: auto !important;
             margin-right: auto !important;
             margin-top: 10px;
@@ -254,7 +247,6 @@
             }
 
             .title-deal {
-                /* width: 82%; */
                 margin-right: auto;
                 margin-left: auto;
             }
@@ -262,7 +254,6 @@
             .card-view {
                 width: 168px;
             }
-
         }
 
         @media all and (min-width: 40em) {
@@ -280,6 +271,9 @@
                 width: 110%;
             }
 
+            #videoFrame{
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -397,8 +391,6 @@
                                 </div>
                             </div>
                         </td>
-
-
                         <td class="gap-product">
                             <div class='card card-view'>
                                 <img class='card-img-top card-image' src="../assets/images/favourite/image2.jpeg">
@@ -496,8 +488,6 @@
                                 </div>
                             </div>
                         </td>
-
-
                     </tr>
                 </table>
             </div>
@@ -512,11 +502,8 @@
             <ul>
                 <li><a href="#" class="ui-btn-active"  data-icon=""><i class="fi-xnluxx-home-solid" ></i></a></li>
                 <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
-
-                <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
-                </li>
-                <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a>
-                </li>
+                <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a></li>
+                <li><a onclick="cart()" href="#" data-icon=""><i class="fi-xnluhx-shopping-cart"></i></a></li>
                 <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
             </ul>
         </div>
