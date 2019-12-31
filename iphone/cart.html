@@ -34,13 +34,13 @@
                         for (let i = 0; i < data.result.length; i++) {
                             let firstImageURL = JSON.parse(data.result[i].images)[0];
                             console.log(firstImageURL);
-                            if (data.result[i].order_status == 'cart') {
+                            if (data.result[i].order_status === 'cart') {
                                 let cartRow = document.createElement('div');
                                 let cartItems = document.getElementsByClassName('main-content')[0];
                                 console.log(cartItems);
                                 let cartContents = `<div class="cart">
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="" class="selector"
-                        data-shadow="false" data-cacheval="true"
+                        data-shadow="false"
                         style="cursor: pointer; margin-top: 66px; margin-left: 4px; background-color: black !important; float:left">
                     <img src=${firstImageURL} alt="" srcset="" class="cart-image">
                     <div class="cart-detail">
@@ -57,7 +57,7 @@
                                 ${data.result[i].price}.00</h5>
                         <div class="qty-container">
                             <i class="fas fa-minus-circle"></i>
-                            <input type="number" data-corners="false" data-wrapper-class="qty-space" style="width: 25px;padding-bottom: 0px; border: 1px solid rgb(48, 99, 194);">
+                            <input type="number" data-corners="false" value="${data.result[i].quantity}" data-wrapper-class="qty-space" style="width: 25px;padding-bottom: 0px; border: 1px solid rgb(48, 99, 194);">
                             <i class="fas fa-plus-circle"></i>
                         </div>
                     </div>
@@ -120,23 +120,16 @@
         </div>
     </div>
 
-
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d"
          style="height: 32px !important; margin: 0 0;">
         <ul>
             <li><a onclick="home()" data-icon=""><i class="fi-xnluxx-home"></i></a></li>
             <li><a onclick="favourite()" href="#" data-icon=""><i class="fi-xnluxx-heart"></i></a></li>
-
-            <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a>
-            </li>
-            <li><a href="#" class="ui-btn-active" data-icon=""><i class="fi-xnluhx-shopping-cart-solid"></i></a>
-            </li>
+            <li><a onclick="messages()" href="#" data-icon=""><i class="fi-xwluxx-comment-dots"></i></a></li>
+            <li><a href="#" class="ui-btn-active" data-icon=""><i class="fi-xnluhx-shopping-cart-solid"></i></a></li>
             <li><a onclick="profile()" href="#" data-icon=""><i class="fi-xnluxl-user"></i></a></li>
         </ul>
     </div>
-
 </div>
-
 </body>
-
 </html>
