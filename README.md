@@ -1,5 +1,5 @@
 # KLANmart
-KLANmart-online marketing mobile web app
+KLANmart-online marketing mobile web app developed using JQuery Mobile and Ballerina
 ![Logo](https://github.com/LakshanSS/KLANmart/blob/master/assets/logo/logo-blue.png)
 
 
